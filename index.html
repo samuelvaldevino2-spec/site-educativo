@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prof. Samuel Valdevino </title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="disciplinas.html">disciplinas</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+    <h2 id="saudacao">Carregando...</h2>
+    <p id="mensagem">Aguarde...</p>
+    <p id="citacao">Aguarde...</p>
+    <a href="disciplinas.html" class="btn">Ver Todas as Disciplinas</a>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Prof. Samuel Valdevino</p>
+    </div>
+  </footer>
+
+  <script >
+    // Pode expandir depois com:
+// - Validação de formulário
+// - Menu responsivo
+// - Carregar conteúdos dinâmicos
+function saudacaoHorario() {
+  const agora = new Date();
+  const hora = agora.getHours();
+  const nomeProfessor = "Prof. Seu Nome"; // ⬅️ Altere para o seu nome
+
+  let saudacao = "";
+  let mensagem = "";
+  let citacao = "";
+
+  if (hora >= 6 && hora < 12) {
+    saudacao = "Bom dia! ";
+    mensagem = "Não importa o que seja, não há nada que não possa ser feito. Se existe determinação, podemos mover o céu e a terra de acordo com nossos desejos.";
+    citacao = "Yamamoto Tsunetomo";
+  } else if (hora >= 12 && hora < 18) {
+    saudacao = "Boa tarde! ";
+    mensagem = "Não há nada fora de você que possa torná-lo melhor, mais forte, mais rico, mais rápido ou mais esperto. Tudo está dentro. Tudo existe. Não procure nada fora de si mesmo";
+    citacao = "Miyamoto Musashi";
+  } else {
+    saudacao = "Boa noite!";
+    mensagem = "A perfeição é uma montanha impossível de escalar que deve ser escalada um pouco a cada dia.";
+    citacao = "Bushido";
+  }
+
+  // Atualiza o HTML
+  document.getElementById("saudacao").textContent = saudacao;
+  document.getElementById("mensagem").textContent = mensagem;
+  document.getElementById("citacao").textContent = citacao;
+}
+
+// Executa ao carregar a página
+document.addEventListener("DOMContentLoaded", saudacaoHorario);
+
+console.log("Site do Professor carregado com sucesso!");
+
+// Exemplo: alerta ao enviar formulário (vamos usar em contato.html depois)
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Mensagem enviada! Responderemos em breve.");
+      form.reset();
+    });
+  }
+});
+  </script>
+
+<style>
+    /* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Fundo claro */
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  background-color: transparent; /* Garante transparência */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #3498db;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #3498db;
+}
+
+/* Hero Section */
+/* Hero Section com Imagem de Fundo */
+.hero {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Overlay escuro */
+    url('mr.jpg'); /* Caminho da imagem */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efeito parallax suave */
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  min-height: auto; /* Remova ou substitua */
+  height: 100vh; /* Ocupa 100% da altura da tela */
+  padding: 120px 20px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #c0392b;
+}
+
+/* hero 2 */
+.hero2 {
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+/* Estilo para os grupos de disciplinas */
+.grupo {
+  margin-bottom: 50px;
+}
+
+.grupo h3 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+  color: #3498db;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background-color: #f8f9ff;
+  border-left: 5px solid #3498db;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card h4 {
+  color: #2980b9;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 0px;
+}
+
+/* Others */
+</style>
+</body>
+</html>
