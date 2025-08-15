@@ -14,9 +14,9 @@
       <h1>Prof. Samuel Valdevino</h1>
       <nav>
         <ul>
-          <li><a href="/site-educativo/index.html">Início</a></li>
-          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
-          <li><a href="/site-educativo/contato.html">Contato</a></li>
+          <li><a href="/index.html">Início</a></li>
+          <li><a href="/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/contato.html">Contato</a></li>
         </ul>
       </nav>
     </div>
@@ -139,6 +139,15 @@
     </div>
   </section>
 
+   <!-- Botão de Download do PDF -->
+  <section class="download-pdf">
+    <div class="container">
+      <a href="/materiais/mind_acentuacao.pdf" class="btn-download" download="regras-de-acentuacao.pdf">
+        📥 Baixar Resumo em PDF
+      </a>
+    </div>
+  </section>
+
   <!-- Seção de Atividades -->
 <!-- Atividade 1 -->
         <div class="card-atividade">
@@ -150,7 +159,7 @@
             <h4>Conteúdo de acentuação</h4>
           </div>
           <div class="card-footer">
-            <a href="exercicio_acentuacao.html" class="btn-acessar">Acesse aqui</a>
+            <a href="exercicios/exercicio_acentuacao.html" class="btn-acessar">Acesse aqui</a>
           </div>
         </div>
   </section>
@@ -353,6 +362,32 @@
     .atividades {
       padding: 40px 0;
     }
+  /*Dowload*/
+  /* Botão de Download */
+.download-pdf {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.btn-download {
+  display: inline-block;
+  background-color: #27ae60;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.btn-download:hover {
+  background-color: #219653;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
 
     /* Grid de Atividades */
     .grid-atividades {
@@ -413,14 +448,13 @@
     }
 
     .card-footer {
-    display: flex;
-    justify-content: center; /* Centraliza o conteúdo */
-    align-items: center;
-    padding: 15px 20px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    gap: 10px; /* Espaço entre elementos, se houver */
-  }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
     .status {
       font-size: 0.85rem;
@@ -489,12 +523,4 @@
     }
   </style>
 </body>
-
 </html>
-
-
-
-
-
-
-
