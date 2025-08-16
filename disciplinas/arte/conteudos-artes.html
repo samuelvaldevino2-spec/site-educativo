@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Filosofia - Prof. Samuel Valdevino</title>
+  <title>Artes - Prof. Samuel Valdevino</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -28,7 +28,7 @@
       <h2 id="saudacao">Carregando...</h2>
       <p id="mensagem">Aguarde...</p>
       <hr>
-      <h3>📚 Atividades Recentes</h3>
+      <h3>🎨 Atividades Recentes</h3>
     </div>
   </section>
 
@@ -40,30 +40,30 @@
         <!-- Atividade 1 -->
         <div class="card-atividade">
           <div class="card-header">
-            <span class="icon">🤔</span>
-            <span class="data">25/08/2025</span>
+            <span class="icon">🖼️</span>
+            <span class="data">26/08/2025</span>
           </div>
           <div class="card-body">
-            <h4>O Que é Filosofia?</h4>
-            <p>Origem, métodos e importância da reflexão filosófica.</p>
+            <h4>Introdução à Arte Moderna</h4>
+            <p>Cubismo, surrealismo e expressionismo no século XX.</p>
           </div>
           <div class="card-footer">
-            <a href="o-que-e-filosofia.html" class="btn-acessar">Acesse aqui</a>
+            <a href="arte-moderna.html" class="btn-acessar">Acesse aqui</a>
           </div>
         </div>
 
         <!-- Atividade 2 -->
         <div class="card-atividade">
           <div class="card-header">
-            <span class="icon">📜</span>
-            <span class="data">21/08/2025</span>
+            <span class="icon">🎭</span>
+            <span class="data">22/08/2025</span>
           </div>
           <div class="card-body">
-            <h4>Texto Comentado: Mito da Caverna</h4>
-            <p>Análise do texto de Platão e sua relevância atual.</p>
+            <h4>Lista de Exercícios: Dança e Cultura</h4>
+            <p>Estilos de dança populares e sua importância cultural.</p>
           </div>
           <div class="card-footer">
-            <a href="materiais/mito-da-caverna.pdf" class="btn-acessar" download="platao-mito-da-caverna.pdf">Baixar PDF</a>
+            <a href="materiais/danca-cultura.pdf" class="btn-acessar" download="lista-danca-e-cultura.pdf">Baixar PDF</a>
           </div>
         </div>
 
@@ -88,14 +88,14 @@
       let mensagem = "";
       let citacao = "";
 
-      mensagem = "Só sei que nada sei — e isso já é um começo.";
+      mensagem = "A arte é a forma mais elevada de humanidade se expressar.";
 
       if (hora >= 6 && hora < 12) {
-        saudacao = "Bom dia, pensador! 🌞";
+        saudacao = "Bom dia, artista! 🌞";
       } else if (hora >= 12 && hora < 18) {
-        saudacao = "Boa tarde! 🤔";
+        saudacao = "Boa tarde! 🎨";
       } else {
-        saudacao = "Boa noite, sábio! 🌙";
+        saudacao = "Boa noite, criador! 🌙";
       }
 
       document.getElementById("saudacao").textContent = saudacao;
@@ -121,7 +121,7 @@
       color: #f0f0f0;
       background-image: 
         linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-        url('https://images.pexels.com/photos/159711/books-bookstore-book-159711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+        url('https://images.pexels.com/photos/336055/pexels-photo-336055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
