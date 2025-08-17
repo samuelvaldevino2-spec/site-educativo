@@ -246,6 +246,65 @@ nav ul li a:hover {
   color: #3498db;
 }
 
+    /* Card de Atividade */
+    .card-atividade {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    .card-atividade:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 20px;
+      background-color: rgba(52, 152, 219, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-header .icon {
+      font-size: 1.4rem;
+    }
+
+    .card-header .data {
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body h4 {
+      font-size: 1.2rem;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .card-body p {
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 /* Cards */
 .cards {
   display: flex;
@@ -294,6 +353,7 @@ footer {
 </body>
 
 </html>
+
 
 
 
