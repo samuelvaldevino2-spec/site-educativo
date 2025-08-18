@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios - Reta Numérica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Aguarde...</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>📐 Lista de Exercícios: Reta Numérica</h3>
+      <p class="instrucoes">Responda com atenção. Clique em "Verificar Respostas" para ver seu desempenho.</p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">15</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        <ol class="lista-exercicios">
+
+          <!-- Exercício 1 -->
+          <li class="exercicio">
+            <p>Escreva o número que está 2 unidades à direita do –3 na reta numérica.</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="-1" placeholder="Resposta"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 2 -->
+          <li class="exercicio">
+            <p>Qual é o número que fica no meio de 4 e 10 na reta numérica?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="7" placeholder="Resposta"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 3 -->
+          <li class="exercicio">
+            <p>Se você começar no 0 e andar 7 unidades para a esquerda, em que número você estará?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="-7" placeholder="Resposta"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 4 -->
+          <li class="exercicio">
+            <p>Qual número está exatamente entre –5 e –1?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="-3" placeholder="Resposta"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 5 -->
+          <li class="exercicio">
+            <p>Se de 2 você andar 4 passos à esquerda e depois 3 passos à direita, em qual número você termina?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="1" placeholder="Resposta"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 6 -->
+          <li class="exercicio">
+            <p>Em uma reta numérica, os números aumentam quando:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q6" value="a"> Caminhamos para a esquerda.</label>
+              <label><input type="radio" name="q6" value="b"> Caminhamos para a direita.</label>
+              <label><input type="radio" name="q6" value="c"> Subimos na reta.</label>
+              <label><input type="radio" name="q6" value="d"> Descemos na reta.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 7 -->
+          <li class="exercicio">
+            <p>O número que marca o ponto de referência da reta numérica é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q7" value="a"> 1</label>
+              <label><input type="radio" name="q7" value="b"> –1</label>
+              <label><input type="radio" name="q7" value="c"> 0</label>
+              <label><input type="radio" name="q7" value="d"> Nenhum</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 8 -->
+          <li class="exercicio">
+            <p>Em relação ao zero, os números negativos estão sempre:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q8" value="a"> À direita.</label>
+              <label><input type="radio" name="q8" value="b"> À esquerda.</label>
+              <label><input type="radio" name="q8" value="c"> No meio.</label>
+              <label><input type="radio" name="q8" value="d"> Acima.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 9 -->
+          <li class="exercicio">
+            <p>Qual número é maior?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q9" value="a"> –7</label>
+              <label><input type="radio" name="q9" value="b"> –3</label>
+              <label><input type="radio" name="q9" value="c"> –12</label>
+              <label><input type="radio" name="q9" value="d"> –10</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 10 -->
+          <li class="exercicio">
+            <p>O valor absoluto de –8 é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q10" value="a"> –8</label>
+              <label><input type="radio" name="q10" value="b"> 0</label>
+              <label><input type="radio" name="q10" value="c"> 8</label>
+              <label><input type="radio" name="q10" value="d"> –1</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 11 -->
+          <li class="exercicio">
+            <p>João está na posição 3 da reta numérica. Ele anda 5 unidades para a esquerda. Em qual número ele está agora?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q11" value="a"> –2</label>
+              <label><input type="radio" name="q11" value="b"> 2</label>
+              <label><input type="radio" name="q11" value="c"> –5</label>
+              <label><input type="radio" name="q11" value="d"> 8</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 12 -->
+          <li class="exercicio">
+            <p>Maria está no –4. Ela anda 7 unidades para a direita. Em que número ela para?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q12" value="a"> 11</label>
+              <label><input type="radio" name="q12" value="b"> 3</label>
+              <label><input type="radio" name="q12" value="c"> –11</label>
+              <label><input type="radio" name="q12" value="d"> –3</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 13 -->
+          <li class="exercicio">
+            <p>Qual é a distância entre os números –6 e 5 na reta numérica?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q13" value="a"> 9</label>
+              <label><input type="radio" name="q13" value="b"> 11</label>
+              <label><input type="radio" name="q13" value="c"> 6</label>
+              <label><input type="radio" name="q13" value="d"> –11</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 14 -->
+          <li class="exercicio">
+            <p>Um ponto está na metade do caminho entre –8 e 4. Qual é esse ponto?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q14" value="a"> –2</label>
+              <label><input type="radio" name="q14" value="b"> –6</label>
+              <label><input type="radio" name="q14" value="c"> –4</label>
+              <label><input type="radio" name="q14" value="d"> 2</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 15 -->
+          <li class="exercicio">
+            <p>Pedro está no 0. Ele anda 10 unidades para a esquerda e depois 3 unidades para a direita. Onde ele para?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q15" value="a"> –7</label>
+              <label><input type="radio" name="q15" value="b"> –13</label>
+              <label><input type="radio" name="q15" value="c"> 13</label>
+              <label><input type="radio" name="q15" value="d"> –3</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Botão de Verificação -->
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+      </form>
+
+      <!-- Gabarito -->
+      <div id="gabarito" class="gabarito" style="display: none;">
+        <h4>Gabarito</h4>
+        <ol>
+          <li>–1</li>
+          <li>7</li>
+          <li>–7</li>
+          <li>–3</li>
+          <li>1</li>
+          <li>b</li>
+          <li>c</li>
+          <li>b</li>
+          <li>b</li>
+          <li>c</li>
+          <li>a</li>
+          <li>b</li>
+          <li>b</li>
+          <li>a</li>
+          <li>a</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Saudação dinâmica
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Domine a reta numérica e domine os números!";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, matemático! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! 📏";
+      } else {
+        saudacao = "Boa noite, explorador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+
+    // Verificar respostas
+    function verificarRespostas() {
+      let acertos = 0;
+      const total = 15;
+
+      // Limpa feedbacks anteriores
+      document.querySelectorAll('.feedback').forEach(fb => {
+        fb.style.display = 'none';
+        fb.className = fb.className.replace(/feedback-(correto|errado)/g, '').trim();
+      });
+
+      // Configuração de respostas corretas
+      const respostasLacuna = {
+        1: ["-1"],
+        2: ["7"],
+        3: ["-7"],
+        4: ["-3"],
+        5: ["1"]
+      };
+
+      const respostasMultiplas = {
+        6: "b",
+        7: "c",
+        8: "b",
+        9: "b",
+        10: "c",
+        11: "a",
+        12: "b",
+        13: "b",
+        14: "a",
+        15: "a"
+      };
+
+      // Verifica cada exercício
+      document.querySelectorAll('.exercicio').forEach((exercicio, index) => {
+        const num = index + 1;
+        const feedback = exercicio.querySelector('.feedback');
+        let estaCorreto = true;
+
+        // Lacunas
+        if (respostasLacuna[num]) {
+          const lacunas = exercicio.querySelectorAll('.resposta-lacuna');
+          lacunas.forEach(input => {
+            const respostaDigitada = input.value.trim().replace('–', '-'); // Aceita traço longo
+            const correta = respostasLacuna[num][0].replace('–', '-');
+            if (respostaDigitada !== correta) estaCorreto = false;
+          });
+        }
+
+        // Múltipla escolha (radio)
+        if (respostasMultiplas[num]) {
+          const selecionado = exercicio.querySelector('input[type="radio"]:checked');
+          if (!selecionado || selecionado.value !== respostasMultiplas[num]) {
+            estaCorreto = false;
+          }
+        }
+
+        // Feedback visual
+        if (estaCorreto) {
+          acertos++;
+          feedback.textContent = '✅ Correto!';
+          feedback.className = 'feedback feedback-correto';
+        } else {
+          feedback.textContent = '❌ Incorreto. Revise a reta numérica.';
+          feedback.className = 'feedback feedback-errado';
+        }
+        feedback.style.display = 'block';
+      });
+
+      // Mostrar resultado
+      document.getElementById('acertos').textContent = acertos;
+      document.getElementById('total').textContent = total;
+
+      const mensagemResultado = document.getElementById('mensagem-resultado');
+      if (acertos === total) {
+        mensagemResultado.textContent = 'Parabéns! Você acertou todas as questões!';
+      } else if (acertos >= 12) {
+        mensagemResultado.textContent = 'Bom trabalho! Você tem um bom domínio da reta numérica.';
+      } else {
+        mensagemResultado.textContent = 'Continue praticando! Revise a posição dos números.';
+      }
+
+      document.getElementById('resultado').style.display = 'block';
+    }
+
+    // Mostrar gabarito
+    function mostrarGabarito() {
+      document.getElementById('gabarito').style.display = 'block';
+      document.getElementById('mostrar-gabarito').style.display = 'none';
+    }
+
+    // Inicializar
+    document.addEventListener("DOMContentLoaded", function() {
+      saudacaoHorario();
+      document.getElementById('verificar-respostas').addEventListener('click', verificarRespostas);
+      document.getElementById('mostrar-gabarito').addEventListener('click', mostrarGabarito);
+    });
+  </script>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #3498db;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #3498db;
+    }
+
+    /* Conteúdo Principal */
+    .conteudo {
+      padding: 100px 20px 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .conteudo h2 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .conteudo p {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #555;
+    }
+
+    .conteudo #citacao {
+      font-style: italic;
+      color: #777;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    .conteudo h3 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .instrucoes {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    hr {
+      border: 1px solid #3498db;
+      width: 80%;
+      margin: 20px auto 40px;
+    }
+
+    /* Seção de Exercícios */
+    .exercicios {
+      padding: 40px 0;
+    }
+
+    .lista-exercicios {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .exercicio {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .exercicio p {
+      margin-bottom: 12px;
+      color: #333;
+    }
+
+    .opcoes-multiplas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .opcoes-multiplas label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background-color: #f8f9ff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    input.resposta-lacuna {
+      width: 100px;
+      padding: 6px 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .feedback-correto {
+      background-color: #d4edda;
+      color: #155724;
+      border-left: 4px solid #c3e6cb;
+    }
+
+    .feedback-errado {
+      background-color: #f8d7da;
+      color: #721c24;
+      border-left: 4px solid #f5c6cb;
+    }
+
+    /* Resultado */
+    .resultado {
+      margin-bottom: 30px;
+    }
+
+    .card-resultado {
+      background-color: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 5px solid #27ae60;
+    }
+
+    .card-resultado h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .btn-verificar {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-verificar:hover {
+      background-color: #219653;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Gabarito */
+    .gabarito {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .gabarito h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ecf0f1;
+    }
+
+    .gabarito ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .gabarito li {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .conteudo h2 { font-size: 2.2rem; }
+      .conteudo p { font-size: 1.1rem; }
+      .opcoes-multiplas { grid-template-columns: 1fr; }
+      input.resposta-lacuna { width: 80px; }
+    }
+  </style>
+</body>
+</html>
