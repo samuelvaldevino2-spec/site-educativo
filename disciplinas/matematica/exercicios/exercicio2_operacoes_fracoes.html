@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios - Frações no Cotidiano</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Aguarde...</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>🍰 Operações com Frações no Cotidiano</h3>
+      <p class="instrucoes">
+        <strong>Dica:</strong> Use a barra <code>/</code> para escrever frações. Ex: <strong>3/4</strong>, <strong>2/5</strong>.<br>
+        Quando possível, <a href="/site-educativo/disciplinas/matematica/fracoes.html" target="_blank" style="color: #3498db; text-decoration: underline;">simplifique a fração</a>.
+      </p>
+      <p class="instrucoes">Resolva os problemas com atenção. Clique em "Verificar Respostas" ao final.</p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">10</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        <ol class="lista-exercicios">
+
+          <!-- Exercício 1 -->
+          <li class="exercicio">
+            <p><strong>Receita de bolo</strong><br>
+            Uma receita pede 3/4 de xícara de açúcar. Ana já colocou 2/5 de xícara.<br>
+            Quanto ainda falta para completar a quantidade de açúcar necessária?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="7/20" placeholder="Resposta (ex: 3/4)"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 2 -->
+          <li class="exercicio">
+            <p><strong>Pizza em família</strong><br>
+            Uma pizza foi dividida em 8 pedaços iguais. João comeu 3/8 e Maria comeu 1/4.<br>
+            Que fração da pizza foi comida pelos dois juntos?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="5/8" placeholder="Resposta (ex: 1/2)"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 3 -->
+          <li class="exercicio">
+            <p><strong>Treino esportivo</strong><br>
+            Carlos correu 2/3 de uma pista na segunda-feira e 3/5 da mesma pista na terça-feira.<br>
+            Quantas pistas inteiras ele percorreu somando os dois dias? (responda como fração)</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="19/15" placeholder="Resposta (ex: 5/4)"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 4 -->
+          <li class="exercicio">
+            <p><strong>Compra no mercado</strong><br>
+            Um pacote de arroz pesa 5/6 de quilo. Se um cliente compra 3 pacotes, qual é o peso total de arroz comprado?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="5/2" placeholder="Resposta (ex: 3/4)"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 5 -->
+          <li class="exercicio">
+            <p><strong>Construção de cerca</strong><br>
+            Um agricultor cercou 7/10 de seu terreno no mês de janeiro. No mês de fevereiro, cercou mais 2/5 do terreno.<br>
+            O terreno já ficou totalmente cercado? Se não, quanto ainda falta?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="1/10" placeholder="Resposta (ex: 3/4)"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 6 -->
+          <li class="exercicio">
+            <p><strong>Divisão de bolo</strong><br>
+            Em uma festa, sobrou 3/4 de um bolo. Se 6 pessoas decidirem dividir igualmente esse pedaço, qual fração do bolo cada pessoa receberá?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="1/8" placeholder="Resposta (ex: 1/6)"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 7 -->
+          <li class="exercicio">
+            <p><strong>Trabalho em equipe</strong><br>
+            Um grupo de alunos fez 2/3 da pintura de um muro no primeiro dia. No segundo dia, concluíram mais 1/6 do trabalho.<br>
+            Que fração do muro ainda restará sem pintar?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="1/6" placeholder="Resposta (ex: 1/3)"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 8 -->
+          <li class="exercicio">
+            <p><strong>Estudo diário</strong><br>
+            Pedro planejou estudar 5/6 de um livro em 6 dias, lendo a mesma quantidade todos os dias.<br>
+            Qual fração do livro ele deve ler por dia?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="5/36" placeholder="Resposta (ex: 1/4)"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 9 -->
+          <li class="exercicio">
+            <p><strong>Consumo de suco</strong><br>
+            Uma jarra estava cheia com 9/10 de litro de suco. Carlos bebeu 2/5 de litro.<br>
+            Quanto de suco ainda sobrou na jarra?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="1/2" placeholder="Resposta (ex: 3/5)"></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Exercício 10 -->
+          <li class="exercicio">
+            <p><strong>Viagem de carro</strong><br>
+            Um carro percorreu 4/7 de uma estrada pela manhã e 2/7 à tarde.<br>
+            Quantos quilômetros de estrada ainda faltam para terminar, considerando que o total da estrada é de 63 km?</p>
+            <p><input type="text" class="resposta-lacuna" data-correct="9" placeholder="Resposta (em km)"></p>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Botão de Verificação -->
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+      </form>
+
+      <!-- Gabarito -->
+      <div id="gabarito" class="gabarito" style="display: none;">
+        <h4>Gabarito</h4>
+        <ol>
+          <li>7/20</li>
+          <li>5/8</li>
+          <li>19/15</li>
+          <li>5/2</li>
+          <li>1/10</li>
+          <li>1/8</li>
+          <li>1/6</li>
+          <li>5/36</li>
+          <li>1/2</li>
+          <li>9 km</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Saudação dinâmica
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "As frações estão por toda parte — até na sua cozinha!";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, matemático! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! 🍕";
+      } else {
+        saudacao = "Boa noite, estudante! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+
+    // Verificar respostas
+    function verificarRespostas() {
+      let acertos = 0;
+      const total = 10;
+
+      // Limpa feedbacks anteriores
+      document.querySelectorAll('.feedback').forEach(fb => {
+        fb.style.display = 'none';
+        fb.className = fb.className.replace(/feedback-(correto|errado)/g, '').trim();
+      });
+
+      // Respostas corretas
+      const respostasCorretas = [
+        ["7/20"], ["5/8"], ["19/15"], ["5/2"], ["1/10"],
+        ["1/8"], ["1/6"], ["5/36"], ["1/2"], ["9"]
+      ];
+
+      document.querySelectorAll('.exercicio').forEach((exercicio, index) => {
+        const feedback = exercicio.querySelector('.feedback');
+        const input = exercicio.querySelector('.resposta-lacuna');
+        const respostaDigitada = input.value.trim().replace(/\s/g, '').toLowerCase();
+        const opcoes = respostasCorretas[index];
+
+        // Verifica se a resposta está correta (aceita variações como "9km", "9 km")
+        const estaCorreta = opcoes.some(resp => {
+          if (resp === "9") {
+            return respostaDigitada === "9" || 
+                   respostaDigitada === "9km" || 
+                   respostaDigitada === "9km";
+          }
+          return respostaDigitada === resp.replace(/\s/g, '');
+        });
+
+        if (estaCorreta) {
+          acertos++;
+          feedback.textContent = '✅ Correto!';
+          feedback.className = 'feedback feedback-correto';
+        } else {
+          feedback.textContent = '❌ Incorreto. Revise o problema.';
+          feedback.className = 'feedback feedback-errado';
+        }
+        feedback.style.display = 'block';
+      });
+
+      // Mostrar resultado
+      document.getElementById('acertos').textContent = acertos;
+      document.getElementById('total').textContent = total;
+
+      const mensagemResultado = document.getElementById('mensagem-resultado');
+      if (acertos === 10) {
+        mensagemResultado.textContent = 'Parabéns! Você resolveu todos os problemas com sucesso!';
+      } else if (acertos >= 7) {
+        mensagemResultado.textContent = 'Bom trabalho! Você está dominando as frações no cotidiano.';
+      } else {
+        mensagemResultado.textContent = 'Continue praticando! Revise MMC e operações com frações.';
+      }
+
+      document.getElementById('resultado').style.display = 'block';
+    }
+
+    // Mostrar gabarito
+    function mostrarGabarito() {
+      document.getElementById('gabarito').style.display = 'block';
+      document.getElementById('mostrar-gabarito').style.display = 'none';
+    }
+
+    // Inicializar
+    document.addEventListener("DOMContentLoaded", function() {
+      saudacaoHorario();
+      document.getElementById('verificar-respostas').addEventListener('click', verificarRespostas);
+      document.getElementById('mostrar-gabarito').addEventListener('click', mostrarGabarito);
+    });
+  </script>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #3498db;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #3498db;
+    }
+
+    /* Conteúdo Principal */
+    .conteudo {
+      padding: 100px 20px 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .conteudo h2 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .conteudo p {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #555;
+    }
+
+    .conteudo #citacao {
+      font-style: italic;
+      color: #777;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    .conteudo h3 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .instrucoes {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .instrucoes code {
+      background-color: #e9ecef;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .instrucoes a {
+      color: #3498db;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    hr {
+      border: 1px solid #3498db;
+      width: 80%;
+      margin: 20px auto 40px;
+    }
+
+    /* Seção de Exercícios */
+    .exercicios {
+      padding: 40px 0;
+    }
+
+    .lista-exercicios {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .exercicio {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .exercicio p {
+      margin-bottom: 12px;
+      color: #333;
+    }
+
+    .exercicio p:first-of-type {
+      font-weight: 500;
+      color: #2c3e50;
+    }
+
+    input.resposta-lacuna {
+      width: 120px;
+      padding: 8px 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .feedback {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .feedback-correto {
+      background-color: #d4edda;
+      color: #155724;
+      border-left: 4px solid #c3e6cb;
+    }
+
+    .feedback-errado {
+      background-color: #f8d7da;
+      color: #721c24;
+      border-left: 4px solid #f5c6cb;
+    }
+
+    /* Resultado */
+    .resultado {
+      margin-bottom: 30px;
+    }
+
+    .card-resultado {
+      background-color: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 5px solid #27ae60;
+    }
+
+    .card-resultado h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .btn-verificar {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-verificar:hover {
+      background-color: #219653;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Gabarito */
+    .gabarito {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .gabarito h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ecf0f1;
+    }
+
+    .gabarito ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .gabarito li {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .conteudo h2 { font-size: 2.2rem; }
+      .conteudo p { font-size: 1.1rem; }
+      input.resposta-lacuna { width: 100px; }
+    }
+  </style>
+</body>
+</html>
