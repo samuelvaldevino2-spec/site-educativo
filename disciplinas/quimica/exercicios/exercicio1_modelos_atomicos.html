@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios - Modelos Atômicos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Aguarde...</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>🧪 Modelos Atômicos: Exercícios Teóricos</h3>
+      <p class="instrucoes">Leia com atenção e marque a alternativa correta para cada questão.</p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">10</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        <ol class="lista-exercicios">
+
+          <!-- Questão 1 -->
+          <li class="exercicio">
+            <p>De acordo com o modelo atômico de Dalton, os átomos:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q1" value="a"> Possuem núcleo central denso e positivo.</label>
+              <label><input type="radio" name="q1" value="b"> São esferas maciças, indivisíveis e indestrutíveis.</label>
+              <label><input type="radio" name="q1" value="c"> Têm elétrons em órbitas quantizadas.</label>
+              <label><input type="radio" name="q1" value="d"> Podem emitir ou absorver radiação ao mudar de órbita.</label>
+              <label><input type="radio" name="q1" value="e"> São compostos de partículas subatômicas menores.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 2 -->
+          <li class="exercicio">
+            <p>Para Dalton, uma das ideias fundamentais era que:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q2" value="a"> Átomos de elementos diferentes possuem massas diferentes.</label>
+              <label><input type="radio" name="q2" value="b"> Todos os átomos existentes são iguais em massa.</label>
+              <label><input type="radio" name="q2" value="c"> O núcleo concentra a maior parte da massa do átomo.</label>
+              <label><input type="radio" name="q2" value="d"> Os elétrons se encontram espalhados em nuvens de probabilidade.</label>
+              <label><input type="radio" name="q2" value="e"> Os átomos poderiam se dividir indefinidamente.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 3 -->
+          <li class="exercicio">
+            <p>O modelo de Thomson surgiu a partir de seus estudos com raios catódicos. Nesse modelo, o átomo era descrito como:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q3" value="a"> Uma esfera positiva com elétrons incrustados equilibrando as cargas.</label>
+              <label><input type="radio" name="q3" value="b"> Um núcleo denso, positivo, com elétrons girando ao redor.</label>
+              <label><input type="radio" name="q3" value="c"> Uma esfera maciça e indivisível.</label>
+              <label><input type="radio" name="q3" value="d"> Uma nuvem de elétrons ao redor do núcleo.</label>
+              <label><input type="radio" name="q3" value="e"> Elétrons em órbitas fixas de energia quantizada.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 4 -->
+          <li class="exercicio">
+            <p>O ponto central do modelo de Thomson era:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q4" value="a"> Reconhecer a existência do núcleo.</label>
+              <label><input type="radio" name="q4" value="b"> Demonstrar que os elétrons estavam em regiões de energia definidas.</label>
+              <label><input type="radio" name="q4" value="c"> Mostrar que o átomo era divisível e possuía partículas negativas.</label>
+              <label><input type="radio" name="q4" value="d"> Explicar como prótons e nêutrons se organizam no núcleo.</label>
+              <label><input type="radio" name="q4" value="e"> Descrever o comportamento ondulatório dos elétrons.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 5 -->
+          <li class="exercicio">
+            <p>O modelo de Rutherford foi resultado do experimento com partículas alfa e lâmina de ouro. Sua principal conclusão foi que:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q5" value="a"> Toda a massa do átomo estava distribuída uniformemente.</label>
+              <label><input type="radio" name="q5" value="b"> O átomo tinha núcleo pequeno, denso e positivo, rodeado por elétrons em regiões vazias.</label>
+              <label><input type="radio" name="q5" value="c"> Os elétrons estavam fixos em posições ao redor do núcleo.</label>
+              <label><input type="radio" name="q5" value="d"> O átomo era indivisível e maciço.</label>
+              <label><input type="radio" name="q5" value="e"> A eletrosfera era formada por órbitas quantizadas.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 6 -->
+          <li class="exercicio">
+            <p>Uma limitação do modelo de Rutherford era:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q6" value="a"> Não explicar a presença de cargas negativas.</label>
+              <label><input type="radio" name="q6" value="b"> Não admitir que o átomo possuía um núcleo.</label>
+              <label><input type="radio" name="q6" value="c"> Não explicar por que os elétrons não caíam no núcleo ao girar ao seu redor.</label>
+              <label><input type="radio" name="q6" value="d"> Negar a existência dos prótons.</label>
+              <label><input type="radio" name="q6" value="e"> Supor que átomos de diferentes elementos eram idênticos.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 7 -->
+          <li class="exercicio">
+            <p>O modelo de Bohr foi criado para corrigir falhas do modelo de Rutherford. Sua principal proposta foi:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q7" value="a"> Os elétrons movem-se em órbitas circulares e quantizadas em torno do núcleo.</label>
+              <label><input type="radio" name="q7" value="b"> O núcleo não existe, apenas a eletrosfera.</label>
+              <label><input type="radio" name="q7" value="c"> O átomo é indivisível e maciço.</label>
+              <label><input type="radio" name="q7" value="d"> Os elétrons estão espalhados em uma nuvem sem definição de energia.</label>
+              <label><input type="radio" name="q7" value="e"> A massa do átomo está totalmente nos elétrons.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 8 -->
+          <li class="exercicio">
+            <p>De acordo com Bohr, quando um elétron salta de uma órbita de menor energia para uma de maior energia, ocorre:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q8" value="a"> Emissão de luz.</label>
+              <label><input type="radio" name="q8" value="b"> Absorção de energia.</label>
+              <label><input type="radio" name="q8" value="c"> Divisão do núcleo.</label>
+              <label><input type="radio" name="q8" value="d"> Neutralização do átomo.</label>
+              <label><input type="radio" name="q8" value="e"> Destruição do elétron.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 9 -->
+          <li class="exercicio">
+            <p>O modelo de Bohr conseguiu explicar satisfatoriamente:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q9" value="a"> O espectro de emissão do átomo de hidrogênio.</label>
+              <label><input type="radio" name="q9" value="b"> A localização exata de todos os elétrons de qualquer átomo.</label>
+              <label><input type="radio" name="q9" value="c"> A natureza ondulatória dos elétrons.</label>
+              <label><input type="radio" name="q9" value="d"> A repulsão entre prótons dentro do núcleo.</label>
+              <label><input type="radio" name="q9" value="e"> O comportamento probabilístico da mecânica quântica.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 10 -->
+          <li class="exercicio">
+            <p>Comparando os modelos atômicos de Dalton, Thomson, Rutherford e Bohr, podemos afirmar corretamente que:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q10" value="a"> Dalton já descrevia o núcleo e a eletrosfera.</label>
+              <label><input type="radio" name="q10" value="b"> Thomson explicou a quantização de energia.</label>
+              <label><input type="radio" name="q10" value="c"> Rutherford mostrou que o átomo possui núcleo concentrando a massa.</label>
+              <label><input type="radio" name="q10" value="d"> Bohr defendia que os átomos eram indivisíveis e maciços.</label>
+              <label><input type="radio" name="q10" value="e"> Todos os modelos já consideravam nêutrons no núcleo.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Botão de Verificação -->
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+      </form>
+
+      <!-- Gabarito -->
+      <div id="gabarito" class="gabarito" style="display: none;">
+        <h4>Gabarito</h4>
+        <ol>
+          <li>b</li>
+          <li>a</li>
+          <li>a</li>
+          <li>c</li>
+          <li>b</li>
+          <li>c</li>
+          <li>a</li>
+          <li>b</li>
+          <li>a</li>
+          <li>c</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Saudação dinâmica
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Teste seus conhecimentos sobre a evolução do átomo!";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, químico! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! 🔬";
+      } else {
+        saudacao = "Boa noite, cientista! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+
+    // Verificar respostas
+    function verificarRespostas() {
+      let acertos = 0;
+      const total = 10;
+
+      // Limpa feedbacks anteriores
+      document.querySelectorAll('.feedback').forEach(fb => {
+        fb.style.display = 'none';
+        fb.className = fb.className.replace(/feedback-(correto|errado)/g, '').trim();
+      });
+
+      // Respostas corretas
+      const respostasCorretas = {
+        q1: "b", q2: "a", q3: "a", q4: "c", q5: "b",
+        q6: "c", q7: "a", q8: "b", q9: "a", q10: "c"
+      };
+
+      // Verifica cada exercício
+      document.querySelectorAll('.exercicio').forEach((exercicio, index) => {
+        const num = index + 1;
+        const feedback = exercicio.querySelector('.feedback');
+        const selecionado = exercicio.querySelector('input[type="radio"]:checked');
+        const respostaCorreta = respostasCorretas[`q${num}`];
+
+        if (selecionado && selecionado.value === respostaCorreta) {
+          acertos++;
+          feedback.textContent = '✅ Correto!';
+          feedback.className = 'feedback feedback-correto';
+        } else {
+          feedback.textContent = '❌ Incorreto. Revise os modelos atômicos.';
+          feedback.className = 'feedback feedback-errado';
+        }
+        feedback.style.display = 'block';
+      });
+
+      // Mostrar resultado
+      document.getElementById('acertos').textContent = acertos;
+      document.getElementById('total').textContent = total;
+
+      const mensagemResultado = document.getElementById('mensagem-resultado');
+      if (acertos === 10) {
+        mensagemResultado.textContent = 'Parabéns! Você domina a história do átomo!';
+      } else if (acertos >= 7) {
+        mensagemResultado.textContent = 'Bom trabalho! Você entende a evolução dos modelos.';
+      } else {
+        mensagemResultado.textContent = 'Continue estudando! Revise Dalton, Thomson, Rutherford e Bohr.';
+      }
+
+      document.getElementById('resultado').style.display = 'block';
+    }
+
+    // Mostrar gabarito
+    function mostrarGabarito() {
+      document.getElementById('gabarito').style.display = 'block';
+      document.getElementById('mostrar-gabarito').style.display = 'none';
+    }
+
+    // Inicializar
+    document.addEventListener("DOMContentLoaded", function() {
+      saudacaoHorario();
+      document.getElementById('verificar-respostas').addEventListener('click', verificarRespostas);
+      document.getElementById('mostrar-gabarito').addEventListener('click', mostrarGabarito);
+    });
+  </script>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #3498db;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #3498db;
+    }
+
+    /* Conteúdo Principal */
+    .conteudo {
+      padding: 100px 20px 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .conteudo h2 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .conteudo p {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #555;
+    }
+
+    .conteudo #citacao {
+      font-style: italic;
+      color: #777;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    .conteudo h3 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .instrucoes {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    hr {
+      border: 1px solid #3498db;
+      width: 80%;
+      margin: 20px auto 40px;
+    }
+
+    /* Seção de Exercícios */
+    .exercicios {
+      padding: 40px 0;
+    }
+
+    .lista-exercicios {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .exercicio {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .exercicio p {
+      margin-bottom: 12px;
+      color: #333;
+    }
+
+    .opcoes-multiplas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .opcoes-multiplas label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background-color: #f8f9ff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .feedback-correto {
+      background-color: #d4edda;
+      color: #155724;
+      border-left: 4px solid #c3e6cb;
+    }
+
+    .feedback-errado {
+      background-color: #f8d7da;
+      color: #721c24;
+      border-left: 4px solid #f5c6cb;
+    }
+
+    /* Resultado */
+    .resultado {
+      margin-bottom: 30px;
+    }
+
+    .card-resultado {
+      background-color: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 5px solid #27ae60;
+    }
+
+    .card-resultado h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .btn-verificar {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-verificar:hover {
+      background-color: #219653;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Gabarito */
+    .gabarito {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .gabarito h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ecf0f1;
+    }
+
+    .gabarito ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .gabarito li {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .conteudo h2 { font-size: 2.2rem; }
+      .conteudo p { font-size: 1.1rem; }
+      .opcoes-multiplas { grid-template-columns: 1fr; }
+    }
+  </style>
+</body>
+</html>
