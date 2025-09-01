@@ -114,6 +114,35 @@
           <li><strong>Ânion = – (A de "negativo")</strong></li>
           <li><strong>Sal de cozinha = NaCl = ligação iônica clássica</strong></li>
         </ul>
+        
+        <!-- Seção de Slides - Ligações Iônicas -->
+  <section class="slides-ligacoes">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 20px;">📘 Slides: Como Fazer uma Ligação Iônica</h3>
+      <p style="text-align: center; color: #ddd; margin-bottom: 20px;">Use os botões para avançar ou voltar nos slides.</p>
+
+      <div class="slide-container" style="position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.3);">
+        
+        <!-- Imagens dos Slides -->
+        <img class="slide-img" src="imagens/sli1.jpg" style="width: 100%; display: block;">
+        <img class="slide-img" src="imagens/sli2.jpg" style="width: 100%; display: none;">
+        <img class="slide-img" src="imagens/sli3.jpg" style="width: 100%; display: none;">
+        <img class="slide-img" src="imagens/sli4.jpg" style="width: 100%; display: none;">
+
+        <!-- Botões de Navegação -->
+        <button onclick="mudarSlide(-1)" class="btn-slide" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(52, 152, 219, 0.8); color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 1.2rem; z-index: 2;">❮</button>
+        <button onclick="mudarSlide(1)" class="btn-slide" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(52, 152, 219, 0.8); color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 1.2rem; z-index: 2;">❯</button>
+
+        <!-- Indicadores -->
+        <div class="indicadores" style="text-align: center; padding: 15px; background-color: rgba(0,0,0,0.5);">
+          <span class="dot" onclick="irParaSlide(0)" style="height: 12px; width: 12px; margin: 0 5px; background-color: #bbb; border-radius: 50%; display: inline-block; cursor: pointer;"></span>
+          <span class="dot" onclick="irParaSlide(1)" style="height: 12px; width: 12px; margin: 0 5px; background-color: #bbb; border-radius: 50%; display: inline-block; cursor: pointer;"></span>
+          <span class="dot" onclick="irParaSlide(2)" style="height: 12px; width: 12px; margin: 0 5px; background-color: #bbb; border-radius: 50%; display: inline-block; cursor: pointer;"></span>
+          <span class="dot" onclick="irParaSlide(3)" style="height: 12px; width: 12px; margin: 0 5px; background-color: #bbb; border-radius: 50%; display: inline-block; cursor: pointer;"></span>
+        </div>
+      </div>
+    </div>
+  </section>
 
         <h4>💡 Curiosidade: Onde encontramos ligações iônicas no dia a dia?</h4>
         <ul>
@@ -186,6 +215,45 @@
 
     // Executa ao carregar a página
     document.addEventListener("DOMContentLoaded", saudacaoHorario);
+    
+    // Variável para controlar o slide atual
+    let slideAtual = 0;
+    const slides = document.querySelectorAll('.slide-img');
+    const dots = document.querySelectorAll('.dot');
+
+    // Função para mostrar o slide específico
+    function mostrarSlide(n) {
+      // Ajusta o índice para ficar entre 0 e 3
+      if (n >= slides.length) slideAtual = 0;
+      if (n < 0) slideAtual = slides.length - 1;
+
+      // Esconde todos os slides
+      slides.forEach(slide => {
+        slide.style.display = 'none';
+      });
+      // Remove a classe ativa de todos os indicadores
+      dots.forEach(dot => {
+        dot.style.backgroundColor = '#bbb';
+      });
+
+      // Mostra o slide atual
+      slides[slideAtual].style.display = 'block';
+      dots[slideAtual].style.backgroundColor = '#3498db';
+    }
+
+    // Função para mudar o slide (+1 ou -1)
+    function mudarSlide(n) {
+      mostrarSlide(slideAtual += n);
+    }
+
+    // Função para ir para um slide específico
+    function irParaSlide(n) {
+      slideAtual = n;
+      mostrarSlide(slideAtual);
+    }
+
+    // Inicializa o slide 0 ao carregar
+    mostrarSlide(slideAtual);
   </script>
 
   <style>
