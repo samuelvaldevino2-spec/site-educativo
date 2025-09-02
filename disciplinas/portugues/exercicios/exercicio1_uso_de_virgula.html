@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios - Uso da Vírgula</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Aguarde...</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>📝 Uso da Vírgula: Exercícios</h3>
+      <p class="instrucoes">Escolha a alternativa correta. Em algumas questões, mais de uma pode estar correta.</p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">40</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        <ol class="lista-exercicios">
+
+          <!-- Caso 1: Enumeração -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q1" value="a"> Comprei maçãs, peras bananas e uvas.</label>
+              <label><input type="radio" name="q1" value="b"> Comprei maçãs, peras, bananas e uvas.</label>
+              <label><input type="radio" name="q1" value="c"> Comprei maçãs peras, bananas e uvas.</label>
+              <label><input type="radio" name="q1" value="d"> Comprei maçãs, peras, bananas, e uvas.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual item deve receber uma vírgula para estar correto?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q2" value="a"> O cardápio inclui sopa salada carne e sobremesa.</label>
+              <label><input type="radio" name="q2" value="b"> O cardápio inclui sopa, salada, carne e sobremesa.</label>
+              <label><input type="radio" name="q2" value="c"> O cardápio inclui sopa, salada carne, e sobremesa.</label>
+              <label><input type="radio" name="q2" value="d"> O cardápio inclui sopa salada, carne, e sobremesa.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 2: Aposto -->
+          <li class="exercicio">
+            <p>Qual frase isola corretamente o aposto?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q3" value="a"> Ana, minha melhor amiga, mora em Recife.</label>
+              <label><input type="radio" name="q3" value="b"> Ana minha melhor amiga mora em Recife.</label>
+              <label><input type="radio" name="q3" value="c"> Ana, minha melhor amiga mora em Recife.</label>
+              <label><input type="radio" name="q3" value="d"> Ana minha melhor amiga, mora em Recife.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual frase contém um aposto corretamente isolado?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q4" value="a"> O Brasil um país tropical é famoso por suas praias.</label>
+              <label><input type="radio" name="q4" value="b"> O Brasil, um país tropical, é famoso por suas praias.</label>
+              <label><input type="radio" name="q4" value="c"> O Brasil, um país tropical é famoso por suas praias.</label>
+              <label><input type="radio" name="q4" value="d"> O Brasil um país tropical, é famoso por suas praias.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 3: Vocativo -->
+          <li class="exercicio">
+            <p>Qual frase usa a vírgula corretamente para isolar o vocativo?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q5" value="a"> Vamos estudar, alunos!</label>
+              <label><input type="radio" name="q5" value="b"> Vamos estudar alunos!</label>
+              <label><input type="radio" name="q5" value="c"> Vamos, estudar alunos!</label>
+              <label><input type="radio" name="q5" value="d"> Vamos estudar alunos, agora!</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q6" value="a"> Maria venha cá!</label>
+              <label><input type="radio" name="q6" value="b"> Maria, venha cá!</label>
+              <label><input type="radio" name="q6" value="c"> Maria venha, cá!</label>
+              <label><input type="radio" name="q6" value="d"> Maria, venha cá.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 4: Adjuntos adverbiais deslocados -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q7" value="a"> Ontem à noite, assisti a um filme.</label>
+              <label><input type="radio" name="q7" value="b"> Ontem à noite assisti a um filme.</label>
+              <label><input type="radio" name="q7" value="c"> Ontem, à noite assisti a um filme.</label>
+              <label><input type="radio" name="q7" value="d"> Ontem à noite, assisti, a um filme.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual frase usa a vírgula corretamente para adjuntos adverbiais?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q8" value="a"> Com pressa Maria terminou o trabalho.</label>
+              <label><input type="radio" name="q8" value="b"> Com pressa, Maria terminou o trabalho.</label>
+              <label><input type="radio" name="q8" value="c"> Com pressa Maria, terminou o trabalho.</label>
+              <label><input type="radio" name="q8" value="d"> Com, pressa Maria terminou o trabalho.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 5: Lugar, data, endereço -->
+          <li class="exercicio">
+            <p>Qual alternativa está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q9" value="a"> São Paulo, 10 de março de 2025.</label>
+              <label><input type="radio" name="q9" value="b"> São Paulo 10 de março de 2025.</label>
+              <label><input type="radio" name="q9" value="c"> São Paulo, 10 de março, de 2025.</label>
+              <label><input type="radio" name="q9" value="d"> São Paulo 10, de março de 2025.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual endereço está corretamente pontuado?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q10" value="a"> Avenida Paulista 123 São Paulo.</label>
+              <label><input type="radio" name="q10" value="b"> Avenida Paulista, 123, São Paulo.</label>
+              <label><input type="radio" name="q10" value="c"> Avenida Paulista 123, São Paulo.</label>
+              <label><input type="radio" name="q10" value="d"> Avenida Paulista, 123 São Paulo.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 6: Expressões explicativas -->
+          <li class="exercicio">
+            <p>Qual frase isola corretamente a expressão explicativa?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q11" value="a"> Eu trouxe um lanche, ou seja, um sanduíche.</label>
+              <label><input type="radio" name="q11" value="b"> Eu trouxe um lanche ou seja um sanduíche.</label>
+              <label><input type="radio" name="q11" value="c"> Eu trouxe um lanche, ou seja um sanduíche.</label>
+              <label><input type="radio" name="q11" value="d"> Eu trouxe um lanche ou seja, um sanduíche.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q12" value="a"> Ele estuda física, por exemplo, mecânica quântica.</label>
+              <label><input type="radio" name="q12" value="b"> Ele estuda física por exemplo mecânica quântica.</label>
+              <label><input type="radio" name="q12" value="c"> Ele estuda física, por exemplo mecânica quântica.</label>
+              <label><input type="radio" name="q12" value="d"> Ele estuda física por exemplo, mecânica quântica.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 7: Orações coordenadas assindéticas -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q13" value="a"> Estudei muito, vou descansar agora.</label>
+              <label><input type="radio" name="q13" value="b"> Estudei muito vou descansar agora.</label>
+              <label><input type="radio" name="q13" value="c"> Estudei, muito vou descansar agora.</label>
+              <label><input type="radio" name="q13" value="d"> Estudei muito vou, descansar agora.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa usa a vírgula corretamente?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q14" value="a"> Corri para casa cheguei atrasado.</label>
+              <label><input type="radio" name="q14" value="b"> Corri para casa, cheguei atrasado.</label>
+              <label><input type="radio" name="q14" value="c"> Corri, para casa cheguei atrasado.</label>
+              <label><input type="radio" name="q14" value="d"> Corri para casa cheguei, atrasado.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 8: Orações subordinadas adjetivas explicativas -->
+          <li class="exercicio">
+            <p>Qual frase isola corretamente a oração adjetiva explicativa?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q15" value="a"> Meu carro, que é novo, está na garagem.</label>
+              <label><input type="radio" name="q15" value="b"> Meu carro que é novo está na garagem.</label>
+              <label><input type="radio" name="q15" value="c"> Meu carro, que é novo está na garagem.</label>
+              <label><input type="radio" name="q15" value="d"> Meu carro que é novo, está na garagem.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q16" value="a"> A cidade, que é histórica, atrai turistas.</label>
+              <label><input type="radio" name="q16" value="b"> A cidade que é histórica atrai turistas.</label>
+              <label><input type="radio" name="q16" value="c"> A cidade, que é histórica atrai turistas.</label>
+              <label><input type="radio" name="q16" value="d"> A cidade que é histórica, atrai turistas.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 9: Orações subordinadas adverbiais -->
+          <li class="exercicio">
+            <p>Qual frase usa a vírgula corretamente?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q17" value="a"> Se chover, ficarei em casa.</label>
+              <label><input type="radio" name="q17" value="b"> Se chover ficarei em casa.</label>
+              <label><input type="radio" name="q17" value="c"> Se, chover ficarei em casa.</label>
+              <label><input type="radio" name="q17" value="d"> Se chover ficarei, em casa.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q18" value="a"> Quando terminar, avise-me.</label>
+              <label><input type="radio" name="q18" value="b"> Quando terminar avise-me.</label>
+              <label><input type="radio" name="q18" value="c"> Quando, terminar avise-me.</label>
+              <label><input type="radio" name="q18" value="d"> Quando terminar avise, me.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 10: Orações intercaladas -->
+          <li class="exercicio">
+            <p>Qual frase isola corretamente a oração intercalada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q19" value="a"> O filme, disse ele, foi incrível.</label>
+              <label><input type="radio" name="q19" value="b"> O filme disse ele foi incrível.</label>
+              <label><input type="radio" name="q19" value="c"> O filme, disse ele foi incrível.</label>
+              <label><input type="radio" name="q19" value="d"> O filme disse ele, foi incrível.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q20" value="a"> A festa, confirmou Ana, será amanhã.</label>
+              <label><input type="radio" name="q20" value="b"> A festa confirmou Ana será amanhã.</label>
+              <label><input type="radio" name="q20" value="c"> A festa, confirmou Ana será amanhã.</label>
+              <label><input type="radio" name="q20" value="d"> A festa confirmou Ana, será amanhã.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 11: Sujeito e predicado (inversão) -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q21" value="a"> Cansado, João dormiu cedo.</label>
+              <label><input type="radio" name="q21" value="b"> Cansado João dormiu cedo.</label>
+              <label><input type="radio" name="q21" value="c"> Cansado, João, dormiu cedo.</label>
+              <label><input type="radio" name="q21" value="d"> Cansado João, dormiu cedo.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa usa a vírgula corretamente?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q22" value="a"> Sozinha, Maria resolveu o problema.</label>
+              <label><input type="radio" name="q22" value="b"> Sozinha Maria resolveu o problema.</label>
+              <label><input type="radio" name="q22" value="c"> Sozinha, Maria, resolveu o problema.</label>
+              <label><input type="radio" name="q22" value="d"> Sozinha Maria, resolveu o problema.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Caso 12: Elipse -->
+          <li class="exercicio">
+            <p>Qual frase indica corretamente a elipse com vírgula?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q23" value="a"> Eu prefiro café, e ele, chá.</label>
+              <label><input type="radio" name="q23" value="b"> Eu prefiro café e ele chá.</label>
+              <label><input type="radio" name="q23" value="c"> Eu prefiro café, e ele chá.</label>
+              <label><input type="radio" name="q23" value="d"> Eu prefiro café e ele, chá.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q24" value="a"> Ela estuda biologia, e eu, química.</label>
+              <label><input type="radio" name="q24" value="b"> Ela estuda biologia e eu química.</label>
+              <label><input type="radio" name="q24" value="c"> Ela estuda biologia, e eu química.</label>
+              <label><input type="radio" name="q24" value="d"> Ela estuda biologia e eu, química.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Casos Proibidos: 5 x 2 = 10 questões -->
+          <!-- 1. Entre sujeito e predicado -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q25" value="a"> O aluno, terminou o dever.</label>
+              <label><input type="radio" name="q25" value="b"> O aluno terminou o dever.</label>
+              <label><input type="radio" name="q25" value="c"> O aluno, terminou, o dever.</label>
+              <label><input type="radio" name="q25" value="d"> O aluno terminou, o dever.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está correta?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q26" value="a"> Mariana, correu para a escola.</label>
+              <label><input type="radio" name="q26" value="b"> Mariana correu para a escola.</label>
+              <label><input type="radio" name="q26" value="c"> Mariana, correu, para a escola.</label>
+              <label><input type="radio" name="q26" value="d"> Mariana correu, para a escola.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- 2. Verbo e complemento -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q27" value="a"> Ele comprou, um livro.</label>
+              <label><input type="radio" name="q27" value="b"> Ele comprou um livro.</label>
+              <label><input type="radio" name="q27" value="c"> Ele, comprou um livro.</label>
+              <label><input type="radio" name="q27" value="d"> Ele comprou, um livro novo.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está correta?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q28" value="a"> Entreguei, o relatório ao chefe.</label>
+              <label><input type="radio" name="q28" value="b"> Entreguei o relatório ao chefe.</label>
+              <label><input type="radio" name="q28" value="c"> Entreguei, o relatório, ao chefe.</label>
+              <label><input type="radio" name="q28" value="d"> Entreguei o relatório, ao chefe.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- 3. Núcleo do sujeito e complementos -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q29" value="a"> Os amigos de Clara, viajaram ontem.</label>
+              <label><input type="radio" name="q29" value="b"> Os amigos de Clara viajaram ontem.</label>
+              <label><input type="radio" name="q29" value="c"> Os amigos, de Clara viajaram ontem.</label>
+              <label><input type="radio" name="q29" value="d"> Os amigos de Clara, viajaram, ontem.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está correta?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q30" value="a"> A casa de Pedro, é grande.</label>
+              <label><input type="radio" name="q30" value="b"> A casa de Pedro é grande.</label>
+              <label><input type="radio" name="q30" value="c"> A casa, de Pedro é grande.</label>
+              <label><input type="radio" name="q30" value="d"> A casa de Pedro, é grande, e moderna.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- 4. Artigo e substantivo -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q31" value="a"> O, aluno chegou cedo.</label>
+              <label><input type="radio" name="q31" value="b"> O aluno chegou cedo.</label>
+              <label><input type="radio" name="q31" value="c"> O, aluno, chegou cedo.</label>
+              <label><input type="radio" name="q31" value="d"> O aluno, chegou cedo.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está correta?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q32" value="a"> A, cidade é bonita.</label>
+              <label><input type="radio" name="q32" value="b"> A cidade é bonita.</label>
+              <label><input type="radio" name="q32" value="c"> A, cidade, é bonita.</label>
+              <label><input type="radio" name="q32" value="d"> A cidade, é bonita.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- 5. Verbo e complemento em orações simples -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q33" value="a"> Ela comeu, uma maçã.</label>
+              <label><input type="radio" name="q33" value="b"> Ela comeu uma maçã.</label>
+              <label><input type="radio" name="q33" value="c"> Ela, comeu uma maçã.</label>
+              <label><input type="radio" name="q33" value="d"> Ela comeu, uma maçã vermelha.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está correta?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q34" value="a"> Ele escreveu, uma carta.</label>
+              <label><input type="radio" name="q34" value="b"> Ele escreveu uma carta.</label>
+              <label><input type="radio" name="q34" value="c"> Ele, escreveu uma carta.</label>
+              <label><input type="radio" name="q34" value="d"> Ele escreveu, uma carta longa.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Casos Opcionais: 3 x 2 = 6 questões -->
+          <!-- 1. Antes de "e" em orações coordenadas -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada? (mais de uma pode estar correta)</p>
+            <div class="opcoes-multiplas">
+              <label><input type="checkbox" name="q35" value="a"> a) Eu estudo português, e ela estuda inglês.</label>
+              <label><input type="checkbox" name="q35" value="b"> b) Eu estudo português e ela estuda inglês.</label>
+              <label><input type="checkbox" name="q35" value="c"> c) Eu estudo português, e ela, estuda inglês.</label>
+              <label><input type="checkbox" name="q35" value="d"> d) Eu estudo português e ela, estuda inglês.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está correta? (mais de uma pode estar correta)</p>
+            <div class="opcoes-multiplas">
+              <label><input type="checkbox" name="q36" value="a"> a) João correu, e Maria caminhou.</label>
+              <label><input type="checkbox" name="q36" value="b"> b) João correu e Maria caminhou.</label>
+              <label><input type="checkbox" name="q36" value="c"> c) João, correu e Maria caminhou.</label>
+              <label><input type="checkbox" name="q36" value="d"> d) João correu, e Maria, caminhou.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- 2. Após conjunções no início -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada? (mais de uma pode estar correta)</p>
+            <div class="opcoes-multiplas">
+              <label><input type="checkbox" name="q37" value="a"> a) Portanto, decidi descansar.</label>
+              <label><input type="checkbox" name="q37" value="b"> b) Portanto decidi descansar.</label>
+              <label><input type="checkbox" name="q37" value="c"> c) Portanto, decidi, descansar.</label>
+              <label><input type="checkbox" name="q37" value="d"> d) Portanto decidi, descansar.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está correta? (mais de uma pode estar correta)</p>
+            <div class="opcoes-multiplas">
+              <label><input type="checkbox" name="q38" value="a"> a) Porém, ele não veio.</label>
+              <label><input type="checkbox" name="q38" value="b"> b) Porém ele não veio.</label>
+              <label><input type="checkbox" name="q38" value="c"> c) Porém, ele, não veio.</label>
+              <label><input type="checkbox" name="q38" value="d"> d) Porém ele, não veio.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- 3. Entre sujeito e predicado (ênfase) -->
+          <li class="exercicio">
+            <p>Qual frase está corretamente pontuada? (mais de uma pode estar correta)</p>
+            <div class="opcoes-multiplas">
+              <label><input type="checkbox" name="q39" value="a"> a) O homem que mora ali, comprou um carro.</label>
+              <label><input type="checkbox" name="q39" value="b"> b) O homem que mora ali comprou um carro.</label>
+              <label><input type="checkbox" name="q39" value="c"> c) O homem, que mora ali comprou um carro.</label>
+              <label><input type="checkbox" name="q39" value="d"> d) O homem que mora ali, comprou, um carro.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>Qual alternativa está correta? (mais de uma pode estar correta)</p>
+            <div class="opcoes-multiplas">
+              <label><input type="checkbox" name="q40" value="a"> a) A equipe que venceu o torneio, celebrou muito.</label>
+              <label><input type="checkbox" name="q40" value="b"> b) A equipe que venceu o torneio celebrou muito.</label>
+              <label><input type="checkbox" name="q40" value="c"> c) A equipe, que venceu o torneio celebrou muito.</label>
+              <label><input type="checkbox" name="q40" value="d"> d) A equipe que venceu o torneio, celebrou, muito.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Botão de Verificação -->
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+      </form>
+
+      <!-- Gabarito -->
+      <div id="gabarito" class="gabarito" style="display: none;">
+        <h4>Gabarito</h4>
+        <ol>
+          <li>b</li><li>b</li><li>a</li><li>b</li><li>a</li><li>b</li><li>a</li><li>b</li><li>a</li><li>b</li>
+          <li>a</li><li>a</li><li>a</li><li>b</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li>
+          <li>a</li><li>a</li><li>a</li><li>a</li><li>b</li><li>b</li><li>b</li><li>b</li><li>b</li><li>b</li>
+          <li>b</li><li>b</li><li>b</li><li>b</li>
+          <li>a e b</li><li>a e b</li><li>a e b</li><li>a e b</li><li>a e b</li><li>a e b</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Saudação dinâmica
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Teste seus conhecimentos sobre pontuação!";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, estudante! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ✍️";
+      } else {
+        saudacao = "Boa noite, escritor! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+
+    // Verificar respostas
+    function verificarRespostas() {
+      let acertos = 0;
+      const total = 40;
+
+      // Limpa feedbacks anteriores
+      document.querySelectorAll('.feedback').forEach(fb => {
+        fb.style.display = 'none';
+        fb.className = fb.className.replace(/feedback-(correto|errado)/g, '').trim();
+      });
+
+      // Respostas corretas
+      const respostas = {
+        q1: ["b"], q2: ["b"], q3: ["a"], q4: ["b"], q5: ["a"], q6: ["b"],
+        q7: ["a"], q8: ["b"], q9: ["a"], q10: ["b"], q11: ["a"], q12: ["a"],
+        q13: ["a"], q14: ["b"], q15: ["a"], q16: ["a"], q17: ["a"], q18: ["a"],
+        q19: ["a"], q20: ["a"], q21: ["a"], q22: ["a"], q23: ["a"], q24: ["a"],
+        q25: ["b"], q26: ["b"], q27: ["b"], q28: ["b"], q29: ["b"], q30: ["b"],
+        q31: ["b"], q32: ["b"], q33: ["b"], q34: ["b"],
+        q35: ["a", "b"], q36: ["a", "b"], q37: ["a", "b"], q38: ["a", "b"],
+        q39: ["a", "b"], q40: ["a", "b"]
+      };
+
+      document.querySelectorAll('.exercicio').forEach((exercicio, index) => {
+        const num = index + 1;
+        const feedback = exercicio.querySelector('.feedback');
+        const nome = `q${num}`;
+        const opcoes = respostas[nome];
+
+        let estaCorreto = true;
+
+        // Para múltipla escolha simples (radio)
+        if (document.querySelector(`input[name="${nome}"][type="radio"]`)) {
+          const selecionado = exercicio.querySelector('input[type="radio"]:checked');
+          if (!selecionado || !opcoes.includes(selecionado.value)) {
+            estaCorreto = false;
+          }
+        }
+        // Para múltipla escolha múltipla (checkbox)
+        else if (document.querySelector(`input[name="${nome}"][type="checkbox"]`)) {
+          const marcados = Array.from(exercicio.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+          if (marcados.length !== opcoes.length) {
+            estaCorreto = false;
+          } else {
+            for (let op of opcoes) {
+              if (!marcados.includes(op)) {
+                estaCorreto = false;
+                break;
+              }
+            }
+          }
+        }
+
+        if (estaCorreto) {
+          acertos++;
+          feedback.textContent = '✅ Correto!';
+          feedback.className = 'feedback feedback-correto';
+        } else {
+          feedback.textContent = '❌ Incorreto. Revise as regras de pontuação.';
+          feedback.className = 'feedback feedback-errado';
+        }
+        feedback.style.display = 'block';
+      });
+
+      // Mostrar resultado
+      document.getElementById('acertos').textContent = acertos;
+      document.getElementById('total').textContent = total;
+
+      const mensagemResultado = document.getElementById('mensagem-resultado');
+      if (acertos === 40) {
+        mensagemResultado.textContent = 'Parabéns! Você domina o uso da vírgula!';
+      } else if (acertos >= 32) {
+        mensagemResultado.textContent = 'Bom trabalho! Você entende bem as regras de pontuação.';
+      } else {
+        mensagemResultado.textContent = 'Continue praticando! Revise os casos obrigatórios e proibidos.';
+      }
+
+      document.getElementById('resultado').style.display = 'block';
+    }
+
+    // Mostrar gabarito
+    function mostrarGabarito() {
+      document.getElementById('gabarito').style.display = 'block';
+      document.getElementById('mostrar-gabarito').style.display = 'none';
+    }
+
+    // Inicializar
+    document.addEventListener("DOMContentLoaded", function() {
+      saudacaoHorario();
+      document.getElementById('verificar-respostas').addEventListener('click', verificarRespostas);
+      document.getElementById('mostrar-gabarito').addEventListener('click', mostrarGabarito);
+    });
+  </script>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #3498db;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #3498db;
+    }
+
+    /* Conteúdo Principal */
+    .conteudo {
+      padding: 100px 20px 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .conteudo h2 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .conteudo p {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #555;
+    }
+
+    .conteudo #citacao {
+      font-style: italic;
+      color: #777;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    .conteudo h3 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .instrucoes {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    hr {
+      border: 1px solid #3498db;
+      width: 80%;
+      margin: 20px auto 40px;
+    }
+
+    /* Seção de Exercícios */
+    .exercicios {
+      padding: 40px 0;
+    }
+
+    .lista-exercicios {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .exercicio {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .exercicio p {
+      margin-bottom: 12px;
+      color: #333;
+    }
+
+    .opcoes-multiplas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .opcoes-multiplas label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background-color: #f8f9ff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .feedback-correto {
+      background-color: #d4edda;
+      color: #155724;
+      border-left: 4px solid #c3e6cb;
+    }
+
+    .feedback-errado {
+      background-color: #f8d7da;
+      color: #721c24;
+      border-left: 4px solid #f5c6cb;
+    }
+
+    /* Resultado */
+    .resultado {
+      margin-bottom: 30px;
+    }
+
+    .card-resultado {
+      background-color: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 5px solid #27ae60;
+    }
+
+    .card-resultado h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .btn-verificar {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-verificar:hover {
+      background-color: #219653;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Gabarito */
+    .gabarito {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .gabarito h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ecf0f1;
+    }
+
+    .gabarito ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .gabarito li {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .conteudo h2 { font-size: 2.2rem; }
+      .conteudo p { font-size: 1.1rem; }
+      .opcoes-multiplas { grid-template-columns: 1fr; }
+    }
+  </style>
+</body>
+</html>
