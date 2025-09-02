@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios - Ligações Iônicas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Aguarde...</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>🧂 Ligações Iônicas: Exercícios</h3>
+      <p class="instrucoes">Responda com atenção. Questões teóricas e de formação de compostos.</p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">20</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        <ol class="lista-exercicios">
+
+          <!-- Objetiva 1 (Teórica) -->
+          <li class="exercicio">
+            <p>O que é uma ligação iônica?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q1" value="a"> Uma ligação onde átomos compartilham elétrons.</label>
+              <label><input type="radio" name="q1" value="b"> Uma ligação onde um átomo doa elétrons para outro, formando íons que se atraem.</label>
+              <label><input type="radio" name="q1" value="c"> Uma ligação entre dois não-metais.</label>
+              <label><input type="radio" name="q1" value="d"> Uma ligação que não segue a regra do octeto.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Discursiva 1 (Cálculo) -->
+          <li class="exercicio">
+            <p>Descreva a formação do íon Na⁺ a partir do átomo de sódio (Na), incluindo a configuração eletrônica antes e depois.</p>
+            <p><textarea class="resposta-aberta" data-correct="o sódio (na) tem configuração eletrônica 2, 8, 1. perde 1 elétron para formar na⁺ com configuração 2, 8." placeholder="Sua resposta aqui..."></textarea></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Objetiva 2 (Teórica) -->
+          <li class="exercicio">
+            <p>Qual é a regra do octeto mencionada no documento?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q3" value="a"> Átomos querem ter 2 elétrons na última camada.</label>
+              <label><input type="radio" name="q3" value="b"> Átomos querem ter 8 elétrons na última camada, como gases nobres.</label>
+              <label><input type="radio" name="q3" value="c"> Átomos querem ter 18 elétrons na última camada.</label>
+              <label><input type="radio" name="q3" value="d"> Átomos não seguem nenhuma regra específica.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Discursiva 2 (Cálculo) -->
+          <li class="exercicio">
+            <p>Monte a fórmula do composto iônico formado entre cálcio (Ca) e cloro (Cl), explicando a troca de cargas.</p>
+            <p><textarea class="resposta-aberta" data-correct="ca perde 2 elétrons (ca²⁺), cl ganha 1 (cl⁻). fórmula: cacl₂ (troca de cargas: ca¹cl₂, ignora o 1)." placeholder="Sua resposta aqui..."></textarea></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Objetiva 3 (Teórica) -->
+          <li class="exercicio">
+            <p>Quais elementos geralmente participam de ligações iônicas?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q5" value="a"> Dois metais.</label>
+              <label><input type="radio" name="q5" value="b"> Metais (doadores) e não-metais (receptores).</label>
+              <label><input type="radio" name="q5" value="c"> Dois não-metais.</label>
+              <label><input type="radio" name="q5" value="d"> Apenas gases nobres.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Discursiva 3 (Cálculo) -->
+          <li class="exercicio">
+            <p>Descreva a formação do MgO, incluindo as equações de perda e ganho de elétrons.</p>
+            <p><textarea class="resposta-aberta" data-correct="mg → mg²⁺ + 2e⁻; o + 2e⁻ → o²⁻. magnésio perde 2 elétrons, oxigênio ganha 2." placeholder="Sua resposta aqui..."></textarea></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Objetiva 4 (Teórica) -->
+          <li class="exercicio">
+            <p>Qual é uma propriedade dos compostos iônicos?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q7" value="a"> São gases à temperatura ambiente.</label>
+              <label><input type="radio" name="q7" value="b"> Têm pontos de fusão e ebulição baixos.</label>
+              <label><input type="radio" name="q7" value="c"> Conduzem eletricidade quando dissolvidos em água.</label>
+              <label><input type="radio" name="q7" value="d"> Não são solúveis em água.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Discursiva 4 (Cálculo) -->
+          <li class="exercicio">
+            <p>Determine a fórmula do composto iônico entre alumínio (Al) e enxofre (S), usando a regra da troca de cargas.</p>
+            <p><textarea class="resposta-aberta" data-correct="al³⁺ e s²⁻ → al₂s₃ (troca: al₂s₃)." placeholder="Sua resposta aqui..."></textarea></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Objetiva 5 (Teórica) -->
+          <li class="exercicio">
+            <p>O que significa "cátion" e "ânion" em ligações iônicas?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q9" value="a"> Cátion é negativo; ânion é positivo.</label>
+              <label><input type="radio" name="q9" value="b"> Cátion é positivo (perde elétrons); ânion é negativo (ganha elétrons).</label>
+              <label><input type="radio" name="q9" value="c"> Ambos são neutros.</label>
+              <label><input type="radio" name="q9" value="d"> São termos para ligações covalentes.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Discursiva 5 (Cálculo) -->
+          <li class="exercicio">
+            <p>Explique a formação do cloreto de magnésio (MgCl₂), incluindo por que são necessários dois átomos de cloro.</p>
+            <p><textarea class="resposta-aberta" data-correct="mg perde 2 elétrons (mg²⁺), cada cl ganha 1 (cl⁻). dois cl recebem os 2 elétrons. equação: mg → mg²⁺ + 2e⁻; 2cl + 2e⁻ → 2cl⁻." placeholder="Sua resposta aqui..."></textarea></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Objetiva 6 (Teórica) -->
+          <li class="exercicio">
+            <p>Onde encontramos ligações iônicas no dia a dia, segundo o documento?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q11" value="a"> Apenas em laboratórios.</label>
+              <label><input type="radio" name="q11" value="b"> No sal de cozinha (NaCl) e no calcário (CaCO₃).</label>
+              <label><input type="radio" name="q11" value="c"> Em plásticos e polímeros.</label>
+              <label><input type="radio" name="q11" value="d"> Em metais puros.</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Discursiva 6 (Cálculo) -->
+          <li class="exercicio">
+            <p>Descreva a configuração eletrônica do cloro (Cl) antes e após formar Cl⁻ no NaCl.</p>
+            <p><textarea class="resposta-aberta" data-correct="cl tem 2, 8, 7. ganha 1 elétron para formar cl⁻ com 2, 8, 8." placeholder="Sua resposta aqui..."></textarea></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Objetiva 7 (Cálculo) -->
+          <li class="exercicio">
+            <p>Qual é a fórmula correta para o composto iônico entre potássio (K) e oxigênio (O)?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q13" value="a"> KO</label>
+              <label><input type="radio" name="q13" value="b"> K₂O</label>
+              <label><input type="radio" name="q13" value="c"> KO₂</label>
+              <label><input type="radio" name="q13" value="d"> K₃O</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Discursiva 7 (Teórica) -->
+          <li class="exercicio">
+            <p>Explique por que os compostos iônicos formam cristais e são sólidos à temperatura ambiente.</p>
+            <p><textarea class="resposta-aberta" data-correct="devido à forte atração entre íons positivos e negativos, que os organiza em estruturas cristalinas rígidas, requerendo alta energia para derreter." placeholder="Sua resposta aqui..."></textarea></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Objetiva 8 (Cálculo) -->
+          <li class="exercicio">
+            <p>No composto CaO, quantos elétrons o cálcio perde?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q15" value="a"> 1</label>
+              <label><input type="radio" name="q15" value="b"> 2</label>
+              <label><input type="radio" name="q15" value="c"> 3</label>
+              <label><input type="radio" name="q15" value="d"> 0</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Discursiva 8 (Teórica) -->
+          <li class="exercicio">
+            <p>O que é a "regra prática para montar fórmulas iônicas" mencionada no documento?</p>
+            <p><textarea class="resposta-aberta" data-correct="escreva os íons, troque as cargas (sem sinal) para índices e ignore o 1 (ex: mg²⁺ e cl⁻ → mgcl₂)." placeholder="Sua resposta aqui..."></textarea></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Objetiva 9 (Cálculo) -->
+          <li class="exercicio">
+            <p>Qual é a equação para a formação de F⁻ a partir de flúor (F)?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q17" value="a"> F → F⁺ + 1e⁻</label>
+              <label><input type="radio" name="q17" value="b"> F + 1e⁻ → F⁻</label>
+              <label><input type="radio" name="q17" value="c"> F → F²⁻ + 2e⁻</label>
+              <label><input type="radio" name="q17" value="d"> F + 2e⁻ → F²⁺</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Discursiva 9 (Teórica) -->
+          <li class="exercicio">
+            <p>Por que os metais perdem elétrons e os não-metais ganham em ligações iônicas?</p>
+            <p><textarea class="resposta-aberta" data-correct="metais têm poucos elétrons na camada externa, facilitando a perda para atingir estabilidade; não-metais têm muitos, facilitando o ganho para completar o octeto." placeholder="Sua resposta aqui..."></textarea></p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Objetiva 10 (Cálculo) -->
+          <li class="exercicio">
+            <p>Qual é a fórmula do composto entre sódio (Na) e enxofre (S)?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q19" value="a"> NaS</label>
+              <label><input type="radio" name="q19" value="b"> Na₂S</label>
+              <label><input type="radio" name="q19" value="c"> NaS₂</label>
+              <label><input type="radio" name="q19" value="d"> Na₃S</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Discursiva 10 (Teórica) -->
+          <li class="exercicio">
+            <p>Liste três propriedades dos compostos iônicos e explique uma delas brevemente.</p>
+            <p><textarea class="resposta-aberta" data-correct="sólidos à temperatura ambiente, altos pontos de fusão/ebulição, conduzem eletricidade dissolvidos. exemplo: conduzem eletricidade porque os íons se separam na água, permitindo fluxo de cargas." placeholder="Sua resposta aqui..."></textarea></p>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Botão de Verificação -->
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+      </form>
+
+      <!-- Gabarito -->
+      <div id="gabarito" class="gabarito" style="display: none;">
+        <h4>Gabarito</h4>
+        <ol>
+          <li>b</li>
+          <li>O sódio (Na) tem configuração eletrônica 2, 8, 1. Perde 1 elétron para formar Na⁺ com configuração 2, 8.</li>
+          <li>b</li>
+          <li>Ca perde 2 elétrons (Ca²⁺), Cl ganha 1 (Cl⁻). Fórmula: CaCl₂ (troca de cargas: Ca¹Cl₂, ignora o 1).</li>
+          <li>b</li>
+          <li>Mg → Mg²⁺ + 2e⁻; O + 2e⁻ → O²⁻. Magnésio perde 2 elétrons, oxigênio ganha 2.</li>
+          <li>c</li>
+          <li>Al³⁺ e S²⁻ → Al₂S₃ (troca: Al₂S₃).</li>
+          <li>b</li>
+          <li>Mg perde 2 elétrons (Mg²⁺), cada Cl ganha 1 (Cl⁻). Dois Cl recebem os 2 elétrons. Equação: Mg → Mg²⁺ + 2e⁻; 2Cl + 2e⁻ → 2Cl⁻.</li>
+          <li>b</li>
+          <li>Cl tem 2, 8, 7. Ganha 1 elétron para formar Cl⁻ com 2, 8, 8.</li>
+          <li>b</li>
+          <li>Devido à forte atração entre íons positivos e negativos, que os organiza em estruturas cristalinas rígidas, requerendo alta energia para derreter.</li>
+          <li>b</li>
+          <li>Escreva os íons, troque as cargas (sem sinal) para índices e ignore o 1 (ex: Mg²⁺ e Cl⁻ → MgCl₂).</li>
+          <li>b</li>
+          <li>Metais têm poucos elétrons na camada externa, facilitando a perda para atingir estabilidade; não-metais têm muitos, facilitando o ganho para completar o octeto.</li>
+          <li>b</li>
+          <li>Sólidos à temperatura ambiente, altos pontos de fusão/ebulição, conduzem eletricidade dissolvidos. Exemplo: conduzem eletricidade porque os íons se separam na água, permitindo fluxo de cargas.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Saudação dinâmica
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Teste seus conhecimentos sobre ligações iônicas!";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, químico! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! 🔬";
+      } else {
+        saudacao = "Boa noite, cientista! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+
+    // Verificar respostas
+    function verificarRespostas() {
+      let acertos = 0;
+      const total = 20;
+
+      // Limpa feedbacks anteriores
+      document.querySelectorAll('.feedback').forEach(fb => {
+        fb.style.display = 'none';
+        fb.className = fb.className.replace(/feedback-(correto|errado)/g, '').trim();
+      });
+
+      // Respostas corretas
+      const respostasMultiplas = {
+        q1: "b", q3: "b", q5: "b", q7: "c", q9: "b",
+        q11: "b", q13: "b", q15: "b", q17: "b", q19: "b"
+      };
+
+      const respostasAbertas = [
+        "o sódio (na) tem configuração eletrônica 2, 8, 1. perde 1 elétron para formar na⁺ com configuração 2, 8.",
+        "ca perde 2 elétrons (ca²⁺), cl ganha 1 (cl⁻). fórmula: cacl₂ (troca de cargas: ca¹cl₂, ignora o 1).",
+        "mg → mg²⁺ + 2e⁻; o + 2e⁻ → o²⁻. magnésio perde 2 elétrons, oxigênio ganha 2.",
+        "al³⁺ e s²⁻ → al₂s₃ (troca: al₂s₃).",
+        "mg perde 2 elétrons (mg²⁺), cada cl ganha 1 (cl⁻). dois cl recebem os 2 elétrons. equação: mg → mg²⁺ + 2e⁻; 2cl + 2e⁻ → 2cl⁻.",
+        "cl tem 2, 8, 7. ganha 1 elétron para formar cl⁻ com 2, 8, 8.",
+        "devido à forte atração entre íons positivos e negativos, que os organiza em estruturas cristalinas rígidas, requerendo alta energia para derreter.",
+        "escreva os íons, troque as cargas (sem sinal) para índices e ignore o 1 (ex: mg²⁺ e cl⁻ → mgcl₂).",
+        "metais têm poucos elétrons na camada externa, facilitando a perda para atingir estabilidade; não-metais têm muitos, facilitando o ganho para completar o octeto.",
+        "sólidos à temperatura ambiente, altos pontos de fusão/ebulição, conduzem eletricidade dissolvidos. exemplo: conduzem eletricidade porque os íons se separam na água, permitindo fluxo de cargas."
+      ];
+
+      // Verifica múltipla escolha
+      const multiplas = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+      multiplas.forEach((num, index) => {
+        const exercicio = document.querySelector(`.exercicio:nth-child(${num})`);
+        const feedback = exercicio.querySelector('.feedback');
+        const nome = `q${num}`;
+        const selecionado = exercicio.querySelector('input[type="radio"]:checked');
+        const respostaCorreta = respostasMultiplas[nome];
+
+        if (selecionado && selecionado.value === respostaCorreta) {
+          acertos++;
+          feedback.textContent = '✅ Correto!';
+          feedback.className = 'feedback feedback-correto';
+        } else {
+          feedback.textContent = '❌ Incorreto. Revise o conteúdo.';
+          feedback.className = 'feedback feedback-errado';
+        }
+        feedback.style.display = 'block';
+      });
+
+      // Verifica respostas abertas (ímpares de 2 a 20)
+      const abertas = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+      abertas.forEach((num, index) => {
+        const exercicio = document.querySelector(`.exercicio:nth-child(${num})`);
+        const feedback = exercicio.querySelector('.feedback');
+        const textarea = exercicio.querySelector('textarea');
+        const respostaDigitada = textarea.value.trim().toLowerCase().replace(/[^\w\s,\.]/g, '');
+        const respostaCorreta = respostasAbertas[index].replace(/[^\w\s,\.]/g, '');
+
+        if (respostaDigitada.includes(respostaCorreta)) {
+          acertos++;
+          feedback.textContent = '✅ Resposta no caminho certo!';
+          feedback.className = 'feedback feedback-correto';
+        } else {
+          feedback.textContent = '❌ Resposta incompleta ou incorreta. Reveja o conceito.';
+          feedback.className = 'feedback feedback-errado';
+        }
+        feedback.style.display = 'block';
+      });
+
+      // Mostrar resultado
+      document.getElementById('acertos').textContent = acertos;
+      document.getElementById('total').textContent = total;
+
+      const mensagemResultado = document.getElementById('mensagem-resultado');
+      if (acertos === 20) {
+        mensagemResultado.textContent = 'Parabéns! Você domina as ligações iônicas!';
+      } else if (acertos >= 16) {
+        mensagemResultado.textContent = 'Bom trabalho! Você entende bem a formação de compostos iônicos.';
+      } else {
+        mensagemResultado.textContent = 'Continue estudando! Revise íons, cargas e regra do octeto.';
+      }
+
+      document.getElementById('resultado').style.display = 'block';
+    }
+
+    // Mostrar gabarito
+    function mostrarGabarito() {
+      document.getElementById('gabarito').style.display = 'block';
+      document.getElementById('mostrar-gabarito').style.display = 'none';
+    }
+
+    // Inicializar
+    document.addEventListener("DOMContentLoaded", function() {
+      saudacaoHorario();
+      document.getElementById('verificar-respostas').addEventListener('click', verificarRespostas);
+      document.getElementById('mostrar-gabarito').addEventListener('click', mostrarGabarito);
+    });
+  </script>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #3498db;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #3498db;
+    }
+
+    /* Conteúdo Principal */
+    .conteudo {
+      padding: 100px 20px 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .conteudo h2 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .conteudo p {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #555;
+    }
+
+    .conteudo #citacao {
+      font-style: italic;
+      color: #777;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    .conteudo h3 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .instrucoes {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    hr {
+      border: 1px solid #3498db;
+      width: 80%;
+      margin: 20px auto 40px;
+    }
+
+    /* Seção de Exercícios */
+    .exercicios {
+      padding: 40px 0;
+    }
+
+    .lista-exercicios {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .exercicio {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .exercicio p {
+      margin-bottom: 12px;
+      color: #333;
+    }
+
+    .opcoes-multiplas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .opcoes-multiplas label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background-color: #f8f9ff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .resposta-aberta {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .feedback-correto {
+      background-color: #d4edda;
+      color: #155724;
+      border-left: 4px solid #c3e6cb;
+    }
+
+    .feedback-errado {
+      background-color: #f8d7da;
+      color: #721c24;
+      border-left: 4px solid #f5c6cb;
+    }
+
+    /* Resultado */
+    .resultado {
+      margin-bottom: 30px;
+    }
+
+    .card-resultado {
+      background-color: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 5px solid #27ae60;
+    }
+
+    .card-resultado h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .btn-verificar {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-verificar:hover {
+      background-color: #219653;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Gabarito */
+    .gabarito {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .gabarito h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ecf0f1;
+    }
+
+    .gabarito ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .gabarito li {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .conteudo h2 { font-size: 2.2rem; }
+      .conteudo p { font-size: 1.1rem; }
+      .opcoes-multiplas { grid-template-columns: 1fr; }
+    }
+  </style>
+</body>
+</html>
