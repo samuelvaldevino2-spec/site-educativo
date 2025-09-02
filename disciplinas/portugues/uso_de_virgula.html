@@ -177,10 +177,11 @@
   </section>
 
   <!-- Seção de Atividades -->
-<section class="atividades">
-  <div class="container">
-    
-  <!-- Card de Exercício 1 -->
+  <section class="atividades">
+    <div class="container">
+      <div class="grid-atividades">
+
+        <!-- Card de Exercício 1 -->
         <div class="card-atividade">
           <div class="card-header">
             <span class="icon">✍️</span>
@@ -195,7 +196,7 @@
           </div>
         </div>
 
-   <!-- Card de Exercício 2 -->
+        <!-- Card de Exercício 2 -->
         <div class="card-atividade">
           <div class="card-header">
             <span class="icon">✍️</span>
@@ -203,17 +204,17 @@
           </div>
           <div class="card-body">
             <h4>Exercício: Uso de vírgula</h4>
-            <p>Pratique o uso de vírgulas com 40 questões discursivas</p>
+            <p>Pratique o uso de vírgulas com 40 questões discursivas.</p>
           </div>
           <div class="card-footer">
             <a href="exercicios/exercicio2_uso_de_virgula.html" class="btn-acessar">Resolver agora</a>
           </div>
         </div>
-      </di>
-    
+
+      </div>
     </div>
   </section>
-
+  
   <!-- Rodapé -->
   <footer>
     <div class="container">
@@ -430,7 +431,93 @@
     .btn-download:hover {
       background-color: #219653;
     }
+    /* Seção de Atividades */
+  .atividades {
+    padding: 40px 0;
+  }
 
+  .grid-atividades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+  }
+
+  /* Card de Atividade */
+  .card-atividade {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .card-atividade:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    background-color: rgba(52, 152, 219, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .card-header .icon {
+    font-size: 1.4rem;
+  }
+
+  .card-header .data {
+    font-size: 0.95rem;
+    color: #ddd;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .card-body h4 {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .card-body p {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.5;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 10px;
+  }
+
+  .btn-acessar {
+    background-color: #3498db;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.3s;
+  }
+
+  .btn-acessar:hover {
+    background-color: #2980b9;
+  }
+    
     /* Rodapé */
     footer {
       background-color: #1a2530;
