@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercício: Multiplicação</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Aguarde...</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>✖️ Multiplicação: Exercícios</h3>
+      <p class="instrucoes">Resolva as multiplicações com atenção. São 40 questões: 20 de cálculo e 20 problemas do dia a dia.</p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">40</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        <ol class="lista-exercicios">
+
+          <!-- Questões 1 a 40 -->
+          <li class="exercicio">
+            <p>1) 7 × 8 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q1" value="0"> 54</label>
+              <label><input type="radio" name="q1" value="1"> 56</label>
+              <label><input type="radio" name="q1" value="2"> 48</label>
+              <label><input type="radio" name="q1" value="3"> 64</label>
+              <label><input type="radio" name="q1" value="4"> 58</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>2) 12 × 11 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q2" value="0"> 121</label>
+              <label><input type="radio" name="q2" value="1"> 132</label>
+              <label><input type="radio" name="q2" value="2"> 142</label>
+              <label><input type="radio" name="q2" value="3"> 112</label>
+              <label><input type="radio" name="q2" value="4"> 122</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>3) 15 × 6 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q3" value="0"> 85</label>
+              <label><input type="radio" name="q3" value="1"> 80</label>
+              <label><input type="radio" name="q3" value="2"> 90</label>
+              <label><input type="radio" name="q3" value="3"> 75</label>
+              <label><input type="radio" name="q3" value="4"> 95</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>4) 9 × 9 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q4" value="0"> 99</label>
+              <label><input type="radio" name="q4" value="1"> 91</label>
+              <label><input type="radio" name="q4" value="2"> 81</label>
+              <label><input type="radio" name="q4" value="3"> 72</label>
+              <label><input type="radio" name="q4" value="4"> 89</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>5) 25 × 4 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q5" value="0"> 75</label>
+              <label><input type="radio" name="q5" value="1"> 125</label>
+              <label><input type="radio" name="q5" value="2"> 120</label>
+              <label><input type="radio" name="q5" value="3"> 100</label>
+              <label><input type="radio" name="q5" value="4"> 110</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>6) 18 × 5 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q6" value="0"> 80</label>
+              <label><input type="radio" name="q6" value="1"> 85</label>
+              <label><input type="radio" name="q6" value="2"> 95</label>
+              <label><input type="radio" name="q6" value="3"> 90</label>
+              <label><input type="radio" name="q6" value="4"> 100</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>7) 13 × 7 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q7" value="0"> 81</label>
+              <label><input type="radio" name="q7" value="1"> 90</label>
+              <label><input type="radio" name="q7" value="2"> 91</label>
+              <label><input type="radio" name="q7" value="3"> 97</label>
+              <label><input type="radio" name="q7" value="4"> 87</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>8) 20 × 12 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q8" value="0"> 220</label>
+              <label><input type="radio" name="q8" value="1"> 230</label>
+              <label><input type="radio" name="q8" value="2"> 240</label>
+              <label><input type="radio" name="q8" value="3"> 250</label>
+              <label><input type="radio" name="q8" value="4"> 260</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>9) 16 × 16 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q9" value="0"> 226</label>
+              <label><input type="radio" name="q9" value="1"> 236</label>
+              <label><input type="radio" name="q9" value="2"> 246</label>
+              <label><input type="radio" name="q9" value="3"> 256</label>
+              <label><input type="radio" name="q9" value="4"> 266</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>10) 30 × 9 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q10" value="0"> 260</label>
+              <label><input type="radio" name="q10" value="1"> 270</label>
+              <label><input type="radio" name="q10" value="2"> 280</label>
+              <label><input type="radio" name="q10" value="3"> 290</label>
+              <label><input type="radio" name="q10" value="4"> 300</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>11) 14 × 14 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q11" value="0"> 186</label>
+              <label><input type="radio" name="q11" value="1"> 196</label>
+              <label><input type="radio" name="q11" value="2"> 206</label>
+              <label><input type="radio" name="q11" value="3"> 216</label>
+              <label><input type="radio" name="q11" value="4"> 226</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>12) 50 × 8 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q12" value="0"> 350</label>
+              <label><input type="radio" name="q12" value="1"> 380</label>
+              <label><input type="radio" name="q12" value="2"> 400</label>
+              <label><input type="radio" name="q12" value="3"> 420</label>
+              <label><input type="radio" name="q12" value="4"> 440</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>13) 33 × 3 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q13" value="0"> 96</label>
+              <label><input type="radio" name="q13" value="1"> 97</label>
+              <label><input type="radio" name="q13" value="2"> 98</label>
+              <label><input type="radio" name="q13" value="3"> 99</label>
+              <label><input type="radio" name="q13" value="4"> 100</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>14) 45 × 2 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q14" value="0"> 80</label>
+              <label><input type="radio" name="q14" value="1"> 85</label>
+              <label><input type="radio" name="q14" value="2"> 90</label>
+              <label><input type="radio" name="q14" value="3"> 95</label>
+              <label><input type="radio" name="q14" value="4"> 100</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>15) 22 × 5 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q15" value="0"> 100</label>
+              <label><input type="radio" name="q15" value="1"> 105</label>
+              <label><input type="radio" name="q15" value="2"> 110</label>
+              <label><input type="radio" name="q15" value="3"> 115</label>
+              <label><input type="radio" name="q15" value="4"> 120</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>16) 19 × 4 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q16" value="0"> 74</label>
+              <label><input type="radio" name="q16" value="1"> 76</label>
+              <label><input type="radio" name="q16" value="2"> 78</label>
+              <label><input type="radio" name="q16" value="3"> 80</label>
+              <label><input type="radio" name="q16" value="4"> 82</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>17) 32 × 7 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q17" value="0"> 214</label>
+              <label><input type="radio" name="q17" value="1"> 220</label>
+              <label><input type="radio" name="q17" value="2"> 224</label>
+              <label><input type="radio" name="q17" value="3"> 230</label>
+              <label><input type="radio" name="q17" value="4"> 240</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>18) 28 × 6 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q18" value="0"> 158</label>
+              <label><input type="radio" name="q18" value="1"> 162</label>
+              <label><input type="radio" name="q18" value="2"> 168</label>
+              <label><input type="radio" name="q18" value="3"> 172</label>
+              <label><input type="radio" name="q18" value="4"> 176</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>19) 100 × 15 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q19" value="0"> 1400</label>
+              <label><input type="radio" name="q19" value="1"> 1450</label>
+              <label><input type="radio" name="q19" value="2"> 1500</label>
+              <label><input type="radio" name="q19" value="3"> 1550</label>
+              <label><input type="radio" name="q19" value="4"> 1600</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>20) 42 × 3 =</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q20" value="0"> 124</label>
+              <label><input type="radio" name="q20" value="1"> 125</label>
+              <label><input type="radio" name="q20" value="2"> 126</label>
+              <label><input type="radio" name="q20" value="3"> 127</label>
+              <label><input type="radio" name="q20" value="4"> 128</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Problemas do Cotidiano -->
+          <li class="exercicio">
+            <p>21) João comprou 3 caixas com 12 garrafas cada. Quantas garrafas no total?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q21" value="0"> 32</label>
+              <label><input type="radio" name="q21" value="1"> 34</label>
+              <label><input type="radio" name="q21" value="2"> 36</label>
+              <label><input type="radio" name="q21" value="3"> 38</label>
+              <label><input type="radio" name="q21" value="4"> 40</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>22) Uma escola tem 25 salas, cada sala com 30 alunos. Quantos alunos?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q22" value="0"> 650</label>
+              <label><input type="radio" name="q22" value="1"> 700</label>
+              <label><input type="radio" name="q22" value="2"> 725</label>
+              <label><input type="radio" name="q22" value="3"> 750</label>
+              <label><input type="radio" name="q22" value="4"> 775</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>23) Uma padaria vende 18 pães por bandeja. Em 15 bandejas, quantos pães?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q23" value="0"> 260</label>
+              <label><input type="radio" name="q23" value="1"> 270</label>
+              <label><input type="radio" name="q23" value="2"> 280</label>
+              <label><input type="radio" name="q23" value="3"> 290</label>
+              <label><input type="radio" name="q23" value="4"> 300</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>24) Um ônibus leva 45 pessoas. Em 12 viagens, quantas pessoas?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q24" value="0"> 520</label>
+              <label><input type="radio" name="q24" value="1"> 530</label>
+              <label><input type="radio" name="q24" value="2"> 540</label>
+              <label><input type="radio" name="q24" value="3"> 550</label>
+              <label><input type="radio" name="q24" value="4"> 560</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>25) Um fazendeiro planta 25 árvores em cada fileira. Em 40 fileiras?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q25" value="0"> 900</label>
+              <label><input type="radio" name="q25" value="1"> 950</label>
+              <label><input type="radio" name="q25" value="2"> 1000</label>
+              <label><input type="radio" name="q25" value="3"> 1050</label>
+              <label><input type="radio" name="q25" value="4"> 1100</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>26) Maria comprou 14 caixas de ovos com 12 ovos cada. Quantos ovos?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q26" value="0"> 158</label>
+              <label><input type="radio" name="q26" value="1"> 164</label>
+              <label><input type="radio" name="q26" value="2"> 168</label>
+              <label><input type="radio" name="q26" value="3"> 172</label>
+              <label><input type="radio" name="q26" value="4"> 176</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>27) Uma sorveteria vende 28 sorvetes por hora. Quantos em 9 horas?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q27" value="0"> 240</label>
+              <label><input type="radio" name="q27" value="1"> 250</label>
+              <label><input type="radio" name="q27" value="2"> 252</label>
+              <label><input type="radio" name="q27" value="3"> 260</label>
+              <label><input type="radio" name="q27" value="4"> 270</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>28) Uma fábrica produz 125 peças por dia. Em 20 dias?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q28" value="0"> 2400</label>
+              <label><input type="radio" name="q28" value="1"> 2450</label>
+              <label><input type="radio" name="q28" value="2"> 2500</label>
+              <label><input type="radio" name="q28" value="3"> 2550</label>
+              <label><input type="radio" name="q28" value="4"> 2600</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>29) Uma impressora imprime 36 páginas por minuto. Em 15 minutos?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q29" value="0"> 510</label>
+              <label><input type="radio" name="q29" value="1"> 520</label>
+              <label><input type="radio" name="q29" value="2"> 530</label>
+              <label><input type="radio" name="q29" value="3"> 540</label>
+              <label><input type="radio" name="q29" value="4"> 550</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>30) Cada caixa tem 48 latas. Em 25 caixas, quantas latas?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q30" value="0"> 1180</label>
+              <label><input type="radio" name="q30" value="1"> 1190</label>
+              <label><input type="radio" name="q30" value="2"> 1200</label>
+              <label><input type="radio" name="q30" value="3"> 1210</label>
+              <label><input type="radio" name="q30" value="4"> 1220</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>31) Um hotel tem 60 quartos, cada um com 2 camas. Quantas camas?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q31" value="0"> 115</label>
+              <label><input type="radio" name="q31" value="1"> 118</label>
+              <label><input type="radio" name="q31" value="2"> 120</label>
+              <label><input type="radio" name="q31" value="3"> 122</label>
+              <label><input type="radio" name="q31" value="4"> 124</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>32) Uma loja vende 75 camisetas por dia. Em 12 dias?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q32" value="0"> 880</label>
+              <label><input type="radio" name="q32" value="1"> 890</label>
+              <label><input type="radio" name="q32" value="2"> 900</label>
+              <label><input type="radio" name="q32" value="3"> 910</label>
+              <label><input type="radio" name="q32" value="4"> 920</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>33) Um time joga 38 partidas, cada uma com 90 minutos. Total de minutos?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q33" value="0"> 3300</label>
+              <label><input type="radio" name="q33" value="1"> 3400</label>
+              <label><input type="radio" name="q33" value="2"> 3420</label>
+              <label><input type="radio" name="q33" value="3"> 3450</label>
+              <label><input type="radio" name="q33" value="4"> 3500</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>34) Uma fazenda produz 250 litros de leite por dia. Em 28 dias?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q34" value="0"> 6800</label>
+              <label><input type="radio" name="q34" value="1"> 6900</label>
+              <label><input type="radio" name="q34" value="2"> 7000</label>
+              <label><input type="radio" name="q34" value="3"> 7100</label>
+              <label><input type="radio" name="q34" value="4"> 7200</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>35) Uma gráfica imprime 120 livros por hora. Quantos em 7 horas?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q35" value="0"> 820</label>
+              <label><input type="radio" name="q35" value="1"> 830</label>
+              <label><input type="radio" name="q35" value="2"> 840</label>
+              <label><input type="radio" name="q35" value="3"> 850</label>
+              <label><input type="radio" name="q35" value="4"> 860</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>36) Um navio transporta 320 pessoas por viagem. Em 18 viagens?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q36" value="0"> 5660</label>
+              <label><input type="radio" name="q36" value="1"> 5680</label>
+              <label><input type="radio" name="q36" value="2"> 5700</label>
+              <label><input type="radio" name="q36" value="3"> 5720</label>
+              <label><input type="radio" name="q36" value="4"> 5740</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>37) Cada caixa de lápis tem 24 unidades. Em 45 caixas?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q37" value="0"> 1060</label>
+              <label><input type="radio" name="q37" value="1"> 1070</label>
+              <label><input type="radio" name="q37" value="2"> 1080</label>
+              <label><input type="radio" name="q37" value="3"> 1090</label>
+              <label><input type="radio" name="q37" value="4"> 1100</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>38) Uma loja vende 95 bolos por dia. Quantos em 31 dias?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q38" value="0"> 2920</label>
+              <label><input type="radio" name="q38" value="1"> 2930</label>
+              <label><input type="radio" name="q38" value="2"> 2945</label>
+              <label><input type="radio" name="q38" value="3"> 2950</label>
+              <label><input type="radio" name="q38" value="4"> 2960</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>39) Um galpão tem 18 prateleiras, cada uma com 36 caixas. Quantas caixas?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q39" value="0"> 642</label>
+              <label><input type="radio" name="q39" value="1"> 648</label>
+              <label><input type="radio" name="q39" value="2"> 654</label>
+              <label><input type="radio" name="q39" value="3"> 660</label>
+              <label><input type="radio" name="q39" value="4"> 666</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <li class="exercicio">
+            <p>40) Um parque tem 42 bancos, cada um com 4 lugares. Quantos lugares?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q40" value="0"> 166</label>
+              <label><input type="radio" name="q40" value="1"> 167</label>
+              <label><input type="radio" name="q40" value="2"> 168</label>
+              <label><input type="radio" name="q40" value="3"> 169</label>
+              <label><input type="radio" name="q40" value="4"> 170</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Botão de Verificação -->
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+      </form>
+
+      <!-- Gabarito -->
+      <div id="gabarito" class="gabarito" style="display: none;">
+        <h4>Gabarito</h4>
+        <ol>
+          <li>56</li><li>132</li><li>90</li><li>81</li><li>100</li>
+          <li>90</li><li>91</li><li>240</li><li>256</li><li>270</li>
+          <li>196</li><li>400</li><li>99</li><li>90</li><li>110</li>
+          <li>76</li><li>224</li><li>168</li><li>1500</li><li>126</li>
+          <li>36</li><li>750</li><li>270</li><li>540</li><li>1000</li>
+          <li>168</li><li>252</li><li>2500</li><li>540</li><li>1200</li>
+          <li>120</li><li>900</li><li>3420</li><li>7000</li><li>840</li>
+          <li>5760</li><li>1080</li><li>2945</li><li>648</li><li>168</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Saudação dinâmica
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Pratique multiplicação e torne-se mais rápido!";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, matemático! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ✖️";
+      } else {
+        saudacao = "Boa noite, cálculo rápido! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+
+    // Verificar respostas
+    function verificarRespostas() {
+      let acertos = 0;
+      const total = 40;
+
+      // Limpa feedbacks anteriores
+      document.querySelectorAll('.feedback').forEach(fb => {
+        fb.style.display = 'none';
+        fb.className = fb.className.replace(/feedback-(correto|errado)/g, '').trim();
+      });
+
+      // Respostas corretas (índices das opções corretas)
+      const respostasCorretas = [
+        1,1,2,2,3,3,2,2,3,1,
+        1,2,3,2,2,1,2,2,2,2,
+        2,3,4,2,2,2,2,2,3,2,
+        2,2,2,2,2,2,2,2,1,2
+      ];
+
+      document.querySelectorAll('.exercicio').forEach((exercicio, index) => {
+        const feedback = exercicio.querySelector('.feedback');
+        const selecionado = exercicio.querySelector('input[type="radio"]:checked');
+        const respostaCorreta = respostasCorretas[index];
+
+        if (selecionado && parseInt(selecionado.value) === respostaCorreta) {
+          acertos++;
+          feedback.textContent = '✅ Correto!';
+          feedback.className = 'feedback feedback-correto';
+        } else {
+          feedback.textContent = '❌ Incorreto. Revise a tabuada e os problemas.';
+          feedback.className = 'feedback feedback-errado';
+        }
+        feedback.style.display = 'block';
+      });
+
+      // Mostrar resultado
+      document.getElementById('acertos').textContent = acertos;
+      document.getElementById('total').textContent = total;
+
+      const mensagemResultado = document.getElementById('mensagem-resultado');
+      if (acertos === 40) {
+        mensagemResultado.textContent = 'Parabéns! Você é um mestre da multiplicação!';
+      } else if (acertos >= 32) {
+        mensagemResultado.textContent = 'Bom trabalho! Você está dominando a multiplicação.';
+      } else {
+        mensagemResultado.textContent = 'Continue praticando! Use a tabuada e resolva mais problemas.';
+      }
+
+      document.getElementById('resultado').style.display = 'block';
+    }
+
+    // Mostrar gabarito
+    function mostrarGabarito() {
+      document.getElementById('gabarito').style.display = 'block';
+      document.getElementById('mostrar-gabarito').style.display = 'none';
+    }
+
+    // Inicializar
+    document.addEventListener("DOMContentLoaded", function() {
+      saudacaoHorario();
+      document.getElementById('verificar-respostas').addEventListener('click', verificarRespostas);
+      document.getElementById('mostrar-gabarito').addEventListener('click', mostrarGabarito);
+    });
+  </script>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #3498db;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #3498db;
+    }
+
+    /* Conteúdo Principal */
+    .conteudo {
+      padding: 100px 20px 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .conteudo h2 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .conteudo p {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #555;
+    }
+
+    .conteudo #citacao {
+      font-style: italic;
+      color: #777;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    .conteudo h3 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .instrucoes {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    hr {
+      border: 1px solid #3498db;
+      width: 80%;
+      margin: 20px auto 40px;
+    }
+
+    /* Seção de Exercícios */
+    .exercicios {
+      padding: 40px 0;
+    }
+
+    .lista-exercicios {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .exercicio {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .exercicio p {
+      margin-bottom: 12px;
+      color: #333;
+    }
+
+    .opcoes-multiplas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .opcoes-multiplas label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background-color: #f8f9ff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .feedback-correto {
+      background-color: #d4edda;
+      color: #155724;
+      border-left: 4px solid #c3e6cb;
+    }
+
+    .feedback-errado {
+      background-color: #f8d7da;
+      color: #721c24;
+      border-left: 4px solid #f5c6cb;
+    }
+
+    /* Resultado */
+    .resultado {
+      margin-bottom: 30px;
+    }
+
+    .card-resultado {
+      background-color: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 5px solid #27ae60;
+    }
+
+    .card-resultado h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .btn-verificar {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-verificar:hover {
+      background-color: #219653;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Gabarito */
+    .gabarito {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .gabarito h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ecf0f1;
+    }
+
+    .gabarito ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .gabarito li {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .conteudo h2 { font-size: 2.2rem; }
+      .conteudo p { font-size: 1.1rem; }
+      .opcoes-multiplas { grid-template-columns: 1fr; }
+    }
+  </style>
+</body>
+</html>
