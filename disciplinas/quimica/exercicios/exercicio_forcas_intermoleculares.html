@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercício: Forças Intermoleculares</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Aguarde...</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>⚛️ Ligações de Hidrogênio e Forças de Van der Waals: Exercícios</h3>
+      <p class="instrucoes">Responda com atenção. Teste seus conhecimentos sobre forças intermoleculares e suas influências no comportamento das substâncias.</p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">15</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        <h4 style="color: #3498db; margin-bottom: 15px;">🔹 Parte 1 – Questões Objetivas</h4>
+        <ol class="lista-exercicios" start="1">
+
+          <!-- Questão 1 -->
+          <li class="exercicio">
+            <p>A ligação de hidrogênio ocorre apenas quando o átomo de hidrogênio está ligado a:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q1" value="a"> C, N ou O</label>
+              <label><input type="radio" name="q1" value="b"> F, O ou N</label>
+              <label><input type="radio" name="q1" value="c"> Cl, Br ou I</label>
+              <label><input type="radio" name="q1" value="d"> Qualquer halogênio</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 2 -->
+          <li class="exercicio">
+            <p>A explicação para o alto ponto de ebulição da água (100 °C) está relacionada principalmente a:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q2" value="a"> Forças de London</label>
+              <label><input type="radio" name="q2" value="b"> Ligações iônicas</label>
+              <label><input type="radio" name="q2" value="c"> Ligações de hidrogênio</label>
+              <label><input type="radio" name="q2" value="d"> Dipolo-dipolo</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 3 -->
+          <li class="exercicio">
+            <p>Entre as substâncias abaixo, qual apresenta apenas forças de London?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q3" value="a"> H₂O</label>
+              <label><input type="radio" name="q3" value="b"> CH₄</label>
+              <label><input type="radio" name="q3" value="c"> NH₃</label>
+              <label><input type="radio" name="q3" value="d"> HCl</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 4 -->
+          <li class="exercicio">
+            <p>O iodo (I₂) é sólido à temperatura ambiente devido:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q4" value="a"> Ligações de hidrogênio</label>
+              <label><input type="radio" name="q4" value="b"> Forças dipolo-dipolo</label>
+              <label><input type="radio" name="q4" value="c"> Forças de London intensas pela alta massa molecular</label>
+              <label><input type="radio" name="q4" value="d"> Interações iônicas</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 5 -->
+          <li class="exercicio">
+            <p>O gelo flutua sobre a água líquida porque:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q5" value="a"> As forças de London no gelo são fracas</label>
+              <label><input type="radio" name="q5" value="b"> As ligações de hidrogênio criam uma rede menos densa no sólido</label>
+              <label><input type="radio" name="q5" value="c"> O oxigênio é menos eletronegativo no estado sólido</label>
+              <label><input type="radio" name="q5" value="d"> O hidrogênio sofre ionização parcial</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 6 -->
+          <li class="exercicio">
+            <p>O tipo de interação predominante no HCl líquido é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q6" value="a"> Ligação de hidrogênio</label>
+              <label><input type="radio" name="q6" value="b"> Dipolo-dipolo</label>
+              <label><input type="radio" name="q6" value="c"> Forças de London</label>
+              <label><input type="radio" name="q6" value="d"> Dipolo induzido</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 7 -->
+          <li class="exercicio">
+            <p>A molécula CH₃Cl apresenta qual força intermolecular predominante?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q7" value="a"> Ligação de hidrogênio</label>
+              <label><input type="radio" name="q7" value="b"> Dipolo-dipolo</label>
+              <label><input type="radio" name="q7" value="c"> Dipolo-induzido</label>
+              <label><input type="radio" name="q7" value="d"> Forças de London exclusivamente</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 8 -->
+          <li class="exercicio">
+            <p>O aumento da massa molecular em compostos apolares provoca:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q8" value="a"> Aumento das forças de London</label>
+              <label><input type="radio" name="q8" value="b"> Diminuição das forças dipolo-induzidas</label>
+              <label><input type="radio" name="q8" value="c"> Desaparecimento das ligações de hidrogênio</label>
+              <label><input type="radio" name="q8" value="d"> Maior polaridade</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 9 -->
+          <li class="exercicio">
+            <p>O fenômeno da solubilidade de gases apolares em líquidos polares (ex: O₂ na água) pode ser explicado por:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q9" value="a"> Forças de London</label>
+              <label><input type="radio" name="q9" value="b"> Dipolo-dipolo</label>
+              <label><input type="radio" name="q9" value="c"> Dipolo-induzido</label>
+              <label><input type="radio" name="q9" value="d"> Ligações de hidrogênio</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 10 -->
+          <li class="exercicio">
+            <p>Qual das alternativas apresenta a ordem correta de intensidade relativa das forças intermoleculares (da mais forte para a mais fraca)?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q10" value="a"> London > Dipolo-induzido > Dipolo-dipolo > Hidrogênio</label>
+              <label><input type="radio" name="q10" value="b"> Hidrogênio > Dipolo-dipolo > Dipolo-induzido > London</label>
+              <label><input type="radio" name="q10" value="c"> Dipolo-induzido > Hidrogênio > Dipolo-dipolo > London</label>
+              <label><input type="radio" name="q10" value="d"> Dipolo-dipolo > Hidrogênio > London > Dipolo-induzido</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <h4 style="color: #e74c3c; margin: 30px 0 15px 0;">📝 Parte 2 – Questões Discursivas</h4>
+        <ol class="lista-exercicios" start="11">
+
+          <!-- Questão 11 -->
+          <li class="exercicio">
+            <p>Explique por que o HF possui um ponto de ebulição muito mais alto que o HCl, mesmo ambos sendo moléculas diatômicas.</p>
+            <textarea class="resposta-aberta" data-correct="porque o hf forma ligações de hidrogênio entre suas moléculas, enquanto o hcl apresenta apenas forças dipolo-dipolo, que são mais fracas." placeholder="Sua resposta aqui..."></textarea>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 12 -->
+          <li class="exercicio">
+            <p>Compare as forças intermoleculares presentes em CH₄ e C₈H₁₈ (octano) e explique por que o primeiro é gás e o segundo líquido à temperatura ambiente.</p>
+            <textarea class="resposta-aberta" data-correct="ambos são apolares e têm apenas forças de london. porém, o octano tem massa molecular muito maior, o que aumenta significativamente a intensidade das forças de london, tornando-o líquido, enquanto o ch₄, leve, é gás." placeholder="Sua resposta aqui..."></textarea>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 13 -->
+          <li class="exercicio">
+            <p>Por que o NH₃ apresenta ligações de hidrogênio, enquanto o PH₃ não?</p>
+            <textarea class="resposta-aberta" data-correct="porque o nitrogênio é altamente eletronegativo e pequeno, permitindo forte ligação de hidrogênio. o fósforo é menos eletronegativo e maior, o que impossibilita a formação eficaz desse tipo de ligação." placeholder="Sua resposta aqui..."></textarea>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 14 -->
+          <li class="exercicio">
+            <p>Explique como as forças de Van der Waals influenciam o estado físico dos halogênios (F₂ e Cl₂ gases, Br₂ líquido e I₂ sólido).</p>
+            <textarea class="resposta-aberta" data-correct="à medida que aumenta a massa molecular (f₂ → cl₂ → br₂ → i₂), aumentam as forças de london (tipo de força de van der waals). isso exige mais energia para separar as moléculas, mudando o estado físico de gasoso para líquido e sólido." placeholder="Sua resposta aqui..."></textarea>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 15 -->
+          <li class="exercicio">
+            <p>Relacione as ligações de hidrogênio com a estrutura do DNA, explicando sua importância para a vida.</p>
+            <textarea class="resposta-aberta" data-correct="as pontes de hidrogênio mantêm unidas as duas fitas do dna, ligando bases nitrogenadas complementares (a-t e c-g). isso permite a duplicação fiel do material genético, essencial para a hereditariedade e funcionamento celular." placeholder="Sua resposta aqui..."></textarea>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Botão de Verificação -->
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+      </form>
+
+      <!-- Gabarito -->
+      <div id="gabarito" class="gabarito" style="display: none;">
+        <h4>Gabarito</h4>
+        <h5>🔹 Parte 1 – Múltipla Escolha</h5>
+        <ol>
+          <li>b) F, O ou N</li>
+          <li>c) Ligações de hidrogênio</li>
+          <li>b) CH₄</li>
+          <li>c) Forças de London intensas pela alta massa molecular</li>
+          <li>b) As ligações de hidrogênio criam uma rede menos densa no sólido</li>
+          <li>b) Dipolo-dipolo</li>
+          <li>b) Dipolo-dipolo</li>
+          <li>a) Aumento das forças de London</li>
+          <li>c) Dipolo-induzido</li>
+          <li>b) Hidrogênio > Dipolo-dipolo > Dipolo-induzido > London</li>
+        </ol>
+        <h5>📝 Parte 2 – Discursivas</h5>
+        <ol start="11">
+          <li>Porque o HF forma ligações de hidrogênio entre suas moléculas, enquanto o HCl apresenta apenas forças dipolo-dipolo, que são mais fracas.</li>
+          <li>Ambos são apolares e têm apenas forças de London. Porém, o octano tem massa molecular muito maior, o que aumenta significativamente a intensidade das forças de London, tornando-o líquido, enquanto o CH₄, leve, é gás.</li>
+          <li>Porque o nitrogênio é altamente eletronegativo e pequeno, permitindo forte ligação de hidrogênio. O fósforo é menos eletronegativo e maior, o que impossibilita a formação eficaz desse tipo de ligação.</li>
+          <li>À medida que aumenta a massa molecular (F₂ → Cl₂ → Br₂ → I₂), aumentam as forças de London (tipo de força de Van der Waals). Isso exige mais energia para separar as moléculas, mudando o estado físico de gasoso para líquido e sólido.</li>
+          <li>As pontes de hidrogênio mantêm unidas as duas fitas do DNA, ligando bases nitrogenadas complementares (A-T e C-G). Isso permite a duplicação fiel do material genético, essencial para a hereditariedade e funcionamento celular.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Saudação dinâmica
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Entender forças intermoleculares é entender o estado físico da matéria!";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, químico! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚛️";
+      } else {
+        saudacao = "Boa noite, cientista! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+
+    // Verificar respostas
+    function verificarRespostas() {
+      let acertos = 0;
+      const total = 15;
+
+      // Limpa feedbacks anteriores
+      document.querySelectorAll('.feedback').forEach(fb => {
+        fb.style.display = 'none';
+        fb.className = fb.className.replace(/feedback-(correto|errado)/g, '').trim();
+      });
+
+      // Verifica múltipla escolha
+      const respostasMC = ['b', 'c', 'b', 'c', 'b', 'b', 'b', 'a', 'c', 'b'];
+      for (let i = 1; i <= 10; i++) {
+        const exercicio = document.querySelector(`.exercicio:nth-child(${i})`);
+        const feedback = exercicio.querySelector('.feedback');
+        const selecionado = exercicio.querySelector('input[type="radio"]:checked');
+        const correta = respostasMC[i - 1];
+
+        if (selecionado && selecionado.value === correta) {
+          acertos++;
+          feedback.textContent = '✅ Correto!';
+          feedback.className = 'feedback feedback-correto';
+        } else {
+          feedback.textContent = `❌ Incorreto. A resposta correta é: ${correta.toUpperCase()}.`;
+          feedback.className = 'feedback feedback-errado';
+        }
+        feedback.style.display = 'block';
+      }
+
+      // Verifica discursivas
+      document.querySelectorAll('.resposta-aberta').forEach((textarea, index) => {
+        const num = index + 11;
+        const exercicio = document.querySelector(`.exercicio:nth-child(${num})`);
+        const feedback = exercicio.querySelector('.feedback');
+        const respostaDigitada = textarea.value.trim().toLowerCase();
+        const respostaCorreta = textarea.dataset.correct.toLowerCase();
+
+        if (respostaDigitada.includes(respostaCorreta)) {
+          acertos++;
+          feedback.textContent = '✅ Correto!';
+          feedback.className = 'feedback feedback-correto';
+        } else {
+          feedback.textContent = '❌ Resposta incompleta ou incorreta. Revise o conteúdo.';
+          feedback.className = 'feedback feedback-errado';
+        }
+        feedback.style.display = 'block';
+      });
+
+      // Mostrar resultado
+      document.getElementById('acertos').textContent = acertos;
+      document.getElementById('total').textContent = total;
+
+      const mensagemResultado = document.getElementById('mensagem-resultado');
+      if (acertos === 15) {
+        mensagemResultado.textContent = 'Parabéns! Você domina as forças intermoleculares!';
+      } else if (acertos >= 11) {
+        mensagemResultado.textContent = 'Bom trabalho! Você entende bem como as forças afetam o estado físico.';
+      } else {
+        mensagemResultado.textContent = 'Continue estudando! Revise ligações de hidrogênio, dipolo e forças de London.';
+      }
+
+      document.getElementById('resultado').style.display = 'block';
+    }
+
+    // Mostrar gabarito
+    function mostrarGabarito() {
+      document.getElementById('gabarito').style.display = 'block';
+      document.getElementById('mostrar-gabarito').style.display = 'none';
+    }
+
+    // Inicializar
+    document.addEventListener("DOMContentLoaded", function() {
+      saudacaoHorario();
+      document.getElementById('verificar-respostas').addEventListener('click', verificarRespostas);
+      document.getElementById('mostrar-gabarito').addEventListener('click', mostrarGabarito);
+    });
+  </script>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #3498db;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #3498db;
+    }
+
+    /* Conteúdo Principal */
+    .conteudo {
+      padding: 100px 20px 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .conteudo h2 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .conteudo p {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #555;
+    }
+
+    .conteudo #citacao {
+      font-style: italic;
+      color: #777;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    .conteudo h3 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .instrucoes {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    hr {
+      border: 1px solid #3498db;
+      width: 80%;
+      margin: 20px auto 40px;
+    }
+
+    /* Seção de Exercícios */
+    .exercicios {
+      padding: 40px 0;
+    }
+
+    .lista-exercicios {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .exercicio {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .exercicio p {
+      margin-bottom: 12px;
+      color: #333;
+    }
+
+    .opcoes-multiplas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .opcoes-multiplas label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background-color: #f8f9ff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .resposta-aberta {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .feedback-correto {
+      background-color: #d4edda;
+      color: #155724;
+      border-left: 4px solid #c3e6cb;
+    }
+
+    .feedback-errado {
+      background-color: #f8d7da;
+      color: #721c24;
+      border-left: 4px solid #f5c6cb;
+    }
+
+    /* Resultado */
+    .resultado {
+      margin-bottom: 30px;
+    }
+
+    .card-resultado {
+      background-color: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 5px solid #27ae60;
+    }
+
+    .card-resultado h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .btn-verificar {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-verificar:hover {
+      background-color: #219653;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Gabarito */
+    .gabarito {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .gabarito h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ecf0f1;
+    }
+
+    .gabarito h5 {
+      color: #2980b9;
+      margin: 15px 0 10px;
+    }
+
+    .gabarito ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .gabarito li {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .conteudo h2 { font-size: 2.2rem; }
+      .conteudo p { font-size: 1.1rem; }
+      .opcoes-multiplas { grid-template-columns: 1fr; }
+    }
+  </style>
+</body>
+</html>
