@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MRU e Velocidade Média - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Aguarde...</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>🚗📏 MRU e Velocidade Média: Movimento sem Aceleração</h3>
+    </div>
+  </section>
+
+  <!-- Conteúdo Explicativo -->
+  <section class="explicacao">
+    <div class="container">
+      <article>
+
+        <h4>🎯 Por que estudar MRU e velocidade média?</h4>
+        <p>Muitos movimentos no dia a dia podem ser entendidos com dois conceitos simples: <strong>velocidade média</strong> e <strong>Movimento Retilíneo Uniforme (MRU)</strong>.</p>
+        <p>Diferente da aceleração (que envolve mudanças), aqui estamos interessados em situações onde a velocidade se mantém constante ou pode ser representada por uma média confiável.</p>
+        <p>Esses conceitos são essenciais para prever movimentos, planejar viagens e, principalmente, <strong>evitar acidentes no trânsito</strong>.</p>
+
+        <!-- Slide de Fórmulas -->
+        <div class="slide-formulas">
+          <!-- Velocidade Média -->
+          <div class="card-formula">
+            <img src="fisica/imagens/velocidadem.jpg" alt="Fórmula de Velocidade Média" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <p><strong>Velocidade Média</strong></p>
+          </div>
+          <!-- MRU -->
+          <div class="card-formula">
+            <img src="fisica/imagens/mru.jpg" alt="Equação do MRU" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <p><strong>MRU (Função Horária)</strong></p>
+          </div>
+        </div>
+        <p style="color: #ccc; font-size: 0.9rem; margin-top: 15px;"><em>(Substitua as imagens pelos slides com as fórmulas quando estiverem prontos.)</em></p>
+
+        <h4>⏱️ O que é Velocidade Média?</h4>
+        <p>A <strong>velocidade média</strong> é definida como a razão entre o deslocamento total e o tempo total gasto:</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">v_m = \frac{\Delta s}{\Delta t}</p>
+        <p>Onde:<br>
+        \( v_m \) = velocidade média<br>
+        \( \Delta s \) = deslocamento (posição final – posição inicial)<br>
+        \( \Delta t \) = intervalo de tempo</p>
+        <p><strong>Exemplo:</strong> Um carro vai do km 20 ao km 260 em 3 horas.<br>
+        \( \Delta s = 260 - 20 = 240\,\text{km} \)<br>
+        \( \Delta t = 3\,\text{h} \)<br>
+        \( v_m = \frac{240}{3} = 80\,\text{km/h} \)</p>
+        <p><strong>Aplicação prática:</strong> Saber sua velocidade média ajuda a planejar viagens e evitar pressa perigosa no trânsito.</p>
+
+        <h4>🔄 Conversão de Unidades</h4>
+        <p>É essencial converter unidades para usar fórmulas corretamente. As mais comuns:</p>
+        <ul>
+          <li><strong>1 h = 60 min = 3600 s</strong></li>
+          <li><strong>1 km = 1000 m</strong></li>
+        </ul>
+        <p><strong>Converter km/h para m/s:</strong><br>
+        Basta dividir por 3,6.</p>
+        <p>Exemplo: 90 km/h → \( \frac{90}{3,6} = 25\,\text{m/s} \)</p>
+        <p><strong>Converter m/s para km/h:</strong><br>
+        Multiplique por 3,6.<br>
+        Exemplo: 15 m/s → \( 15 \times 3,6 = 54\,\text{km/h} \)</p>
+
+        <h4>📏 O que é MRU? Quando a Velocidade é Constante</h4>
+        <p>O <strong>Movimento Retilíneo Uniforme (MRU)</strong> ocorre quando um objeto se move em linha reta com velocidade constante — sem acelerar, frear ou mudar de direção.</p>
+        <p>Nesse caso, a <strong>velocidade média é igual à velocidade em qualquer instante</strong>.</p>
+        <p>A equação principal do MRU permite prever onde o objeto estará no futuro:</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">s = s_0 + v \cdot t</p>
+        <p>Onde:<br>
+        \( s \) = posição final<br>
+        \( s_0 \) = posição inicial<br>
+        \( v \) = velocidade constante<br>
+        \( t \) = tempo decorrido</p>
+        <p><strong>Exemplo:</strong> Um ônibus parte do km 10 com velocidade constante de 60 km/h. Onde estará após 2,5 horas?<br>
+        \( s = 10 + 60 \times 2,5 = 10 + 150 = 160 \)<br>
+        Resposta: <strong>km 160</strong>.</p>
+        <p>👉 O MRU é um modelo idealizado, mas muito útil para previsões em rodovias, trens e aviões em cruzeiro.</p>
+
+        <h4>📊 Gráficos do MRU: Como Construir Passo a Passo</h4>
+        <p>Os gráficos ajudam a visualizar o movimento e confirmar se ele é realmente uniforme.</p>
+
+        <h5>1. Gráfico de Posição × Tempo (s × t)</h5>
+        <p>Mostra como a posição muda com o tempo.</p>
+        <ul>
+          <li><strong>Eixo x (horizontal):</strong> tempo (s, min, h)</li>
+          <li><strong>Eixo y (vertical):</strong> posição (m, km)</li>
+        </ul>
+        <p>No MRU, esse gráfico é sempre uma <strong>reta inclinada</strong>. A inclinação mostra a velocidade.</p>
+        <p><strong>Como construir:</strong></p>
+        <ol>
+          <li>Escolha dois tempos (ex: t = 0 h e t = 2 h)</li>
+          <li>Use a fórmula \( s = s_0 + v \cdot t \) para calcular as posições</li>
+          <li>Marque os pontos no plano cartesiano</li>
+          <li>Ligue-os com uma reta</li>
+        </ol>
+        <p><strong>Exemplo:</strong> Carro parte do km 20 com 80 km/h.<br>
+          → t = 0 h: s = 20 → ponto (0, 20)<br>
+          → t = 2 h: s = 20 + 80×2 = 180 → ponto (2, 180)<br>
+          Ligue os pontos: reta ascendente.
+        </p>
+
+        <h5>2. Gráfico de Velocidade × Tempo (v × t)</h5>
+        <p>Mostra como a velocidade varia com o tempo.</p>
+        <p>No MRU, ela é constante — então o gráfico é uma <strong>reta horizontal</strong>.</p>
+        <p><strong>Como construir:</strong></p>
+        <ol>
+          <li>Marque no eixo vertical o valor da velocidade (ex: 80 km/h)</li>
+          <li>Desenhe uma reta paralela ao eixo do tempo</li>
+          <li>Estenda-a pelo intervalo desejado (ex: de t = 0 a t = 3 h)</li>
+        </ol>
+        <p><strong>Dica:</strong> A área sob esse gráfico dá o deslocamento!<br>
+          Área = base × altura = tempo × velocidade = \( \Delta s \)</p>
+
+        <h4>⚠️ Como isso evita acidentes no trânsito?</h4>
+        <p><strong>1. Tempo de Reação e Distância Percorrida</strong><br>
+          Ao ver um obstáculo, você demora cerca de 1 segundo para reagir. Durante esse tempo, o carro continua em MRU.</p>
+        <p>Se estiver a 90 km/h (25 m/s), percorrerá <strong>25 metros</strong> antes mesmo de frear!</p>
+        <p>👉 Reduzir a velocidade corta essa distância pela metade — salvando vidas.</p>
+
+        <p><strong>2. Ultrapassagem Segura</strong><br>
+          Use a ideia de MRU para calcular quanto tempo ficará na contramão.<br>
+          Ex: se você viaja a 90 km/h (25 m/s) e precisa avançar 200 m, levará \( \frac{200}{25} = 8 \) segundos.<br>
+          É seguro? Depende da visibilidade e do tráfego contrário.</p>
+
+        <p><strong>3. Planejamento Realista de Viagens</strong><br>
+          Muitos acidentes acontecem por pressa no final do percurso.<br>
+          Conhecer sua velocidade média evita falsas expectativas.<br>
+          Viajar 180 km a 60 km/h leva 3 horas — não 2 horas e meia.</p>
+
+        <h4>💡 Dica Final: Use a Física a Seu Favor</h4>
+        <ol>
+          <li>Converta sempre km/h para m/s ao calcular frenagem ou distâncias curtas.</li>
+          <li>Lembre-se: 1 segundo a 100 km/h = quase 28 metros percorridos.</li>
+          <li>Em rodovias, imagine o tráfego como vários MRUs — preveja movimentos e evite surpresas.</li>
+          <li>Dirigir com velocidade constante economiza combustível e aumenta a segurança.</li>
+        </ol>
+
+        <h4>🧠 Conclusão</h4>
+        <p>Velocidade média e MRU são ferramentas poderosas para entender e prever movimentos. Eles transformam intuição em cálculo, e reação em antecipação.</p>
+        <p>Aprender física não é só para passar de ano — é para dirigir melhor, planejar melhor e viver com mais consciência do mundo ao seu redor.</p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 30px;">📚 Próximo Passo</h3>
+      <div class="grid-atividades">
+        <!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🧠</span>
+            <span class="data">23/10/2025</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: MRU e Velocidade Média</h4>
+            <p>Teste seus conhecimentos com cálculos, conversões e situações do trânsito.</p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_mru_velocidade_media.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Saudação dinâmica com base no horário
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Entender MRU é entender como prever o futuro do movimento.";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, físico! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! 🚗";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+
+    // Executa ao carregar a página
+    document.addEventListener("DOMContentLoaded", saudacaoHorario);
+  </script>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      padding: 15px 0;
+      border-bottom: 1px solid #3498db;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      color: #3498db;
+      font-size: 1.6rem;
+      margin: 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #3498db;
+    }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 100px 0 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo #citacao {
+      font-style: italic;
+      color: #bbb;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+    section.conteudo hr {
+      width: 60px;
+      border: 1px solid #3498db;
+      margin: 30px auto;
+    }
+    section.conteudo h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    /* Conteúdo Explicativo */
+    section.explicacao {
+      padding: 60px 0;
+    }
+    section.explicacao article {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Slide de Fórmulas */
+    .slide-formulas {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+    .card-formula {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .card-formula img {
+      border-radius: 8px;
+    }
+    .card-formula p {
+      margin: 10px 0 0;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Seção de Atividades */
+    section.atividades {
+      padding: 60px 0;
+      background-color: #1a1a1a;
+    }
+    .grid-atividades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    /* Cards de Atividade */
+    .card-atividade {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease;
+    }
+    .card-atividade:hover {
+      transform: translateY(-6px);
+    }
+
+    .card-header {
+      padding: 15px 20px;
+      background-color: rgba(52, 152, 219, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+    }
+    .card-header .icon {
+      font-size: 1.4rem;
+    }
+    .card-header .data {
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+    .card-body h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .card-body p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .card-footer {
+      padding: 15px 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+    .btn-acessar {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: background 0.3s;
+    }
+    .btn-acessar:hover {
+      background-color: #2980b9;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background-color: #1a1a1a;
+      color: #aaa;
+      font-size: 0.9rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      section.conteudo #citacao { font-size: 1rem; }
+      section.explicacao article { padding: 20px; }
+      .slide-formulas { flex-direction: column; align-items: center; }
+      .card-formula { width: 100%; max-width: 300px; }
+      .grid-atividades { grid-template-columns: 1fr; }
+    }
+  </style>
+
+</body>
+</html>
