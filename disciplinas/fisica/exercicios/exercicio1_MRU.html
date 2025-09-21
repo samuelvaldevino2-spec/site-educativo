@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercício: Equação Horária da Posição - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Use a equação horária do MRU: posição final = posição inicial + (velocidade × tempo).</p>
+      <hr>
+      <h3>📘 Exercícios – Equação Horária da Posição (MRU)</h3>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+
+      <form id="quiz-form">
+
+        <!-- Parte 1: Questões Diretas -->
+        <h4 style="color: #3498db; margin-bottom: 20px;">🔹 Parte 1: Questões Diretas</h4>
+        <ol start="1" class="lista-exercicios">
+
+          <!-- Q1 -->
+          <li class="exercicio">
+            <p>Um corpo parte de s₀ = 10 m com velocidade v = 2 m/s. Onde estará após 5 s?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q1" value="a"> a) 15 m</label><br>
+              <label><input type="radio" name="q1" value="b"> b) 18 m</label><br>
+              <label><input type="radio" name="q1" value="c"> c) 20 m</label><br>
+              <label><input type="radio" name="q1" value="d"> d) 25 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q2 -->
+          <li class="exercicio">
+            <p>Um móvel parte do km 50 a 60 km/h. Onde estará após 2 h?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q2" value="a"> a) Km 150</label><br>
+              <label><input type="radio" name="q2" value="b"> b) Km 160</label><br>
+              <label><input type="radio" name="q2" value="c"> c) Km 170</label><br>
+              <label><input type="radio" name="q2" value="d"> d) Km 180</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q3 -->
+          <li class="exercicio">
+            <p>Um corpo sai da posição inicial de 5 m com v = 4 m/s. Após 3 s, sua posição é:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q3" value="a"> a) 15 m</label><br>
+              <label><input type="radio" name="q3" value="b"> b) 16 m</label><br>
+              <label><input type="radio" name="q3" value="c"> c) 17 m</label><br>
+              <label><input type="radio" name="q3" value="d"> d) 18 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q4 -->
+          <li class="exercicio">
+            <p>Um automóvel parte do km 100 a 90 km/h. Após 2 h, estará no km:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q4" value="a"> a) 260</label><br>
+              <label><input type="radio" name="q4" value="b"> b) 270</label><br>
+              <label><input type="radio" name="q4" value="c"> c) 280</label><br>
+              <label><input type="radio" name="q4" value="d"> d) 290</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q5 -->
+          <li class="exercicio">
+            <p>Um ciclista parte de s₀ = 0 a 12 m/s. Onde estará após 10 s?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q5" value="a"> a) 100 m</label><br>
+              <label><input type="radio" name="q5" value="b"> b) 110 m</label><br>
+              <label><input type="radio" name="q5" value="c"> c) 120 m</label><br>
+              <label><input type="radio" name="q5" value="d"> d) 130 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q6 -->
+          <li class="exercicio">
+            <p>Um ônibus parte de 20 km com v = 80 km/h. Onde estará após 1,5 h?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q6" value="a"> a) Km 120</label><br>
+              <label><input type="radio" name="q6" value="b"> b) Km 130</label><br>
+              <label><input type="radio" name="q6" value="c"> c) Km 140</label><br>
+              <label><input type="radio" name="q6" value="d"> d) Km 150</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q7 -->
+          <li class="exercicio">
+            <p>Um carro parte de s₀ = 5 m com v = 3 m/s. Após 7 s:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q7" value="a"> a) 24 m</label><br>
+              <label><input type="radio" name="q7" value="b"> b) 25 m</label><br>
+              <label><input type="radio" name="q7" value="c"> c) 26 m</label><br>
+              <label><input type="radio" name="q7" value="d"> d) 27 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q8 -->
+          <li class="exercicio">
+            <p>Um móvel parte de 200 km com v = 70 km/h. Onde estará após 2 h?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q8" value="a"> a) Km 330</label><br>
+              <label><input type="radio" name="q8" value="b"> b) Km 340</label><br>
+              <label><input type="radio" name="q8" value="c"> c) Km 350</label><br>
+              <label><input type="radio" name="q8" value="d"> d) Km 360</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q9 -->
+          <li class="exercicio">
+            <p>Um corpo está em s₀ = 0 e anda a 25 m/s. Onde estará após 6 s?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q9" value="a"> a) 140 m</label><br>
+              <label><input type="radio" name="q9" value="b"> b) 150 m</label><br>
+              <label><input type="radio" name="q9" value="c"> c) 160 m</label><br>
+              <label><input type="radio" name="q9" value="d"> d) 170 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q10 -->
+          <li class="exercicio">
+            <p>Um ônibus parte de 100 km com v = 50 km/h. Onde estará após 4 h?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q10" value="a"> a) Km 280</label><br>
+              <label><input type="radio" name="q10" value="b"> b) Km 290</label><br>
+              <label><input type="radio" name="q10" value="c"> c) Km 300</label><br>
+              <label><input type="radio" name="q10" value="d"> d) Km 310</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Parte 2: Situações-Problema -->
+        <h4 style="color: #3498db; margin-top: 30px; margin-bottom: 20px;">🔹 Parte 2: Situações-Problema</h4>
+        <ol start="11" class="lista-exercicios">
+
+          <!-- Q11 -->
+          <li class="exercicio">
+            <p>Um carro está no km 30 e segue a 70 km/h. Onde estará após 3 h?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q11" value="a"> a) Km 230</label><br>
+              <label><input type="radio" name="q11" value="b"> b) Km 240</label><br>
+              <label><input type="radio" name="q11" value="c"> c) Km 250</label><br>
+              <label><input type="radio" name="q11" value="d"> d) Km 260</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q12 -->
+          <li class="exercicio">
+            <p>Um ciclista parte de 5 m com velocidade 2 m/s. Qual será sua posição após 8 s?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q12" value="b"> a) 20 m</label><br>
+              <label><input type="radio" name="q12" value="b"> b) 21 m</label><br>
+              <label><input type="radio" name="q12" value="c"> c) 22 m</label><br>
+              <label><input type="radio" name="q12" value="d"> d) 23 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q13 -->
+          <li class="exercicio">
+            <p>Um trem está no km 100 e segue a 80 km/h. Qual posição terá após 5 h?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q13" value="b"> a) Km 480</label><br>
+              <label><input type="radio" name="q13" value="b"> b) Km 500</label><br>
+              <label><input type="radio" name="q13" value="c"> c) Km 490</label><br>
+              <label><input type="radio" name="q13" value="d"> d) Km 510</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q14 -->
+          <li class="exercicio">
+            <p>Um ônibus parte do km 0 com velocidade 15 m/s. Após 12 s estará em:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q14" value="b"> a) 175 m</label><br>
+              <label><input type="radio" name="q14" value="b"> b) 180 m</label><br>
+              <label><input type="radio" name="q14" value="c"> c) 185 m</label><br>
+              <label><input type="radio" name="q14" value="d"> d) 190 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q15 -->
+          <li class="exercicio">
+            <p>Um carro está no km 40 e se move a 60 km/h. Após 2,5 h estará em:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q15" value="c"> a) Km 180</label><br>
+              <label><input type="radio" name="q15" value="b"> b) Km 185</label><br>
+              <label><input type="radio" name="q15" value="c"> c) Km 190</label><br>
+              <label><input type="radio" name="q15" value="d"> d) Km 200</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q16 -->
+          <li class="exercicio">
+            <p>Um ciclista sai do km 10 com v = 20 km/h. Após 1,5 h estará em:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q16" value="c"> a) Km 35</label><br>
+              <label><input type="radio" name="q16" value="b"> b) Km 38</label><br>
+              <label><input type="radio" name="q16" value="c"> c) Km 40</label><br>
+              <label><input type="radio" name="q16" value="d"> d) Km 45</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q17 -->
+          <li class="exercicio">
+            <p>Um trem parte do km 50 e viaja a 90 km/h. Após 3 h estará em:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q17" value="b"> a) Km 310</label><br>
+              <label><input type="radio" name="q17" value="b"> b) Km 320</label><br>
+              <label><input type="radio" name="q17" value="c"> c) Km 330</label><br>
+              <label><input type="radio" name="q17" value="d"> d) Km 340</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q18 -->
+          <li class="exercicio">
+            <p>Um carro sai da posição 0 com v = 18 m/s. Após 15 s estará em:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q18" value="c"> a) 250 m</label><br>
+              <label><input type="radio" name="q18" value="b"> b) 260 m</label><br>
+              <label><input type="radio" name="q18" value="c"> c) 270 m</label><br>
+              <label><input type="radio" name="q18" value="d"> d) 280 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q19 -->
+          <li class="exercicio">
+            <p>Um ônibus parte de 20 km e anda a 72 km/h. Após 2 h estará em:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q19" value="b"> a) Km 150</label><br>
+              <label><input type="radio" name="q19" value="b"> b) Km 164</label><br>
+              <label><input type="radio" name="q19" value="c"> c) Km 170</label><br>
+              <label><input type="radio" name="q19" value="d"> d) Km 180</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q20 -->
+          <li class="exercicio">
+            <p>Um ciclista sai do km 5 com v = 25 km/h. Após 3 h estará em:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q20" value="c"> a) Km 75</label><br>
+              <label><input type="radio" name="q20" value="b"> b) Km 80</label><br>
+              <label><input type="radio" name="q20" value="c"> c) Km 80</label><br>
+              <label><input type="radio" name="q20" value="d"> d) Km 90</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Botão de Verificação -->
+        <div style="text-align: center; margin: 40px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+
+      </form>
+
+      <!-- Gabarito Oculto -->
+      <div id="gabarito" style="display: none; margin-top: 40px; padding: 20px; background-color: rgba(52, 152, 219, 0.1); border-radius: 12px; border: 1px solid #3498db;">
+        <h4 style="color: #3498db;">📚 Gabarito Oficial</h4>
+        <p><strong>Parte 1:</strong> 1c, 2b, 3c, 4b, 5c, 6b, 7b, 8b, 9b, 10c</p>
+        <p><strong>Parte 2:</strong> 11c, 12b, 13b, 14b, 15c, 16c, 17b, 18c, 19b, 20c</p>
+      </div>
+
+      <!-- Botão Mostrar Gabarito -->
+      <div style="text-align: center; margin-bottom: 60px;">
+        <button type="button" id="mostrar-gabarito" class="btn-acessar">Mostrar Gabarito</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "A física é a poesia das leis naturais do universo.";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, físico! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚙️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+    }
+  </script>
+
+  <!-- Script de Verificação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      saudacaoHorario();
+
+      const form = document.getElementById("quiz-form");
+      const btnVerificar = document.getElementById("verificar-respostas");
+      const btnGabarito = document.getElementById("mostrar-gabarito");
+      const gabaritoDiv = document.getElementById("gabarito");
+
+      // Mostrar gabarito
+      btnGabarito.addEventListener("click", () => {
+        gabaritoDiv.style.display = "block";
+        btnGabarito.textContent = "Esconder Gabarito";
+        btnGabarito.onclick = () => {
+          gabaritoDiv.style.display = "none";
+          btnGabarito.textContent = "Mostrar Gabarito";
+        };
+      });
+
+      // Verificar respostas
+      btnVerificar.addEventListener("click", () => {
+        let acertos = 0;
+        const respostasCorretas = [
+          "c","b","c","b","c","b","b","b","b","c",
+          "c","b","b","b","c","c","b","c","b","c"
+        ];
+
+        // Limpa feedback anterior
+        document.querySelectorAll(".feedback").forEach(f => f.innerHTML = "");
+
+        // Verifica cada resposta
+        for (let i = 1; i <= 20; i++) {
+          const selected = form[`q${i}`].value;
+          const correct = respostasCorretas[i-1];
+          const feedbackEl = form.querySelectorAll(".feedback")[i-1];
+
+          if (!selected) {
+            feedbackEl.innerHTML = "<span style='color: #e67e22;'>⚠️ Não respondido</span>";
+          } else if (selected === correct) {
+            feedbackEl.innerHTML = "<span style='color: #27ae60;'>✅ Correto!</span>";
+            acertos++;
+          } else {
+            feedbackEl.innerHTML = "<span style='color: #e74c3c;'>❌ Errado</span>";
+          }
+        }
+
+        // Mensagem final
+        alert(`Você acertou ${acertos} de 20 questões.`);
+      });
+    });
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.atividades { padding: 60px 0; }
+    .lista-exercicios { margin: 20px 0; }
+    .exercicio { background-color: rgba(255,255,255,0.08); border-radius: 10px; padding: 15px; margin-bottom: 20px; }
+    .exercicio p { margin-bottom: 10px; }
+    .alternativas label { display: block; margin: 5px 0; cursor: pointer; }
+    .alternativas input[type="radio"] { margin-right: 8px; }
+    .feedback { margin-top: 10px; font-weight: bold; }
+    .btn-verificar { background-color: #27ae60; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; }
+    .btn-verificar:hover { background-color: #219653; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      .exercicio { padding: 12px; }
+    }
+  </style>
+
+</body>
+</html>
