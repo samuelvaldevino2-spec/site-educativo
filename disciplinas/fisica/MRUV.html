@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MRUV - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">O MRUV explica como objetos mudam de velocidade ao longo do tempo.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>🚀📉 MRUV: Movimento que Muda de Velocidade</h3>
+    </div>
+  </section>
+
+  <!-- Conteúdo Explicativo -->
+  <section class="explicacao">
+    <div class="container">
+      <article>
+
+        <h4>🎯 Por que estudar MRUV?</h4>
+        <p>O <strong>Movimento Retilíneo Uniformemente Variado (MRUV)</strong> ocorre quando um objeto se move em linha reta e sua velocidade muda de forma constante — ou seja, tem uma <strong>aceleração constante</strong>.</p>
+        <p>É o tipo de movimento que acontece quando um carro acelera saindo do repouso, freia bruscamente ou quando um objeto cai em queda livre.</p>
+        <p>Entender o MRUV é essencial para prever distâncias de frenagem, analisar colisões e compreender fenômenos naturais como a gravidade.</p>
+
+        <!-- Slide de Fórmulas -->
+        <div class="slide-formulas">
+          <!-- Aceleração Média -->
+          <div class="card-formula">
+            <img src="fisica/imagens/aceleracao.jpg" alt="Fórmula de Aceleração Média" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <p><strong>Aceleração Média</strong></p>
+          </div>
+          <!-- Função Horária da Velocidade -->
+          <div class="card-formula">
+            <img src="fisica/imagens/vt_mruv.jpg" alt="Função v = v₀ + at" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <p><strong>v = v₀ + a·t</strong></p>
+          </div>
+          <!-- Função Horária da Posição -->
+          <div class="card-formula">
+            <img src="fisica/imagens/st_mruv.jpg" alt="Função s = s₀ + v₀t + ½at²" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <p><strong>s = s₀ + v₀t + ½at²</strong></p>
+          </div>
+          <!-- Equação de Torricelli -->
+          <div class="card-formula">
+            <img src="fisica/imagens/torricelli.jpg" alt="Equação de Torricelli" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            <p><strong>v² = v₀² + 2aΔs</strong></p>
+          </div>
+        </div>
+        <p style="color: #ccc; font-size: 0.9rem; margin-top: 15px;"><em>(Substitua as imagens pelos slides com as fórmulas quando estiverem prontos.)</em></p>
+
+        <h4>⚡ O que é Aceleração?</h4>
+        <p>A <strong>aceleração</strong> mede o quanto a velocidade de um objeto muda em cada segundo.</p>
+        <p>Se um carro passa de 0 a 60 km/h em 5 segundos, ele tem aceleração. Se freia de 80 km/h a 0 em 4 segundos, também tem aceleração — agora, negativa (desaceleração).</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">a_m = \frac{\Delta v}{\Delta t}</p>
+        <p>Onde:<br>
+        \( a_m \) = aceleração média<br>
+        \( \Delta v \) = variação da velocidade (final – inicial)<br>
+        \( \Delta t \) = intervalo de tempo</p>
+        <p><strong>Exemplo:</strong> Um carro aumenta sua velocidade de 20 m/s para 35 m/s em 5 segundos.<br>
+        \( \Delta v = 35 - 20 = 15\,\text{m/s} \)<br>
+        \( \Delta t = 5\,\text{s} \)<br>
+        \( a_m = \frac{15}{5} = 3\,\text{m/s}^2 \)</p>
+        <p>👉 Isso significa que, a cada segundo, ele ganhou 3 m/s de velocidade.</p>
+
+        <h4>📏 Equações do MRUV</h4>
+        <p>No MRUV, a aceleração é constante. Podemos usar três equações principais para prever o movimento:</p>
+
+        <h5>1. Função Horária da Velocidade: v = v₀ + a·t</h5>
+        <p>Mostra como a velocidade muda com o tempo.</p>
+        <p><strong>Exemplo:</strong> Um carro parte a 10 m/s com aceleração de 2 m/s². Qual sua velocidade após 6 s?<br>
+        \( v = 10 + 2 \cdot 6 = 22\,\text{m/s} \)</p>
+
+        <h5>2. Função Horária da Posição: s = s₀ + v₀t + ½at²</h5>
+        <p>Permite calcular onde o objeto estará em um dado instante.</p>
+        <p><strong>Exemplo:</strong> Um trem parte do km 10 (s₀ = 10.000 m) com velocidade inicial de 20 m/s e aceleração de 1 m/s². Onde estará após 10 s?<br>
+        \( s = 10000 + 20 \cdot 10 + \frac{1}{2} \cdot 1 \cdot 10^2 = 10000 + 200 + 50 = 10250\,\text{m} \)</p>
+
+        <h5>3. Equação de Torricelli: v² = v₀² + 2a·Δs</h5>
+        <p>Útil quando não sabemos o tempo, mas conhecemos a distância percorrida.</p>
+        <p><strong>Exemplo:</strong> Um carro a 20 m/s freia com aceleração de –4 m/s². Qual a distância até parar?<br>
+        \( 0^2 = 20^2 + 2 \cdot (-4) \cdot \Delta s \)<br>
+        \( 0 = 400 - 8\Delta s \)<br>
+        \( \Delta s = 50\,\text{m} \)</p>
+
+        <h4>📊 Gráficos do MRUV</h4>
+        <p>Os gráficos ajudam a visualizar como posição, velocidade e aceleração mudam ao longo do tempo.</p>
+
+        <h5>1. Gráfico de Velocidade × Tempo (v × t)</h5>
+        <p>Mostra como a velocidade varia com o tempo.</p>
+        <ul>
+          <li><strong>Eixo x:</strong> tempo</li>
+          <li><strong>Eixo y:</strong> velocidade</li>
+        </ul>
+        <p>No MRUV, esse gráfico é uma <strong>reta inclinada</strong>. A inclinação representa a aceleração.</p>
+        <p><strong>Dica:</strong> A área sob o gráfico dá o deslocamento!</p>
+        <img src="graficos/grafico_vxt.png" alt="Gráfico v×t do MRUV" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+        <p><strong>Interpretação:</strong> Reta crescente → aceleração positiva. Reta decrescente → aceleração negativa.</p>
+
+        <h5>2. Gráfico de Posição × Tempo (s × t)</h5>
+        <p>Mostra como a posição muda com o tempo.</p>
+        <ul>
+          <li><strong>Eixo x:</strong> tempo</li>
+          <li><strong>Eixo y:</strong> posição</li>
+        </ul>
+        <p>No MRUV, esse gráfico é uma <strong>parábola</strong>.</p>
+        <ul>
+          <li>Concavidade para cima → aceleração positiva (a > 0)</li>
+          <li>Concavidade para baixo → aceleração negativa (a < 0)</li>
+        </ul>
+        <img src="graficos/grafico_sxt.png" alt="Gráfico s×t do MRUV" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+        <p><strong>Interpretação:</strong> Curva subindo mais rápido → objeto acelerando.</p>
+
+        <h5>3. Gráfico de Aceleração × Tempo (a × t)</h5>
+        <p>No MRUV, a aceleração é constante — então o gráfico é uma <strong>reta horizontal</strong>.</p>
+        <img src="graficos/grafico_at.png" alt="Gráfico a×t do MRUV" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+        <p><strong>Interpretação:</strong> Acima do eixo → a > 0. Abaixo → a < 0.</p>
+
+        <h4>🌍 Casos Particulares</h4>
+        <p>Dois exemplos importantes de MRUV envolvendo a gravidade:</p>
+
+        <h5>1. Queda Livre</h5>
+        <p>Quando um objeto cai sem resistência do ar, ele sofre uma aceleração constante: a gravidade (~9,8 m/s²).</p>
+        <p>Parte do repouso (v₀ = 0) e acelera para baixo.</p>
+        <p><strong>Aplicação:</strong> Calcular altura de um prédio soltando um objeto e cronometrando a queda.</p>
+
+        <h5>2. Lançamento Vertical para Cima</h5>
+        <p>Um objeto é jogado para cima com velocidade inicial. Ele desacelera até parar no ponto mais alto, depois volta em queda livre.</p>
+        <p>No ponto mais alto: v = 0, mas a ≠ 0 (continua sofrendo gravidade).</p>
+        <p><strong>Aplicação:</strong> Estimar a altura máxima de um foguete caseiro.</p>
+
+        <h4>🚦 Situações Práticas e Interpretação</h4>
+        <p>Entender os sinais de velocidade, aceleração e deslocamento ajuda a interpretar movimentos reais.</p>
+
+        <h5>Movimento Progressivo vs. Retrógrado</h5>
+        <ul>
+          <li><strong>Progressivo:</strong> velocidade positiva (v > 0) → objeto se afasta da origem.</li>
+          <li><strong>Retrógrado:</strong> velocidade negativa (v < 0) → objeto volta.</li>
+        </ul>
+
+        <h5>Movimento Acelerado vs. Retardado</h5>
+        <ul>
+          <li><strong>Acelerado:</strong> velocidade e aceleração têm o mesmo sinal (ambas + ou ambas –).</li>
+          <li><strong>Retardado:</strong> sinais opostos (ex: v > 0 e a < 0 → freando).</li>
+        </ul>
+        <p><strong>Exemplo:</strong> Um carro anda para frente (v > 0) e pisa no freio (a < 0). É um movimento retardado.</p>
+
+        <h4>⚠️ Como isso evita acidentes no trânsito?</h4>
+        <p><strong>1. Distância de Frenagem</strong><br>
+        Ao frear, o carro executa um MRUV com aceleração negativa. A distância para parar depende do quadrado da velocidade inicial.</p>
+        <p>👉 Dobrar a velocidade exige <strong>quatro vezes</strong> mais distância para parar!</p>
+
+        <p><strong>2. Tempo de Reação + Frenagem</strong><br>
+        Em 1 segundo a 108 km/h (30 m/s), o carro percorre 30 metros antes de começar a frear. Depois, ainda precisa de cerca de 45 m para parar (com a ≈ –6 m/s²).</p>
+        <p>Total: 75 m. Dirigir devagar reduz drasticamente esse risco.</p>
+
+        <p><strong>3. Ultrassonografia do Trânsito</strong><br>
+        Radares não medem só velocidade instantânea. Alguns calculam a velocidade média entre dois pontos, detectando quem ultrapassa o limite mesmo em trechos curtos.</p>
+
+        <h4>💡 Dica Final: Use a Física a Seu Favor</h4>
+        <ol>
+          <li>Use a equação de Torricelli para calcular frenagem sem precisar do tempo.</li>
+          <li>Lembre-se: em lançamentos verticais, a velocidade é zero no topo, mas a aceleração não.</li>
+          <li>Em gráficos, a área sempre tem significado físico: no v×t, é o deslocamento.</li>
+          <li>Dirija com suavidade: acelerações bruscas consomem mais combustível e aumentam o risco.</li>
+        </ol>
+
+        <h4>🧠 Conclusão</h4>
+        <p>O MRUV é muito mais que fórmulas — é a chave para entender mudanças no movimento. Dominar essas ideias permite prever o futuro de um carro em frenagem, um objeto em queda ou um projétil no ar.</p>
+        <p>Além de ser fundamental na física, esse conhecimento salva vidas todos os dias nas estradas.</p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 30px;">📚 Próximo Passo</h3>
+      <div class="grid-atividades">
+        <!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🧠</span>
+            <span class="data">25/10/2025</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: MRUV e Aceleração</h4>
+            <p>Teste seus conhecimentos com cálculos, gráficos e situações de frenagem.</p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_mruv.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "No MRUV, a aceleração constante revela o ritmo da mudança.";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, físico! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚙️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.explicacao { padding: 60px 0; }
+    section.explicacao article { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); }
+    .slide-formulas { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 40px 0; }
+    .card-formula { background: white; border-radius: 12px; padding: 15px; width: 200px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .card-formula img { border-radius: 8px; }
+    .card-formula p { margin: 10px 0 0; font-weight: bold; color: #333; }
+    section.atividades { padding: 60px 0; background-color: #1a1a1a; }
+    .grid-atividades { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+    .card-atividade { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 6px 15px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+    .card-atividade:hover { transform: translateY(-6px); }
+    .card-header { padding: 15px 20px; background-color: rgba(52,152,219,0.2); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .card-header .icon { font-size: 1.4rem; }
+    .card-header .data { font-size: 0.95rem; color: #ddd; }
+    .card-body { padding: 20px; }
+    .card-body h4 { color: white; font-size: 1.2rem; margin-bottom: 10px; }
+    .card-body p { color: #ccc; font-size: 0.95rem; line-height: 1.5; }
+    .card-footer { padding: 15px 20px; background-color: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+    .btn-acessar { display: inline-block; background-color: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: background 0.3s; }
+    .btn-acessar:hover { background-color: #2980b9; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      .slide-formulas { flex-direction: column; align-items: center; }
+      .card-formula { width: 100%; max-width: 300px; }
+    }
+  </style>
+
+  <!-- Executa a saudação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", saudacaoHorario);
+  </script>
+
+</body>
+</html>
