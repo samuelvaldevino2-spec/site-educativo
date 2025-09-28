@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gráficos do MRUV - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">No MRUV, os gráficos revelam como velocidade, posição e aceleração mudam com o tempo.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>📉 Gráficos do MRUV: Entenda o Movimento Acelerado</h3>
+    </div>
+  </section>
+
+  <!-- Conteúdo Explicativo -->
+  <section class="explicacao">
+    <div class="container">
+      <article>
+
+        <h4>🎯 Por que estudar gráficos do MRUV?</h4>
+        <p>O <strong>Movimento Retilíneo Uniformemente Variado (MRUV)</strong> ocorre quando um objeto se move em linha reta com aceleração constante — ou seja, sua velocidade muda de forma regular ao longo do tempo.</p>
+        <p>É o tipo de movimento que acontece quando um carro acelera saindo do repouso, freia bruscamente ou um objeto cai em queda livre.</p>
+        <p>Os gráficos são ferramentas essenciais para <strong>visualizar esse movimento</strong>, prever posições futuras e entender fenômenos como frenagem e lançamentos verticais.</p>
+
+        <h4>📈 Gráfico de Posição × Tempo (s × t)</h4>
+        <p>Este gráfico mostra como a posição de um corpo varia com o tempo no MRUV.</p>
+        <p>No MRUV, esse gráfico é sempre uma <strong>parábola</strong>. A curvatura indica a aceleração:</p>
+        <ul>
+          <li><strong>Concavidade para cima → aceleração positiva</strong> (a > 0): o objeto está acelerando.</li>
+          <li><strong>Concavidade para baixo → aceleração negativa</strong> (a < 0): o objeto está desacelerando (freando).</li>
+        </ul>
+        <img src="imagens/4a.png" alt="Gráfico v×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <img src="imagens/5a.png" alt="Gráfico v×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+
+        <h4>🔍 Como Interpretar a Curvatura</h4>
+        <p>A função horária da posição no MRUV é:</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">s = s₀ + v₀·t + (a·t²)/2</p>
+        <p>Essa é uma equação do 2º grau, por isso o gráfico é uma parábola. Quanto maior a aceleração, mais acentuada será a curva.</p>
+        <p><strong>Dica:</strong> Se o vértice da parábola está à direita do eixo vertical, significa que houve um instante em que a velocidade foi zero (como no ponto mais alto de um lançamento vertical).</p>
+        
+        <br>
+        <h4>📊 Gráfico de Velocidade × Tempo (v × t)</h4>
+        <p>Este gráfico mostra como a velocidade muda ao longo do tempo.</p>
+        <img src="imagens/1a.png" alt="Gráfico v×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <p>No MRUV, esse gráfico é uma <strong>reta inclinada</strong>. A inclinação dessa reta representa o valor da aceleração.</p>
+        <ul>
+          <li><strong>Reta crescente → aceleração positiva</strong> (v aumenta)</li>
+          <li><strong>Reta decrescente → aceleração negativa</strong> (v diminui)</li>
+          <li><strong>Reta horizontal → aceleração nula</strong> (MRU)</li>
+        </ul>
+        <p><strong>Fórmula da aceleração:</strong></p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">a = Δv / Δt</p>
+        <p>Onde:<br>
+        <strong>Δv</strong> = variação da velocidade (final – inicial)<br>
+        <strong>Δt</strong> = intervalo de tempo</p>
+        <p><strong>Exemplo:</strong> De t = 0 s a t = 5 s, a velocidade passa de 10 m/s para 20 m/s.<br>
+        Δv = 20 – 10 = 10 m/s<br>
+        Δt = 5 – 0 = 5 s<br>
+        a = 10 / 5 = 2 m/s²</p>
+        
+        <br>
+        <h4>💡 Área Sob o Gráfico (v × t)</h4>
+        <p>A área entre a reta e o eixo do tempo representa o <strong>deslocamento total</strong> do objeto.</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">Área = Δs</p>
+        <h4>Triângulo</h4>
+        <p><strong>Exemplo:</strong> Um carro acelera de 0 a 45 m/s em 10 segundos. A área é um triângulo:<br>
+        Base = 10 s,  altura = 45 m/s<br>
+        Área = 10 × 35 / 2 = 225 m<br>
+        Portanto, o deslocamento foi de 225 metros.</p>
+        <img src="imagens/3b.png" alt="Gráfico a×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <img src="imagens/4b.png" alt="Gráfico a×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <img src="imagens/5b.png" alt="Gráfico a×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <h4>Trapézio</h4>
+        <p><strong>Exemplo:</strong> Um carro acelera de 10 a 20 m/s em 5 segundos. A área é um trapézio:<br>
+        Base maior = 20 s, Base menor = 10,  altura = 5 m/s<br>
+        Área = (20 + 10) × 5 / 2 = 75 m<br>
+        Portanto, o deslocamento foi de 75 metros.</p>
+        <img src="imagens/1a.png" alt="Gráfico v×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <img src="imagens/2a.png" alt="Gráfico a×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <img src="imagens/3a.png" alt="Gráfico a×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+
+        <h4>📉 Gráfico de Aceleração × Tempo (a × t)</h4>
+        <p>Como a aceleração é constante no MRUV, este gráfico é uma <strong>reta horizontal</strong>.</p>
+        <p>A altura da reta indica o valor da aceleração:</p>
+        <ul>
+          <li><strong>Acima do eixo → a > 0</strong> (movimento acelerado)</li>
+          <li><strong>Abaixo do eixo → a < 0</strong> (movimento retardado)</li>
+          <li><strong>Sobre o eixo → a = 0</strong> (MRU)</li>
+        <img src="imagens/6a.png" alt="Gráfico a×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <img src="imagens/7a.png" alt="Frenagem e tempo de reação" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        </ul>
+        <p><strong>Dica:</strong> A área sob esse gráfico dá a variação da velocidade (Δv) no período.</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">Área = a × Δt = Δv</p>
+         <img src="imagens/6b.png" alt="Gráfico a×t - MRUV" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <img src="imagens/7b.png" alt="Frenagem e tempo de reação" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <br>
+        <hr>
+        <h4>🔄 Comparação entre MRU e MRUV</h4>
+        <p>É importante distinguir os gráficos dos dois movimentos:</p>
+        <p><strong>MRU:</strong> velocidade constante → v×t é reta horizontal, s×t é reta inclinada.<br>
+        <strong>MRUV:</strong> aceleração constante → v×t é reta inclinada, s×t é parábola.</p>
+        <br>
+        <h4>⚠️ Aplicação no Trânsito</h4>
+        <p>Os conceitos de MRUV são usados diretamente na segurança viária:</p>
+        <ul>
+          <li><strong>Frenagem:</strong> ao frear, o carro executa um MRUV com aceleração negativa. A distância de parada depende do quadrado da velocidade inicial — dobrar a velocidade exige quatro vezes mais espaço para parar.</li>
+          <li><strong>Tempo de reação:</strong> antes de frear, o motorista leva cerca de 1 segundo para reagir. Nesse tempo, o carro ainda está em MRU, percorrendo dezenas de metros.</li>
+          <li><strong>Sistemas ABS:</strong> evitam o travamento das rodas, mantendo o controle durante a desaceleração (MRUV controlado).</li>
+        </ul>
+        
+        <br>
+        <h4 >💡 Dica Final: Use os Gráficos a Seu Favor</h4>
+        <ol>
+          <li>No gráfico s×t, a concavidade indica o sinal da aceleração.</li>
+          <li>No gráfico v×t, a inclinação é a aceleração; a área é o deslocamento.</li>
+          <li>No gráfico a×t, a área é a variação da velocidade.</li>
+          <li>Treine interpretar gráficos mesmo sem números — observe tendências.</li>
+          <li>Dirigir com acelerações suaves reduz o risco de derrapagens e colisões.</li>
+        </ol>
+
+        <h4>🧠 Conclusão</h4>
+        <p>Os gráficos do MRUV são muito mais que desenhos — são mapas do movimento acelerado. Dominar sua interpretação permite prever frenagens, analisar quedas livres e entender tecnologias modernas de segurança.</p>
+        <p>Da próxima vez que pisar no freio, lembre-se: você está executando um MRUV — e a física está ali para garantir sua segurança.</p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 30px;">📚 Próximo Passo</h3>
+      <div class="grid-atividades">
+        <!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🧠</span>
+            <span class="data">30/10/2025</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: Interpretação de Gráficos do MRUV</h4>
+            <p>Teste sua habilidade em ler gráficos de posição, velocidade e aceleração.</p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_graficos_mruv.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Os gráficos do MRUV revelam o ritmo da mudança.";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, analista! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚙️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.explicacao { padding: 60px 0; }
+    section.explicacao article { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); }
+    section.atividades { padding: 60px 0; background-color: #1a1a1a; }
+    .grid-atividades { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+    .card-atividade { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 6px 15px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+    .card-atividade:hover { transform: translateY(-6px); }
+    .card-header { padding: 15px 20px; background-color: rgba(52,152,219,0.2); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .card-header .icon { font-size: 1.4rem; }
+    .card-header .data { font-size: 0.95rem; color: #ddd; }
+    .card-body { padding: 20px; }
+    .card-body h4 { color: white; font-size: 1.2rem; margin-bottom: 10px; }
+    .card-body p { color: #ccc; font-size: 0.95rem; line-height: 1.5; }
+    .card-footer { padding: 15px 20px; background-color: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+    .btn-acessar { display: inline-block; background-color: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: background 0.3s; }
+    .btn-acessar:hover { background-color: #2980b9; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      img { max-width: 100%; height: auto; }
+    }
+  </style>
+
+  <!-- Executa a saudação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", saudacaoHorario);
+  </script>
+
+</body>
+</html>
