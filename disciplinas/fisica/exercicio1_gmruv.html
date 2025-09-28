@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercício: Gráficos do MRUV - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Use os gráficos para calcular deslocamento e variação de velocidade.</p>
+      <hr>
+      <h3>📘 Exercícios: Gráficos do MRUV</h3>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+
+      <form id="quiz-form">
+
+        <ol class="lista-exercicios">
+
+          <!-- Questão 1 -->
+          <li class="exercicio">
+            <p><strong>1.</strong> Um carro parte do repouso e atinge 20 m/s em 4 s. Qual o deslocamento pelo gráfico v × t?</p>
+            <img src="graficos/ge5.png" alt="Gráfico v×t - Q1" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+            <p>
+              Deslocamento = 
+              <input type="text" class="resposta-numero" data-correct="40" data-unidade="m" placeholder="Resposta">
+            </p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 2 -->
+          <li class="exercicio">
+            <p><strong>2.</strong> Um móvel vai de 10 m/s até 30 m/s em 5 s. O deslocamento é:</p>
+            <img src="graficos/ge6.png" alt="Gráfico v×t - Q2" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+            <p>
+              Deslocamento = 
+              <input type="text" class="resposta-numero" data-correct="100" data-unidade="m" placeholder="Resposta">
+            </p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 3 -->
+          <li class="exercicio">
+            <p><strong>3.</strong> Um carro desacelera de 40 m/s até 0 em 8 s. Qual o deslocamento?</p>
+            <img src="graficos/ge7.png" alt="Gráfico v×t - Q3" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+            <p>
+              Deslocamento = 
+              <input type="text" class="resposta-numero" data-correct="160" data-unidade="m" placeholder="Resposta">
+            </p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 4 -->
+          <li class="exercicio">
+            <p><strong>4.</strong> Um carro sofre aceleração constante de 3 m/s² durante 6 s. Qual a variação de velocidade (Δv)?</p>
+            <img src="graficos/ge8.png" alt="Gráfico a×t - Q4" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+            <p>
+              Variação de velocidade = 
+              <input type="text" class="resposta-numero" data-correct="18" data-unidade="m/s" placeholder="Resposta">
+            </p>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 5 -->
+          <li class="exercicio">
+            <p><strong>5.</strong> Um móvel tem aceleração constante de –2 m/s² por 5 s. Sua velocidade diminui em:</p>
+            <img src="graficos/ge9.png" alt="Gráfico a×t - Q5" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+            <p>
+              Diminuição da velocidade = 
+              <input type="text" class="resposta-numero" data-correct="10" data-unidade="m/s" placeholder="Resposta">
+            </p>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Botão de Verificação -->
+        <div style="text-align: center; margin: 40px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "No MRUV, a área sob o gráfico revela o deslocamento.";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, analista! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚙️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+    }
+  </script>
+
+  <!-- Script de Verificação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      saudacaoHorario();
+
+      const form = document.getElementById("quiz-form");
+      const inputs = form.querySelectorAll(".resposta-numero");
+
+      // Formata entrada: vírgula → ponto, remove espaços
+      function formatar(resposta) {
+        return resposta.replace(/,/g, ".").trim();
+      }
+
+      // Verifica respostas
+      document.getElementById("verificar-respostas").addEventListener("click", () => {
+        inputs.forEach(input => {
+          const valor = formatar(input.value);
+          const correct = parseFloat(input.dataset.correct);
+          const unidade = input.dataset.unidade || "";
+          const feedback = input.nextElementSibling;
+
+          feedback.innerHTML = "";
+
+          if (!valor) {
+            input.style.backgroundColor = "#3c1818";
+            input.style.color = "#e74c3c";
+            feedback.innerHTML = "<span style='color: #e74c3c;'>⚠️ Vazio</span>";
+            return;
+          }
+
+          const num = parseFloat(valor);
+
+          if (Math.abs(num - correct) < 0.01) {
+            input.style.backgroundColor = "#183c1b";
+            input.style.color = "#27ae60";
+            feedback.innerHTML = `<span style='color: #27ae60;'>✅ Correto! ${correct} ${unidade}</span>`;
+          } else {
+            input.style.backgroundColor = "#3c1818";
+            input.style.color = "#e74c3c";
+            feedback.innerHTML = `<span style='color: #e74c3c;'>❌ Errado. Resposta: ${correct} ${unidade}</span>`;
+          }
+        });
+      });
+
+      // Resetar estilo ao digitar
+      inputs.forEach(input => {
+        input.addEventListener("input", () => {
+          input.style.backgroundColor = "";
+          input.style.color = "";
+          const feedback = input.nextElementSibling;
+          feedback.innerHTML = "";
+        });
+      });
+    });
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.atividades { padding: 60px 0; }
+    .lista-exercicios { margin: 20px 0; }
+    .exercicio { background-color: rgba(255,255,255,0.08); border-radius: 10px; padding: 15px; margin-bottom: 20px; }
+    .exercicio p { margin-bottom: 10px; }
+    .resposta-numero {
+      padding: 8px 12px;
+      border: 2px solid #555;
+      border-radius: 6px;
+      background-color: #222;
+      color: white;
+      font-size: 1.1rem;
+      width: 120px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .feedback { margin-top: 10px; font-weight: bold; }
+    .btn-verificar { background-color: #27ae60; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; }
+    .btn-verificar:hover { background-color: #219653; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      .resposta-numero { width: 100px; font-size: 1rem; }
+    }
+  </style>
+
+</body>
+</html>
