@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercício: MRUV - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Use as equações do MRUV com atenção. Aceleração constante muda tudo!</p>
+      <hr>
+      <h3>📘 Exercícios – Movimento Retilíneo Uniformemente Variado (MRUV)</h3>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+
+      <form id="quiz-form">
+
+        <!-- Parte 1: Questões Diretas -->
+        <h4 style="color: #3498db; margin-bottom: 20px;">📌 Parte 1 — Questões Conceituais</h4>
+        <ol start="1" class="lista-exercicios">
+
+          <!-- Q1 -->
+          <li class="exercicio">
+            <p>No MRUV, a aceleração é:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q1" value="a"> a) Variável</label><br>
+              <label><input type="radio" name="q1" value="b"> b) Constante</label><br>
+              <label><input type="radio" name="q1" value="c"> c) Sempre positiva</label><br>
+              <label><input type="radio" name="q1" value="d"> d) Sempre negativa</label><br>
+              <label><input type="radio" name="q1" value="e"> e) Nula</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q2 -->
+          <li class="exercicio">
+            <p>A equação da velocidade no MRUV é:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q2" value="a"> a) s = s₀ + v·t</label><br>
+              <label><input type="radio" name="q2" value="b"> b) v = v₀ + a·t</label><br>
+              <label><input type="radio" name="q2" value="c"> c) v = v₀ − g</label><br>
+              <label><input type="radio" name="q2" value="d"> d) v² = 2aΔs</label><br>
+              <label><input type="radio" name="q2" value="e"> e) a = Δs / t</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q3 -->
+          <li class="exercicio">
+            <p>Se a velocidade inicial for zero e a aceleração constante, o gráfico s×t será:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q3" value="a"> a) Reta horizontal</label><br>
+              <label><input type="radio" name="q3" value="b"> b) Reta inclinada</label><br>
+              <label><input type="radio" name="q3" value="c"> c) Parábola</label><br>
+              <label><input type="radio" name="q3" value="d"> d) Circunferência</label><br>
+              <label><input type="radio" name="q3" value="e"> e) Hipérbole</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q4 -->
+          <li class="exercicio">
+            <p>No gráfico v×t, a área sob a curva representa:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q4" value="a"> a) Aceleração</label><br>
+              <label><input type="radio" name="q4" value="b"> b) Velocidade média</label><br>
+              <label><input type="radio" name="q4" value="c"> c) Deslocamento</label><br>
+              <label><input type="radio" name="q4" value="d"> d) Força resultante</label><br>
+              <label><input type="radio" name="q4" value="e"> e) Distância inicial</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q5 -->
+          <li class="exercicio">
+            <p>Quando a aceleração e a velocidade têm sinais opostos, o movimento é:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q5" value="a"> a) Progressivo</label><br>
+              <label><input type="radio" name="q5" value="b"> b) Retrógrado</label><br>
+              <label><input type="radio" name="q5" value="c"> c) Uniforme</label><br>
+              <label><input type="radio" name="q5" value="d"> d) Retardado</label><br>
+              <label><input type="radio" name="q5" value="e"> e) Acelerado</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q6 -->
+          <li class="exercicio">
+            <p>A equação de Torricelli é:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q6" value="a"> a) s = s₀ + v₀t + ½at²</label><br>
+              <label><input type="radio" name="q6" value="b"> b) v = v₀ + at</label><br>
+              <label><input type="radio" name="q6" value="c"> c) v² = v₀² + 2aΔs</label><br>
+              <label><input type="radio" name="q6" value="d"> d) v = Δs / Δt</label><br>
+              <label><input type="radio" name="q6" value="e"> e) a = (v − v₀)/t</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q7 -->
+          <li class="exercicio">
+            <p>Um carro freando realiza um movimento:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q7" value="a"> a) Uniforme</label><br>
+              <label><input type="radio" name="q7" value="b"> b) Acelerado</label><br>
+              <label><input type="radio" name="q7" value="c"> c) Retardado</label><br>
+              <label><input type="radio" name="q7" value="d"> d) Circular</label><br>
+              <label><input type="radio" name="q7" value="e"> e) Oscilatório</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q8 -->
+          <li class="exercicio">
+            <p>Em queda livre, a aceleração é aproximadamente:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q8" value="a"> a) 8,0 m/s²</label><br>
+              <label><input type="radio" name="q8" value="b"> b) 9,8 m/s²</label><br>
+              <label><input type="radio" name="q8" value="c"> c) 10,8 m/s²</label><br>
+              <label><input type="radio" name="q8" value="d"> d) 5,0 m/s²</label><br>
+              <label><input type="radio" name="q8" value="e"> e) Nula</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q9 -->
+          <li class="exercicio">
+            <p>O que determina a inclinação da reta no gráfico v×t?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q9" value="a"> a) Velocidade inicial</label><br>
+              <label><input type="radio" name="q9" value="b"> b) Posição inicial</label><br>
+              <label><input type="radio" name="q9" value="c"> c) Deslocamento</label><br>
+              <label><input type="radio" name="q9" value="d"> d) Aceleração</label><br>
+              <label><input type="radio" name="q9" value="e"> e) Força</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q10 -->
+          <li class="exercicio">
+            <p>Em lançamentos verticais para cima, no ponto mais alto temos:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q10" value="a"> a) v = 0 e a = 0</label><br>
+              <label><input type="radio" name="q10" value="b"> b) v = 0 e a = g</label><br>
+              <label><input type="radio" name="q10" value="c"> c) v = g e a = 0</label><br>
+              <label><input type="radio" name="q10" value="d"> d) v = g e a = g</label><br>
+              <label><input type="radio" name="q10" value="e"> e) Nenhuma das anteriores</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Parte 2: Situações-Problema -->
+        <h4 style="color: #3498db; margin-top: 30px; margin-bottom: 20px;">📌 Parte 2 — Situações-Problema</h4>
+        <ol start="11" class="lista-exercicios">
+
+          <!-- Q11 -->
+          <li class="exercicio">
+            <p>Um carro parte do repouso e acelera a 2 m/s². Qual sua velocidade após 5 s?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q11" value="a"> a) 5 m/s</label><br>
+              <label><input type="radio" name="q11" value="b"> b) 10 m/s</label><br>
+              <label><input type="radio" name="q11" value="c"> c) 15 m/s</label><br>
+              <label><input type="radio" name="q11" value="d"> d) 20 m/s</label><br>
+              <label><input type="radio" name="q11" value="e"> e) 25 m/s</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q12 -->
+          <li class="exercicio">
+            <p>Um trem parte com v₀ = 20 m/s e acelera a 1 m/s² por 10 s. Seu deslocamento será:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q12" value="a"> a) 200 m</label><br>
+              <label><input type="radio" name="q12" value="b"> b) 250 m</label><br>
+              <label><input type="radio" name="q12" value="c"> c) 300 m</label><br>
+              <label><input type="radio" name="q12" value="d"> d) 400 m</label><br>
+              <label><input type="radio" name="q12" value="e"> e) 450 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q13 -->
+          <li class="exercicio">
+            <p>Um carro a 30 m/s freia com a = –5 m/s². Qual distância até parar?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q13" value="a"> a) 60 m</label><br>
+              <label><input type="radio" name="q13" value="b"> b) 90 m</label><br>
+              <label><input type="radio" name="q13" value="c"> c) 100 m</label><br>
+              <label><input type="radio" name="q13" value="d"> d) 120 m</label><br>
+              <label><input type="radio" name="q13" value="e"> e) 75 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q14 -->
+          <li class="exercicio">
+            <p>Uma pedra é solta de um prédio. Após 3 s, sua velocidade será:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q14" value="a"> a) 9,8 m/s</label><br>
+              <label><input type="radio" name="q14" value="b"> b) 19,6 m/s</label><br>
+              <label><input type="radio" name="q14" value="c"> c) 29,4 m/s</label><br>
+              <label><input type="radio" name="q14" value="d"> d) 39,2 m/s</label><br>
+              <label><input type="radio" name="q14" value="e"> e) 49 m/s</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q15 -->
+          <li class="exercicio">
+            <p>Uma bola é lançada para cima a 20 m/s. Qual o tempo até atingir o ponto mais alto?</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q15" value="a"> a) 1 s</label><br>
+              <label><input type="radio" name="q15" value="b"> b) 2 s</label><br>
+              <label><input type="radio" name="q15" value="c"> c) 3 s</label><br>
+              <label><input type="radio" name="q15" value="d"> d) 4 s</label><br>
+              <label><input type="radio" name="q15" value="e"> e) 5 s</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q16 -->
+          <li class="exercicio">
+            <p>Um carro parte com v₀ = 10 m/s e acelera a 3 m/s² por 4 s. Sua velocidade final será:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q16" value="a"> a) 18 m/s</label><br>
+              <label><input type="radio" name="q16" value="b"> b) 20 m/s</label><br>
+              <label><input type="radio" name="q16" value="c"> c) 22 m/s</label><br>
+              <label><input type="radio" name="q16" value="d"> d) 24 m/s</label><br>
+              <label><input type="radio" name="q16" value="e"> e) 25 m/s</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q17 -->
+          <li class="exercicio">
+            <p>Um ciclista percorre 100 m acelerando a 2 m/s² a partir do repouso. Sua velocidade final é:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q17" value="a"> a) 10 m/s</label><br>
+              <label><input type="radio" name="q17" value="b"> b) 15 m/s</label><br>
+              <label><input type="radio" name="q17" value="c"> c) 20 m/s</label><br>
+              <label><input type="radio" name="q17" value="d"> d) 25 m/s</label><br>
+              <label><input type="radio" name="q17" value="e"> e) 30 m/s</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q18 -->
+          <li class="exercicio">
+            <p>Um carro com v₀ = 25 m/s acelera a 2 m/s² por 5 s. Seu deslocamento é:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q18" value="a"> a) 100 m</label><br>
+              <label><input type="radio" name="q18" value="b"> b) 125 m</label><br>
+              <label><input type="radio" name="q18" value="c"> c) 150 m</label><br>
+              <label><input type="radio" name="q18" value="d"> d) 175 m</label><br>
+              <label><input type="radio" name="q18" value="e"> e) 200 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q19 -->
+          <li class="exercicio">
+            <p>Uma moto reduz sua velocidade de 40 m/s para 20 m/s em 10 s. Sua aceleração média é:</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q19" value="a"> a) –1 m/s²</label><br>
+              <label><input type="radio" name="q19" value="b"> b) –2 m/s²</label><br>
+              <label><input type="radio" name="q19" value="c"> c) –3 m/s²</label><br>
+              <label><input type="radio" name="q19" value="d"> d) –4 m/s²</label><br>
+              <label><input type="radio" name="q19" value="e"> e) –5 m/s²</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q20 -->
+          <li class="exercicio">
+            <p>Uma pedra é jogada para cima com 15 m/s. Qual a altura máxima atingida? (g ≈ 10 m/s²)</p>
+            <div class="alternativas">
+              <label><input type="radio" name="q20" value="a"> a) 5 m</label><br>
+              <label><input type="radio" name="q20" value="b"> b) 10 m</label><br>
+              <label><input type="radio" name="q20" value="c"> c) 15 m</label><br>
+              <label><input type="radio" name="q20" value="d"> d) 20 m</label><br>
+              <label><input type="radio" name="q20" value="e"> e) ~11,5 m</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Parte 3: Gráficos -->
+        <h4 style="color: #3498db; margin-top: 30px; margin-bottom: 20px;">📌 Parte 3 — Construção de Gráficos</h4>
+        <ol start="21" class="lista-exercicios">
+
+          <!-- Q21 -->
+          <li class="exercicio">
+            <p><strong>1.</strong> Construa o gráfico v×t de um carro que parte do repouso e acelera uniformemente.<br>
+            <em>Dica: desenhe uma reta inclinada saindo da origem.</em></p>
+            <textarea class="resposta-aberta" data-correct="Deve ser uma reta crescente partindo da origem (0,0)." placeholder="Descreva ou esboce aqui..."></textarea>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q22 -->
+          <li class="exercicio">
+            <p><strong>2.</strong> Construa o gráfico s×t de um corpo em queda livre a partir do repouso.<br>
+            <em>Dica: desenhe uma parábola com concavidade para baixo.</em></p>
+            <textarea class="resposta-aberta" data-correct="Parábola com concavidade para baixo, começando do topo." placeholder="Descreva ou esboce aqui..."></textarea>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q23 -->
+          <li class="exercicio">
+            <p><strong>3.</strong> Construa o gráfico v×t de um carro que freia até parar.<br>
+            <em>Dica: desenhe uma reta decrescente que cruza o eixo do tempo.</em></p>
+            <textarea class="resposta-aberta" data-correct="Reta decrescente que começa acima do eixo e termina em v=0." placeholder="Descreva ou esboce aqui..."></textarea>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q24 -->
+          <li class="exercicio">
+            <p><strong>4.</strong> Construa o gráfico s×t de um objeto lançado para cima.<br>
+            <em>Dica: desenhe uma parábola com concavidade para baixo, subindo e depois descendo.</em></p>
+            <textarea class="resposta-aberta" data-correct="Parábola com vértice no ponto mais alto, simétrica." placeholder="Descreva ou esboce aqui..."></textarea>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Q25 -->
+          <li class="exercicio">
+            <p><strong>5.</strong> Construa o gráfico a×t de um movimento uniformemente acelerado.<br>
+            <em>Dica: desenhe uma linha horizontal paralela ao eixo do tempo (aceleração constante).</em></p>
+            <textarea class="resposta-aberta" data-correct="Linha horizontal acima do eixo (a > 0) ou abaixo (a < 0)." placeholder="Descreva ou esboce aqui..."></textarea>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <!-- Botão de Verificação -->
+        <div style="text-align: center; margin: 40px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+
+      </form>
+
+      <!-- Gabarito Oculto -->
+      <div id="gabarito" style="display: none; margin-top: 40px; padding: 20px; background-color: rgba(52, 152, 219, 0.1); border-radius: 12px; border: 1px solid #3498db;">
+        <h4 style="color: #3498db;">📚 Gabarito Oficial</h4>
+        <p><strong>Parte 1:</strong> 1b, 2b, 3c, 4c, 5d, 6c, 7c, 8b, 9d, 10b</p>
+        <p><strong>Parte 2:</strong> 11b, 12b, 13e, 14c, 15b, 16c, 17c, 18d, 19b, 20e</p>
+        <p><strong>Parte 3:</strong> Veja orientações nas respostas esperadas.</p>
+      </div>
+
+      <!-- Botão Mostrar Gabarito -->
+      <div style="text-align: center; margin-bottom: 60px;">
+        <button type="button" id="mostrar-gabarito" class="btn-acessar">Mostrar Gabarito</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "No MRUV, cada segundo conta na mudança da velocidade.";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, físico! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚙️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+    }
+  </script>
+
+  <!-- Script de Verificação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      saudacaoHorario();
+
+      const form = document.getElementById("quiz-form");
+      const btnVerificar = document.getElementById("verificar-respostas");
+      const btnGabarito = document.getElementById("mostrar-gabarito");
+      const gabaritoDiv = document.getElementById("gabarito");
+
+      // Mostrar gabarito
+      btnGabarito.addEventListener("click", () => {
+        gabaritoDiv.style.display = "block";
+        btnGabarito.textContent = "Esconder Gabarito";
+        btnGabarito.onclick = () => {
+          gabaritoDiv.style.display = "none";
+          btnGabarito.textContent = "Mostrar Gabarito";
+        };
+      });
+
+      // Respostas corretas
+      const respostasCorretas = [
+        "b","b","c","c","d","c","c","b","d","b",
+        "b","b","e","c","b","c","c","d","b","e"
+      ];
+
+      // Verificar respostas
+      btnVerificar.addEventListener("click", () => {
+        let acertos = 0;
+
+        // Limpa feedback anterior
+        document.querySelectorAll(".feedback").forEach(f => f.innerHTML = "");
+
+        // Verifica alternativas
+        for (let i = 1; i <= 20; i++) {
+          const selected = form[`q${i}`].value;
+          const correct = respostasCorretas[i-1];
+          const feedbackEl = form.querySelectorAll(".feedback")[i-1];
+
+          if (!selected) {
+            feedbackEl.innerHTML = "<span style='color: #e67e22;'>⚠️ Não respondido</span>";
+          } else if (selected === correct) {
+            feedbackEl.innerHTML = "<span style='color: #27ae60;'>✅ Correto!</span>";
+            acertos++;
+          } else {
+            feedbackEl.innerHTML = "<span style='color: #e74c3c;'>❌ Errado</span>";
+          }
+        }
+
+        // Verifica respostas abertas
+        const abertas = document.querySelectorAll(".resposta-aberta");
+        abertas.forEach((el, index) => {
+          const feedbackEl = el.nextElementSibling;
+          const resposta = el.value.trim().toLowerCase();
+          const esperada = el.dataset.correct.toLowerCase();
+
+          if (resposta.includes(esperada.split(" ")[0]) || resposta.includes(esperada.split(" ")[1])) {
+            feedbackEl.innerHTML = "<span style='color: #27ae60;'>✅ Boa descrição!</span>";
+            acertos += 0.4;
+          } else if (resposta.length > 10) {
+            feedbackEl.innerHTML = "<span style='color: #f39c12;'>🟡 Parcialmente correta</span>";
+            acertos += 0.2;
+          } else {
+            feedbackEl.innerHTML = "<span style='color: #e74c3c;'>❌ Precisa melhorar</span>";
+          }
+        });
+
+        // Mensagem final
+        alert(`Você acertou ${acertos.toFixed(1)} de 25 pontos.`);
+      });
+    });
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.atividades { padding: 60px 0; }
+    .lista-exercicios { margin: 20px 0; }
+    .exercicio { background-color: rgba(255,255,255,0.08); border-radius: 10px; padding: 15px; margin-bottom: 20px; }
+    .exercicio p { margin-bottom: 10px; }
+    .alternativas label { display: block; margin: 5px 0; cursor: pointer; }
+    .alternativas input[type="radio"] { margin-right: 8px; }
+    textarea.resposta-aberta { width: 100%; height: 80px; padding: 10px; border-radius: 6px; border: 1px solid #555; background-color: #222; color: #fff; resize: vertical; }
+    .feedback { margin-top: 10px; font-weight: bold; }
+    .btn-verificar { background-color: #27ae60; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; }
+    .btn-verificar:hover { background-color: #219653; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      .exercicio { padding: 12px; }
+      textarea { height: 60px; }
+    }
+  </style>
+
+</body>
+</html>
