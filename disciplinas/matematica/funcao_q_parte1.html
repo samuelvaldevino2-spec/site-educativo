@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Função Quadrática - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">A função quadrática descreve movimentos e formas curvas no mundo real.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>📊 Função Quadrática: A Parábola na Matemática</h3>
+    </div>
+  </section>
+
+  <!-- Conteúdo Explicativo -->
+  <section class="explicacao">
+    <div class="container">
+      <article>
+
+        <h4>I. Definição</h4>
+        <p>A <strong>função quadrática</strong>, também chamada de função do 2º grau, é uma função do tipo:</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">f(x) = ax² + bx + c</p>
+        <p>Onde:<br>
+        <strong>a</strong>, <strong>b</strong> e <strong>c</strong> são números reais<br>
+        <strong>a ≠ 0</strong> (se a fosse zero, seria uma função afim)</p>
+        <p>Essa função é usada para modelar fenômenos que têm um ponto de virada, como lançamentos de projéteis, lucros máximos ou mínimos em negócios, e formatos parabólicos em construções.</p>
+        <p><strong>Exemplo:</strong> f(x) = x² – 4x + 3 → aqui, a = 1, b = –4, c = 3.</p>
+
+        <h4>II. Gráfico</h4>
+        <p>O gráfico de uma função quadrática é sempre uma <strong>parábola</strong>. Ela pode ter duas formas principais: "em forma de U" ou "de cabeça para baixo".</p>
+        <img src="imagens/grafico_q1.png" alt="Gráfico da função quadrática" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <p><strong>Como construir:</strong></p>
+        <ol>
+          <li>Identifique os coeficientes a, b e c.</li>
+          <li>Determine a concavidade (ver tópico III).</li>
+          <li>Calcule o vértice (ver tópico VII).</li>
+          <li>Encontre as raízes (zeros), se existirem (ver tópico IV).</li>
+          <li>Marque esses pontos no plano cartesiano e esboce a parábola.</li>
+        </ol>
+        <p><strong>Exemplo:</strong> f(x) = x² – 6x + 8<br>
+        → É uma parábola com concavidade para cima, vértice em (3, –1), e raízes em x = 2 e x = 4.</p>
+
+        <h4>III. Concavidade</h4>
+        <p>A <strong>concavidade</strong> da parábola depende do sinal do coeficiente <strong>a</strong>:</p>
+        <ul>
+          <li><strong>a > 0 → concavidade para cima</strong> (forma de "U")</li>
+          <li><strong>a < 0 → concavidade para baixo</strong> (forma de "capacete")</li>
+        </ul>
+        <img src="imagens/grafico_q2.png" alt="Concavidade da parábola" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <p><strong>Exemplo:</strong><br>
+        • f(x) = 2x² – 3x + 1 → a = 2 > 0 → concavidade para cima<br>
+        • f(x) = –x² + 4x – 3 → a = –1 < 0 → concavidade para baixo</p>
+
+        <h4>IV. Zeros da Função Quadrática</h4>
+        <p>Os <strong>zeros</strong> (ou raízes) são os valores de x para os quais f(x) = 0. Ou seja, onde o gráfico corta o eixo x.</p>
+        <p>Para encontrá-los, resolvemos a equação:</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">ax² + bx + c = 0</p>
+        <p>Usamos a fórmula de Bhaskara:</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">x = [–b ± √(b² – 4ac)] / (2a)</p>
+        <p>O valor dentro da raiz (∆ = b² – 4ac) determina quantas raízes existem:</p>
+        <ul>
+          <li><strong>∆ > 0 → duas raízes reais diferentes</strong></li>
+          <li><strong>∆ = 0 → uma raiz real (dupla)</strong></li>
+          <li><strong>∆ < 0 → nenhuma raiz real</strong></li>
+        </ul>
+        <img src="imagens/grafico_q3.png" alt="Zeros da função quadrática" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <p><strong>Exemplo:</strong> f(x) = x² – 5x + 6<br>
+        → a = 1, b = –5, c = 6<br>
+        → ∆ = (–5)² – 4·1·6 = 25 – 24 = 1<br>
+        → x = [5 ± √1]/2 → x₁ = 3, x₂ = 2<br>
+        Portanto, os zeros são <strong>x = 2</strong> e <strong>x = 3</strong>.</p>
+
+        <h4>VI. Máximo e Mínimo</h4>
+        <p>Dependendo da concavidade, a parábola tem um ponto mais alto ou mais baixo:</p>
+        <ul>
+          <li><strong>Concavidade para cima (a > 0) → ponto de mínimo</strong></li>
+          <li><strong>Concavidade para baixo (a < 0) → ponto de máximo</strong></li>
+        </ul>
+        <p>Esse ponto é chamado de <strong>vértice</strong> e representa o menor ou maior valor da função.</p>
+        <p><strong>Aplicações:</strong><br>
+        • Em física: altura máxima de um lançamento vertical.<br>
+        • Em economia: lucro máximo ou custo mínimo.</p>
+
+        <h4>VII. Vértice da Parábola</h4>
+        <p>O <strong>vértice</strong> é o ponto (x_v, y_v) onde a parábola atinge seu valor máximo ou mínimo.</p>
+        <p>As coordenadas do vértice são dadas por:</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">x_v = –b / (2a)<br>y_v = f(x_v)</p>
+        <img src="imagens/grafico_q4.png" alt="Vértice da parábola" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <p><strong>Exemplo:</strong> f(x) = –x² + 6x – 5<br>
+        → a = –1, b = 6, c = –5<br>
+        → x_v = –6 / (2·–1) = 3<br>
+        → y_v = f(3) = –(3)² + 6·3 – 5 = –9 + 18 – 5 = 4<br>
+        O vértice é <strong>(3, 4)</strong> e, como a < 0, esse é o ponto de <strong>máximo</strong>.</p>
+
+        <h4>💡 Dica Final: Como Analisar uma Função Quadrática</h4>
+        <ol>
+          <li>Observe o sinal de <strong>a</strong> para saber a concavidade.</li>
+          <li>Use Bhaskara para encontrar os zeros (se existirem).</li>
+          <li>Calcule o vértice para localizar o ponto de máximo ou mínimo.</li>
+          <li>Esboce o gráfico marcando os pontos principais.</li>
+          <li>Lembre-se: a parábola é simétrica em relação ao eixo x = x_v.</li>
+        </ol>
+
+        <h4>🧠 Conclusão</h4>
+        <p>A função quadrática é uma das mais importantes da matemática aplicada. Dominar seus elementos — gráfico, zeros, vértice e concavidade — permite interpretar fenômenos físicos, econômicos e geométricos com precisão.</p>
+        <p>Da próxima vez que vir uma ponte, um arco ou um objeto lançado para o alto, lembre-se: você está diante de uma parábola!</p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 30px;">📚 Próximo Passo</h3>
+      <div class="grid-atividades">
+        <!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🧠</span>
+            <span class="data">10/11/2025</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: Função Quadrática</h4>
+            <p>Teste seus conhecimentos sobre gráficos, vértice e zeros da parábola.</p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_funcao_quadratica.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "A parábola revela o ponto alto (ou baixo) de muitos fenômenos.";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, matemático! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! 📈";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.explicacao { padding: 60px 0; }
+    section.explicacao article { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); }
+    section.atividades { padding: 60px 0; background-color: #1a1a1a; }
+    .grid-atividades { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+    .card-atividade { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 6px 15px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+    .card-atividade:hover { transform: translateY(-6px); }
+    .card-header { padding: 15px 20px; background-color: rgba(52,152,219,0.2); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .card-header .icon { font-size: 1.4rem; }
+    .card-header .data { font-size: 0.95rem; color: #ddd; }
+    .card-body { padding: 20px; }
+    .card-body h4 { color: white; font-size: 1.2rem; margin-bottom: 10px; }
+    .card-body p { color: #ccc; font-size: 0.95rem; line-height: 1.5; }
+    .card-footer { padding: 15px 20px; background-color: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+    .btn-acessar { display: inline-block; background-color: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: background 0.3s; }
+    .btn-acessar:hover { background-color: #2980b9; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      img { max-width: 100%; height: auto; }
+    }
+  </style>
+
+  <!-- Executa a saudação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", saudacaoHorario);
+  </script>
+
+</body>
+</html>

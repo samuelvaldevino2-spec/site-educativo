@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Função Quadrática - Parte 2 - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Agora vamos estudar a imagem, o eixo de simetria e o sinal da função quadrática.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3>📊 Função Quadrática – Parte 2: Imagem, Simetria e Sinal</h3>
+    </div>
+  </section>
+
+  <!-- Conteúdo Explicativo -->
+  <section class="explicacao">
+    <div class="container">
+      <article>
+
+        <h4>VIII. Imagem da Função Quadrática</h4>
+        <p>A <strong>imagem</strong> de uma função é o conjunto de todos os valores que ela pode assumir em seu contradomínio.</p>
+        <p>No caso da função quadrática, a imagem depende diretamente da <strong>concavidade da parábola</strong> e do valor da <strong>ordenada do vértice (y_v)</strong>.</p>
+        <ul>
+          <li><strong>a > 0 → concavidade para cima → ponto de mínimo</strong><br>
+          A função atinge um valor mínimo no vértice. Todos os outros valores são maiores.<br>
+          → Imagem: <strong>{ y ∈ ℝ | y ≥ y_v }</strong></li>
+          <li><strong>a < 0 → concavidade para baixo → ponto de máximo</strong><br>
+          A função atinge um valor máximo no vértice. Todos os outros valores são menores.<br>
+          → Imagem: <strong>{ y ∈ ℝ | y ≤ y_v }</strong></li>
+        </ul>
+        <img src="matematica/imagens/grafico_q5.png" alt="Imagem da função quadrática" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <p><strong>Exemplo:</strong> f(x) = x² – 4x + 3<br>
+        → a = 1 > 0 → concavidade para cima<br>
+        → x_v = –b/(2a) = 4/2 = 2<br>
+        → y_v = f(2) = 4 – 8 + 3 = –1<br>
+        → O menor valor da função é –1<br>
+        Portanto, a imagem é: <strong>{ y ∈ ℝ | y ≥ –1 }</strong></p>
+
+        <h4>IX. Eixo de Simetria</h4>
+        <p>O <strong>eixo de simetria</strong> é a reta vertical que divide a parábola em duas partes iguais (simétricas).</p>
+        <p>Ele passa exatamente pelo <strong>vértice</strong> da parábola e tem equação:</p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">x = x_v = –b / (2a)</p>
+        <img src="matematica/imagens/grafico_q6.png" alt="Eixo de simetria da parábola" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+        <p><strong>Propriedade importante:</strong> pontos equidistantes do eixo de simetria têm a mesma imagem.</p>
+        <p><strong>Exemplo:</strong> f(x) = x² – 6x + 8<br>
+        → x_v = –(–6)/(2·1) = 3<br>
+        → Eixo de simetria: x = 3<br>
+        → f(2) = 4 – 12 + 8 = 0<br>
+        → f(4) = 16 – 24 + 8 = 0<br>
+        Note que 2 e 4 estão a 1 unidade de distância de x = 3 — e têm o mesmo valor!</p>
+
+        <h4>X. Informações que Auxiliam a Construção do Gráfico</h4>
+        <p>Para esboçar o gráfico de uma função quadrática com precisão, reúna estas informações:</p>
+        <ol>
+          <li><strong>Concavidade:</strong> analise o sinal de <strong>a</strong>.</li>
+          <li><strong>Zeros (raízes):</strong> resolva ax² + bx + c = 0 usando Bhaskara.</li>
+          <li><strong>Vértice:</strong> calcule x_v = –b/(2a) e y_v = f(x_v).</li>
+          <li><strong>Ponto de interseção com o eixo y:</strong> quando x = 0, f(0) = c.</li>
+          <li><strong>Eixo de simetria:</strong> x = x_v.</li>
+          <li><strong>Imagem:</strong> use o valor de y_v e o sinal de a.</li>
+        </ol>
+        <p><strong>Exemplo completo:</strong> f(x) = –x² + 4x + 5<br>
+        • a = –1 < 0 → concavidade para baixo<br>
+        • Zeros: Δ = 16 + 20 = 36 → x = [–4 ± 6]/(–2) → x₁ = –1, x₂ = 5<br>
+        • Vértice: x_v = –4/(–2) = 2 → y_v = –4 + 8 + 5 = 9 → (2, 9)<br>
+        • Cruzamento com y: (0, 5)<br>
+        • Eixo de simetria: x = 2<br>
+        • Imagem: { y ∈ ℝ | y ≤ 9 }</p>
+        <img src="matematica/imagens/grafico_q7.png" alt="Gráfico completo da função quadrática" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+
+        <h4>XI. Sinal da Função Quadrática</h4>
+        <p>Estudar o <strong>sinal</strong> da função quadrática significa determinar para quais valores de x temos:<br>
+        • f(x) > 0 (positivo)<br>
+        • f(x) = 0 (nulo)<br>
+        • f(x) < 0 (negativo)</p>
+        <p>O comportamento depende do número de raízes e da concavidade.</p>
+
+        <h5>• Caso 1: Duas raízes reais distintas (Δ > 0)</h5>
+        <p>A parábola corta o eixo x em dois pontos.</p>
+        <ul>
+          <li><strong>a > 0:</strong> negativa entre as raízes, positiva fora.</li>
+          <li><strong>a < 0:</strong> positiva entre as raízes, negativa fora.</li>
+        </ul>
+        <img src="matematica/imagens/grafico_q8.png" alt="Sinal com duas raízes" style="max-width: 100%; border-radius: 8px; margin: 15px 0;">
+
+        <h5>• Caso 2: Uma raiz real (Δ = 0)</h5>
+        <p>A parábola toca o eixo x em um único ponto (vértice).</p>
+        <ul>
+          <li><strong>a > 0:</strong> f(x) ≥ 0 para todo x (zero no vértice)</li>
+          <li><strong>a < 0:</strong> f(x) ≤ 0 para todo x (zero no vértice)</li>
+        </ul>
+
+        <h5>• Caso 3: Nenhuma raiz real (Δ < 0)</h5>
+        <p>A parábola não toca o eixo x.</p>
+        <ul>
+          <li><strong>a > 0:</strong> f(x) > 0 para todo x</li>
+          <li><strong>a < 0:</strong> f(x) < 0 para todo x</li>
+        </ul>
+
+        <p><strong>Exemplo:</strong> f(x) = x² – 6x + 8 (a > 0, raízes 2 e 4)<br>
+        → f(x) > 0 para x < 2 ou x > 4<br>
+        → f(x) = 0 para x = 2 ou x = 4<br>
+        → f(x) < 0 para 2 < x < 4</p>
+
+        <h4>💡 Dica Final: Como Estudar o Sinal Passo a Passo</h4>
+        <ol>
+          <li>Identifique a, b e c.</li>
+          <li>Calcule Δ e encontre as raízes (se existirem).</li>
+          <li>Determine a concavidade (sinal de a).</li>
+          <li>Use os casos acima para definir os intervalos.</li>
+          <li>Esboce um esquema rápido com sinais (+ e –).</li>
+        </ol>
+
+        <h4>🧠 Conclusão</h4>
+        <p>Dominar a imagem, o eixo de simetria e o sinal da função quadrática permite interpretar gráficos com precisão, resolver inequações do 2º grau e modelar situações reais como lucro máximo, altura de projéteis e trajetórias parabólicas.</p>
+        <p>Com esses conceitos, você está pronto para avançar com segurança na matemática do Ensino Médio!</p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 30px;">📚 Próximo Passo</h3>
+      <div class="grid-atividades">
+        <!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🧠</span>
+            <span class="data">11/11/2025</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: Função Quadrática – Parte 2</h4>
+            <p>Teste seus conhecimentos sobre imagem, simetria e sinal da parábola.</p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_funcao_quadratica_p2.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "O eixo de simetria revela o equilíbrio da parábola.";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, analista! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! 🔍";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.explicacao { padding: 60px 0; }
+    section.explicacao article { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); }
+    section.atividades { padding: 60px 0; background-color: #1a1a1a; }
+    .grid-atividades { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+    .card-atividade { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 6px 15px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+    .card-atividade:hover { transform: translateY(-6px); }
+    .card-header { padding: 15px 20px; background-color: rgba(52,152,219,0.2); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .card-header .icon { font-size: 1.4rem; }
+    .card-header .data { font-size: 0.95rem; color: #ddd; }
+    .card-body { padding: 20px; }
+    .card-body h4 { color: white; font-size: 1.2rem; margin-bottom: 10px; }
+    .card-body p { color: #ccc; font-size: 0.95rem; line-height: 1.5; }
+    .card-footer { padding: 15px 20px; background-color: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+    .btn-acessar { display: inline-block; background-color: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: background 0.3s; }
+    .btn-acessar:hover { background-color: #2980b9; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      img { max-width: 100%; height: auto; }
+    }
+  </style>
+
+  <!-- Executa a saudação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", saudacaoHorario);
+  </script>
+
+</body>
+</html>
