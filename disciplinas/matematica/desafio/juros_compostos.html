@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juros Compostos - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Juros compostos são o poder do dinheiro rendendo sobre o dinheiro.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3 style="color: #3498db; font-size: 1.8rem;">💰 Juros Compostos: O Poder dos Juros Sobre Juros</h3>
+    </div>
+  </section>
+
+  <!-- Conteúdo Explicativo -->
+  <section class="explicacao">
+    <div class="container">
+      <article>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🎯 O que são juros compostos?</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Os <strong>juros compostos</strong> ocorrem quando os juros de cada período são somados ao capital, e no período seguinte, os juros são calculados sobre esse novo valor.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          É o famoso "juro sobre juro". Esse sistema faz o dinheiro crescer muito mais rápido do que nos juros simples.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong> Você investe R$ 1000,00 a 10% ao mês.<br>
+          • Mês 1: juros = 10% de 1000 = R$ 100 → novo total = R$ 1100<br>
+          • Mês 2: juros = 10% de 1100 = R$ 110 → novo total = R$ 1210<br>
+          • Mês 3: juros = 10% de 1210 = R$ 121 → novo total = R$ 1331
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🧮 Fórmula do Montante</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          A fórmula para calcular o valor final (montante) é:
+        </p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">
+          Montante = Capital × (1 + taxa)^tempo
+        </p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">
+          M = C × (1 + i)^t
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Onde:<br>
+          • <strong>M</strong> = montante (valor final)<br>
+          • <strong>C</strong> = capital (valor inicial)<br>
+          • <strong>i</strong> = taxa de juros (em forma decimal)<br>
+          • <strong>t</strong> = tempo (em meses, anos, etc)
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">✅ Como Transformar a Taxa em Decimal?</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Assim como nos juros simples, você precisa dividir a porcentagem por 100:
+        </p>
+        <ul style="font-size: 1.2rem; line-height: 1.8;">
+          <li>5% = 5 ÷ 100 = 0,05</li>
+          <li>12% = 12 ÷ 100 = 0,12</li>
+          <li>1% = 1 ÷ 100 = 0,01</li>
+        </ul>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">✅ Exemplo 1: Calculando o Montante</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Qual será o montante de um investimento de R$ 2000,00 a 5% ao mês durante 3 meses?
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          • C = 2000<br>
+          • i = 5% = 0,05<br>
+          • t = 3<br>
+          • M = 2000 × (1 + 0,05)^3 = 2000 × (1,05)^3<br>
+          • (1,05)^3 = 1,05 × 1,05 × 1,05 = 1,157625<br>
+          • M = 2000 × 1,157625 = 2315,25
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          O montante será de <strong>R$ 2315,25</strong>.
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">➕ Juros Totais: Quanto Ganhou?</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Para saber quanto foi de juros, basta subtrair o capital do montante:
+        </p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">
+          Juros = Montante – Capital
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          No exemplo anterior:<br>
+          J = 2315,25 – 2000 = <strong>R$ 315,25</strong>
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🔄 Juros Simples vs. Juros Compostos</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Compare o mesmo investimento nos dois sistemas:
+        </p>
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0; background-color: rgba(0,0,0,0.2); border-radius: 8px; overflow: hidden;">
+          <thead>
+            <tr style="background-color: #3498db;">
+              <th style="padding: 10px; text-align: left;">Tempo</th>
+              <th style="padding: 10px; text-align: left;">Juros Simples</th>
+              <th style="padding: 10px; text-align: left;">Juros Compostos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1 mês</td><td>R$ 2100,00</td><td>R$ 2100,00</td></tr>
+            <tr><td>2 meses</td><td>R$ 2200,00</td><td>R$ 2205,00</td></tr>
+            <tr><td>3 meses</td><td>R$ 2300,00</td><td>R$ 2315,25</td></tr>
+            <tr><td>12 meses</td><td>R$ 3200,00</td><td>R$ 3591,71</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Veja como a diferença aumenta com o tempo!
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">💡 Aplicações Práticas</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Juros compostos estão presentes em:
+        </p>
+        <ul style="font-size: 1.2rem; line-height: 1.8;">
+          <li><strong>Poupança e investimentos</strong>: rendem juros sobre o saldo acumulado.</li>
+          <li><strong>Empréstimos e dívidas</strong>: cartão de crédito, financiamentos — cuidado com as taxas altas!</li>
+          <li><strong>Planejamento financeiro</strong>: quanto valerá meu investimento daqui a 10 anos?</li>
+        </ul>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🧠 Dica Final: Por que isso importa?</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Entender juros compostos ajuda você a:
+        </p>
+        <ul style="font-size: 1.2rem; line-height: 1.8;">
+          <li>Investir melhor e ver seu dinheiro crescer.</li>
+          <li>Evitar dívidas que viram bola de neve.</li>
+          <li>Tomar decisões financeiras mais inteligentes.</li>
+        </ul>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Lembre-se: pequenos valores com juros compostos podem se tornar grandes ao longo do tempo!
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🧠 Conclusão</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Os juros compostos são uma das forças mais poderosas da matemática financeira. Dominá-los é essencial para quem quer ter controle sobre suas finanças.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Parabéns por chegar até aqui! Você completou o Desafio Matemática Básica em 7 Dias. Agora, pratique bastante e use esses conhecimentos no dia a dia!
+        </p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 30px;">🎉 Desafio Concluído!</h3>
+      <div class="grid-atividades">
+
+        <!-- Card de Certificado -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🏆</span>
+            <span class="data">Dia 7</span>
+          </div>
+          <div class="card-body">
+            <h4>Certificado de Conclusão</h4>
+            <p>Baixe seu certificado por concluir o Desafio Matemática Básica em 7 Dias.</p>
+          </div>
+          <div class="card-footer">
+            <a href="certificados/certificado_desafio.pdf" class="btn-acessar" download>Download</a>
+          </div>
+        </div>
+
+        <!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🧠</span>
+            <span class="data">Hoje</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: Juros Compostos</h4>
+            <p>Teste seus conhecimentos com cálculos de montante, juros e comparações.</p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_juros_compostos.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Juros compostos são o poder do dinheiro rendendo sobre o dinheiro.";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, investidor! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! 💹";
+      } else {
+        saudacao = "Boa noite, pensador financeiro! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-color: #121212;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.explicacao { padding: 60px 0; }
+    section.explicacao article { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); }
+    section.atividades { padding: 60px 0; background-color: #1a1a1a; }
+    .grid-atividades { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+    .card-atividade { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 6px 15px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+    .card-atividade:hover { transform: translateY(-6px); }
+    .card-header { padding: 15px 20px; background-color: rgba(52,152,219,0.2); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .card-header .icon { font-size: 1.4rem; }
+    .card-header .data { font-size: 0.95rem; color: #ddd; }
+    .card-body { padding: 20px; }
+    .card-body h4 { color: white; font-size: 1.2rem; margin-bottom: 10px; }
+    .card-body p { color: #ccc; font-size: 0.95rem; line-height: 1.5; }
+    .card-footer { padding: 15px 20px; background-color: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+    .btn-acessar { display: inline-block; background-color: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: background 0.3s; }
+    .btn-acessar:hover { background-color: #2980b9; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      pre, table { font-size: 0.9rem; }
+    }
+  </style>
+
+  <!-- Executa a saudação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", saudacaoHorario);
+  </script>
+
+</body>
+</html>

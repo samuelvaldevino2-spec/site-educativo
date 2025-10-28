@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noções de Lógica - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">A lógica é a base do pensamento claro, da matemática e da programação.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3 style="color: #3498db; font-size: 1.8rem;">🧠 Noções de Lógica Matemática</h3>
+    </div>
+  </section>
+
+  <!-- Conteúdo Explicativo -->
+  <section class="explicacao">
+    <div class="container">
+      <article>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">I. O que é uma Proposição?</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Uma <strong>proposição</strong> é uma frase declarativa que pode ser classificada como verdadeira (V) ou falsa (F), mas nunca as duas ao mesmo tempo.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplos:</strong><br>
+          • "O Brasil fica na América do Sul." → Verdadeiro<br>
+          • "2 + 2 = 5" → Falso<br>
+          • "O céu é azul." → Depende do contexto, mas pode ser avaliado
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Não são proposições:</strong><br>
+          • Perguntas ("Como vai você?")<br>
+          • Ordens ("Feche a porta.")<br>
+          • Exclamações ("Nossa!")<br>
+          • Frases sem sentido ("O verde corre rápido.")
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">II. Negação (~)</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          A <strong>negação</strong> de uma proposição muda seu valor lógico: se era verdadeira, vira falsa, e vice-versa.
+        </p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">
+          ~p = "não p"
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong><br>
+          p: "O gato é preto." → V<br>
+          ~p: "O gato não é preto." → F
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Dica:</strong> Negar duas vezes volta à original: ~~p = p
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">III. Proposições Compostas — Conectivos</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Podemos unir proposições com conectivos para formar novas frases.
+        </p>
+
+        <h5 style="font-size: 1.3rem; color: #2980b9;">• Conjunção (e) — Símbolo: ∧</h5>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          p ∧ q só é verdadeira se <strong>ambas</strong> forem verdadeiras.<br>
+          <strong>Exemplo:</strong> "Chove e faz frio" → só é V se chover E fizer frio.
+        </p>
+
+        <h5 style="font-size: 1.3rem; color: #2980b9;">• Disjunção (ou) — Símbolo: ∨</h5>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          p ∨ q é verdadeira se <strong>pelo menos uma</strong> for verdadeira.<br>
+          <strong>Exemplo:</strong> "Estudo ou trabalho" → é V se estudar, trabalhar, ou ambos.
+        </p>
+
+        <h5 style="font-size: 1.3rem; color: #2980b9;">• Disjunção exclusiva (ou... ou) — Símbolo: ⊕</h5>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          "Ou p ou q" é verdadeira apenas quando <strong>uma delas é verdadeira</strong>, mas não as duas.<br>
+          <strong>Exemplo:</strong> "Ou vou ao cinema ou ao teatro" → exclui os dois.
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">IV. Condicionais (Se... então) — Símbolo: →</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          p → q significa: "Se p, então q".<br>
+          É falsa apenas quando p é verdadeira e q é falsa.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong><br>
+          p: "Chove"<br>
+          q: "Levo guarda-chuva"<br>
+          p → q: "Se chove, então levo guarda-chuva"<br>
+          Essa frase só é falsa se chover e eu NÃO levar guarda-chuva.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Importante:</strong> p é o <strong>antecedente</strong>, q é o <strong>consequente</strong>.
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">V. Tautologias</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Uma <strong>tautologia</strong> é uma proposição composta que é sempre verdadeira, independentemente dos valores das proposições simples.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong> p ∨ ~p → "Ou chove, ou não chove"<br>
+          Sempre será verdadeiro, não importa o tempo.
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">VI. Proposições Logicamente Falsas (Contradições)</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Uma <strong>contradição</strong> é uma proposição composta que é sempre falsa.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong> p ∧ ~p → "Chove e não chove"<br>
+          Nunca pode ser verdadeiro.
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">VII. Relação de Implicação (⇒)</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Dizemos que p <strong>implica</strong> q (p ⇒ q) quando a condicional p → q é uma tautologia.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Ou seja, sempre que p for verdadeira, q também será.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong><br>
+          p: "x > 5"<br>
+          q: "x > 3"<br>
+          p ⇒ q → Se x > 5, então x > 3 → sempre verdadeiro.
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">VIII. Relação de Equivalência (⇔)</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Dizemos que p é <strong>equivalente</strong> a q (p ⇔ q) quando p ↔ q é uma tautologia.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Isso quer dizer que p e q têm o mesmo valor lógico em todos os casos.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong><br>
+          p: "Não é verdade que chove e faz sol"<br>
+          q: "Não chove ou não faz sol"<br>
+          São equivalentes (lei de De Morgan).
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">IX. Sentenças Abertas e Quantificadores</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Uma <strong>sentença aberta</strong> tem variáveis e só pode ser julgada quando substituídas.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Exemplo: "x + 2 = 5" → depende de x.
+        </p>
+
+        <h5 style="font-size: 1.3rem; color: #2980b9;">• Quantificador Universal: ∀ (para todo)</h5>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          ∀x, p(x) → "Para todo x, p(x) é verdadeiro"<br>
+          <strong>Exemplo:</strong> "Todo número natural é inteiro."
+        </p>
+
+        <h5 style="font-size: 1.3rem; color: #2980b9;">• Quantificador Existencial: ∃ (existe)</h5>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          ∃x, p(x) → "Existe pelo menos um x tal que p(x) é verdadeiro"<br>
+          <strong>Exemplo:</strong> "Existe um número primo par." (é o 2)
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">X. Como Negar Proposições</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Regras importantes:
+        </p>
+        <ul style="font-size: 1.2rem; line-height: 1.8;">
+          <li>~(p ∧ q) = ~p ∨ ~q</li>
+          <li>~(p ∨ q) = ~p ∧ ~q</li>
+          <li>~(p → q) = p ∧ ~q</li>
+          <li>~(∀x, p(x)) = ∃x, ~p(x)</li>
+          <li>~(∃x, p(x)) = ∀x, ~p(x)</li>
+        </ul>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong><br>
+          Frase: "Todos os alunos passaram."<br>
+          Negação: "Existe pelo menos um aluno que não passou."
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">💡 Aplicações Práticas</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          A lógica está presente em:
+        </p>
+        <ul style="font-size: 1.2rem; line-height: 1.8;">
+          <li><strong>Matemática:</strong> demonstrações, provas, definições</li>
+          <li><strong>Programação:</strong> condições (if, else), laços (while)</li>
+          <li><strong>Argumentação:</strong> construir e analisar raciocínios</li>
+          <li><strong>Concursos públicos:</strong> questões de raciocínio lógico</li>
+        </ul>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🧠 Dica Final: Como Estudar Lógica</h4>
+        <ol style="font-size: 1.2rem; line-height: 1.8;">
+          <li>Pratique com frases do dia a dia.</li>
+          <li>Use tabelas-verdade para verificar valores lógicos.</li>
+          <li>Memorize as regras de negação.</li>
+          <li>Relacione com programação se possível.</li>
+          <li>Resolva exercícios de concursos para fixar.</li>
+        </ol>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🧠 Conclusão</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          A lógica é a base do pensamento claro e rigoroso. Dominar esses conceitos fortalece sua capacidade de argumentar, resolver problemas e entender a matemática com mais profundidade.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Você agora tem ferramentas poderosas para pensar com clareza e precisão!
+        </p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 30px;">📚 Próximo Passo</h3>
+      <div class="grid-atividades">
+
+        <!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🧠</span>
+            <span class="data">Hoje</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: Noções de Lógica</h4>
+            <p>Teste seus conhecimentos com proposições, conectivos, negações e quantificadores.</p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_logica.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "A lógica é a base do pensamento claro, da matemática e da programação.";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, pensador! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! 🔍";
+      } else {
+        saudacao = "Boa noite, lógico! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-color: #121212;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.explicacao { padding: 60px 0; }
+    section.explicacao article { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); }
+    section.atividades { padding: 60px 0; background-color: #1a1a1a; }
+    .grid-atividades { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+    .card-atividade { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 6px 15px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+    .card-atividade:hover { transform: translateY(-6px); }
+    .card-header { padding: 15px 20px; background-color: rgba(52,152,219,0.2); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .card-header .icon { font-size: 1.4rem; }
+    .card-header .data { font-size: 0.95rem; color: #ddd; }
+    .card-body { padding: 20px; }
+    .card-body h4 { color: white; font-size: 1.2rem; margin-bottom: 10px; }
+    .card-body p { color: #ccc; font-size: 0.95rem; line-height: 1.5; }
+    .card-footer { padding: 15px 20px; background-color: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+    .btn-acessar { display: inline-block; background-color: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: background 0.3s; }
+    .btn-acessar:hover { background-color: #2980b9; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      pre, table { font-size: 0.9rem; }
+    }
+  </style>
+
+  <!-- Executa a saudação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", saudacaoHorario);
+  </script>
+
+</body>
+</html>

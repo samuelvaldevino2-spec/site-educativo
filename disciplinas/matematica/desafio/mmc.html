@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MMC - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">O MMC é essencial para somar e subtrair frações com denominadores diferentes.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3 style="color: #3498db; font-size: 1.8rem;">🧮 Mínimo Múltiplo Comum (MMC)</h3>
+    </div>
+  </section>
+
+  <!-- Conteúdo Explicativo -->
+  <section class="explicacao">
+    <div class="container">
+      <article>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🎯 O que é o MMC?</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          O <strong>Mínimo Múltiplo Comum (MMC)</strong> entre dois ou mais números é o menor número (diferente de zero) que é múltiplo de todos eles.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong> Qual é o MMC entre 4 e 6?<br>
+          • Múltiplos de 4: 4, 8, 12, 16, 20, 24...<br>
+          • Múltiplos de 6: 6, 12, 18, 24, 30...<br>
+          → O menor múltiplo comum é <strong>12</strong>.<br>
+          Portanto, MMC(4, 6) = 12.
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">✅ Método 1: Listagem de Múltiplos</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Escreva os múltiplos de cada número até encontrar o primeiro comum.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong> MMC(3, 5)<br>
+          • Múltiplos de 3: 3, 6, 9, 12, 15, 18...<br>
+          • Múltiplos de 5: 5, 10, 15, 20...<br>
+          → Primeiro comum: <strong>15</strong><br>
+          MMC(3, 5) = 15
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">✅ Método 2: Fatoração Simultânea (Recomendado)</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Divida todos os números por fatores primos ao mesmo tempo. O MMC é o produto de todos os divisores usados.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong> MMC(12, 18)
+        </p>
+        <pre style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 1.2rem;">
+  12, 18 | 2
+   6,  9 | 2
+   3,  9 | 3
+   1,  3 | 3
+   1,  1 |
+</pre>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          → MMC = 2 × 2 × 3 × 3 = <strong>36</strong>
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">💡 Aplicações Práticas</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          O MMC aparece em várias situações:
+        </p>
+        <ul style="font-size: 1.2rem; line-height: 1.8;">
+          <li><strong>Frações:</strong> Para somar ou subtrair frações com denominadores diferentes.</li>
+          <li><strong>Ciclos:</strong> Dois ônibus saem a cada 15 e 20 minutos. Eles saem juntos a cada quanto tempo? → MMC(15, 20) = 60 min.</li>
+          <li><strong>Eventos:</strong> Um farol pisca a cada 6 segundos, outro a cada 8. Quando piscam juntos? → MMC(6, 8) = 24 s.</li>
+        </ul>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">📌 Como usar o MMC em frações?</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Para somar ou subtrair frações com denominadores diferentes:
+        </p>
+        <ol style="font-size: 1.2rem; line-height: 1.8;">
+          <li>Encontre o MMC dos denominadores.</li>
+          <li>Divida o MMC pelo denominador original.</li>
+          <li>Multiplique o resultado pelo numerador.</li>
+          <li>Some ou subtraia os novos numeradores.</li>
+          <li>O denominador final é o próprio MMC.</li>
+        </ol>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong> \( \frac{1}{4} + \frac{1}{6} \)<br>
+          • Passo 1: MMC(4, 6) = 12<br>
+          • Passo 2: 12 ÷ 4 = 3 → 3 × 1 = 3 → nova fração: \( \frac{3}{12} \)<br>
+          • Passo 3: 12 ÷ 6 = 2 → 2 × 1 = 2 → nova fração: \( \frac{2}{12} \)<br>
+          • Soma: \( \frac{3}{12} + \frac{2}{12} = \frac{5}{12} \)
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🧠 Dica Final: Quando Usar o MMC?</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Use o MMC sempre que precisar:
+        </p>
+        <ul style="font-size: 1.2rem; line-height: 1.8;">
+          <li>Somar ou subtrair frações com denominadores diferentes.</li>
+          <li>Descobrir quando eventos periódicos coincidem.</li>
+          <li>Resolver problemas de ciclos ou repetições.</li>
+        </ul>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Lembre-se:</strong> O MMC é o menor número que todos os números dividem exatamente.
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🧠 Conclusão</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Dominar o MMC é essencial para avançar na matemática. Ele simplifica operações com frações e resolve problemas do cotidiano envolvendo ciclos e repetições.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Pratique bastante e você nunca mais terá medo de frações!
+        </p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 30px;">📚 Próximo Passo</h3>
+      <div class="grid-atividades">
+
+        <!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🧠</span>
+            <span class="data">Hoje</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: MMC</h4>
+            <p>Teste seus conhecimentos com cálculos, aplicações e frações.</p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_mmc.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "O MMC é essencial para somar e subtrair frações com denominadores diferentes.";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, matemático! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚙️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-color: #121212;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.explicacao { padding: 60px 0; }
+    section.explicacao article { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); }
+    section.atividades { padding: 60px 0; background-color: #1a1a1a; }
+    .grid-atividades { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+    .card-atividade { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 6px 15px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+    .card-atividade:hover { transform: translateY(-6px); }
+    .card-header { padding: 15px 20px; background-color: rgba(52,152,219,0.2); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .card-header .icon { font-size: 1.4rem; }
+    .card-header .data { font-size: 0.95rem; color: #ddd; }
+    .card-body { padding: 20px; }
+    .card-body h4 { color: white; font-size: 1.2rem; margin-bottom: 10px; }
+    .card-body p { color: #ccc; font-size: 0.95rem; line-height: 1.5; }
+    .card-footer { padding: 15px 20px; background-color: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+    .btn-acessar { display: inline-block; background-color: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: background 0.3s; }
+    .btn-acessar:hover { background-color: #2980b9; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      pre, table { font-size: 0.9rem; }
+    }
+  </style>
+
+  <!-- Executa a saudação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", saudacaoHorario);
+  </script>
+
+</body>
+</html>

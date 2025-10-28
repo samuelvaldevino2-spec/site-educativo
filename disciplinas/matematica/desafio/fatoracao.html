@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fatoração - Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Fatorar é escrever uma expressão como um produto de fatores mais simples.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3 style="color: #3498db; font-size: 1.8rem;">🧮 Fatoração: Escrevendo Como Produto</h3>
+    </div>
+  </section>
+
+  <!-- Conteúdo Explicativo -->
+  <section class="explicacao">
+    <div class="container">
+      <article>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🎯 O que é fatoração?</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Fatoração</strong> é o processo de transformar uma soma ou diferença em um <strong>produto</strong>. É o inverso dos produtos notáveis.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Exemplo:<br>
+          Sabemos que (x + 3)(x – 2) = x² + x – 6<br>
+          Agora, queremos fazer o contrário:<br>
+          x² + x – 6 = (x + 3)(x – 2)
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Isso é fatorar!
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">✅ Caso 1: Fator Comum em Evidência</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Quando todos os termos têm um fator em comum, colocamos ele "em evidência".
+        </p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">
+          ax + ay = a(x + y)
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo numérico:</strong> 15 + 10 = 5×3 + 5×2 = 5(3 + 2)
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo algébrico:</strong> 6x + 9 = 3·2x + 3·3 = 3(2x + 3)
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Com letras:</strong> 4x² + 8x = 4x(x + 2)
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">✅ Caso 2: Agrupamento</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Usado quando há quatro termos. Agrupamos dois a dois e colocamos em evidência.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Passo a passo:</strong><br>
+          • Separe em dois grupos<br>
+          • Coloque o fator comum de cada grupo em evidência<br>
+          • Se o parêntese for igual, coloque-o em evidência
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong> ax + ay + bx + by<br>
+          = a(x + y) + b(x + y)<br>
+          = (x + y)(a + b)
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">✅ Caso 3: Trinômio Quadrado Perfeito</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          É o inverso do quadrado da soma ou diferença.
+        </p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">
+          a² + 2ab + b² = (a + b)²<br>
+          a² – 2ab + b² = (a – b)²
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Como identificar:</strong><br>
+          • Primeiro e último termo são quadrados perfeitos<br>
+          • Termo do meio é o "2 vezes o primeiro pelo segundo"
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong> x² + 6x + 9<br>
+          → x² é quadrado de x<br>
+          → 9 é quadrado de 3<br>
+          → 6x = 2·x·3 → sim!<br>
+          Portanto: x² + 6x + 9 = (x + 3)²
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">✅ Caso 4: Diferença de Quadrados</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          É o inverso do produto da soma pela diferença.
+        </p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">
+          a² – b² = (a + b)(a – b)
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Como identificar:</strong> dois termos ao quadrado separados por sinal de menos.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          <strong>Exemplo:</strong> x² – 16 = (x + 4)(x – 4)<br>
+          25 – y² = (5 + y)(5 – y)
+        </p>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">💡 Aplicações Práticas</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          A fatoração é usada para:
+        </p>
+        <ul style="font-size: 1.2rem; line-height: 1.8;">
+          <li><strong>Simplificar frações algébricas</strong>: cancelar termos iguais</li>
+          <li><strong>Resolver equações</strong>: quando o produto é zero, um dos fatores é zero</li>
+          <li><strong>Calcular raízes</strong> de funções quadráticas</li>
+          <li><strong>Facilitar cálculos</strong> em álgebra e cálculo</li>
+        </ul>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🧠 Dica Final: Como Reconhecer o Caso</h4>
+        <ol style="font-size: 1.2rem; line-height: 1.8;">
+          <li>Tem fator comum? → Use evidência</li>
+          <li>Tem 4 termos? → Tente agrupamento</li>
+          <li>Tem 3 termos e começa com quadrado? → Verifique se é trinômio quadrado perfeito</li>
+          <li>Tem dois quadrados com sinal de menos? → Diferença de quadrados</li>
+          <li>Pratique bastante — reconhecimento vem com a prática!</li>
+        </ol>
+
+        <br><br>
+
+        <h4 style="font-size: 1.5rem; color: #3498db;">🧠 Conclusão</h4>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          A fatoração é uma ferramenta essencial na matemática. Dominá-la permite simplificar expressões, resolver equações e entender melhor a álgebra.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+          Lembre-se: fatorar é escrever como produto. E você agora sabe como fazer isso!
+        </p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Seção de Atividades -->
+  <section class="atividades">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 30px;">📚 Próximo Passo</h3>
+      <div class="grid-atividades">
+
+        <!-- Card do Dia 4 -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">📅</span>
+            <span class="data">Dia 4</span>
+          </div>
+          <div class="card-body">
+            <h4>Equações do 1º Grau</h4>
+            <p>Aprenda a isolar a incógnita e resolver problemas do cotidiano com equações simples.</p>
+          </div>
+          <div class="card-footer">
+            <a href="equacoes-1grau.html" class="btn-acessar">Próximo</a>
+          </div>
+        </div>
+
+        <!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🧠</span>
+            <span class="data">Hoje</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: Fatoração</h4>
+            <p>Teste seus conhecimentos com fatoração por evidência, agrupamento e casos especiais.</p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_fatoracao.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Fatorar é escrever uma expressão como um produto de fatores mais simples.";
+      let citacao = "— Prof. Samuel Valdevino";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, matemático! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚙️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+      document.getElementById("citacao").textContent = citacao;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-color: #121212;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.explicacao { padding: 60px 0; }
+    section.explicacao article { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); }
+    section.atividades { padding: 60px 0; background-color: #1a1a1a; }
+    .grid-atividades { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+    .card-atividade { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 6px 15px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+    .card-atividade:hover { transform: translateY(-6px); }
+    .card-header { padding: 15px 20px; background-color: rgba(52,152,219,0.2); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .card-header .icon { font-size: 1.4rem; }
+    .card-header .data { font-size: 0.95rem; color: #ddd; }
+    .card-body { padding: 20px; }
+    .card-body h4 { color: white; font-size: 1.2rem; margin-bottom: 10px; }
+    .card-body p { color: #ccc; font-size: 0.95rem; line-height: 1.5; }
+    .card-footer { padding: 15px 20px; background-color: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+    .btn-acessar { display: inline-block; background-color: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: background 0.3s; }
+    .btn-acessar:hover { background-color: #2980b9; }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      pre, table { font-size: 0.9rem; }
+    }
+  </style>
+
+  <!-- Executa a saudação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", saudacaoHorario);
+  </script>
+
+</body>
+</html>
