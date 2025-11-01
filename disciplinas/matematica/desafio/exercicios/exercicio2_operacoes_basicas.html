@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios - Situações-Problema | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Resolva problemas reais usando adição, subtração, multiplicação e divisão.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3 style="color: #3498db; font-size: 1.8rem;">🧮 Situações-Problema: As 4 Operações</h3>
+      <p style="font-size: 1.2rem; color: #ddd;">
+        Resolva os problemas do dia a dia com atenção. Digite apenas o número da resposta.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+      
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">20</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        
+        <h4 style="color: #3498db; margin-bottom: 15px;">➕ Adição — Situações-Problema (5 questões)</h4>
+        <ol class="lista-exercicios" start="1">
+          <li class="exercicio"><p>Uma loja vendeu 3 428 canetas na segunda-feira e 4 756 na terça-feira. Quantas canetas foram vendidas nos dois dias?</p><input type="number" class="resposta-numero" data-correct="8184" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um caminhão transportou 7 235 kg de areia pela manhã e 6 874 kg à tarde. Qual foi o total transportado no dia?</p><input type="number" class="resposta-numero" data-correct="14109" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Uma biblioteca recebeu 1 286 novos livros de literatura e 2 197 de ciências. Quantos livros novos ela recebeu no total?</p><input type="number" class="resposta-numero" data-correct="3483" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um atleta correu 4 378 metros no treino de ontem e 5 243 metros hoje. Qual a distância total percorrida?</p><input type="number" class="resposta-numero" data-correct="9621" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Uma fábrica produziu 12 435 peças em janeiro e 13 289 em fevereiro. Quantas peças foram produzidas nos dois meses?</p><input type="number" class="resposta-numero" data-correct="25724" placeholder="Resposta"><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">➖ Subtração — Situações-Problema (5 questões)</h4>
+        <ol class="lista-exercicios" start="6">
+          <li class="exercicio"><p>Um depósito possuía 9 836 caixas e vendeu 4 729. Quantas caixas ainda restam no estoque?</p><input type="number" class="resposta-numero" data-correct="5107" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Uma cidade tinha 84 215 habitantes em 2020 e passou a ter 79 684 em 2025. Qual foi a redução no número de habitantes?</p><input type="number" class="resposta-numero" data-correct="4531" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Uma empresa planejava investir R$ 12 000 em equipamentos, mas já gastou R$ 8 735. Quanto ainda falta investir?</p><input type="number" class="resposta-numero" data-correct="3265" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um ônibus partiu com 68 passageiros. Em uma parada, desceram 23. Quantos passageiros continuaram a viagem?</p><input type="number" class="resposta-numero" data-correct="45" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um atleta tinha como meta percorrer 10 000 metros, mas conseguiu correr apenas 8 763 metros. Quantos metros faltaram?</p><input type="number" class="resposta-numero" data-correct="1237" placeholder="Resposta"><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">✖️ Multiplicação — Situações-Problema (5 questões)</h4>
+        <ol class="lista-exercicios" start="11">
+          <li class="exercicio"><p>Uma escola tem 28 salas, cada uma com 36 alunos. Quantos alunos há na escola?</p><input type="number" class="resposta-numero" data-correct="1008" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um funcionário trabalha 8 horas por dia, durante 22 dias no mês. Quantas horas ele trabalha no mês?</p><input type="number" class="resposta-numero" data-correct="176" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um pacote contém 48 garrafas. Quantas garrafas há em 125 pacotes iguais?</p><input type="number" class="resposta-numero" data-correct="6000" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um terreno quadrado tem 42 metros de lado. Qual é sua área?</p><input type="number" class="resposta-numero" data-correct="1764" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Uma impressora imprime 135 folhas por minuto. Quantas folhas imprime em 24 minutos?</p><input type="number" class="resposta-numero" data-correct="3240" placeholder="Resposta"><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">➗ Divisão — Situações-Problema (5 questões)</h4>
+        <ol class="lista-exercicios" start="16">
+          <li class="exercicio"><p>Um total de 4 800 kg de arroz será distribuído igualmente entre 16 famílias. Quantos quilos cada uma receberá?</p><input type="number" class="resposta-numero" data-correct="300" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um grupo de 48 alunos será dividido igualmente em vans com 12 lugares. Quantas vans serão necessárias?</p><input type="number" class="resposta-numero" data-correct="4" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Uma escola comprou 1 260 cadernos para distribuir igualmente entre 35 turmas. Quantos cadernos cada turma receberá?</p><input type="number" class="resposta-numero" data-correct="36" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Uma quantia de R$ 9 504 foi dividida igualmente entre 48 funcionários. Quanto recebeu cada um?</p><input type="number" class="resposta-numero" data-correct="198" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um lote com 6 552 laranjas será colocado em caixas com 28 unidades. Quantas caixas completas serão formadas?</p><input type="number" class="resposta-numero" data-correct="234" placeholder="Resposta"><div class="feedback"></div></li>
+        </ol>
+
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Resolva problemas reais usando adição, subtração, multiplicação e divisão.";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, matemático! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚙️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.exercicios { padding: 60px 0; }
+    .lista-exercicios { list-style: decimal; padding-left: 20px; }
+    .exercicio { margin-bottom: 25px; padding: 15px; background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .exercicio p { margin-bottom: 12px; color: #eee; }
+    .resposta-numero {
+      background-color: rgba(0,0,0,0.2);
+      border: 1px solid #3498db;
+      padding: 8px 12px;
+      border-radius: 6px;
+      color: white;
+      font-size: 1.1rem;
+      width: 100%;
+      max-width: 400px;
+      outline: none;
+    }
+    .resposta-numero:focus {
+      border-color: #2980b9;
+      box-shadow: 0 0 5px rgba(52,152,219,0.5);
+    }
+    .feedback {
+      margin-top: 8px;
+      font-weight: bold;
+      height: 24px;
+    }
+    .feedback.correcto { color: #2ecc71; }
+    .feedback.errado { color: #e74c3c; }
+    .btn-verificar {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .btn-verificar:hover {
+      background-color: #2980b9;
+    }
+    .resultado { margin: 40px 0; text-align: center; }
+    .card-resultado {
+      background-color: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.2);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .card-resultado h4 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+    }
+  </style>
+
+  <!-- Lógica de Verificação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      saudacaoHorario();
+
+      const form = document.getElementById("form-exercicios");
+      const verificarBtn = document.getElementById("verificar-respostas");
+      const resultadoDiv = document.getElementById("resultado");
+      const acertosSpan = document.getElementById("acertos");
+      const totalSpan = document.getElementById("total");
+      const mensagemResultado = document.getElementById("mensagem-resultado");
+      const mostrarGabaritoBtn = document.getElementById("mostrar-gabarito");
+
+      verificarBtn.addEventListener("click", () => {
+        let acertos = 0;
+        const inputs = document.querySelectorAll(".resposta-numero");
+
+        inputs.forEach(input => {
+          const feedback = input.parentElement.querySelector(".feedback");
+          const valor = parseInt(input.value.trim()) || 0;
+          const correto = parseInt(input.getAttribute("data-correct"));
+
+          if (valor === correto) {
+            feedback.textContent = "✅ Correto!";
+            feedback.className = "feedback correcto";
+            acertos++;
+          } else {
+            feedback.textContent = `❌ Errado. Resposta correta: ${correto}`;
+            feedback.className = "feedback errado";
+          }
+        });
+
+        // Mostra resultado
+        acertosSpan.textContent = acertos;
+        totalSpan.textContent = inputs.length;
+        mensagemResultado.textContent = acertos === 20 ? "Parabéns! Você acertou todas! 🏆" :
+                                        acertos >= 15 ? "Ótimo trabalho! Continue assim! 💪" :
+                                        acertos >= 10 ? "Bom esforço! Revise os erros." :
+                                                       "Continue praticando. Você vai melhorar! 📈";
+        resultadoDiv.style.display = "block";
+      });
+
+      // Mostrar Gabarito
+      mostrarGabaritoBtn.addEventListener("click", () => {
+        const feedbacks = document.querySelectorAll(".feedback");
+        feedbacks.forEach((fb, index) => {
+          const input = document.querySelectorAll(".resposta-numero")[index];
+          const correto = input.getAttribute("data-correct");
+          if (!fb.classList.contains("correcto")) {
+            fb.textContent = `Resposta: ${correto}`;
+            fb.className = "feedback";
+          }
+        });
+        mostrarGabaritoBtn.style.display = "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
