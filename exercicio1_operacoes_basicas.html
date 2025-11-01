@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios - 4 Operações | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Treine as 4 operações fundamentais: adição, subtração, multiplicação e divisão.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3 style="color: #3498db; font-size: 1.8rem;">🧮 Exercícios: As 4 Operações Fundamentais</h3>
+      <p style="font-size: 1.2rem; color: #ddd;">
+        Resolva as contas armadas abaixo. São 40 questões: 10 de cada operação.
+        Digite sua resposta na caixa e clique em "Verificar Respostas" ao final.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+      
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">40</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        
+        <h4 style="color: #3498db; margin-bottom: 15px;">➕ Adição (10 questões)</h4>
+        <ol class="lista-exercicios" start="1">
+          <li class="exercicio"><p>476 + 859 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>3 482 + 6 731 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>12 375 + 8 946 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>4 208 + 9 693 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>5 417 + 7 826 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>9 506 + 7 839 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>18 492 + 24 378 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>6 783 + 5 968 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>42 697 + 35 809 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>73 215 + 48 679 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">➖ Subtração (10 questões)</h4>
+        <ol class="lista-exercicios" start="11">
+          <li class="exercicio"><p>902 − 458 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>3 406 − 1 789 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>8 215 − 4 937 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>12 473 − 8 968 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>9 604 − 6 718 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>15 820 − 9 736 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>21 004 − 12 857 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>38 679 − 24 938 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>42 015 − 35 846 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>73 240 − 58 794 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">✖️ Multiplicação (10 questões)</h4>
+        <ol class="lista-exercicios" start="21">
+          <li class="exercicio"><p>24 × 36 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>72 × 18 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>105 × 42 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>312 × 25 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>487 × 63 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>214 × 48 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>138 × 72 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>426 × 59 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>324 × 87 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>512 × 76 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">➗ Divisão (10 questões)</h4>
+        <ol class="lista-exercicios" start="31">
+          <li class="exercicio"><p>648 ÷ 12 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>936 ÷ 13 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>1 242 ÷ 18 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>2 016 ÷ 24 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>4 290 ÷ 15 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>3 564 ÷ 27 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>5 376 ÷ 32 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>6 552 ÷ 28 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>8 316 ÷ 36 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>9 504 ÷ 48 = <input type="number" class="resposta-lacuna"></p><div class="feedback"></div></li>
+        </ol>
+
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Treine as 4 operações fundamentais: adição, subtração, multiplicação e divisão.";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, matemático! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚙️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.exercicios { padding: 60px 0; }
+    .lista-exercicios { list-style: decimal; padding-left: 20px; }
+    .exercicio { margin-bottom: 25px; padding: 15px; background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .exercicio p { margin-bottom: 12px; color: #eee; }
+    .resposta-lacuna {
+      background-color: rgba(0,0,0,0.2);
+      border: 1px solid #3498db;
+      padding: 8px 12px;
+      border-radius: 6px;
+      color: white;
+      font-size: 1.1rem;
+      width: 200px;
+      outline: none;
+    }
+    .resposta-lacuna:focus {
+      border-color: #2980b9;
+      box-shadow: 0 0 5px rgba(52,152,219,0.5);
+    }
+    .feedback {
+      margin-top: 8px;
+      font-weight: bold;
+      height: 24px;
+    }
+    .feedback.correcto { color: #2ecc71; }
+    .feedback.errado { color: #e74c3c; }
+    .btn-verificar {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .btn-verificar:hover {
+      background-color: #2980b9;
+    }
+    .resultado { margin: 40px 0; text-align: center; }
+    .card-resultado {
+      background-color: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.2);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .card-resultado h4 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      .resposta-lacuna { width: 100%; max-width: 200px; }
+    }
+  </style>
+
+  <!-- Lógica de Verificação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      saudacaoHorario();
+
+      const form = document.getElementById("form-exercicios");
+      const verificarBtn = document.getElementById("verificar-respostas");
+      const resultadoDiv = document.getElementById("resultado");
+      const acertosSpan = document.getElementById("acertos");
+      const totalSpan = document.getElementById("total");
+      const mensagemResultado = document.getElementById("mensagem-resultado");
+      const mostrarGabaritoBtn = document.getElementById("mostrar-gabarito");
+
+      // Gabaritos
+      const gabaritos = [
+        1335, 10213, 21321, 13901, 13243, 17345, 42870, 12751, 78506, 121894,
+        444, 1617, 3278, 3505, 2886, 6084, 8147, 13741, 6169, 14446,
+        864, 1296, 4410, 7800, 30681, 10272, 9936, 25134, 28188, 38912,
+        54, 72, 69, 84, 286, 132, 168, 234, 231, 198
+      ];
+
+      verificarBtn.addEventListener("click", () => {
+        let acertos = 0;
+        const respostas = document.querySelectorAll(".resposta-lacuna");
+
+        respostas.forEach((input, index) => {
+          const feedback = input.parentElement.nextElementSibling;
+          const valor = parseInt(input.value.trim()) || 0;
+
+          if (valor === gabaritos[index]) {
+            feedback.textContent = "✅ Correto!";
+            feedback.className = "feedback correcto";
+            acertos++;
+          } else {
+            feedback.textContent = `❌ Errado. Resposta correta: ${gabaritos[index]}`;
+            feedback.className = "feedback errado";
+          }
+        });
+
+        // Mostra resultado
+        acertosSpan.textContent = acertos;
+        totalSpan.textContent = respostas.length;
+        mensagemResultado.textContent = acertos === 40 ? "Parabéns! Você acertou todas! 🏆" :
+                                        acertos >= 30 ? "Ótimo trabalho! Continue assim! 💪" :
+                                        acertos >= 20 ? "Bom esforço! Revise os erros e tente novamente." :
+                                                       "Continue praticando. Você vai melhorar! 📈";
+        resultadoDiv.style.display = "block";
+      });
+
+      // Mostrar Gabarito
+      mostrarGabaritoBtn.addEventListener("click", () => {
+        const feedbacks = document.querySelectorAll(".feedback");
+        feedbacks.forEach((fb, index) => {
+          if (!fb.classList.contains("correcto")) {
+            fb.textContent = `Resposta: ${gabaritos[index]}`;
+            fb.className = "feedback";
+          }
+        });
+        mostrarGabaritoBtn.style.display = "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
