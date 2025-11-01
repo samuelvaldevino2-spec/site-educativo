@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios - Expressões Numéricas | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Pratique expressões numéricas com ordem correta de operações: parênteses, potências, multiplicações e somas.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3 style="color: #3498db; font-size: 1.8rem;">🧮 Exercícios: Expressões Numéricas</h3>
+      <p style="font-size: 1.2rem; color: #ddd;">
+        Resolva as expressões com atenção à ordem das operações. Use as sete seções para testar todo seu conhecimento.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+      
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">40</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        
+        <h4 style="color: #3498db; margin-bottom: 15px;">🧮 SEÇÃO 1 — Cálculo Direto</h4>
+        <ol class="lista-exercicios" start="1">
+          <li class="exercicio"><p>(8 + 6 × 3) ÷ 2 = <input type="number" class="resposta-numero" data-correct="13" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>5 + (12 ÷ 3) × 4 = <input type="number" class="resposta-numero" data-correct="21" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>(18 – 6) ÷ (3 + 3) = <input type="number" class="resposta-numero" data-correct="2" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>9 × [4 + (6 ÷ 2)] = <input type="number" class="resposta-numero" data-correct="63" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>7 + 3 × (10 – 4) = <input type="number" class="resposta-numero" data-correct="25" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>{5 + [3 × (8 – 2)]} ÷ 2 = <input type="number" class="resposta-numero" data-correct="11.5" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>(6² ÷ 3) + 8 = <input type="number" class="resposta-numero" data-correct="20" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>(12 + 4²) ÷ 2 = <input type="number" class="resposta-numero" data-correct="14" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>{3 × (5 + 4)} – (18 ÷ 3) = <input type="number" class="resposta-numero" data-correct="21" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>[(8 + 2) × (6 – 1)] ÷ 4 = <input type="number" class="resposta-numero" data-correct="12.5" placeholder="Resposta"></p><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">✏️ SEÇÃO 2 — Múltipla Escolha</h4>
+        <ol class="lista-exercicios" start="11">
+          <li class="exercicio"><p>Calcule: 5 + 3 × 2</p><div class="opcoes-multiplas"><label><input type="radio" name="q11" value="a"> 10</label><label><input type="radio" name="q11" value="b"> 11</label><label><input type="radio" name="q11" value="c"> 16</label><label><input type="radio" name="q11" value="d"> 13</label></div><div class="feedback"></div></li>
+          <li class="exercicio"><p>(4 + 6) × 3 – 8 =</p><div class="opcoes-multiplas"><label><input type="radio" name="q12" value="a"> 22</label><label><input type="radio" name="q12" value="b"> 18</label><label><input type="radio" name="q12" value="c"> 24</label><label><input type="radio" name="q12" value="d"> 20</label></div><div class="feedback"></div></li>
+          <li class="exercicio"><p>{8 + [6 × (4 – 1)]} ÷ 2 =</p><div class="opcoes-multiplas"><label><input type="radio" name="q13" value="a"> 10</label><label><input type="radio" name="q13" value="b"> 13</label><label><input type="radio" name="q13" value="c"> 11</label><label><input type="radio" name="q13" value="d"> 12</label></div><div class="feedback"></div></li>
+          <li class="exercicio"><p>2³ + (9 – 3) × 2 =</p><div class="opcoes-multiplas"><label><input type="radio" name="q14" value="a"> 18</label><label><input type="radio" name="q14" value="b"> 16</label><label><input type="radio" name="q14" value="c"> 20</label><label><input type="radio" name="q14" value="d"> 22</label></div><div class="feedback"></div></li>
+          <li class="exercicio"><p>[(12 ÷ 3) + 5] × 2 =</p><div class="opcoes-multiplas"><label><input type="radio" name="q15" value="a"> 14</label><label><input type="radio" name="q15" value="b"> 12</label><label><input type="radio" name="q15" value="c"> 16</label><label><input type="radio" name="q15" value="d"> 18</label></div><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">📘 SEÇÃO 3 — Situações-Problema</h4>
+        <ol class="lista-exercicios" start="16">
+          <li class="exercicio"><p>Mariana comprou 3 caixas com 12 chocolates cada e comeu 4.<br>Escreva e resolva a expressão que representa quantos chocolates restaram.</p><input type="text" class="resposta-lacuna" data-correct="3*12-4" placeholder="Expressão"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Uma padaria produziu 240 pães. Foram vendidos 3/4 deles.<br>Quantos pães restaram?</p><input type="number" class="resposta-numero" data-correct="60" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um jogador marcou 24 pontos em 3 partidas iguais.<br>Quantos pontos ele fez em cada uma?</p><input type="number" class="resposta-numero" data-correct="8" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Uma receita pede o dobro de 6 ovos mais 3.<br>Quantos ovos são necessários?</p><input type="number" class="resposta-numero" data-correct="15" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Um aluno ganhou 15 pontos por questão certa e perdeu 5 por errada.<br>Se ele acertou 6 e errou 2, qual foi sua pontuação final?</p><input type="number" class="resposta-numero" data-correct="80" placeholder="Resposta"><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">💡 SEÇÃO 4 — Complete a lacuna</h4>
+        <ol class="lista-exercicios" start="21">
+          <li class="exercicio"><p>Na expressão 6 + 2 × 5, primeiro deve-se fazer a __________.</p><input type="text" class="resposta-lacuna" data-correct="multiplicação" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>A expressão (12 – 4) ÷ 2 resulta em __________.</p><input type="number" class="resposta-numero" data-correct="4" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Para resolver 3 + 4 × (8 – 5), o primeiro passo é calcular __________.</p><input type="text" class="resposta-lacuna" data-correct="8-5" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Em 5² – 4 × 3, a operação de maior prioridade é __________.</p><input type="text" class="resposta-lacuna" data-correct="potência" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Em {8 + [2 × (9 – 4)]} ÷ 3, qual o último cálculo realizado?</p><input type="text" class="resposta-lacuna" data-correct="divisão" placeholder="Resposta"><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">🧠 SEÇÃO 5 — Interpretação e Análise</h4>
+        <ol class="lista-exercicios" start="26">
+          <li class="exercicio"><p>João disse que o resultado de 5 + 4 × 2 é 18.<br>Explique o erro dele e mostre o resultado correto.</p><input type="text" class="resposta-lacuna" data-correct="Ele somou antes de multiplicar. Correto: 5+8=13" placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Ana calculou (10 – 3)² e disse que o resultado é 13.<br>O que ela esqueceu de fazer?</p><input type="text" class="resposta-lacuna" data-correct="Elevar ao quadrado. O certo é 49." placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Pedro resolveu 8 + 2 × 3 = 30.<br>Explique o equívoco e dê a resposta certa.</p><input type="text" class="resposta-lacuna" data-correct="Fez 8+2=10 e depois 10×3=30. Deveria multiplicar primeiro: 8+6=14." placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>A expressão {6 + [2 × (3 + 5)]} – 4 foi resolvida assim:<br>6 + 2 × 8 – 4 = 10 × 8 – 4 = 76.<br>O que há de errado nesse raciocínio?</p><input type="text" class="resposta-lacuna" data-correct="Não seguiu a ordem: deveria multiplicar 2×8=16, depois 6+16=22, depois 22–4=18." placeholder="Resposta"><div class="feedback"></div></li>
+          <li class="exercicio"><p>Explique, com palavras suas, por que resolver (10 + 2) × 3 dá um resultado diferente de 10 + (2 × 3).</p><input type="text" class="resposta-lacuna" data-correct="Porque os parênteses mudam a ordem: primeiro soma ou primeiro multiplica." placeholder="Resposta"><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">🔢 SEÇÃO 6 — Desafios Graduais</h4>
+        <ol class="lista-exercicios" start="31">
+          <li class="exercicio"><p>(6 + 3)² ÷ 9 = <input type="number" class="resposta-numero" data-correct="9" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>[(5 + 7) × 2] – 6³ ÷ 9 = <input type="number" class="resposta-numero" data-correct="-12" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>{[(4 + 8) ÷ 2] + 6} × 3 = <input type="number" class="resposta-numero" data-correct="54" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>12 × {8 – [3 × (5 – 4)]} = <input type="number" class="resposta-numero" data-correct="60" placeholder="Resposta"></p><div class="feedback"></div></li>
+          <li class="exercicio"><p>(9² – 27) ÷ (6 + 3) = <input type="number" class="resposta-numero" data-correct="6" placeholder="Resposta"></p><div class="feedback"></div></li>
+        </ol>
+
+        <h4 style="color: #3498db; margin-bottom: 15px; margin-top: 30px;">🧩 SEÇÃO 7 — Verdadeiro ou Falso</h4>
+        <ol class="lista-exercicios" start="36">
+          <li class="exercicio"><p>(6 + 2) × 3 = 24 →</p><div class="opcoes-vf"><button type="button" class="btn-vf btn-verdadeiro" data-correct="true">Verdadeiro</button><button type="button" class="btn-vf btn-falso" data-correct="false">Falso</button></div><div class="feedback"></div></li>
+          <li class="exercicio"><p>5 + 6 × 3 = 33 →</p><div class="opcoes-vf"><button type="button" class="btn-vf btn-verdadeiro" data-correct="false">Verdadeiro</button><button type="button" class="btn-vf btn-falso" data-correct="true">Falso</button></div><div class="feedback"></div></li>
+          <li class="exercicio"><p>(8 – 2)² = 36 →</p><div class="opcoes-vf"><button type="button" class="btn-vf btn-verdadeiro" data-correct="true">Verdadeiro</button><button type="button" class="btn-vf btn-falso" data-correct="false">Falso</button></div><div class="feedback"></div></li>
+          <li class="exercicio"><p>{4 + [2 × (6 – 1)]} = 14 →</p><div class="opcoes-vf"><button type="button" class="btn-vf btn-verdadeiro" data-correct="true">Verdadeiro</button><button type="button" class="btn-vf btn-falso" data-correct="false">Falso</button></div><div class="feedback"></div></li>
+          <li class="exercicio"><p>(5³ ÷ 25) + 2 = 7 →</p><div class="opcoes-vf"><button type="button" class="btn-vf btn-verdadeiro" data-correct="true">Verdadeiro</button><button type="button" class="btn-vf btn-falso" data-correct="false">Falso</button></div><div class="feedback"></div></li>
+        </ol>
+
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Pratique expressões numéricas com ordem correta de operações: parênteses, potências, multiplicações e somas.";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, matemático! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ⚙️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.6rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.exercicios { padding: 60px 0; }
+    .lista-exercicios { list-style: decimal; padding-left: 20px; }
+    .exercicio { margin-bottom: 25px; padding: 15px; background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .exercicio p { margin-bottom: 12px; color: #eee; }
+    .resposta-numero,
+    .resposta-lacuna {
+      background-color: rgba(0,0,0,0.2);
+      border: 1px solid #3498db;
+      padding: 8px 12px;
+      border-radius: 6px;
+      color: white;
+      font-size: 1.1rem;
+      width: 100%;
+      max-width: 400px;
+      outline: none;
+    }
+    .resposta-numero:focus,
+    .resposta-lacuna:focus {
+      border-color: #2980b9;
+      box-shadow: 0 0 5px rgba(52,152,219,0.5);
+    }
+    .opcoes-multiplas label {
+      display: block;
+      margin: 5px 0;
+    }
+    .opcoes-multiplas input[type="radio"] {
+      margin-right: 8px;
+    }
+    .opcoes-vf {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .btn-vf {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .btn-verdadeiro {
+      background-color: #2ecc71;
+      color: white;
+    }
+    .btn-falso {
+      background-color: #e74c3c;
+      color: white;
+    }
+    .btn-vf.selected {
+      opacity: 0.7;
+      transform: scale(0.95);
+    }
+    .feedback {
+      margin-top: 8px;
+      font-weight: bold;
+      height: 24px;
+    }
+    .feedback.correcto { color: #2ecc71; }
+    .feedback.errado { color: #e74c3c; }
+    .btn-verificar {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .btn-verificar:hover {
+      background-color: #2980b9;
+    }
+    .resultado { margin: 40px 0; text-align: center; }
+    .card-resultado {
+      background-color: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.2);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .card-resultado h4 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+    }
+  </style>
+
+  <!-- Lógica de Verificação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      saudacaoHorario();
+
+      const form = document.getElementById("form-exercicios");
+      const verificarBtn = document.getElementById("verificar-respostas");
+      const resultadoDiv = document.getElementById("resultado");
+      const acertosSpan = document.getElementById("acertos");
+      const totalSpan = document.getElementById("total");
+      const mensagemResultado = document.getElementById("mensagem-resultado");
+      const mostrarGabaritoBtn = document.getElementById("mostrar-gabarito");
+
+      verificarBtn.addEventListener("click", () => {
+        let acertos = 0;
+        const inputs = document.querySelectorAll(".resposta-numero, .resposta-lacuna, input[type='radio']");
+        const botoesVF = document.querySelectorAll(".btn-vf");
+
+        // Verifica caixas e rádio
+        inputs.forEach(input => {
+          const feedback = input.closest('.exercicio').querySelector(".feedback");
+          const valor = input.type === 'radio' ? input.checked ? input.value : null : input.value.trim().toLowerCase();
+          const correto = input.getAttribute("data-correct")?.toLowerCase();
+
+          if (!valor) return;
+
+          if (input.classList.contains('resposta-lacuna')) {
+            if (valor === correto) {
+              feedback.textContent = "✅ Correto!";
+              feedback.className = "feedback correcto";
+              acertos++;
+            } else {
+              feedback.textContent = `❌ Incorreto.`;
+              feedback.className = "feedback errado";
+            }
+          } else if (input.type === 'radio') {
+            const name = input.name;
+            const grupo = document.querySelectorAll(`input[name="${name}"]:checked`);
+            if (grupo.length > 0) {
+              const selecionado = grupo[0];
+              if (selecionado.getAttribute("value") === ['b','a','b','c','c'][parseInt(name.slice(1))-11]) {
+                feedback.textContent = "✅ Correto!";
+                feedback.className = "feedback correcto";
+                acertos++;
+              } else {
+                feedback.textContent = `❌ Incorreto.`;
+                feedback.className = "feedback errado";
+              }
+            }
+          } else {
+            if (parseFloat(valor) === parseFloat(correto)) {
+              feedback.textContent = "✅ Correto!";
+              feedback.className = "feedback correcto";
+              acertos++;
+            } else {
+              feedback.textContent = `❌ Incorreto.`;
+              feedback.className = "feedback errado";
+            }
+          }
+        });
+
+        // Verifica botões V/F
+        botoesVF.forEach(btn => {
+          if (btn.classList.contains('selected')) {
+            const feedback = btn.closest('.exercicio').querySelector(".feedback");
+            const estaCorreto = btn.getAttribute("data-correct") === "true";
+            if (estaCorreto) {
+              feedback.textContent = "✅ Correto!";
+              feedback.className = "feedback correcto";
+              acertos++;
+            } else {
+              feedback.textContent = `❌ Incorreto.`;
+              feedback.className = "feedback errado";
+            }
+          }
+        });
+
+        // Mostra resultado
+        acertosSpan.textContent = acertos;
+        totalSpan.textContent = 40;
+        mensagemResultado.textContent = acertos === 40 ? "Parabéns! Você acertou todas! 🏆" :
+                                        acertos >= 30 ? "Ótimo trabalho! Continue assim! 💪" :
+                                        acertos >= 20 ? "Bom esforço! Revise os erros." :
+                                                       "Continue praticando. Você vai melhorar! 📈";
+        resultadoDiv.style.display = "block";
+      });
+
+      // Seleção de V/F
+      document.querySelectorAll('.btn-vf').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const grupo = btn.closest('.opcoes-vf');
+          grupo.querySelectorAll('.btn-vf').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+        });
+      });
+
+      // Mostrar Gabarito
+      mostrarGabaritoBtn.addEventListener("click", () => {
+        const feedbacks = document.querySelectorAll(".feedback");
+        feedbacks.forEach((fb, index) => {
+          if (!fb.classList.contains("correcto")) {
+            fb.textContent = "Veja a explicação com o professor.";
+            fb.className = "feedback";
+          }
+        });
+        mostrarGabaritoBtn.style.display = "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
