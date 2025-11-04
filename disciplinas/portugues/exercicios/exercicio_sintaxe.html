@@ -582,18 +582,7 @@
         resultadoDiv.style.display = "block";
       });
 
-      // Mostrar Gabarito - Mantido como estava
-      mostrarGabaritoBtn.addEventListener("click", () => {
-        const feedbacks = document.querySelectorAll(".feedback");
-        feedbacks.forEach((fb, index) => {
-          if (!fb.classList.contains("correcto")) {
-            fb.textContent = "Veja a explicação com o professor.";
-            fb.className = "feedback";
-          }
-        });
-        mostrarGabaritoBtn.style.display = "none";
-      });
-    });
+      
   </script>
 </body>
 </html>
