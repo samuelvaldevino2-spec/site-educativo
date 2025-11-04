@@ -390,10 +390,15 @@
     </div>
   </section>
 
-  <!-- Botão Mostrar Gabarito (no final da página) -->
-  <div style="text-align: center; margin: 40px 0;">
-    <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
-  </div>
+  <!-- Card Fixo com Botões -->
+  <section class="botoes-finais">
+    <div class="container">
+      <div class="card-botoes">
+        <button id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+      </div>
+    </div>
+  </section>
 
   <!-- Rodapé -->
   <hr>
@@ -426,6 +431,7 @@
       document.getElementById("mensagem").textContent = mensagem;
     }
   </script>
+
   
   <!-- Estilos Completos -->
   <style>
@@ -509,10 +515,36 @@
       section.conteudo p { font-size: 1.1rem; }
       .opcoes-multiplas label { font-size: 0.95rem; }
     }
+    
+    /* Novo estilo para o card de botões */
+    .botoes-finais {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .card-botoes {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: inline-flex;
+      gap: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .card-botoes {
+        flex-direction: column;
+        width: 90%;
+      }
+      .btn-verificar {
+        width: 100%;
+      }
+    }
   </style>
 
-  <!-- Lógica de Verificação -->
-  <!-- Lógica de Verificação -->
+   <!-- Lógica de Verificação -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       saudacaoHorario();
@@ -532,35 +564,6 @@
         q11: "b", q12: "b", q13: "d", q14: "c", q15: "c",
         q16: "b", q17: "b", q18: "b", q19: "b", q20: "b",
         q21: "b", q22: "e", q23: "b", q24: "c", q25: "b"
-      };
-
-      // Mapeamento de letras para respostas completas (opcional, para mais detalhes)
-      const alternativas = {
-        q1: { a: '"Ao ouvir as notícias"', b: '"os moradores"', c: '"os moradores da cidade"', d: '"entraram"', e: 'sujeito oculto' },
-        q2: { a: 'simples', b: 'composto', c: 'oculto (elíptico)', d: 'indeterminado', e: 'inexistente (oração sem sujeito)' },
-        q3: { a: 'objeto indireto', b: 'agente da passiva', c: 'adjunto adnominal', d: 'adjunto adverbial de tempo', e: 'aposto' },
-        q4: { a: 'verbal', b: 'nominal', c: 'verbo-nominal', d: 'inexistente', e: 'transitivo direto' },
-        q5: { a: 'objeto direto', b: 'objeto indireto', c: 'complemento nominal', d: 'adjunto adverbial', e: 'aposto' },
-        q6: { a: 'adjunto adnominal', b: 'complemento nominal', c: 'aposto explicativo', d: 'adjunto adverbial', e: 'predicativo do sujeito' },
-        q7: { a: 'adjunto adnominal', b: 'predicativo do sujeito', c: 'predicativo do objeto', d: 'complemento nominal', e: 'objeto direto' },
-        q8: { a: 'ativa', b: 'passiva analítica', c: 'passiva sintética (com “se” apassivador)', d: 'reflexiva', e: 'voz média' },
-        q9: { a: 'oculto (elíptico) — nós', b: 'simples — “a lição”', c: 'indeterminado', d: 'inexistente', e: 'composto' },
-        q10: { a: 'objeto direto', b: 'adjunto adnominal', c: 'aposto', d: 'predicativo do sujeito', e: 'complemento nominal' },
-        q11: { a: 'objeto direto', b: 'complemento nominal', c: 'adjunto adverbial de causa', d: 'agente da passiva', e: 'adjunto adnominal' },
-        q12: { a: 'adjunto adnominal', b: 'adjunto adverbial de tempo', c: 'complemento nominal', d: 'aposto', e: 'predicativo do sujeito' },
-        q13: { a: 'substantiva objetiva direta', b: 'adverbial causal', c: 'adjetiva restritiva', d: 'adverbial final (de finalidade)', e: 'adverbial condicional' },
-        q14: { a: 'oração subordinada substantiva', b: 'oração subordinada adverbial', c: 'oração subordinada adjetiva restritiva', d: 'oração subordinada adjetiva explicativa', e: 'oração coordenada assindética' },
-        q15: { a: 'verbal', b: 'nominal', c: 'verbo-nominal', d: 'inexistente', e: 'transitivo indireto' },
-        q16: { a: '“As provas corrigiram o professor.”', b: '“As provas foram corrigidas pelo professor.”', c: '“O professor foi corrigido pelas provas.”', d: '“Foram corrigidos o professor as provas.”', e: '“Corrigiu-se as provas pelo professor.”' },
-        q17: { a: 'sujeito', b: 'vocativo', c: 'adjunto adnominal', d: 'objeto direto', e: 'aposto' },
-        q18: { a: 'próclise', b: 'ênclise', c: 'mesóclise', d: 'uso pleonástico', e: 'colocação livre' },
-        q19: { a: 'objeto direto', b: 'objeto indireto', c: 'complemento nominal', d: 'adjunto adverbial', e: 'aposto' },
-        q20: { a: 'uso incorreto de pontuação', b: 'possibilidade de “com o binóculo” ser adjunto adverbial (instrumento) ou adjunto adnominal (característica do homem)', c: 'ambiguidade lexical do verbo “vir”', d: 'ausência de sujeito claro', e: 'erro de concordância verbal' },
-        q21: { a: 'subordinada substantiva', b: 'subordinada adjetiva restritiva', c: 'subordinada adjetiva explicativa', d: 'subordinada adverbial causal', e: 'oração coordenada sindética' },
-        q22: { a: 'sujeito simples — “O velho carpinteiro”', b: '“velho” funciona como adjunto adnominal', c: '“a cadeira” é objeto direto', d: '“ontem” é adjunto adverbial de tempo', e: '“o velho carpinteiro” é agente da passiva' },
-        q23: { a: 'predicativo do sujeito', b: 'sujeito simples posposto', c: 'objeto direto do verbo acontecer', d: 'adjunto adverbial de modo', e: 'complemento nominal' },
-        q24: { a: 'adjunto adnominal', b: 'predicativo do sujeito', c: 'predicativo do objeto', d: 'complemento nominal', e: 'objeto indireto' },
-        q25: { a: 'adição → explicação → condição', b: 'adição → oposição → conclusão (ou consequência/decisão)', c: 'alternativa → conclusão → tempo', d: 'explicação → alternativa → concessão', e: 'causa → consequência → condição' }
       };
 
       verificarBtn.addEventListener("click", () => {
@@ -593,50 +596,16 @@
         resultadoDiv.style.display = "block";
       });
 
-      // Mostrar Gabarito - Versão Atualizada
+      // Mostrar Gabarito - Mantido como estava
       mostrarGabaritoBtn.addEventListener("click", () => {
-        const containerGabarito = document.createElement('div');
-        containerGabarito.id = 'gabarito-detalhado';
-        containerGabarito.innerHTML = '<h4>Gabarito Detalhado</h4><ol>';
-
-        Object.keys(gabaritos).forEach((nome, index) => {
-          const numQuestao = index + 1;
-          const letraCorreta = gabaritos[nome].toUpperCase();
-          const labelCorreto = alternativas[nome][letraCorreta.toLowerCase()];
-          const inputMarcado = document.querySelector(`input[name="${nome}"]:checked`);
-          const respostaAluno = inputMarcado ? inputMarcado.value.toUpperCase() : 'Não respondida';
-          const labelAluno = inputMarcado ? alternativas[nome][inputMarcado.value] : 'Nenhuma';
-
-          let status = '';
-          if (respostaAluno === 'Não respondida') {
-            status = ' ⚠️ Não respondida';
-          } else if (respostaAluno === letraCorreta) {
-            status = ' ✅ Correta';
-          } else {
-            status = ' ❌ Errada';
+        const feedbacks = document.querySelectorAll(".feedback");
+        feedbacks.forEach((fb, index) => {
+          if (!fb.classList.contains("correcto")) {
+            fb.textContent = "Veja a explicação com o professor.";
+            fb.className = "feedback";
           }
-
-          containerGabarito.innerHTML += `
-            <li>
-              <strong>Questão ${numQuestao}:</strong><br>
-              Correta: (${letraCorreta}) ${labelCorreto}<br>
-              Sua resposta: (${respostaAluno}) ${labelAluno}${status}
-            </li>
-          `;
         });
-
-        containerGabarito.innerHTML += '</ol>';
-        containerGabarito.style.padding = '20px';
-        containerGabarito.style.margin = '20px auto';
-        containerGabarito.style.maxWidth = '800px';
-        containerGabarito.style.backgroundColor = 'rgba(255,255,255,0.1)';
-        containerGabarito.style.borderRadius = '12px';
-        containerGabarito.style.border = '1px solid rgba(255,255,255,0.2)';
-        containerGabarito.style.color = '#ddd';
-
-        // Adiciona o gabarito na página
-        mostrarGabaritoBtn.parentNode.insertAfter(containerGabarito, mostrarGabaritoBtn);
-        mostrarGabaritoBtn.style.display = 'none';
+        mostrarGabaritoBtn.style.display = "none";
       });
     });
   </script>
