@@ -5,6 +5,186 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Exercício - Sintaxe | Prof. Samuel Valdevino</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos Completos -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 1px solid #3498db;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      color: #3498db;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #3498db;
+    }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 100px 0 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo #citacao {
+      font-style: italic;
+      color: #bbb;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+    section.conteudo hr {
+      width: 60px;
+      border: 1px solid #3498db;
+      margin: 30px auto;
+    }
+    section.conteudo h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    /* Lista de Exercícios */
+    section.exercicios {
+      padding: 60px 0;
+    }
+    .lista-exercicios {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+    .exercicio {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .exercicio p {
+      margin-bottom: 12px;
+      color: #eee;
+    }
+    .opcoes-multiplas label {
+      display: block;
+      margin: 5px 0;
+    }
+    .opcoes-multiplas input[type="radio"] {
+      margin-right: 8px;
+    }
+    .feedback {
+      margin-top: 8px;
+      font-weight: bold;
+      height: 24px;
+    }
+    .feedback.correcto { color: #2ecc71; }
+    .feedback.errado { color: #e74c3c; }
+
+    /* Card Fixo com Botões */
+    .botoes-finais {
+      padding: 40px 0;
+      text-align: center;
+    }
+    .card-botoes {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: inline-flex;
+      gap: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    @media (max-width: 768px) {
+      .card-botoes {
+        flex-direction: column;
+        width: 90%;
+      }
+      .btn-verificar {
+        width: 100%;
+      }
+    }
+
+    /* Botão Principal */
+    .btn-verificar {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .btn-verificar:hover {
+      background-color: #2980b9;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background-color: transparent;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -39,7 +219,6 @@
   <!-- Lista de Exercícios -->
   <section class="exercicios">
     <div class="container">
-
       <!-- Formulário de Exercícios -->
       <form id="form-exercicios">
         
@@ -371,7 +550,6 @@
           </li>
 
         </ol>
-
       </form>
     </div>
   </section>
@@ -418,129 +596,13 @@
     }
   </script>
 
-  
-  <!-- Estilos Completos -->
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.8;
-      color: #e0e0e0;
-      background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-        url('https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
-    }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    header { background-color: #1a1a1a; padding: 20px 0; border-bottom: 1px solid #3498db; }
-    header .container { display: flex; justify-content: space-between; align-items: center; }
-    header h1 { color: #3498db; font-size: 1.8rem; }
-    nav ul { list-style: none; display: flex; gap: 30px; }
-    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
-    nav a:hover { color: #3498db; }
-    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
-    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
-    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
-    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
-    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
-    section.exercicios { padding: 60px 0; }
-    .lista-exercicios { list-style: decimal; padding-left: 20px; }
-    .exercicio { margin-bottom: 25px; padding: 15px; background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .exercicio p { margin-bottom: 12px; color: #eee; }
-    .opcoes-multiplas label {
-      display: block;
-      margin: 5px 0;
-    }
-    .opcoes-multiplas input[type="radio"] {
-      margin-right: 8px;
-    }
-    .feedback {
-      margin-top: 8px;
-      font-weight: bold;
-      height: 24px;
-    }
-    .feedback.correcto { color: #2ecc71; }
-    .feedback.errado { color: #e74c3c; }
-    .btn-verificar {
-      background-color: #3498db;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      font-weight: 500;
-      transition: background 0.3s;
-    }
-    .btn-verificar:hover {
-      background-color: #2980b9;
-    }
-    .resultado { margin: 40px 0; text-align: center; }
-    .card-resultado {
-      background-color: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      padding: 25px;
-      border: 1px solid rgba(255,255,255,0.2);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .card-resultado h4 {
-      color: #3498db;
-      margin-bottom: 10px;
-    }
-    footer { text-align: center; padding: 30px 0; background-color: transparent; border-top: 1px solid #3498db; margin-top: 60px; }
-    @media (max-width: 768px) {
-      section.conteudo h2 { font-size: 2.2rem; }
-      section.conteudo p { font-size: 1.1rem; }
-      .opcoes-multiplas label { font-size: 0.95rem; }
-    }
-    
-    /* Novo estilo para o card de botões */
-    .botoes-finais {
-      padding: 40px 0;
-      text-align: center;
-    }
-
-    .card-botoes {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 25px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      display: inline-flex;
-      gap: 20px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (max-width: 768px) {
-      .card-botoes {
-        flex-direction: column;
-        width: 90%;
-      }
-      .btn-verificar {
-        width: 100%;
-      }
-    }
-  </style>
-
-   <!-- Lógica de Verificação -->
+  <!-- Lógica de Verificação -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       saudacaoHorario();
 
       const form = document.getElementById("form-exercicios");
       const verificarBtn = document.getElementById("verificar-respostas");
-      const resultadoDiv = document.getElementById("resultado");
-      const acertosSpan = document.getElementById("acertos");
-      const totalSpan = document.getElementById("total");
-      const mensagemResultado = document.getElementById("mensagem-resultado");
       const mostrarGabaritoBtn = document.getElementById("mostrar-gabarito");
 
       // Gabaritos
@@ -552,89 +614,79 @@
         q21: "b", q22: "e", q23: "b", q24: "c", q25: "b"
       };
 
+      // Textos completos das respostas corretas
+      const respostasCompletas = {
+        q1: "C) “os moradores da cidade”",
+        q2: "E) inexistente (oração sem sujeito)",
+        q3: "B) agente da passiva",
+        q4: "B) nominal",
+        q5: "C) complemento nominal",
+        q6: "C) aposto explicativo",
+        q7: "C) predicativo do objeto",
+        q8: "C) passiva sintética (com “se” apassivador)",
+        q9: "A) oculto (elíptico) — nós",
+        q10: "B) adjunto adnominal",
+        q11: "B) complemento nominal",
+        q12: "B) adjunto adverbial de tempo",
+        q13: "D) adverbial final (de finalidade)",
+        q14: "C) oração subordinada adjetiva restritiva",
+        q15: "C) verbo-nominal",
+        q16: "B) “As provas foram corrigidas pelo professor.”",
+        q17: "B) vocativo",
+        q18: "B) ênclise",
+        q19: "B) objeto indireto",
+        q20: "B) possibilidade de “com o binóculo” ser adjunto adverbial (instrumento) ou adjunto adnominal (característica do homem)",
+        q21: "B) subordinada adjetiva restritiva",
+        q22: "E) “o velho carpinteiro” é agente da passiva",
+        q23: "B) sujeito simples posposto",
+        q24: "C) predicativo do objeto",
+        q25: "B) adição → oposição → conclusão (ou consequência/decisão)"
+      };
+
+      // Função para verificar todas as respostas
       verificarBtn.addEventListener("click", () => {
-        let acertos = 0;
         const inputs = document.querySelectorAll("input[type='radio']:checked");
 
         inputs.forEach(input => {
           const feedback = input.closest('.exercicio').querySelector(".feedback");
-          const nome = input.name;
-          const respostaCorreta = gabaritos[nome];
+          const nomeQuestao = input.name;
           const respostaAluno = input.value;
+          const respostaCorreta = gabaritos[nomeQuestao];
 
           if (respostaAluno === respostaCorreta) {
             feedback.textContent = "✅ Correto!";
             feedback.className = "feedback correcto";
-            acertos++;
           } else {
-            feedback.textContent = `❌ Incorreto.`;
+            feedback.textContent = "❌ Incorreto.";
             feedback.className = "feedback errado";
           }
         });
-
-        // Mostra resultado
-        acertosSpan.textContent = acertos;
-        totalSpan.textContent = Object.keys(gabaritos).length;
-        mensagemResultado.textContent = acertos === 25 ? "Parabéns! Você acertou todas! 🏆" :
-                                        acertos >= 20 ? "Ótimo trabalho! Continue assim! 💪" :
-                                        acertos >= 15 ? "Bom esforço! Revise os erros." :
-                                                       "Continue praticando. Você vai melhorar! 📈";
-        resultadoDiv.style.display = "block";
       });
 
-      // Mostrar Gabarito - Versão Atualizada: Exibe a resposta correta
-mostrarGabaritoBtn.addEventListener("click", () => {
-  const feedbacks = document.querySelectorAll(".feedback");
+      // Função para mostrar o gabarito completo
+      mostrarGabaritoBtn.addEventListener("click", () => {
+        const feedbacks = document.querySelectorAll(".feedback");
 
-  // Para cada feedback, mostra a resposta correta
-  feedbacks.forEach((fb, index) => {
-    const numQuestao = index + 1;
-    const nomeQuestao = `q${numQuestao}`;
-    
-    // Verifica se já está correto
-    if (fb.classList.contains("correcto")) {
-      fb.textContent = "✅ Correto!";
-    } else {
-      // Define a resposta correta como texto
-      let respostaCorreta = "";
-      switch(nomeQuestao) {
-        case "q1": respostaCorreta = "C) “os moradores da cidade”"; break;
-        case "q2": respostaCorreta = "E) inexistente (oração sem sujeito)"; break;
-        case "q3": respostaCorreta = "B) agente da passiva"; break;
-        case "q4": respostaCorreta = "B) nominal"; break;
-        case "q5": respostaCorreta = "C) complemento nominal"; break;
-        case "q6": respostaCorreta = "C) aposto explicativo"; break;
-        case "q7": respostaCorreta = "C) predicativo do objeto"; break;
-        case "q8": respostaCorreta = "C) passiva sintética (com “se” apassivador)"; break;
-        case "q9": respostaCorreta = "A) oculto (elíptico) — nós"; break;
-        case "q10": respostaCorreta = "B) adjunto adnominal"; break;
-        case "q11": respostaCorreta = "B) complemento nominal"; break;
-        case "q12": respostaCorreta = "B) adjunto adverbial de tempo"; break;
-        case "q13": respostaCorreta = "D) adverbial final (de finalidade)"; break;
-        case "q14": respostaCorreta = "C) oração subordinada adjetiva restritiva"; break;
-        case "q15": respostaCorreta = "C) verbo-nominal"; break;
-        case "q16": respostaCorreta = "B) “As provas foram corrigidas pelo professor.”"; break;
-        case "q17": respostaCorreta = "B) vocativo"; break;
-        case "q18": respostaCorreta = "B) ênclise"; break;
-        case "q19": respostaCorreta = "B) objeto indireto"; break;
-        case "q20": respostaCorreta = "B) possibilidade de “com o binóculo” ser adjunto adverbial (instrumento) ou adjunto adnominal (característica do homem)"; break;
-        case "q21": respostaCorreta = "B) subordinada adjetiva restritiva"; break;
-        case "q22": respostaCorreta = "E) “o velho carpinteiro” é agente da passiva"; break;
-        case "q23": respostaCorreta = "B) sujeito simples posposto"; break;
-        case "q24": respostaCorreta = "C) predicativo do objeto"; break;
-        case "q25": respostaCorreta = "B) adição → oposição → conclusão (ou consequência/decisão)"; break;
-        default: respostaCorreta = "Resposta não encontrada.";
-      }
+        feedbacks.forEach((fb, index) => {
+          const numQuestao = index + 1;
+          const nomeQuestao = `q${numQuestao}`;
+          const respostaCorreta = respostasCompletas[nomeQuestao];
 
-      fb.textContent = `❌ Errado. Correto: ${respostaCorreta}`;
-      fb.className = "feedback";
-    }
-  });
+          // Se já estiver correto, mantém
+          if (fb.classList.contains("correcto")) {
+            fb.textContent = "✅ Correto!";
+          } else {
+            // Mostra a resposta certa
+            fb.textContent = `❌ Errado. Correto: ${respostaCorreta}`;
+            fb.className = "feedback";
+          }
+        });
 
-  // Esconde o botão após uso
-  mostrarGabaritoBtn.style.display = "none";
-});
-
+        // Esconde o botão após uso
+        mostrarGabaritoBtn.style.display = "none";
+      });
+    });
   </script>
+
 </body>
 </html>
