@@ -582,7 +582,59 @@
         resultadoDiv.style.display = "block";
       });
 
-      
+      // Mostrar Gabarito - Versão Atualizada: Exibe a resposta correta
+mostrarGabaritoBtn.addEventListener("click", () => {
+  const feedbacks = document.querySelectorAll(".feedback");
+
+  // Para cada feedback, mostra a resposta correta
+  feedbacks.forEach((fb, index) => {
+    const numQuestao = index + 1;
+    const nomeQuestao = `q${numQuestao}`;
+    
+    // Verifica se já está correto
+    if (fb.classList.contains("correcto")) {
+      fb.textContent = "✅ Correto!";
+    } else {
+      // Define a resposta correta como texto
+      let respostaCorreta = "";
+      switch(nomeQuestao) {
+        case "q1": respostaCorreta = "C) “os moradores da cidade”"; break;
+        case "q2": respostaCorreta = "E) inexistente (oração sem sujeito)"; break;
+        case "q3": respostaCorreta = "B) agente da passiva"; break;
+        case "q4": respostaCorreta = "B) nominal"; break;
+        case "q5": respostaCorreta = "C) complemento nominal"; break;
+        case "q6": respostaCorreta = "C) aposto explicativo"; break;
+        case "q7": respostaCorreta = "C) predicativo do objeto"; break;
+        case "q8": respostaCorreta = "C) passiva sintética (com “se” apassivador)"; break;
+        case "q9": respostaCorreta = "A) oculto (elíptico) — nós"; break;
+        case "q10": respostaCorreta = "B) adjunto adnominal"; break;
+        case "q11": respostaCorreta = "B) complemento nominal"; break;
+        case "q12": respostaCorreta = "B) adjunto adverbial de tempo"; break;
+        case "q13": respostaCorreta = "D) adverbial final (de finalidade)"; break;
+        case "q14": respostaCorreta = "C) oração subordinada adjetiva restritiva"; break;
+        case "q15": respostaCorreta = "C) verbo-nominal"; break;
+        case "q16": respostaCorreta = "B) “As provas foram corrigidas pelo professor.”"; break;
+        case "q17": respostaCorreta = "B) vocativo"; break;
+        case "q18": respostaCorreta = "B) ênclise"; break;
+        case "q19": respostaCorreta = "B) objeto indireto"; break;
+        case "q20": respostaCorreta = "B) possibilidade de “com o binóculo” ser adjunto adverbial (instrumento) ou adjunto adnominal (característica do homem)"; break;
+        case "q21": respostaCorreta = "B) subordinada adjetiva restritiva"; break;
+        case "q22": respostaCorreta = "E) “o velho carpinteiro” é agente da passiva"; break;
+        case "q23": respostaCorreta = "B) sujeito simples posposto"; break;
+        case "q24": respostaCorreta = "C) predicativo do objeto"; break;
+        case "q25": respostaCorreta = "B) adição → oposição → conclusão (ou consequência/decisão)"; break;
+        default: respostaCorreta = "Resposta não encontrada.";
+      }
+
+      fb.textContent = `❌ Errado. Correto: ${respostaCorreta}`;
+      fb.className = "feedback";
+    }
+  });
+
+  // Esconde o botão após uso
+  mostrarGabaritoBtn.style.display = "none";
+});
+
   </script>
 </body>
 </html>
