@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercício - Sintaxe | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas de estudo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">Teste seus conhecimentos em análise sintática: sujeito, predicado, complementos e mais.</p>
+      <p id="citacao">— Prof. Samuel Valdevino</p>
+      <hr>
+      <h3 style="color: #3498db; font-size: 1.8rem;">🧩 Exercício: Sintaxe da Língua Portuguesa</h3>
+      <p style="font-size: 1.2rem; color: #ddd;">
+        Marque a alternativa correta para cada questão.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lista de Exercícios -->
+  <section class="exercicios">
+    <div class="container">
+      
+      <!-- Resultado -->
+      <div id="resultado" class="resultado" style="display: none;">
+        <div class="card-resultado">
+          <h4>Você acertou <span id="acertos">0</span> de <span id="total">25</span> questões!</h4>
+          <p id="mensagem-resultado"></p>
+          <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+        </div>
+      </div>
+
+      <!-- Formulário de Exercícios -->
+      <form id="form-exercicios">
+        
+        <ol class="lista-exercicios">
+
+          <!-- Questão 1 -->
+          <li class="exercicio">
+            <p>Em: “Ao ouvir as notícias, os moradores da cidade entraram em pânico.” — o sujeito é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q1" value="a"> A) “Ao ouvir as notícias”</label>
+              <label><input type="radio" name="q1" value="b"> B) “os moradores”</label>
+              <label><input type="radio" name="q1" value="c"> C) “os moradores da cidade”</label>
+              <label><input type="radio" name="q1" value="d"> D) “entraram”</label>
+              <label><input type="radio" name="q1" value="e"> E) sujeito oculto</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 2 -->
+          <li class="exercicio">
+            <p>Em: “Está chovendo desde a madrugada.” — classifique o sujeito:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q2" value="a"> A) simples</label>
+              <label><input type="radio" name="q2" value="b"> B) composto</label>
+              <label><input type="radio" name="q2" value="c"> C) oculto (elíptico)</label>
+              <label><input type="radio" name="q2" value="d"> D) indeterminado</label>
+              <label><input type="radio" name="q2" value="e"> E) inexistente (oração sem sujeito)</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 3 -->
+          <li class="exercicio">
+            <p>Em: “Os prêmios serão entregues pelos organizadores amanhã.” — o termo “pelos organizadores” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q3" value="a"> A) objeto indireto</label>
+              <label><input type="radio" name="q3" value="b"> B) agente da passiva</label>
+              <label><input type="radio" name="q3" value="c"> C) adjunto adnominal</label>
+              <label><input type="radio" name="q3" value="d"> D) adjunto adverbial de tempo</label>
+              <label><input type="radio" name="q3" value="e"> E) aposto</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 4 -->
+          <li class="exercicio">
+            <p>Em: “O aluno está satisfeito com o resultado.” — o predicado é do tipo:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q4" value="a"> A) verbal</label>
+              <label><input type="radio" name="q4" value="b"> B) nominal</label>
+              <label><input type="radio" name="q4" value="c"> C) verbo-nominal</label>
+              <label><input type="radio" name="q4" value="d"> D) inexistente</label>
+              <label><input type="radio" name="q4" value="e"> E) transitivo direto</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 5 -->
+          <li class="exercicio">
+            <p>Em: “Tenho medo do escuro.” — a expressão “do escuro” funciona como:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q5" value="a"> A) objeto direto</label>
+              <label><input type="radio" name="q5" value="b"> B) objeto indireto</label>
+              <label><input type="radio" name="q5" value="c"> C) complemento nominal</label>
+              <label><input type="radio" name="q5" value="d"> D) adjunto adverbial</label>
+              <label><input type="radio" name="q5" value="e"> E) aposto</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 6 -->
+          <li class="exercicio">
+            <p>Em: “Meu amigo João, o médico, chegou cedo.” — “o médico” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q6" value="a"> A) adjunto adnominal</label>
+              <label><input type="radio" name="q6" value="b"> B) complemento nominal</label>
+              <label><input type="radio" name="q6" value="c"> C) aposto explicativo</label>
+              <label><input type="radio" name="q6" value="d"> D) adjunto adverbial</label>
+              <label><input type="radio" name="q6" value="e"> E) predicativo do sujeito</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 7 -->
+          <li class="exercicio">
+            <p>Em: “Consideraram-no culpado.” — a palavra “culpado” exerce função de:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q7" value="a"> A) adjunto adnominal</label>
+              <label><input type="radio" name="q7" value="b"> B) predicativo do sujeito</label>
+              <label><input type="radio" name="q7" value="c"> C) predicativo do objeto</label>
+              <label><input type="radio" name="q7" value="d"> D) complemento nominal</label>
+              <label><input type="radio" name="q7" value="e"> E) objeto direto</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 8 -->
+          <li class="exercicio">
+            <p>Em: “Vendem-se livros usados naquela livraria.” — a voz verbal é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q8" value="a"> A) ativa</label>
+              <label><input type="radio" name="q8" value="b"> B) passiva analítica</label>
+              <label><input type="radio" name="q8" value="c"> C) passiva sintética (com “se” apassivador)</label>
+              <label><input type="radio" name="q8" value="d"> D) reflexiva</label>
+              <label><input type="radio" name="q8" value="e"> E) voz média</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 9 -->
+          <li class="exercicio">
+            <p>Em: “Fizemos a lição ontem.” — o sujeito é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q9" value="a"> A) oculto (elíptico) — nós</label>
+              <label><input type="radio" name="q9" value="b"> B) simples — “a lição”</label>
+              <label><input type="radio" name="q9" value="c"> C) indeterminado</label>
+              <label><input type="radio" name="q9" value="d"> D) inexistente</label>
+              <label><input type="radio" name="q9" value="e"> E) composto</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 10 -->
+          <li class="exercicio">
+            <p>Em: “A casa amarela de esquina foi vendida.” — a expressão “amarela” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q10" value="a"> A) objeto direto</label>
+              <label><input type="radio" name="q10" value="b"> B) adjunto adnominal</label>
+              <label><input type="radio" name="q10" value="c"> C) aposto</label>
+              <label><input type="radio" name="q10" value="d"> D) predicativo do sujeito</label>
+              <label><input type="radio" name="q10" value="e"> E) complemento nominal</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 11 -->
+          <li class="exercicio">
+            <p>Em: “A ira de Carlos foi compreendida por todos.” — “de Carlos” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q11" value="a"> A) objeto direto</label>
+              <label><input type="radio" name="q11" value="b"> B) complemento nominal</label>
+              <label><input type="radio" name="q11" value="c"> C) adjunto adverbial de causa</label>
+              <label><input type="radio" name="q11" value="d"> D) agente da passiva</label>
+              <label><input type="radio" name="q11" value="e"> E) adjunto adnominal</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 12 -->
+          <li class="exercicio">
+            <p>Em: “Depois de muita discussão, decidiram adiar a reunião.” — “Depois de muita discussão” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q12" value="a"> A) adjunto adnominal</label>
+              <label><input type="radio" name="q12" value="b"> B) adjunto adverbial de tempo</label>
+              <label><input type="radio" name="q12" value="c"> C) complemento nominal</label>
+              <label><input type="radio" name="q12" value="d"> D) aposto</label>
+              <label><input type="radio" name="q12" value="e"> E) predicativo do sujeito</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 13 -->
+          <li class="exercicio">
+            <p>Em: “Feche a porta para que não entre o vento.” — a oração introduzida por “para que” é uma subordinada:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q13" value="a"> A) substantiva objetiva direta</label>
+              <label><input type="radio" name="q13" value="b"> B) adverbial causal</label>
+              <label><input type="radio" name="q13" value="c"> C) adjetiva restritiva</label>
+              <label><input type="radio" name="q13" value="d"> D) adverbial final (de finalidade)</label>
+              <label><input type="radio" name="q13" value="e"> E) adverbial condicional</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 14 -->
+          <li class="exercicio">
+            <p>Em: “Os alunos que chegaram cedo participaram do teste.” — “que chegaram cedo” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q14" value="a"> A) oração subordinada substantiva</label>
+              <label><input type="radio" name="q14" value="b"> B) oração subordinada adverbial</label>
+              <label><input type="radio" name="q14" value="c"> C) oração subordinada adjetiva restritiva</label>
+              <label><input type="radio" name="q14" value="d"> D) oração subordinada adjetiva explicativa</label>
+              <label><input type="radio" name="q14" value="e"> E) oração coordenada assindética</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 15 -->
+          <li class="exercicio">
+            <p>Em: “Mariana entrou cansada na sala.” — o predicado é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q15" value="a"> A) verbal</label>
+              <label><input type="radio" name="q15" value="b"> B) nominal</label>
+              <label><input type="radio" name="q15" value="c"> C) verbo-nominal</label>
+              <label><input type="radio" name="q15" value="d"> D) inexistente</label>
+              <label><input type="radio" name="q15" value="e"> E) transitivo indireto</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 16 -->
+          <li class="exercicio">
+            <p>Transformação correta para a voz passiva analítica de “O professor corrigiu as provas.”:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q16" value="a"> A) “As provas corrigiram o professor.”</label>
+              <label><input type="radio" name="q16" value="b"> B) “As provas foram corrigidas pelo professor.”</label>
+              <label><input type="radio" name="q16" value="c"> C) “O professor foi corrigido pelas provas.”</label>
+              <label><input type="radio" name="q16" value="d"> D) “Foram corrigidos o professor as provas.”</label>
+              <label><input type="radio" name="q16" value="e"> E) “Corrigiu-se as provas pelo professor.”</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 17 -->
+          <li class="exercicio">
+            <p>Em: “Ah, Maria, você mudou muito!” — “Maria” desempenha a função de:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q17" value="a"> A) sujeito</label>
+              <label><input type="radio" name="q17" value="b"> B) vocativo</label>
+              <label><input type="radio" name="q17" value="c"> C) adjunto adnominal</label>
+              <label><input type="radio" name="q17" value="d"> D) objeto direto</label>
+              <label><input type="radio" name="q17" value="e"> E) aposto</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 18 -->
+          <li class="exercicio">
+            <p>Em: “Entregue-me os livros, por favor.” — a posição do pronome “-me” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q18" value="a"> A) próclise</label>
+              <label><input type="radio" name="q18" value="b"> B) ênclise</label>
+              <label><input type="radio" name="q18" value="c"> C) mesóclise</label>
+              <label><input type="radio" name="q18" value="d"> D) uso pleonástico</label>
+              <label><input type="radio" name="q18" value="e"> E) colocação livre</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 19 -->
+          <li class="exercicio">
+            <p>Em: “Gosto de poesia.” — “de poesia” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q19" value="a"> A) objeto direto</label>
+              <label><input type="radio" name="q19" value="b"> B) objeto indireto</label>
+              <label><input type="radio" name="q19" value="c"> C) complemento nominal</label>
+              <label><input type="radio" name="q19" value="d"> D) adjunto adverbial</label>
+              <label><input type="radio" name="q19" value="e"> E) aposto</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 20 -->
+          <li class="exercicio">
+            <p>A ambiguidade da frase “Vi o homem com o binóculo.” decorre de:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q20" value="a"> A) uso incorreto de pontuação</label>
+              <label><input type="radio" name="q20" value="b"> B) possibilidade de “com o binóculo” ser adjunto adverbial (instrumento) ou adjunto adnominal (característica do homem)</label>
+              <label><input type="radio" name="q20" value="c"> C) ambiguidade lexical do verbo “vir”</label>
+              <label><input type="radio" name="q20" value="d"> D) ausência de sujeito claro</label>
+              <label><input type="radio" name="q20" value="e"> E) erro de concordância verbal</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 21 -->
+          <li class="exercicio">
+            <p>Em: “Ela leu o livro que você me recomendou.” — a oração “que você me recomendou” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q21" value="a"> A) subordinada substantiva</label>
+              <label><input type="radio" name="q21" value="b"> B) subordinada adjetiva restritiva</label>
+              <label><input type="radio" name="q21" value="c"> C) subordinada adjetiva explicativa</label>
+              <label><input type="radio" name="q21" value="d"> D) subordinada adverbial causal</label>
+              <label><input type="radio" name="q21" value="e"> E) oração coordenada sindética</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 22 -->
+          <li class="exercicio">
+            <p>Na frase “O velho carpinteiro consertou a cadeira ontem.”, qual das opções abaixo está INCORRETA quanto à análise sintática?</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q22" value="a"> A) sujeito simples — “O velho carpinteiro”</label>
+              <label><input type="radio" name="q22" value="b"> B) “velho” funciona como adjunto adnominal</label>
+              <label><input type="radio" name="q22" value="c"> C) “a cadeira” é objeto direto</label>
+              <label><input type="radio" name="q22" value="d"> D) “ontem” é adjunto adverbial de tempo</label>
+              <label><input type="radio" name="q22" value="e"> E) “o velho carpinteiro” é agente da passiva</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 23 -->
+          <li class="exercicio">
+            <p>Em: “Aconteceu um fato estranho.” — “um fato estranho” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q23" value="a"> A) predicativo do sujeito</label>
+              <label><input type="radio" name="q23" value="b"> B) sujeito simples posposto</label>
+              <label><input type="radio" name="q23" value="c"> C) objeto direto do verbo acontecer</label>
+              <label><input type="radio" name="q23" value="d"> D) adjunto adverbial de modo</label>
+              <label><input type="radio" name="q23" value="e"> E) complemento nominal</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 24 -->
+          <li class="exercicio">
+            <p>Em: “Chamaram João de herói.” — a expressão “de herói” é:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q24" value="a"> A) adjunto adnominal</label>
+              <label><input type="radio" name="q24" value="b"> B) predicativo do sujeito</label>
+              <label><input type="radio" name="q24" value="c"> C) predicativo do objeto</label>
+              <label><input type="radio" name="q24" value="d"> D) complemento nominal</label>
+              <label><input type="radio" name="q24" value="e"> E) objeto indireto</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+          <!-- Questão 25 -->
+          <li class="exercicio">
+            <p>Em: “Queria estudar, mas estava cansado; então decidi descansar.” — o período apresenta orações coordenadas que, em sequência, expressam:</p>
+            <div class="opcoes-multiplas">
+              <label><input type="radio" name="q25" value="a"> A) adição → explicação → condição</label>
+              <label><input type="radio" name="q25" value="b"> B) adição → oposição → conclusão (ou consequência/decisão)</label>
+              <label><input type="radio" name="q25" value="c"> C) alternativa → conclusão → tempo</label>
+              <label><input type="radio" name="q25" value="d"> D) explicação → alternativa → concessão</label>
+              <label><input type="radio" name="q25" value="e"> E) causa → consequência → condição</label>
+            </div>
+            <div class="feedback"></div>
+          </li>
+
+        </ol>
+
+        <div style="text-align: center; margin: 30px 0;">
+          <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <hr>
+  <footer>
+    <br>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+    <br>
+  </footer>
+
+  <!-- Script de Saudação Dinâmica -->
+  <script>
+    function saudacaoHorario() {
+      const agora = new Date();
+      const hora = agora.getHours();
+
+      let saudacao = "";
+      let mensagem = "Teste seus conhecimentos em análise sintática: sujeito, predicado, complementos e mais.";
+
+      if (hora >= 6 && hora < 12) {
+        saudacao = "Bom dia, linguista! 🌞";
+      } else if (hora >= 12 && hora < 18) {
+        saudacao = "Boa tarde! ✍️";
+      } else {
+        saudacao = "Boa noite, pensador! 🌙";
+      }
+
+      document.getElementById("saudacao").textContent = saudacao;
+      document.getElementById("mensagem").textContent = mensagem;
+    }
+  </script>
+
+  <!-- Estilos Completos -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background-color: #1a1a1a; padding: 20px 0; border-bottom: 1px solid #3498db; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #3498db; font-size: 1.8rem; }
+    nav ul { list-style: none; display: flex; gap: 30px; }
+    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
+    nav a:hover { color: #3498db; }
+    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
+    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
+    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
+    section.exercicios { padding: 60px 0; }
+    .lista-exercicios { list-style: decimal; padding-left: 20px; }
+    .exercicio { margin-bottom: 25px; padding: 15px; background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .exercicio p { margin-bottom: 12px; color: #eee; }
+    .opcoes-multiplas label {
+      display: block;
+      margin: 5px 0;
+    }
+    .opcoes-multiplas input[type="radio"] {
+      margin-right: 8px;
+    }
+    .feedback {
+      margin-top: 8px;
+      font-weight: bold;
+      height: 24px;
+    }
+    .feedback.correcto { color: #2ecc71; }
+    .feedback.errado { color: #e74c3c; }
+    .btn-verificar {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .btn-verificar:hover {
+      background-color: #2980b9;
+    }
+    .resultado { margin: 40px 0; text-align: center; }
+    .card-resultado {
+      background-color: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.2);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .card-resultado h4 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+    footer { text-align: center; padding: 30px 0; background-color: transparent; border-top: 1px solid #3498db; margin-top: 60px; }
+    @media (max-width: 768px) {
+      section.conteudo h2 { font-size: 2.2rem; }
+      section.conteudo p { font-size: 1.1rem; }
+      .opcoes-multiplas label { font-size: 0.95rem; }
+    }
+  </style>
+
+  <!-- Lógica de Verificação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      saudacaoHorario();
+
+      const form = document.getElementById("form-exercicios");
+      const verificarBtn = document.getElementById("verificar-respostas");
+      const resultadoDiv = document.getElementById("resultado");
+      const acertosSpan = document.getElementById("acertos");
+      const totalSpan = document.getElementById("total");
+      const mensagemResultado = document.getElementById("mensagem-resultado");
+      const mostrarGabaritoBtn = document.getElementById("mostrar-gabarito");
+
+      // Gabaritos
+      const gabaritos = {
+        q1: "c", q2: "e", q3: "b", q4: "b", q5: "c",
+        q6: "c", q7: "c", q8: "c", q9: "a", q10: "b",
+        q11: "b", q12: "b", q13: "d", q14: "c", q15: "c",
+        q16: "b", q17: "b", q18: "b", q19: "b", q20: "b",
+        q21: "b", q22: "e", q23: "b", q24: "c", q25: "b"
+      };
+
+      verificarBtn.addEventListener("click", () => {
+        let acertos = 0;
+        const inputs = document.querySelectorAll("input[type='radio']:checked");
+
+        inputs.forEach(input => {
+          const feedback = input.closest('.exercicio').querySelector(".feedback");
+          const nome = input.name;
+          const respostaCorreta = gabaritos[nome];
+
+          if (input.value === respostaCorreta) {
+            feedback.textContent = "✅ Correto!";
+            feedback.className = "feedback correcto";
+            acertos++;
+          } else {
+            feedback.textContent = "❌ Incorreto.";
+            feedback.className = "feedback errado";
+          }
+        });
+
+        // Mostra resultado
+        acertosSpan.textContent = acertos;
+        totalSpan.textContent = Object.keys(gabaritos).length;
+        mensagemResultado.textContent = acertos === 25 ? "Parabéns! Você acertou todas! 🏆" :
+                                        acertos >= 20 ? "Ótimo trabalho! Continue assim! 💪" :
+                                        acertos >= 15 ? "Bom esforço! Revise os erros." :
+                                                       "Continue praticando. Você vai melhorar! 📈";
+        resultadoDiv.style.display = "block";
+      });
+
+      // Mostrar Gabarito
+      mostrarGabaritoBtn.addEventListener("click", () => {
+        const feedbacks = document.querySelectorAll(".feedback");
+        feedbacks.forEach((fb, index) => {
+          if (!fb.classList.contains("correcto")) {
+            fb.textContent = "Veja a explicação com o professor.";
+            fb.className = "feedback";
+          }
+        });
+        mostrarGabaritoBtn.style.display = "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
