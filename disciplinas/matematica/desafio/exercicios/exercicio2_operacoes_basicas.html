@@ -134,43 +134,113 @@
       color: #e0e0e0;
       background-image: 
         linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-        url('https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+        url('https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       min-height: 100vh;
+      margin: 0;
+      padding: 0;
     }
     .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
-    header .container { display: flex; justify-content: space-between; align-items: center; }
-    header h1 { color: #3498db; font-size: 1.6rem; }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
-    nav a:hover { color: #3498db; }
-    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
-    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
-    section.conteudo #citacao { font-style: italic; color: #bbb; margin-top: 20px; font-size: 1.1rem; }
-    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
-    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
-    section.exercicios { padding: 60px 0; }
-    .lista-exercicios { list-style: decimal; padding-left: 20px; }
-    .exercicio { margin-bottom: 25px; padding: 15px; background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .exercicio p { margin-bottom: 12px; color: #eee; }
-    .resposta-numero {
-      background-color: rgba(0,0,0,0.2);
-      border: 1px solid #3498db;
-      padding: 8px 12px;
-      border-radius: 6px;
+    
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
       color: white;
-      font-size: 1.1rem;
-      width: 100%;
-      max-width: 400px;
-      outline: none;
+      padding: 20px 0;
+      border-bottom: 1px solid #3498db;
     }
-    .resposta-numero:focus {
-      border-color: #2980b9;
-      box-shadow: 0 0 5px rgba(52,152,219,0.5);
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      color: #3498db;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #3498db;
+    }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 100px 0 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo #citacao {
+      font-style: italic;
+      color: #bbb;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+    section.conteudo hr {
+      width: 60px;
+      border: 1px solid #3498db;
+      margin: 30px auto;
+    }
+    section.conteudo h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    /* Lista de Exercícios */
+    section.exercicios {
+      padding: 60px 0;
+    }
+    .lista-exercicios {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+    .exercicio {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .exercicio p {
+      margin-bottom: 12px;
+      color: #eee;
+    }
+    .opcoes-multiplas label {
+      display: block;
+      margin: 5px 0;
+    }
+    .opcoes-multiplas input[type="radio"] {
+      margin-right: 8px;
     }
     .feedback {
       margin-top: 8px;
@@ -179,6 +249,33 @@
     }
     .feedback.correcto { color: #2ecc71; }
     .feedback.errado { color: #e74c3c; }
+
+    /* Card Fixo com Botões */
+    .botoes-finais {
+      padding: 40px 0;
+      text-align: center;
+    }
+    .card-botoes {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: inline-flex;
+      gap: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    @media (max-width: 768px) {
+      .card-botoes {
+        flex-direction: column;
+        width: 90%;
+      }
+      .btn-verificar {
+        width: 100%;
+      }
+    }
+
+    /* Botão Principal */
     .btn-verificar {
       background-color: #3498db;
       color: white;
@@ -193,27 +290,20 @@
     .btn-verificar:hover {
       background-color: #2980b9;
     }
-    .resultado { margin: 40px 0; text-align: center; }
-    .card-resultado {
-      background-color: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      padding: 25px;
-      border: 1px solid rgba(255,255,255,0.2);
-      max-width: 600px;
-      margin: 0 auto;
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background-color: transparent;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
     }
-    .card-resultado h4 {
-      color: #3498db;
-      margin-bottom: 10px;
-    }
-    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
-    @media (max-width: 768px) {
-      section.conteudo h2 { font-size: 2.2rem; }
-      section.conteudo p { font-size: 1.1rem; }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
     }
   </style>
-
   <!-- Lógica de Verificação -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
