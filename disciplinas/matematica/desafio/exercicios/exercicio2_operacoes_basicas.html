@@ -315,12 +315,11 @@
     .feedback.correcto { color: #2ecc71; }
     .feedback.errado { color: #e74c3c; }
 
-     /* Novo estilo para o card de botões */
+     /* Card Fixo com Botões */
     .botoes-finais {
       padding: 40px 0;
       text-align: center;
     }
-
     .card-botoes {
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
@@ -331,13 +330,17 @@
       gap: 20px;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
-
     @media (max-width: 768px) {
       .card-botoes {
         flex-direction: column;
         width: 90%;
       }
-      /* Botão Principal */
+      .btn-verificar {
+        width: 100%;
+      }
+    }
+
+    /* Botão Principal */
     .btn-verificar {
       background-color: #3498db;
       color: white;
@@ -352,8 +355,7 @@
     .btn-verificar:hover {
       background-color: #2980b9;
     }
-    }
-    
+
     /* Rodapé */
     footer {
       text-align: center;
