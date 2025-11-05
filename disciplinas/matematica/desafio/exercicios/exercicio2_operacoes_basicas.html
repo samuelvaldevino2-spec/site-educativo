@@ -92,8 +92,19 @@
           <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
         </div>
       </div>
+<!-- ... fim das questões ... -->
 
       </form>
+    </div>
+  </section>
+
+  <!-- Card Fixo com Botões -->
+  <section class="botoes-finais">
+    <div class="container">
+      <div class="card-botoes">
+        <button id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+        <button id="mostrar-gabarito" class="btn-verificar">Mostrar Gabarito</button>
+      </div>
     </div>
   </section>
 
@@ -125,7 +136,7 @@
       document.getElementById("mensagem").textContent = mensagem;
     }
   </script>
-
+  
   <!-- Estilos Completos -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -316,11 +327,12 @@
     .feedback.correcto { color: #2ecc71; }
     .feedback.errado { color: #e74c3c; }
 
-    /* Card Fixo com Botões */
+     /* Novo estilo para o card de botões */
     .botoes-finais {
       padding: 40px 0;
       text-align: center;
     }
+
     .card-botoes {
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
@@ -331,6 +343,7 @@
       gap: 20px;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
+
     @media (max-width: 768px) {
       .card-botoes {
         flex-direction: column;
@@ -340,23 +353,7 @@
         width: 100%;
       }
     }
-
-    /* Botão Principal */
-    .btn-verificar {
-      background-color: #3498db;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      font-weight: 500;
-      transition: background 0.3s;
-    }
-    .btn-verificar:hover {
-      background-color: #2980b9;
-    }
-
+    
     /* Rodapé */
     footer {
       text-align: center;
@@ -412,17 +409,20 @@
         resultadoDiv.style.display = "block";
       });
 
-      // Mostrar Gabarito
+      // Mostrar Gabarito - Igual ao exercício de Sintaxe
       mostrarGabaritoBtn.addEventListener("click", () => {
         const feedbacks = document.querySelectorAll(".feedback");
+        const inputs = document.querySelectorAll(".resposta-numero");
+
         feedbacks.forEach((fb, index) => {
-          const input = document.querySelectorAll(".resposta-numero")[index];
-          const correto = input.getAttribute("data-correct");
+          const correto = inputs[index].getAttribute("data-correct");
+          
           if (!fb.classList.contains("correcto")) {
-            fb.textContent = `Resposta: ${correto}`;
+            fb.textContent = `❌ Errado. Correto: ${correto}`;
             fb.className = "feedback";
           }
         });
+        
         mostrarGabaritoBtn.style.display = "none";
       });
     });
