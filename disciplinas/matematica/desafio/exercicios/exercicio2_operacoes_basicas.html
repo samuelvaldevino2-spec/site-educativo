@@ -235,17 +235,20 @@
       margin-bottom: 12px;
       color: #eee;
     }
-    .opcoes-multiplas label {
-      display: block;
-      margin: 5px 0;
+     .resposta-numero {
+      background-color: rgba(0,0,0,0.2);
+      border: 1px solid #3498db;
+      padding: 8px 12px;
+      border-radius: 6px;
+      color: white;
+      font-size: 1.1rem;
+      width: 100%;
+      max-width: 400px;
+      outline: none;
     }
-    .opcoes-multiplas input[type="radio"] {
-      margin-right: 8px;
-    }
-    .feedback {
-      margin-top: 8px;
-      font-weight: bold;
-      height: 24px;
+    .resposta-numero:focus {
+      border-color: #2980b9;
+      box-shadow: 0 0 5px rgba(52,152,219,0.5);
     }
     .feedback.correcto { color: #2ecc71; }
     .feedback.errado { color: #e74c3c; }
