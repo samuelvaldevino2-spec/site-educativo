@@ -5,6 +5,220 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Exercício: Gráficos do MRU - Prof. Samuel Valdevino</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header h1 {
+      color: #3498db;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #3498db;
+    }
+
+    /* Conteúdo principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    hr {
+      width: 60px;
+      border: 1px solid #3498db;
+      margin: 30px auto;
+    }
+
+    section.conteudo h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    /* Atividades */
+    section.atividades {
+      padding: 40px 0 60px;
+    }
+
+    .lista-exercicios {
+      margin: 25px 0;
+    }
+
+    .exercicio {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(52, 152, 219, 0.2);
+    }
+
+    .exercicio p {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: #f0f0f0;
+    }
+
+    .exercicio img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 12px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .resposta-numero {
+      padding: 10px 16px;
+      border: 2px solid #555;
+      border-radius: 6px;
+      background-color: #222;
+      color: white;
+      font-size: 1.15rem;
+      width: 140px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .resposta-numero:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+    }
+
+    .feedback {
+      margin-top: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* Botões */
+    .botoes-container {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-verificar {
+      padding: 12px 28px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-verificar:hover {
+      background-color: #2980b9;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #aaa;
+      font-size: 0.95rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      section.conteudo h2 {
+        font-size: 2.2rem;
+      }
+      section.conteudo p {
+        font-size: 1.1rem;
+      }
+      .exercicio {
+        padding: 16px;
+      }
+      .exercicio p {
+        font-size: 1.15rem;
+      }
+      .resposta-numero {
+        width: 110px;
+        font-size: 1.05rem;
+        padding: 8px 12px;
+      }
+      .botoes-container {
+        padding: 20px 15px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -43,7 +257,7 @@
           <!-- Questão 1 -->
           <li class="exercicio">
             <p><strong>1.</strong> No gráfico s × t de um carro, em t = 0 s ele está em s = 20 m, e em t = 5 s está em s = 70 m. Qual a velocidade média?</p>
-            <img src="/disciplinas/fisica/graficos/ge1.png" alt="Gráfico s×t - Q1" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+            <img src="/disciplinas/fisica/graficos/ge1.png" alt="Gráfico s×t - Q1">
             <p>
               Velocidade média = 
               <input type="text" class="resposta-numero" data-correct="10" data-unidade="m/s" placeholder="Resposta">
@@ -54,7 +268,7 @@
           <!-- Questão 2 -->
           <li class="exercicio">
             <p><strong>2.</strong> Um móvel se desloca em linha reta. Entre t = 2 h (s = 40 km) e t = 5 h (s = 130 km), sua velocidade média é:</p>
-            <img src="/disciplinas/fisica/graficos/ge2.png" alt="Gráfico s×t - Q2" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+            <img src="/disciplinas/fisica/graficos/ge2.png" alt="Gráfico s×t - Q2">
             <p>
               Velocidade média = 
               <input type="text" class="resposta-numero" data-correct="30" data-unidade="km/h" placeholder="Resposta">
@@ -65,7 +279,7 @@
           <!-- Questão 3 -->
           <li class="exercicio">
             <p><strong>3.</strong> No gráfico s × t, um ônibus está em s = 10 km em t = 1 h e chega a s = 70 km em t = 3 h. Sua velocidade média é:</p>
-            <img src="/disciplinas/fisica/graficos/ge3.png" alt="Gráfico s×t - Q3" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+            <img src="/disciplinas/fisica/graficos/ge3.png" alt="Gráfico s×t - Q3">
             <p>
               Velocidade média = 
               <input type="text" class="resposta-numero" data-correct="30" data-unidade="km/h" placeholder="Resposta">
@@ -76,7 +290,7 @@
           <!-- Questão 4 -->
           <li class="exercicio">
             <p><strong>4.</strong> Um carro se move a velocidade constante de 20 m/s por 15 s. Qual o deslocamento obtido pela área do gráfico v × t?</p>
-            <img src="/disciplinas/fisica/graficos/ge4.png" alt="Gráfico v×t - Q4" style="max-width: 100%; border-radius: 8px; margin: 10px 0;">
+            <img src="/disciplinas/fisica/graficos/ge4.png" alt="Gráfico v×t - Q4">
             <p>
               Deslocamento = 
               <input type="text" class="resposta-numero" data-correct="300" data-unidade="m" placeholder="Resposta">
@@ -87,7 +301,7 @@
         </ol>
 
         <!-- Botão de Verificação -->
-        <div style="text-align: center; margin: 40px 0;">
+        <div class="botoes-container">
           <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
         </div>
 
@@ -103,7 +317,7 @@
     </div>
   </footer>
 
-  <!-- Script de Saudação Dinâmica -->
+  <!-- Scripts -->
   <script>
     function saudacaoHorario() {
       const agora = new Date();
@@ -123,22 +337,17 @@
       document.getElementById("saudacao").textContent = saudacao;
       document.getElementById("mensagem").textContent = mensagem;
     }
-  </script>
 
-  <!-- Script de Verificação -->
-  <script>
     document.addEventListener("DOMContentLoaded", () => {
       saudacaoHorario();
 
       const form = document.getElementById("quiz-form");
       const inputs = form.querySelectorAll(".resposta-numero");
 
-      // Remove espaços e converte vírgula em ponto
       function formatarResposta(resposta) {
         return resposta.replace(/,/g, ".").trim();
       }
 
-      // Verifica cada resposta
       document.getElementById("verificar-respostas").addEventListener("click", () => {
         inputs.forEach(input => {
           const valor = formatarResposta(input.value);
@@ -155,7 +364,10 @@
             return;
           }
 
-          if (Math.abs(Number(valor) - Number(correct)) < 0.01) {
+          const numValor = Number(valor);
+          const numCorrect = Number(correct);
+
+          if (Math.abs(numValor - numCorrect) < 0.01) {
             input.style.backgroundColor = "#183c1b";
             input.style.color = "#27ae60";
             feedback.innerHTML = `<span style='color: #27ae60;'>✅ Correto! ${correct} ${unidade}</span>`;
@@ -167,7 +379,6 @@
         });
       });
 
-      // Resetar estilo ao digitar
       inputs.forEach(input => {
         input.addEventListener("input", () => {
           input.style.backgroundColor = "";
@@ -178,58 +389,6 @@
       });
     });
   </script>
-
-  <!-- Estilos Completos -->
-  <style>
-    /* Reset básico */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.7;
-      color: #e0e0e0;
-      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      min-height: 100vh;
-    }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
-    header .container { display: flex; justify-content: space-between; align-items: center; }
-    header h1 { color: #3498db; font-size: 1.6rem; }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
-    nav a:hover { color: #3498db; }
-    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
-    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
-    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
-    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
-    section.atividades { padding: 60px 0; }
-    .lista-exercicios { margin: 20px 0; }
-    .exercicio { background-color: rgba(255,255,255,0.08); border-radius: 10px; padding: 15px; margin-bottom: 20px; }
-    .exercicio p { margin-bottom: 10px; }
-    .resposta-numero {
-      padding: 8px 12px;
-      border: 2px solid #555;
-      border-radius: 6px;
-      background-color: #222;
-      color: white;
-      font-size: 1.1rem;
-      width: 120px;
-      text-align: center;
-      transition: all 0.3s;
-    }
-    .feedback { margin-top: 10px; font-weight: bold; }
-    .btn-verificar { background-color: #27ae60; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; }
-    .btn-verificar:hover { background-color: #219653; }
-    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
-    @media (max-width: 768px) {
-      section.conteudo h2 { font-size: 2.2rem; }
-      section.conteudo p { font-size: 1.1rem; }
-      .resposta-numero { width: 100px; font-size: 1rem; }
-    }
-  </style>
 
 </body>
 </html>
