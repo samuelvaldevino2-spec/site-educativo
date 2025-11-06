@@ -130,39 +130,33 @@
     }
 
     /* Cabeçalho */
-    header {
-      background-color: #1a1a1a;
-      color: white;
-      padding: 20px 0;
-      border-bottom: 1px solid #3498db;
+    header { 
+      background-color: #1a1a1a; 
+      padding: 15px 0; 
+      border-bottom: 1px solid #3498db; 
+           }
+    header .container { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
     }
-
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    header h1 { 
+      color: #3498db; 
+      font-size: 1.6rem; 
     }
-
-    header h1 {
-      font-size: 1.8rem;
-      color: #3498db;
+    nav ul { 
+      list-style: none; 
+      display: flex; 
+      gap: 20px; 
     }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 30px;
+    nav a { 
+      color: #ccc; 
+      text-decoration: none; 
+      font-weight: 400; 
+      transition: color 0.3s; 
     }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #3498db;
+    nav a:hover { 
+      color: #3498db; 
     }
     
     /*Footer*/
