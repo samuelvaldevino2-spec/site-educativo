@@ -5,102 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prof. Samuel Valdevino</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-  <!-- Cabeçalho -->
-  <header>
-    <div class="container">
-      <h1>Prof. Samuel Valdevino</h1>
-      <nav>
-        <ul>
-          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
-          <li><a href="/site-educativo/contato.html">Contato</a></li>
-          <li><a href="/site-educativo/dicas.html">Dicas de estudo</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Seção de Disciplinas -->
-  <section class="disciplinas">
-    <div class="container">
-      <h2 id="saudacao">Carregando...</h2>
-      <p ><i>A perfeição é uma montanha impossível de escalar que deve ser escalada um pouco a cada dia - Bushido, filosofia samurai<i></p>
-      <br>
-
-      <div class="grid-cards">
-
-       <!-- Disciplinas -->
-        <a href="disciplinas.html" class="card">
-          <div class="card-img" style="background-image: url('https://images.pexels.com/photos/317356/pexels-photo-317356.jpeg');"></div>
-          <div class="card-content">
-            <h3>Disciplinas</h3>
-            <p>Clique aqui e acesse todas as disciplinas: português, matemátimatica, física, química, inglês e filosofia.</p>
-          </div>
-        </a>
-
-       
-        <!-- Técnicas de Estudo -->
-        <a href="dicas.html" class="card">
-          <div class="card-img" style="background-image: url('https://static.vecteezy.com/ti/vetor-gratis/p1/1176909-investimento-grafico-fundo-vetor.jpg');"></div>
-          <div class="card-content">
-            <h3>Dicas de Estudo</h3>
-            <p>Estude com as melhores técnicas do professor Samuel Valdevino e impulsione seus resultados.</p>
-          </div>
-        </a>
-
-        
-        <!-- Contato -->
-        <a href="contato.html" class="card">
-          <div class="card-img" style="background-image: url('https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg');"></div>
-          <div class="card-content">
-            <h3>Contato</h3>
-            <p>Precisa falar com o professor? Tirar dúvidas, agendar aulas ou conhecê-lo melhor? Clique aqui!</p>
-          </div>
-        </a>
-
-      </div>
-    </div>
-    <br>
-    <hr>
-    <br>
-
-        <!-- Sobre o Professor -->
-    <section class="sobre-professor">
-      <div class="container">
-        <div class="card-sobre">
-          <div class="card-img-esquerda" style="background-image: url('perfil.jpg');"></div>
-          <div class="card-texto-direita">
-            <br>
-            <h3>Conheça o Professor Samuel Valdevino</h3>
-            <br>
-            <p>Estudante do IFRN, dedico minhas horas vagas a trabalhar com o que amo: ensinar.</p>
-            <p>Acredito que cada aluno tem seu tempo e estilo de aprender. Por isso, utilizo métodos práticos, situações do dia a dia e tecnologia para descomplicar a ciência.</p>
-            <p>Me inspiro na filosofia japonesa e afirmo que a educação não se trata apenas de tirar boas notas. Ao contrário, é um meio pelo qual podemos moldar a nossa realidade.</p> 
-             <section class="sobre-professor-citacao">
-              <h4>Ganbatte!</h4>
-              <br>
-              <hr>
-              <p><i>Os homens devem moldar o seu caminho, a partir do momento em que você vi o caminho em tudo aquilo que fizer, você se torna o caminho. - Miyamoto Musashi</i> </p>
-            </section>
-          </div>
-        </div>
-    </section>
-   
-  </section>
-
-  <!-- Rodapé -->
-   <hr>
-  <footer>
-    <div class="footer">
-      <br>
-      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
-      <br>
-    </div>
-  </footer>
-
-  <!-- Estilos Completos -->
   <style>
     * {
       margin: 0;
@@ -112,15 +16,13 @@
       font-family: 'Roboto', sans-serif;
       line-height: 1.8;
       color: #e0e0e0;
-      background-image: 
+      background-image:
         linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
         url('https://images.pexels.com/photos/347145/pexels-photo-347145.jpeg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       min-height: 100vh;
-      margin: 0;
-      padding: 0;
     }
 
     .container {
@@ -162,46 +64,43 @@
     nav a:hover {
       color: #3498db;
     }
-    
-    /*Footer*/
-    footer {
-      text-align: center;
-    }
 
-    citacaop {
-      text-align: center;
-    }
-    
     /* Seção de Disciplinas */
     .disciplinas {
-      padding: 100px 0;
+      padding: 100px 0 80px;
       text-align: center;
     }
 
     .disciplinas h2 {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       color: #3498db;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
     }
 
     .disciplinas p {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       color: #ddd;
-      margin-bottom: 50px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Barra horizontal personalizada */
+    .separador {
+      width: 60px;
+      border: 1px solid #3498db;
+      margin: 60px auto;
     }
 
     /* Grid de Cards */
     .grid-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
+      gap: 30px;
+      margin-top: 30px;
     }
 
-    /* Card Individual */
     .card {
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
@@ -221,7 +120,6 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
 
-    /* Imagem do Card */
     .card-img {
       width: 100%;
       height: 250px;
@@ -230,7 +128,6 @@
       border-bottom: 3px solid #3498db;
     }
 
-    /* Conteúdo do Card */
     .card-content {
       padding: 20px;
       text-align: center;
@@ -241,7 +138,6 @@
       font-size: 1.4rem;
       color: #3498db;
       margin-bottom: 10px;
-      text-align: center;
     }
 
     .card-content p {
@@ -250,113 +146,117 @@
       line-height: 1.6;
     }
 
-    /* Rodapé do Card */
-    .card-footer {
-      padding: 15px 20px;
-      background-color: rgba(0, 0, 0, 0.2);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
-      font-size: 0.95rem;
-      color: #ddd;
+    /* Seção Sobre o Professor */
+    .sobre-professor {
+      padding: 80px 0 100px;
+      text-align: left;
     }
 
-    /* Seção Sobre o Professor */
-.sobre-professor {
-  padding: 80px 0;
-  text-align: left;
-}
+    .card-sobre {
+      display: flex;
+      flex-direction: row;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      max-width: 1300px;
+      margin: 0 auto;
+      height: 550px;
+    }
 
-.sobre-professor-citacao {
-  text-align: center;
-}
+    .card-img-esquerda {
+      width: 50%;
+      background-image: url('perfil.jpg');
+      background-size: cover;
+      background-position: center;
+      border-right: 3px solid #3498db;
+    }
 
-.card-sobre {
-  display: flex;
-  flex-direction: row;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  max-width: 1300px;
-  margin: 0 auto;
-  height: 550px;
-}
+    .card-texto-direita {
+      width: 50%;
+      padding: 30px;
+      color: #ddd;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.8;
+    }
 
-.card-img-esquerda {
-  width: 50%;
-  background-size: cover;
-  background-position: center;
-  border-right: 3px solid #3498db;
-}
+    .card-texto-direita h3 {
+      font-size: 1.6rem;
+      color: #3498db;
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-.card-texto-direita {
-  width: 50%;
-  padding: 30px;
-  color: #ddd;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  line-height: 1.8;
-}
+    .card-texto-direita p {
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+      color: #eee;
+    }
 
-.card-texto-direita h3 {
-  font-size: 1.6rem;
-  color: #3498db;
-  margin-bottom: 15px;
-  text-align: center;
-}
+    .sobre-professor-citacao {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+    }
 
-.card-texto-direita p {
-  font-size: 1.05rem;
-  margin-bottom: 12px;
-  color: #eee;
-}
+    .sobre-professor-citacao h4 {
+      color: #3498db;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
 
+    .sobre-professor-citacao p {
+      font-size: 1.1rem;
+      color: #ccc;
+      font-style: italic;
+    }
 
-
-/* Responsividade: em telas pequenas, imagem acima do texto */
-@media (max-width: 768px) {
-  .card-sobre {
-    flex-direction: column;
-    height: auto;
-  }
-  
-  .card-img-esquerda {
-    width: 100%;
-    height: 200px;
-    border-right: none;
-    border-bottom: 3px solid #3498db;
-  }
-
-  .card-texto-direita {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .card-texto-direita h3 {
-    font-size: 1.4rem;
-  }
-
-  .card-texto-direita p {
-    font-size: 0.95rem;
-  }
-}
-
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #aaa;
+      font-size: 0.95rem;
+      border-top: 1px solid #3498db;
+      margin-top: 40px;
+    }
 
     /* Responsividade */
     @media (max-width: 768px) {
       .disciplinas h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       .disciplinas p {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
+
+      .card-sobre {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .card-img-esquerda {
+        width: 100%;
+        height: 220px;
+        border-right: none;
+        border-bottom: 3px solid #3498db;
+      }
+
+      .card-texto-direita {
+        width: 100%;
+        padding: 20px;
+      }
+
       .grid-cards {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 25px;
       }
+
       .card {
         height: auto;
       }
@@ -364,10 +264,10 @@
 
     @media (max-width: 480px) {
       .disciplinas {
-        padding: 80px 20px;
+        padding: 80px 20px 60px;
       }
       .disciplinas h2 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
       }
       .card-content h3 {
         font-size: 1.3rem;
@@ -375,40 +275,118 @@
       .card-content p {
         font-size: 0.9rem;
       }
+      .card-texto-direita h3 {
+        font-size: 1.4rem;
+      }
     }
   </style>
+</head>
+<body>
 
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/contato.html">Contato</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas de estudo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção de Disciplinas -->
+  <section class="disciplinas">
+    <div class="container">
+      <h2 id="saudacao">Carregando...</h2>
+      <p id="mensagem">A perfeição é uma montanha impossível de escalar que deve ser escalada um pouco a cada dia — Bushido, filosofia samurai.</p>
+
+      <div class="grid-cards">
+        <!-- Disciplinas -->
+        <a href="disciplinas.html" class="card">
+          <div class="card-img" style="background-image: url('https://images.pexels.com/photos/317356/pexels-photo-317356.jpeg');"></div>
+          <div class="card-content">
+            <h3>Disciplinas</h3>
+            <p>Clique aqui e acesse todas as disciplinas: português, matemática, física, química, inglês e filosofia.</p>
+          </div>
+        </a>
+
+        <!-- Técnicas de Estudo -->
+        <a href="dicas.html" class="card">
+          <div class="card-img" style="background-image: url('https://static.vecteezy.com/ti/vetor-gratis/p1/1176909-investimento-grafico-fundo-vetor.jpg');"></div>
+          <div class="card-content">
+            <h3>Dicas de Estudo</h3>
+            <p>Estude com as melhores técnicas do professor Samuel Valdevino e impulsione seus resultados.</p>
+          </div>
+        </a>
+
+        <!-- Contato -->
+        <a href="contato.html" class="card">
+          <div class="card-img" style="background-image: url('https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg');"></div>
+          <div class="card-content">
+            <h3>Contato</h3>
+            <p>Precisa falar com o professor? Tirar dúvidas, agendar aulas ou conhecê-lo melhor? Clique aqui!</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Separador -->
+  <hr class="separador">
+
+  <!-- Sobre o Professor -->
+  <section class="sobre-professor">
+    <div class="container">
+      <div class="card-sobre">
+        <div class="card-img-esquerda"></div>
+        <div class="card-texto-direita">
+          <h3>Conheça o Professor Samuel Valdevino</h3>
+          <p>Estudante do IFRN, dedico minhas horas vagas a trabalhar com o que amo: ensinar.</p>
+          <p>Acredito que cada aluno tem seu tempo e estilo de aprender. Por isso, utilizo métodos práticos, situações do dia a dia e tecnologia para descomplicar a ciência.</p>
+          <p>Me inspiro na filosofia japonesa e afirmo que a educação não se trata apenas de tirar boas notas. Ao contrário, é um meio pelo qual podemos moldar a nossa realidade.</p>
+
+          <div class="sobre-professor-citacao">
+            <h4>Ganbatte!</h4>
+            <p><i>Os homens devem moldar o seu caminho. A partir do momento em que você viu o caminho em tudo aquilo que fizer, você se torna o caminho.</i> — Miyamoto Musashi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
 
   <script>
-    // Saudação dinâmica com base no horário
     function saudacaoHorario() {
       const agora = new Date();
       const hora = agora.getHours();
 
       let saudacao = "";
       let mensagem = "";
-      let citacao = "";
 
       if (hora >= 6 && hora < 12) {
-        saudacao = "Bom dia! ";
+        saudacao = "Bom dia!";
         mensagem = "Não importa o que seja, não há nada que não possa ser feito. Se existe determinação, podemos mover o céu e a terra de acordo com nossos desejos.";
-        citacao = "— Yamamoto Tsunetomo";
       } else if (hora >= 12 && hora < 18) {
-        saudacao = "Boa tarde! ";
-        mensagem = "Não há nada fora de você que possa torná-lo melhor, mais forte, mais rico, mais rápido ou mais esperto. Tudo está dentro. Tudo existe. Não procure nada fora de si mesmo";
-        citacao = "— Miyamoto Musashi";
+        saudacao = "Boa tarde!";
+        mensagem = "Não há nada fora de você que possa torná-lo melhor, mais forte, mais rico, mais rápido ou mais esperto. Tudo está dentro. Tudo existe. Não procure nada fora de si mesmo.";
       } else {
         saudacao = "Boa noite!";
         mensagem = "A perfeição é uma montanha impossível de escalar que deve ser escalada um pouco a cada dia.";
-        citacao = "— Bushido";
       }
 
       document.getElementById("saudacao").textContent = saudacao;
       document.getElementById("mensagem").textContent = mensagem;
-      document.getElementById("citacao").textContent = citacao;
     }
 
-    // Executa ao carregar a página
     document.addEventListener("DOMContentLoaded", saudacaoHorario);
   </script>
 
