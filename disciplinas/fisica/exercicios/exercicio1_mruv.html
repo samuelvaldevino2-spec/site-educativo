@@ -5,6 +5,239 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Exercício: MRUV - Prof. Samuel Valdevino</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header h1 {
+      color: #3498db;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #3498db;
+    }
+
+    /* Conteúdo principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    hr {
+      width: 60px;
+      border: 1px solid #3498db;
+      margin: 30px auto;
+    }
+
+    section.conteudo h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    /* Atividades */
+    section.atividades {
+      padding: 40px 0 60px;
+    }
+
+    .lista-exercicios {
+      margin: 25px 0;
+    }
+
+    .exercicio {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(52, 152, 219, 0.2);
+    }
+
+    .exercicio p {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: #f0f0f0;
+    }
+
+    .alternativas label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+      font-size: 1.15rem;
+    }
+
+    .alternativas input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    textarea.resposta-aberta {
+      width: 100%;
+      height: 90px;
+      padding: 12px;
+      border: 1px solid #555;
+      border-radius: 8px;
+      background-color: #222;
+      color: #fff;
+      font-size: 1.1rem;
+      resize: vertical;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .feedback {
+      margin-top: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* Botões */
+    .botoes-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-verificar,
+    .btn-acessar {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-verificar {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .btn-verificar:hover {
+      background-color: #2980b9;
+    }
+
+    .btn-acessar {
+      background-color: transparent;
+      color: #3498db;
+      border: 1px solid #3498db;
+    }
+
+    .btn-acessar:hover {
+      background-color: rgba(52, 152, 219, 0.1);
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #aaa;
+      font-size: 0.95rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      section.conteudo h2 {
+        font-size: 2.2rem;
+      }
+      section.conteudo p {
+        font-size: 1.1rem;
+      }
+      .exercicio {
+        padding: 16px;
+      }
+      .exercicio p {
+        font-size: 1.15rem;
+      }
+      .alternativas label {
+        font-size: 1.05rem;
+      }
+      textarea.resposta-aberta {
+        height: 70px;
+        font-size: 1rem;
+      }
+      .botoes-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -38,11 +271,11 @@
 
       <form id="quiz-form">
 
-        <!-- Parte 1: Questões Diretas -->
+        <!-- Parte 1: Questões Conceituais -->
         <h4 style="color: #3498db; margin-bottom: 20px;">📌 Parte 1 — Questões Conceituais</h4>
         <ol start="1" class="lista-exercicios">
 
-          <!-- Q1 -->
+          <!-- Q1 a Q10 -->
           <li class="exercicio">
             <p>No MRUV, a aceleração é:</p>
             <div class="alternativas">
@@ -55,7 +288,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q2 -->
           <li class="exercicio">
             <p>A equação da velocidade no MRUV é:</p>
             <div class="alternativas">
@@ -68,7 +300,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q3 -->
           <li class="exercicio">
             <p>Se a velocidade inicial for zero e a aceleração constante, o gráfico s×t será:</p>
             <div class="alternativas">
@@ -81,7 +312,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q4 -->
           <li class="exercicio">
             <p>No gráfico v×t, a área sob a curva representa:</p>
             <div class="alternativas">
@@ -94,7 +324,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q5 -->
           <li class="exercicio">
             <p>Quando a aceleração e a velocidade têm sinais opostos, o movimento é:</p>
             <div class="alternativas">
@@ -107,7 +336,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q6 -->
           <li class="exercicio">
             <p>A equação de Torricelli é:</p>
             <div class="alternativas">
@@ -120,7 +348,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q7 -->
           <li class="exercicio">
             <p>Um carro freando realiza um movimento:</p>
             <div class="alternativas">
@@ -133,7 +360,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q8 -->
           <li class="exercicio">
             <p>Em queda livre, a aceleração é aproximadamente:</p>
             <div class="alternativas">
@@ -146,7 +372,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q9 -->
           <li class="exercicio">
             <p>O que determina a inclinação da reta no gráfico v×t?</p>
             <div class="alternativas">
@@ -159,7 +384,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q10 -->
           <li class="exercicio">
             <p>Em lançamentos verticais para cima, no ponto mais alto temos:</p>
             <div class="alternativas">
@@ -178,7 +402,7 @@
         <h4 style="color: #3498db; margin-top: 30px; margin-bottom: 20px;">📌 Parte 2 — Situações-Problema</h4>
         <ol start="11" class="lista-exercicios">
 
-          <!-- Q11 -->
+          <!-- Q11 a Q20 -->
           <li class="exercicio">
             <p>Um carro parte do repouso e acelera a 2 m/s². Qual sua velocidade após 5 s?</p>
             <div class="alternativas">
@@ -191,7 +415,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q12 -->
           <li class="exercicio">
             <p>Um trem parte com v₀ = 20 m/s e acelera a 1 m/s² por 10 s. Seu deslocamento será:</p>
             <div class="alternativas">
@@ -204,7 +427,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q13 -->
           <li class="exercicio">
             <p>Um carro a 30 m/s freia com a = –5 m/s². Qual distância até parar?</p>
             <div class="alternativas">
@@ -217,7 +439,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q14 -->
           <li class="exercicio">
             <p>Uma pedra é solta de um prédio. Após 3 s, sua velocidade será:</p>
             <div class="alternativas">
@@ -230,7 +451,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q15 -->
           <li class="exercicio">
             <p>Uma bola é lançada para cima a 20 m/s. Qual o tempo até atingir o ponto mais alto?</p>
             <div class="alternativas">
@@ -243,7 +463,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q16 -->
           <li class="exercicio">
             <p>Um carro parte com v₀ = 10 m/s e acelera a 3 m/s² por 4 s. Sua velocidade final será:</p>
             <div class="alternativas">
@@ -256,7 +475,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q17 -->
           <li class="exercicio">
             <p>Um ciclista percorre 100 m acelerando a 2 m/s² a partir do repouso. Sua velocidade final é:</p>
             <div class="alternativas">
@@ -269,7 +487,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q18 -->
           <li class="exercicio">
             <p>Um carro com v₀ = 25 m/s acelera a 2 m/s² por 5 s. Seu deslocamento é:</p>
             <div class="alternativas">
@@ -282,7 +499,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q19 -->
           <li class="exercicio">
             <p>Uma moto reduz sua velocidade de 40 m/s para 20 m/s em 10 s. Sua aceleração média é:</p>
             <div class="alternativas">
@@ -295,7 +511,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q20 -->
           <li class="exercicio">
             <p>Uma pedra é jogada para cima com 15 m/s. Qual a altura máxima atingida? (g ≈ 10 m/s²)</p>
             <div class="alternativas">
@@ -314,7 +529,7 @@
         <h4 style="color: #3498db; margin-top: 30px; margin-bottom: 20px;">📌 Parte 3 — Construção de Gráficos</h4>
         <ol start="21" class="lista-exercicios">
 
-          <!-- Q21 -->
+          <!-- Q21 a Q25 -->
           <li class="exercicio">
             <p><strong>1.</strong> Construa o gráfico v×t de um carro que parte do repouso e acelera uniformemente.<br>
             <em>Dica: desenhe uma reta inclinada saindo da origem.</em></p>
@@ -322,7 +537,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q22 -->
           <li class="exercicio">
             <p><strong>2.</strong> Construa o gráfico s×t de um corpo em queda livre a partir do repouso.<br>
             <em>Dica: desenhe uma parábola com concavidade para baixo.</em></p>
@@ -330,7 +544,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q23 -->
           <li class="exercicio">
             <p><strong>3.</strong> Construa o gráfico v×t de um carro que freia até parar.<br>
             <em>Dica: desenhe uma reta decrescente que cruza o eixo do tempo.</em></p>
@@ -338,7 +551,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q24 -->
           <li class="exercicio">
             <p><strong>4.</strong> Construa o gráfico s×t de um objeto lançado para cima.<br>
             <em>Dica: desenhe uma parábola com concavidade para baixo, subindo e depois descendo.</em></p>
@@ -346,7 +558,6 @@
             <div class="feedback"></div>
           </li>
 
-          <!-- Q25 -->
           <li class="exercicio">
             <p><strong>5.</strong> Construa o gráfico a×t de um movimento uniformemente acelerado.<br>
             <em>Dica: desenhe uma linha horizontal paralela ao eixo do tempo (aceleração constante).</em></p>
@@ -356,25 +567,13 @@
 
         </ol>
 
-        <!-- Botão de Verificação -->
-        <div style="text-align: center; margin: 40px 0;">
+        <!-- Botões -->
+        <div class="botoes-container">
           <button type="button" id="verificar-respostas" class="btn-verificar">Verificar Respostas</button>
+          <button type="button" id="mostrar-gabarito" class="btn-acessar">Mostrar Gabarito</button>
         </div>
 
       </form>
-
-      <!-- Gabarito Oculto -->
-      <div id="gabarito" style="display: none; margin-top: 40px; padding: 20px; background-color: rgba(52, 152, 219, 0.1); border-radius: 12px; border: 1px solid #3498db;">
-        <h4 style="color: #3498db;">📚 Gabarito Oficial</h4>
-        <p><strong>Parte 1:</strong> 1b, 2b, 3c, 4c, 5d, 6c, 7c, 8b, 9d, 10b</p>
-        <p><strong>Parte 2:</strong> 11b, 12b, 13e, 14c, 15b, 16c, 17c, 18d, 19b, 20e</p>
-        <p><strong>Parte 3:</strong> Veja orientações nas respostas esperadas.</p>
-      </div>
-
-      <!-- Botão Mostrar Gabarito -->
-      <div style="text-align: center; margin-bottom: 60px;">
-        <button type="button" id="mostrar-gabarito" class="btn-acessar">Mostrar Gabarito</button>
-      </div>
 
     </div>
   </section>
@@ -386,7 +585,7 @@
     </div>
   </footer>
 
-  <!-- Script de Saudação Dinâmica -->
+  <!-- Scripts -->
   <script>
     function saudacaoHorario() {
       const agora = new Date();
@@ -406,46 +605,51 @@
       document.getElementById("saudacao").textContent = saudacao;
       document.getElementById("mensagem").textContent = mensagem;
     }
-  </script>
 
-  <!-- Script de Verificação -->
-  <script>
     document.addEventListener("DOMContentLoaded", () => {
       saudacaoHorario();
 
       const form = document.getElementById("quiz-form");
       const btnVerificar = document.getElementById("verificar-respostas");
       const btnGabarito = document.getElementById("mostrar-gabarito");
-      const gabaritoDiv = document.getElementById("gabarito");
 
-      // Mostrar gabarito
-      btnGabarito.addEventListener("click", () => {
-        gabaritoDiv.style.display = "block";
-        btnGabarito.textContent = "Esconder Gabarito";
-        btnGabarito.onclick = () => {
-          gabaritoDiv.style.display = "none";
-          btnGabarito.textContent = "Mostrar Gabarito";
-        };
-      });
-
-      // Respostas corretas
       const respostasCorretas = [
         "b","b","c","c","d","c","c","b","d","b",
         "b","b","e","c","b","c","c","d","b","e"
       ];
 
+      // Mostrar gabarito diretamente nos feedbacks
+      btnGabarito.addEventListener("click", () => {
+        // Alternativas
+        for (let i = 1; i <= 20; i++) {
+          const feedbackEl = form.querySelectorAll(".feedback")[i - 1];
+          const letraCorreta = respostasCorretas[i - 1];
+          feedbackEl.innerHTML = `<span style="color: #3498db;">💡 Gabarito: <strong>${letraCorreta.toUpperCase()}</strong></span>`;
+        }
+
+        // Respostas abertas
+        const abertas = document.querySelectorAll(".resposta-aberta");
+        abertas.forEach((el, index) => {
+          const feedbackEl = el.nextElementSibling;
+          const esperada = el.dataset.correct;
+          feedbackEl.innerHTML = `<span style="color: #3498db;">💡 Esperado: ${esperada}</span>`;
+        });
+
+        btnGabarito.style.display = "none"; // oculta após uso
+      });
+
       // Verificar respostas
       btnVerificar.addEventListener("click", () => {
         let acertos = 0;
 
-        // Limpa feedback anterior
+        // Limpa feedbacks anteriores
         document.querySelectorAll(".feedback").forEach(f => f.innerHTML = "");
 
         // Verifica alternativas
         for (let i = 1; i <= 20; i++) {
-          const selected = form[`q${i}`].value;
-          const correct = respostasCorretas[i-1];
-          const feedbackEl = form.querySelectorAll(".feedback")[i-1];
+          const selected = form[`q${i}`]?.value;
+          const correct = respostasCorretas[i - 1];
+          const feedbackEl = form.querySelectorAll(".feedback")[i - 1];
 
           if (!selected) {
             feedbackEl.innerHTML = "<span style='color: #e67e22;'>⚠️ Não respondido</span>";
@@ -464,7 +668,14 @@
           const resposta = el.value.trim().toLowerCase();
           const esperada = el.dataset.correct.toLowerCase();
 
-          if (resposta.includes(esperada.split(" ")[0]) || resposta.includes(esperada.split(" ")[1])) {
+          if (resposta.length === 0) {
+            feedbackEl.innerHTML = "<span style='color: #e67e22;'>⚠️ Não respondido</span>";
+          } else if (
+            resposta.includes("reta") ||
+            resposta.includes("parábola") ||
+            resposta.includes("horizontal") ||
+            resposta.includes(esperada.split(" ")[0].toLowerCase())
+          ) {
             feedbackEl.innerHTML = "<span style='color: #27ae60;'>✅ Boa descrição!</span>";
             acertos += 0.4;
           } else if (resposta.length > 10) {
@@ -475,56 +686,10 @@
           }
         });
 
-        // Mensagem final
         alert(`Você acertou ${acertos.toFixed(1)} de 25 pontos.`);
       });
     });
   </script>
-
-  <!-- Estilos Completos -->
-  <style>
-    /* Reset básico */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.7;
-      color: #e0e0e0;
-      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      min-height: 100vh;
-    }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    header { background-color: #1a1a1a; padding: 15px 0; border-bottom: 1px solid #3498db; }
-    header .container { display: flex; justify-content: space-between; align-items: center; }
-    header h1 { color: #3498db; font-size: 1.6rem; }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav a { color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.3s; }
-    nav a:hover { color: #3498db; }
-    section.conteudo { padding: 100px 0 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-    section.conteudo h2 { font-size: 2.6rem; color: #3498db; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
-    section.conteudo p { font-size: 1.3rem; color: #ddd; max-width: 800px; margin: 0 auto 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
-    section.conteudo hr { width: 60px; border: 1px solid #3498db; margin: 30px auto; }
-    section.conteudo h3 { color: #3498db; font-size: 1.8rem; text-align: left; margin-top: 40px; }
-    section.atividades { padding: 60px 0; }
-    .lista-exercicios { margin: 20px 0; }
-    .exercicio { background-color: rgba(255,255,255,0.08); border-radius: 10px; padding: 15px; margin-bottom: 20px; }
-    .exercicio p { margin-bottom: 10px; }
-    .alternativas label { display: block; margin: 5px 0; cursor: pointer; }
-    .alternativas input[type="radio"] { margin-right: 8px; }
-    textarea.resposta-aberta { width: 100%; height: 80px; padding: 10px; border-radius: 6px; border: 1px solid #555; background-color: #222; color: #fff; resize: vertical; }
-    .feedback { margin-top: 10px; font-weight: bold; }
-    .btn-verificar { background-color: #27ae60; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; }
-    .btn-verificar:hover { background-color: #219653; }
-    footer { text-align: center; padding: 30px 0; background-color: #1a1a1a; color: #aaa; font-size: 0.9rem; border-top: 1px solid #3498db; margin-top: 60px; }
-    @media (max-width: 768px) {
-      section.conteudo h2 { font-size: 2.2rem; }
-      section.conteudo p { font-size: 1.1rem; }
-      .exercicio { padding: 12px; }
-      textarea { height: 60px; }
-    }
-  </style>
 
 </body>
 </html>
