@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Radiciação – Matemática | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header h1 {
+      color: #3498db;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #3498db;
+    }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: left;
+    }
+
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    section.conteudo p.mensagem {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 900px;
+      margin: 0 0 50px;
+      font-style: italic;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+      padding: 15px 25px;
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 4px solid #3498db;
+    }
+
+    .separador {
+      width: 60px;
+      height: 2px;
+      background-color: #3498db;
+      margin: 60px auto;
+      border: none;
+    }
+
+    /* Estilos de conteúdo */
+    .conteudo h3 {
+      font-size: 1.8rem;
+      color: #3498db;
+      margin: 50px 0 25px;
+    }
+
+    .conteudo h4 {
+      font-size: 1.4rem;
+      color: #2ecc71;
+      margin: 35px 0 15px;
+    }
+
+    .conteudo p,
+    .conteudo li {
+      font-size: 1.25rem;
+      color: #f0f0f0;
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+
+    .conteudo ul,
+    .conteudo ol {
+      padding-left: 30px;
+      margin: 20px 0;
+    }
+
+    .exemplo {
+      background: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .exemplo h5 {
+      font-size: 1.2rem;
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    .exemplo p {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .analogia {
+      background: rgba(46, 204, 113, 0.15);
+      border-left: 4px solid #2ecc71;
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .analogia p {
+      font-style: italic;
+      color: #2ecc71;
+    }
+
+    .dica {
+      background: rgba(241, 196, 15, 0.15);
+      border-left: 4px solid #f1c40f;
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .dica p {
+      color: #f1c40f;
+      font-weight: 500;
+    }
+
+    .propriedade {
+      background: rgba(155, 89, 182, 0.15);
+      border-left: 4px solid #9b59b6;
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .propriedade h5 {
+      color: #9b59b6;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .aplicacao {
+      background: rgba(231, 76, 60, 0.1);
+      border: 1px solid rgba(231, 76, 60, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+    }
+
+    .aplicacao h5 {
+      color: #e74c3c;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    .aplicacao h5::before {
+      content: "💡 ";
+      margin-right: 8px;
+    }
+
+    .destaque {
+      color: #3498db;
+      font-weight: 700;
+    }
+
+    .negrito {
+      font-weight: 700;
+    }
+
+    .citacao-final {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: #ddd;
+      margin: 50px 0;
+      padding: 25px;
+      border-top: 1px solid #444;
+      border-bottom: 1px solid #444;
+    }
+
+    /* ========== Seção de Atividades ========== */
+    .atividades {
+      padding: 60px 0 40px;
+    }
+
+    .grid-atividades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    /* Card de Atividade */
+    .card-atividade {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-atividade:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 20px;
+      background-color: rgba(52, 152, 219, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-header .icon {
+      font-size: 1.4rem;
+    }
+
+    .card-header .data {
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body h4 {
+      font-size: 1.2rem;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .card-body p {
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 10px;
+    }
+
+    .btn-acessar {
+      background-color: #3498db;
+      color: white;
+      padding: 6px 12px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .btn-acessar:hover {
+      background-color: #2980b9;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #aaa;
+      font-size: 0.95rem;
+      border-top: 1px solid #3498db;
+      margin-top: 40px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      section.conteudo h2 {
+        font-size: 2.2rem;
+      }
+      section.conteudo p.mensagem {
+        font-size: 1.1rem;
+      }
+      .conteudo h3 {
+        font-size: 1.6rem;
+      }
+      .conteudo h4 {
+        font-size: 1.25rem;
+      }
+      .conteudo p,
+      .conteudo li {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section.conteudo {
+        padding: 60px 20px 40px;
+      }
+      section.conteudo h2 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas de estudo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <section class="conteudo">
+    <div class="container">
+
+      <h2>🌱 Radiciação: Desvendando as Raízes dos Números</h2>
+
+      <p class="mensagem">
+        “A radiciação é como cavar fundo até encontrar a raiz de uma árvore: não basta olhar a copa — é preciso entender de onde vem a força que sustenta tudo.”
+      </p>
+
+      <hr class="separador">
+
+      <h3>🔍 O Que É Radiciação?</h3>
+      <p>
+        A radiciação é a <span class="destaque">operação inversa da potenciação</span>. Enquanto a potenciação eleva um número a um expoente, a radiciação busca descobrir qual número, elevado a um certo grau, resulta em um valor conhecido.
+      </p>
+
+      <h4>📘 Definição Simples:</h4>
+      <p>
+        Dizer que <span class="destaque">raiz<sup>n</sup>(a) = b</span> significa que:
+      </p>
+      <p style="text-align: center; font-size: 1.3rem; margin: 20px 0;">
+        b<sup>n</sup> = a
+      </p>
+      <p>
+        Onde:
+      </p>
+      <ul>
+        <li><span class="negrito">Índice (n):</span> grau da raiz (2 = quadrada, 3 = cúbica, etc.).</li>
+        <li><span class="negrito">Radical (√):</span> símbolo que indica a operação.</li>
+        <li><span class="negrito">Radicando (a):</span> número dentro da raiz.</li>
+        <li><span class="negrito">Raiz (b):</span> resultado procurado.</li>
+      </ul>
+
+      <hr class="separador">
+
+      <h3>✅ Exemplos Resolvidos</h3>
+
+      <div class="exemplo">
+        <h5>🧩 Exemplo 1: √25</h5>
+        <p>
+          Qual número, elevado ao quadrado, dá 25? → 5 · 5 = 25  
+          Logo: √25 = 5
+        </p>
+        <div class="dica">
+          <p>⚠️ <span class="negrito">Atenção:</span> Por convenção, √25 = +5 (raiz quadrada <span class="negrito">principal</span>). A raiz negativa existe, mas é indicada como –√25 = –5.</p>
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <h5>🧩 Exemplo 2: ∛8</h5>
+        <p>
+          Qual número, elevado ao cubo, dá 8? → 2 · 2 · 2 = 8  
+          Logo: ∛8 = 2
+        </p>
+        <div class="analogia">
+          <p>💡 <span class="negrito">Analogia:</span> Se a potenciação é construir um cubo de 2m de lado (volume = 8 m³), a radiciação é medir o lado a partir do volume conhecido.</p>
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <h5>🧩 Exemplo 3: ∜16</h5>
+        <p>
+          2⁴ = 16 → então ∜16 = 2  
+          (raiz quarta de 16 é 2)
+        </p>
+      </div>
+
+      <div class="exemplo">
+        <h5>🧩 Exemplo 4: √(–9)</h5>
+        <p>
+          Não existe número real que, ao quadrado, dê –9.  
+          Logo: √(–9) <span class="negrito">não é um número real</span>.
+        </p>
+        <div class="dica">
+          <p>❗ <span class="negrito">Importante:</span> Raízes de índice par de números negativos não pertencem aos reais — pertencem aos <span class="negrito">números complexos</span>.</p>
+        </div>
+      </div>
+
+      <hr class="separador">
+
+      <h3>🧭 Propriedades da Radiciação</h3>
+
+      <div class="propriedade">
+        <h5>⚡ [R₁] Raiz de potência com mesmo índice</h5>
+        <p>
+          Quando o radicando é uma potência e o expoente é igual ao índice:
+        </p>
+        <p style="text-align: center; font-size: 1.3rem;">
+          √(a²) = |a| &nbsp; &nbsp; &nbsp; ∛(a³) = a
+        </p>
+        <p><span class="negrito">Exemplo:</span> √(9) = √(3²) = 3 &nbsp; | &nbsp; √((–3)²) = √(9) = 3 (módulo!)</p>
+      </div>
+
+      <div class="propriedade">
+        <h5>⚡ [R₂] Produto no radicando</h5>
+        <p>
+          √(a · b) = √a · √b &nbsp; (a ≥ 0, b ≥ 0)
+        </p>
+        <p><span class="negrito">Exemplo:</span> √12 = √(4 · 3) = √4 · √3 = 2√3</p>
+      </div>
+
+      <div class="propriedade">
+        <h5>⚡ [R₃] Quociente no radicando</h5>
+        <p>
+          √(a ÷ b) = √a ÷ √b &nbsp; (a ≥ 0, b > 0)
+        </p>
+        <p><span class="negrito">Exemplo:</span> √(25/4) = √25 ÷ √4 = 5 ÷ 2 = 2,5</p>
+      </div>
+
+      <div class="propriedade">
+        <h5>⚡ [R₄] Raiz de raiz</h5>
+        <p>
+          √(∛a) = <sup>6</sup>√a &nbsp; (multiplica-se os índices: 2 · 3 = 6)
+        </p>
+        <p><span class="negrito">Exemplo:</span> √(∛8) = √2 = <sup>6</sup>√8 = <sup>6</sup>√(2³) = 2<sup>3/6</sup> = 2<sup>1/2</sup> = √2</p>
+      </div>
+
+      <div class="propriedade">
+        <h5>⚡ [R₅] Potência de raiz</h5>
+        <p>
+          (√a)<sup>n</sup> = √(a<sup>n</sup>)
+        </p>
+        <p><span class="negrito">Exemplo:</span> (√5)² = √(5²) = √25 = 5</p>
+      </div>
+
+      <hr class="separador">
+
+      <h3>💡 Aplicações no Mundo Real</h3>
+
+      <div class="aplicacao">
+        <h5>📐 Geometria</h5>
+        <p>Diagonal de um quadrado de lado 1: d = √(1² + 1²) = √2 ≈ 1,414.</p>
+      </div>
+
+      <div class="aplicacao">
+        <h5>📏 Distância entre pontos</h5>
+        <p>Fórmula: d = √[(x₂–x₁)² + (y₂–y₁)²] — base do GPS e jogos 2D/3D.</p>
+      </div>
+
+      <div class="aplicacao">
+        <h5>⚡ Física (velocidade média)</h5>
+        <p>Na energia cinética: E = ½mv² → v = √(2E/m).</p>
+      </div>
+
+      <div class="aplicacao">
+        <h5>📊 Estatística (desvio padrão)</h5>
+        <p>Mede dispersão: σ = √[Σ(xᵢ – μ)² / N].</p>
+      </div>
+
+      <div class="aplicacao">
+        <h5>🌱 Biologia (lei de Kleiber)</h5>
+        <p>Taxa metabólica ∝ massa<sup>3/4</sup> → envolve raízes fracionárias.</p>
+      </div>
+
+      <hr class="separador">
+
+      <h3>🎯 Conclusão</h3>
+      <p>
+        A radiciação é a chave para resolver problemas que envolvem simetria, distância, energia e crescimento. Dominá-la abre portas para a álgebra, geometria e ciências exatas.
+      </p>
+
+      <div class="citacao-final">
+        “Quem conhece as raízes, entende não só o presente, mas também de onde virão os frutos do futuro.”
+      </div>
+
+      <h4>📝 Para praticar:</h4>
+      <ol>
+        <li>Calcule: √36</li>
+        <li>Calcule: ∛(–27)</li>
+        <li>Simplifique: √50</li>
+        <li>Calcule: √(16/9)</li>
+        <li>Qual o valor de (√7)²?</li>
+      </ol>
+
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO DE ATIVIDADES ========== -->
+  <section class="atividades">
+    <div class="container">
+      <h3 style="color: #3498db; text-align: center; margin-bottom: 30px;">🎯 Pratique o que aprendeu</h3>
+      
+      <div class="grid-atividades">
+        <!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon">🧮</span>
+            <span class="data">15/09/2025</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: propriedades da radiciação</h4>
+            <p>Pratique a simplificação de radicais, uso de propriedades e resolução de expressões com raízes.</p>
+          </div>
+          <div class="card-footer">
+            <a href="/site-educativo/disciplinas/matematica/exercicios/exercicio_radiciacao.html" class="btn-acessar">_resolver agora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
