@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Potenciação – Matemática | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 1px solid #3498db;
+    }
+
+    header h1 {
+      color: #3498db;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #3498db;
+    }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 60px;
+      text-align: left;
+    }
+
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    section.conteudo p.mensagem {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 900px;
+      margin: 0 0 50px;
+      font-style: italic;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+      padding: 15px 25px;
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 4px solid #3498db;
+    }
+
+    .separador {
+      width: 60px;
+      height: 2px;
+      background-color: #3498db;
+      margin: 60px auto;
+      border: none;
+    }
+
+    /* Estilos de conteúdo */
+    .conteudo h3 {
+      font-size: 1.8rem;
+      color: #3498db;
+      margin: 50px 0 25px;
+    }
+
+    .conteudo h4 {
+      font-size: 1.4rem;
+      color: #2ecc71;
+      margin: 35px 0 15px;
+    }
+
+    .conteudo p,
+    .conteudo li {
+      font-size: 1.25rem;
+      color: #f0f0f0;
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+
+    .conteudo ul,
+    .conteudo ol {
+      padding-left: 30px;
+      margin: 20px 0;
+    }
+
+    /* Classes para fórmulas */
+    .base {
+      font-weight: 700;
+      color: #3498db;
+    }
+    .expoente {
+      vertical-align: super;
+      font-size: 0.8em;
+      font-weight: 700;
+      color: #e74c3c;
+    }
+    .fracao {
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      margin: 0 4px;
+    }
+    .numerador {
+      display: block;
+      border-bottom: 1px solid #e74c3c;
+      padding-bottom: 2px;
+      font-size: 0.95em;
+    }
+    .denominador {
+      display: block;
+      padding-top: 2px;
+      font-size: 0.95em;
+    }
+
+    .exemplo {
+      background: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .exemplo h5 {
+      font-size: 1.2rem;
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    .exemplo p {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .analogia {
+      background: rgba(46, 204, 113, 0.15);
+      border-left: 4px solid #2ecc71;
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .analogia p {
+      font-style: italic;
+      color: #2ecc71;
+    }
+
+    .dica {
+      background: rgba(241, 196, 15, 0.15);
+      border-left: 4px solid #f1c40f;
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .dica p {
+      color: #f1c40f;
+      font-weight: 500;
+    }
+
+    .propriedade {
+      background: rgba(155, 89, 182, 0.15);
+      border-left: 4px solid #9b59b6;
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .propriedade h5 {
+      color: #9b59b6;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .aplicacao {
+      background: rgba(231, 76, 60, 0.1);
+      border: 1px solid rgba(231, 76, 60, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+    }
+
+    .aplicacao h5 {
+      color: #e74c3c;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    .aplicacao h5::before {
+      content: "💡 ";
+      margin-right: 8px;
+    }
+
+    .destaque {
+      color: #3498db;
+      font-weight: 700;
+    }
+
+    .negrito {
+      font-weight: 700;
+    }
+
+    .citacao-final {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: #ddd;
+      margin: 50px 0;
+      padding: 25px;
+      border-top: 1px solid #444;
+      border-bottom: 1px solid #444;
+    }
+
+    /* Seção de Atividades */
+    .atividades {
+      padding: 40px 0;
+    }
+
+    .grid-atividades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    /* Card de Atividade */
+    .card-atividade {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-atividade:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 20px;
+      background-color: rgba(52, 152, 219, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-header .icon {
+      font-size: 1.4rem;
+    }
+
+    .card-header .data {
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body h4 {
+      font-size: 1.2rem;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .card-body p {
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 10px;
+    }
+
+    .btn-acessar {
+      background-color: #3498db;
+      color: white;
+      padding: 6px 12px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .btn-acessar:hover {
+      background-color: #2980b9;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #aaa;
+      font-size: 0.95rem;
+      border-top: 1px solid #3498db;
+      margin-top: 60px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      section.conteudo h2 {
+        font-size: 2.2rem;
+      }
+      section.conteudo p.mensagem {
+        font-size: 1.1rem;
+      }
+      .conteudo h3 {
+        font-size: 1.6rem;
+      }
+      .conteudo h4 {
+        font-size: 1.25rem;
+      }
+      .conteudo p,
+      .conteudo li {
+        font-size: 1.1rem;
+      }
+      .expoente {
+        font-size: 0.75em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section.conteudo {
+        padding: 60px 20px 40px;
+      }
+      section.conteudo h2 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas de estudo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <section class="conteudo">
+    <div class="container">
+
+      <h2>📚 Potenciação: O Poder dos Números Repetidos</h2>
+
+      <p class="mensagem">
+        “A potenciação é a arte de multiplicar um número por si mesmo, várias vezes — como se fosse um atleta repetindo o mesmo movimento até dominá-lo. Quanto mais vezes repete, mais forte fica… ou, no caso dos números, maior (ou menor) o resultado!”
+      </p>
+
+      <hr class="separador">
+
+      <h3>🔍 O Que É Potenciação?</h3>
+      <p>
+        A potenciação é uma operação que representa a <span class="destaque">multiplicação de um número por ele mesmo, repetidas vezes</span>.
+      </p>
+
+      <h4>📘 Definição Simples:</h4>
+      <p>
+        Quando escrevemos <span class="base">a</span><span class="expoente">n</span>, queremos dizer:
+      </p>
+      <p style="text-align: center; font-size: 1.3rem; margin: 20px 0;">
+        a · a · a · … · a &nbsp; (n vezes)
+      </p>
+      <p>
+        Onde:
+      </p>
+      <ul>
+        <li><span class="negrito">Base (a):</span> número que será repetido.</li>
+        <li><span class="negrito">Expoente (n):</span> quantas vezes a base será multiplicada.</li>
+        <li><span class="negrito">Potência:</span> resultado final da operação.</li>
+      </ul>
+
+      <hr class="separador">
+
+      <h3>✅ Exemplos Resolvidos</h3>
+
+      <div class="exemplo">
+        <h5>🧩 Exemplo 1: 3⁴</h5>
+        <p>
+          Isso significa: 3 · 3 · 3 · 3 = 81
+        </p>
+        <div class="analogia">
+          <p>💡 <span class="negrito">Analogia:</span> 3 caixas, com 3 pacotes cada, com 3 doces cada, com 3 partes cada → 3⁴ = 81 partes.</p>
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <h5>🧩 Exemplo 2: (–2)³</h5>
+        <p>
+          (–2) · (–2) · (–2) = (+4) · (–2) = –8
+        </p>
+        <div class="dica">
+          <p>⚠️ <span class="negrito">Dica:</span> Expoente <span class="negrito">ímpar</span> mantém o sinal da base. Expoente <span class="negrito">par</span> sempre dá positivo.</p>
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <h5>🧩 Exemplo 3: 5⁰</h5>
+        <p>
+          Qualquer número (exceto zero) elevado a 0 é igual a 1.
+        </p>
+        <p>
+          → 5⁰ = 1
+        </p>
+        <div class="dica">
+          <p>❗ <span class="negrito">Atenção:</span> 0⁰ não tem valor definido — é <span class="negrito">indeterminado</span>.</p>
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <h5>🧩 Exemplo 4: 2⁻³</h5>
+        <p>
+          Expoente negativo inverte a base e torna o expoente positivo:
+        </p>
+        <p style="text-align: center; font-size: 1.35rem;">
+          2⁻³ = <span class="fracao"><span class="numerador">1</span><span class="denominador">2³</span></span> = <span class="fracao"><span class="numerador">1</span><span class="denominador">8</span></span>
+        </p>
+        <div class="analogia">
+          <p>💡 <span class="negrito">Analogia:</span> É como “desfazer” a multiplicação — em vez de repetir, você divide.</p>
+        </div>
+      </div>
+
+      <hr class="separador">
+
+      <h3>🧭 Propriedades da Potenciação</h3>
+
+      <div class="propriedade">
+        <h5>⚡ [P₁] Produto de potências de mesma base</h5>
+        <p>
+          a<sup>m</sup> · a<sup>n</sup> = a<sup>m + n</sup>
+        </p>
+        <p><span class="negrito">Exemplo:</span> 2³ · 2⁴ = 2<sup>3+4</sup> = 2⁷ = 128</p>
+      </div>
+
+      <div class="propriedade">
+        <h5>⚡ [P₂] Divisão de potências de mesma base</h5>
+        <p>
+          a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m – n</sup>  &nbsp; (a ≠ 0)
+        </p>
+        <p><span class="negrito">Exemplo:</span> 5⁶ ÷ 5² = 5<sup>6–2</sup> = 5⁴ = 625</p>
+      </div>
+
+      <div class="propriedade">
+        <h5>⚡ [P₃] Potência de um produto</h5>
+        <p>
+          (a · b)<sup>n</sup> = a<sup>n</sup> · b<sup>n</sup>
+        </p>
+        <p><span class="negrito">Exemplo:</span> (2 · 3)⁴ = 2⁴ · 3⁴ = 16 · 81 = 1296</p>
+      </div>
+
+      <div class="propriedade">
+        <h5>⚡ [P₄] Potência de um quociente</h5>
+        <p>
+          (a ÷ b)<sup>n</sup> = a<sup>n</sup> ÷ b<sup>n</sup>  &nbsp; (b ≠ 0)
+        </p>
+        <p><span class="negrito">Exemplo:</span> (4 ÷ 2)³ = 4³ ÷ 2³ = 64 ÷ 8 = 8</p>
+      </div>
+
+      <div class="propriedade">
+        <h5>⚡ [P₅] Potência de potência</h5>
+        <p>
+          (a<sup>m</sup>)<sup>n</sup> = a<sup>m · n</sup>
+        </p>
+        <p><span class="negrito">Exemplo:</span> (2³)² = 2<sup>3·2</sup> = 2⁶ = 64</p>
+      </div>
+
+      <hr class="separador">
+
+      <h3>💡 Aplicações no Mundo Real</h3>
+
+      <div class="aplicacao">
+        <h5>🌱 Crescimento de bactérias</h5>
+        <p>Se uma bactéria se divide a cada hora, em 5 horas teremos: 2⁵ = 32 bactérias.</p>
+      </div>
+
+      <div class="aplicacao">
+        <h5>💰 Juros compostos</h5>
+        <p>Fórmula: M = C · (1 + i)<sup>t</sup></p>
+        <p>Ex: R$1000 a 10% ao ano por 3 anos: 1000 · (1,1)³ = 1000 · 1,331 = R$1331</p>
+      </div>
+
+      <div class="aplicacao">
+        <h5>🧬 Combinações genéticas</h5>
+        <p>2 alelos por gene, 3 genes → 2³ = 8 combinações possíveis.</p>
+      </div>
+
+      <div class="aplicacao">
+        <h5>🖥️ Memória de computador</h5>
+        <p>1 KB = 2¹⁰ bytes = 1024 bytes. Tudo em potências de 2.</p>
+      </div>
+
+      <div class="aplicacao">
+        <h5>🌌 Distâncias astronômicas</h5>
+        <p>Terra ao Sol ≈ 150 000 000 000 m = 1,5 × 10¹¹ m (notação científica).</p>
+      </div>
+
+      <hr class="separador">
+
+      <h3>🎯 Conclusão</h3>
+      <p>
+        A potenciação vai muito além de cálculos: é uma lente para entender crescimento, tecnologia, genética e até o universo.
+      </p>
+
+      <div class="citacao-final">
+        “Não se trata apenas de elevar ao quadrado — é entender o mundo em escala exponencial.”
+      </div>
+
+      <h4>📝 Para praticar:</h4>
+      <ol>
+        <li>Calcule: 4³ · 4²</li>
+        <li>Simplifique: 7⁸ ÷ 7⁵</li>
+        <li>Resolva: (3 · 5)²</li>
+        <li>Calcule: (2²)³</li>
+        <li>Explique: por que 0⁰ é indeterminado?</li>
+      </ol>
+
+      <hr class="separador">
+
+<!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon"></span>
+            <span class="data">🧮 14/11/2025</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercício: propriedades da potenciação</h4>
+            <p>Pratique a utilização das propriedade estudadas.</p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_potenciacao.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+
+<!-- Card de Exercício -->
+        <div class="card-atividade">
+          <div class="card-header">
+            <span class="icon"></span>
+            <span class="data">🧮 14/11/2025</span>
+          </div>
+          <div class="card-body">
+            <h4>Exercícios complexos de potenciação</h4>
+            <p>Teste seus conhecimentos com esse desafio</p>
+            <p>Baseado no livro <i>Fundamentos de Matemática Elementar Volume 2 - Logarítmos</i></p>
+          </div>
+          <div class="card-footer">
+            <a href="exercicios/exercicio_potenciacao.html" class="btn-acessar">Resolver agora</a>
+          </div>
+        </div>
+
+      <p style="text-align: center; font-size: 1.1rem; color: #aaa; margin-top: 40px;">
+        📌 <span class="negrito">Próxima aula:</span> Radiciação — a operação inversa da potenciação.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
