@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trabalho e Energia | Física 1º EM | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 18px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .analogia {
+      background-color: rgba(52, 152, 219, 0.12);
+      border-left: 4px solid #2980b9;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.3rem;
+      text-align: center;
+      margin: 20px 0;
+      letter-spacing: 1px;
+    }
+    .casos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .caso {
+      background: rgba(0, 0, 0, 0.25);
+      padding: 16px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .caso strong {
+      color: #f1c40f;
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(52, 152, 219, 0.25);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+    .card-link a:hover {
+      background-color: #2980b9;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/fisica/conteudos-fisica.html">Física</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>⚡ Trabalho e Energia</h2>
+      <p><em>Para o 1º ano do Ensino Médio — Conceitos essenciais com foco no entendimento real</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Nesta página, vamos desvendar uma das ideias mais poderosas da Física: como o “esforço” se transforma em movimento, e como isso se conecta à noção de energia. 
+        Prepare-se: não é só W = F·d — é muito mais sutil… e fascinante.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- Tópico 1 -->
+    <div class="card">
+      <h3><i class="fas fa-lightbulb"></i> 1. O que é “trabalho” na Física?</h3>
+      <p>No dia a dia, dizemos: <em>“Hoje trabalhei muito!”</em> — mas será que a Física concorda?</p>
+      <p><strong>Definição física:</strong> Trabalho é realizado <span class="destaque">quando uma força causa deslocamento na direção da própria força (ou de sua componente)</span>.</p>
+      
+      <div class="exemplo">
+        <p>✅ <strong>Exemplo 1:</strong> Você empurra um carrinho de supermercado por 5 m com força horizontal. <em>Há trabalho.</em></p>
+        <p>❌ <strong>Exemplo 2:</strong> Você empurra uma parede com toda sua força… mas ela não se move. <em>W = 0.</em></p>
+        <p>❌ <strong>Exemplo 3:</strong> Você carrega uma mala pesada andando em linha reta. A força que você faz é <em>para cima</em> (contra a gravidade), mas o deslocamento é <em>horizontal</em>. <em>W = 0.</em></p>
+      </div>
+
+      <div class="analogia">
+        💡 <strong>Analogy Time:</strong> Imagine que o trabalho é como “depositar energia útil no movimento”. Se você gasta energia, mas o objeto não se move <em>na direção certa</em>, é como tentar carregar um celular com um cabo quebrado: esforço, mas sem transferência.
+      </div>
+    </div>
+
+    <!-- Tópico 2 -->
+    <div class="card">
+      <h3><i class="fas fa-ruler-combined"></i> 2. A fórmula completa: W = F · d · cosθ</h3>
+      <p>A versão <em>W = F·d</em> é um caso particular. A verdadeira fórmula geral é:</p>
+      
+      <div class="formula">
+        W = F ⋅ d ⋅ cosθ
+      </div>
+
+      <p>Onde:</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li><span class="destaque">F</span> = intensidade da força (em newtons, N)</li>
+        <li><span class="destaque">d</span> = deslocamento (em metros, m)</li>
+        <li><span class="destaque">θ</span> = ângulo entre o vetor <strong>força</strong> e o vetor <strong>deslocamento</strong></li>
+      </ul>
+
+      <p>O cosseno é o “juiz” que decide quanto da força realmente <em>contribui para o movimento</em>.</p>
+
+      <div class="casos">
+        <div class="caso">
+          <strong>θ = 0°</strong><br>
+          cos0° = 1<br>
+          → W = +F·d<br>
+          <em>Trabalho motor</em>
+        </div>
+        <div class="caso">
+          <strong>θ = 90°</strong><br>
+          cos90° = 0<br>
+          → W = 0<br>
+          <em>Trabalho nulo</em>
+        </div>
+        <div class="caso">
+          <strong>θ = 180°</strong><br>
+          cos180° = −1<br>
+          → W = −F·d<br>
+          <em>Trabalho resistente</em>
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <p>➡️ <strong>Força de atrito:</strong> sempre oposta ao movimento → θ = 180° → W < 0</p>
+        <p>➡️ <strong>Gravidade ao levantar um objeto:</strong> força para baixo, deslocamento para cima → θ = 180° → W < 0</p>
+        <p>➡️ <strong>Gravidade ao soltar um objeto:</strong> força e deslocamento para baixo → θ = 0° → W > 0</p>
+      </div>
+
+      <div class="analogia">
+        🎯 <strong>Pense comigo:</strong> Se você puxa um trenó com uma corda inclinada, só a <em>componente horizontal</em> da força puxa o trenó para frente. A componente vertical apenas “alivia” o peso — mas não move o trenó. O cosθ faz exatamente esse cálculo por você!
+      </div>
+    </div>
+
+    <!-- Tópico 3 -->
+    <div class="card">
+      <h3><i class="fas fa-bolt"></i> 3. Unidade: o Joule (J)</h3>
+      <p>O trabalho é medido em <span class="destaque">joules</span>, em homenagem a James Prescott Joule.</p>
+      
+      <div class="formula">
+        1 J = 1 N ⋅ 1 m
+      </div>
+
+      <p>Ou seja: se uma força de 1 newton desloca um objeto 1 metro na direção da força, o trabalho realizado é 1 joule.</p>
+
+      <div class="exemplo">
+        <p>📚 <strong>Levantar um livro (≈1 kg) por 1 m:</strong><br>
+        F = P = m·g ≈ 10 N → W = 10 N × 1 m = <strong>10 J</strong></p>
+
+        <p>🏃 <strong>Subir um andar (3 m) com 60 kg:</strong><br>
+        F = 600 N (aprox.) → W = 600 N × 3 m = <strong>1 800 J</strong></p>
+
+        <p>💡 Curiosidade: uma lâmpada LED de 10 W consome 10 joules <em>por segundo</em>.</p>
+      </div>
+    </div>
+
+    <!-- Tópico 4 -->
+    <div class="card">
+      <h3><i class="fas fa-weight-hanging"></i> 4. Trabalho da Força Peso</h3>
+      <p>A força peso (P = m·g) é vertical e constante perto da Terra. Seu trabalho depende apenas da <strong>variação de altura</strong> (h), não do caminho.</p>
+      
+      <div class="formula">
+        W<sub>peso</sub> = m ⋅ g ⋅ h ⋅ cosθ = ± m g h
+      </div>
+
+      <p>Como a força peso aponta para baixo:</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li>Se o corpo <strong>desce</strong>, θ = 0° → W = <span class="destaque">+ m g |h|</span></li>
+        <li>Se o corpo <strong>sobe</strong>, θ = 180° → W = <span class="destaque">− m g h</span></li>
+      </ul>
+
+      <div class="exemplo">
+        <p>⬆️ <strong>Você sobe uma escada de 2 m com 50 kg:</strong><br>
+        W<sub>peso</sub> = −50 × 10 × 2 = <strong>−1 000 J</strong><br>
+        → A gravidade “rouba” 1 000 J da sua energia.</p>
+
+        <p>⬇️ <strong>O mesmo corpo desce de paraquedas (suavemente):</strong><br>
+        W<sub>peso</sub> = +1 000 J → a gravidade entrega 1 000 J de energia ao sistema.</p>
+
+        <p>🔁 <strong>Rampa ou escada? Mesmo trabalho!</strong> O caminho não importa — só a altura. Isso é o que chamamos de <em>força conservativa</em>.</p>
+      </div>
+
+      <div class="analogia">
+        🏔️ <strong>Visualize:</strong> Subir uma montanha por trilha íngreme ou por estrada suave exige o mesmo esforço contra a gravidade — o que muda é a força que você aplica a cada passo, não o trabalho total da gravidade.
+      </div>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Pratique o que aprendeu!</h3>
+      <p>Resolva exercícios interativos sobre Trabalho e Energia com feedback imediato e gabarito detalhado.</p>
+      <a href="/site-educativo/fisica/exercicios-trabalho-energia.html">
+        <i class="fas fa-play-circle"></i> Acessar Exercícios
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — Física do 1º ano EM (Habilidade: EM13CHS201)</p>
+    </div>
+  </footer>
+
+</body>
+</html>

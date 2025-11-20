@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Energia Mecânica | Física 1º EM | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 18px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .analogia {
+      background-color: rgba(52, 152, 219, 0.12);
+      border-left: 4px solid #2980b9;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.3rem;
+      text-align: center;
+      margin: 20px 0;
+      letter-spacing: 1px;
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(52, 152, 219, 0.25);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+    .card-link a:hover {
+      background-color: #2980b9;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/fisica/conteudos-fisica.html">Física</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>🔋 Energia Mecânica</h2>
+      <p><em>Para o 1º ano do Ensino Médio — A “moeda universal” do movimento</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Depois de entender o <strong>trabalho</strong>, chegamos à grande ideia que une tudo: <strong>energia</strong>. 
+        Ela não se cria nem se destrói — apenas se transforma. Vamos descobrir como isso move o mundo!
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- Tópico 1 -->
+    <div class="card">
+      <h3><i class="fas fa-bolt"></i> 1. O que é energia?</h3>
+      <p>No senso comum: “Estou sem energia hoje!” — mas na Física, energia é algo mais preciso:</p>
+      <p><strong>Energia é a capacidade de realizar trabalho.</strong></p>
+      <p>Ou seja: se um sistema tem energia, ele pode exercer forças e causar deslocamentos.</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Bateria de celular:</strong> armazena energia química → transforma em energia elétrica → faz o motor vibrar (trabalho).</p>
+        <p>✅ <strong>Você, subindo escadas:</strong> usa energia química (da comida) → faz trabalho contra a gravidade → ganha energia potencial.</p>
+      </div>
+
+      <div class="analogia">
+        💡 <strong>Analogia financeira:</strong> Trabalho é como <em>sacar ou depositar dinheiro</em>. Energia é o <em>saldo disponível na conta</em>. 
+        Se você transfere R$50 para alguém, seu saldo cai R$50 e o dela sobe R$50 — o total permanece constante. Assim é a energia no Universo.
+      </div>
+    </div>
+
+    <!-- Tópico 2 -->
+    <div class="card">
+      <h3><i class="fas fa-tachometer-alt"></i> 2. Energia Cinética (E<sub>c</sub>)</h3>
+      <p>É a energia do movimento. Qualquer corpo em movimento tem E<sub>c</sub>.</p>
+
+      <div class="formula">
+        E<sub>c</sub> = ½ m v²
+      </div>
+
+      <p>Onde:</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li><span class="destaque">m</span> = massa (kg)</li>
+        <li><span class="destaque">v</sub> = velocidade (m/s)</li>
+      </ul>
+
+      <p>🔍 Observe: a velocidade está ao **quadrado** — então dobrar a velocidade <strong>quadruplica</strong> a energia!</p>
+
+      <div class="exemplo">
+        <p>🚗 <strong>Carro de 1 000 kg a 10 m/s (36 km/h):</strong><br>
+        E<sub>c</sub> = ½ × 1000 × 10² = <strong>50 000 J</strong></p>
+
+        <p>🚗 <strong>Mesmo carro a 20 m/s (72 km/h):</strong><br>
+        E<sub>c</sub> = ½ × 1000 × 400 = <strong>200 000 J</strong> → 4× mais!</p>
+
+        <p>💡 Isso explica por que colisões em alta velocidade são tão mais destrutivas.</p>
+      </div>
+    </div>
+
+    <!-- Tópico 3 -->
+    <div class="card">
+      <h3><i class="fas fa-mountain"></i> 3. Energia Potencial Gravitacional (E<sub>p</sub>)</h3>
+      <p>É a energia “guardada” devido à posição — especificamente, à altura em um campo gravitacional.</p>
+
+      <div class="formula">
+        E<sub>p</sub> = m g h
+      </div>
+
+      <p>Onde:</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li><span class="destaque">m</span> = massa (kg)</li>
+        <li><span class="destaque">g</span> = 10 m/s² (aprox.)</li>
+        <li><span class="destaque">h</span> = altura em relação a um referencial (m)</li>
+      </ul>
+
+      <p>⚠️ Atenção: <strong>h = 0 é arbitrário</strong>. Podemos escolher o chão, a mesa, o nível do mar… o que importa é a <em>variação</em>.</p>
+
+      <div class="exemplo">
+        <p>🎒 <strong>Mochila de 5 kg levantada a 1,2 m da mesa:</strong><br>
+        E<sub>p</sub> = 5 × 10 × 1,2 = <strong>60 J</strong></p>
+
+        <p>🧱 <strong>Tijolo de 2 kg no 10º andar (30 m):</strong><br>
+        E<sub>p</sub> = 2 × 10 × 30 = <strong>600 J</strong><br>
+        → Se cair, essa energia se transformará em cinética (e som, calor, etc.).</p>
+      </div>
+
+      <div class="analogia">
+        🏹 <strong>Arco e flecha:</strong> Puxar a corda é como “subir” a flecha energeticamente. Ao soltar, a energia potencial elástica vira cinética — assim como E<sub>p</sub> vira E<sub>c</sub> ao descer.
+      </div>
+    </div>
+
+    <!-- Tópico 4 -->
+    <div class="card">
+      <h3><i class="fas fa-sync-alt"></i> 4. Conservação da Energia Mecânica</h3>
+      <p>Quando <strong>só forças conservativas atuam</strong> (como peso, mola), a energia mecânica total se conserva:</p>
+
+      <div class="formula">
+        E<sub>mec</sub> = E<sub>c</sub> + E<sub>p</sub> = constante
+      </div>
+
+      <p>➡️ Ao subir: E<sub>c</sub> ↓ e E<sub>p</sub> ↑  
+      ➡️ Ao descer: E<sub>p</sub> ↓ e E<sub>c</sub> ↑</p>
+
+      <div class="exemplo">
+        <p>🎢 <strong>Montanha-russa (sem atrito):</strong><br>
+        — No topo (h = 20 m, v = 0): E<sub>p</sub> = m·g·20, E<sub>c</sub> = 0 ⇒ E<sub>mec</sub> = 200m J<br>
+        — Na base (h = 0): E<sub>p</sub> = 0 ⇒ E<sub>c</sub> = ½mv² = 200m ⇒ v = √400 = <strong>20 m/s</strong></p>
+
+        <p>✅ A massa <em>cancela</em> — todos os carrinhos chegam à base com a mesma velocidade, independentemente do peso!</p>
+      </div>
+    </div>
+
+    <!-- Tópico 5 -->
+    <div class="card">
+      <h3><i class="fas fa-fire"></i> 5. E quando há atrito? Dissipação de energia</h3>
+      <p>No mundo real, forças não conservativas (atrito, resistência do ar) transformam energia mecânica em <strong>calor, som, luz</strong> — formas que não voltam facilmente para o movimento.</p>
+      <p>→ A energia total ainda se conserva (1ª Lei da Termodinâmica), mas a <em>mecânica</em> diminui.</p>
+
+      <div class="exemplo">
+        <p>⚽ <strong>Bola rolando no gramado:</strong><br>
+        Começa com E<sub>c</sub> alta → aos poucos para → E<sub>c</sub> = 0. Onde foi a energia? Virou calor no contato com o solo e no ar.</p>
+
+        <p>🛞 <strong>Freios de um carro:</strong><br>
+        Discos aquecem muito — energia cinética → energia térmica.</p>
+      </div>
+
+      <div class="analogia">
+        🍵 <strong>Xícara de chá quente:</strong> A energia térmica está lá, mas você não consegue usá-la para levantar a xícara de volta à mesa. 
+        É energia “desorganizada” — difícil de reaproveitar como trabalho útil.  
+        Essa ideia leva à <strong>2ª Lei da Termodinâmica</strong> (mais adiante!).
+      </div>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Pratique com exercícios interativos!</h3>
+      <p>Teste seu entendimento sobre energia cinética, potencial e conservação com feedback imediato.</p>
+      <a href="/site-educativo/fisica/exercicios-energia.html">
+        <i class="fas fa-play-circle"></i> Acessar Exercícios de Energia
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — Física do 1º ano EM (Habilidade: EM13CHS201)</p>
+    </div>
+  </footer>
+
+</body>
+</html>
