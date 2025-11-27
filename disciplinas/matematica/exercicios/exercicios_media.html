@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios de Média Aritmética | Matemática 6º Ano | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 18px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+    }
+    .exercicio {
+      background-color: rgba(52, 152, 219, 0.1);
+      border-left: 4px solid #2980b9;
+      padding: 14px 18px;
+      margin: 16px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 1.1rem;
+    }
+    .exercicio strong {
+      color: #f1c40f;
+    }
+    .exercicio span {
+      color: #3498db;
+      font-weight: 600;
+    }
+    .botao {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .botao:hover {
+      background-color: #2980b9;
+    }
+
+    .gabarito {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      border-left: 4px solid #f1c40f;
+    }
+    .gabarito h4 {
+      color: #f1c40f;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    .gabarito ol {
+      padding-left: 25px;
+    }
+    .gabarito li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .gabarito .destaque {
+      color: #3498db;
+      font-weight: 600;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card { padding: 20px 15px; }
+      .botao { padding: 10px 20px; font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>✏️ Exercícios de Média Aritmética</h2>
+      <p><em>Para alunos do 6º ano — 20 desafios divertidos: 10 diretos + 10 de interpretação!</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Pratique o que aprendeu! Pegue lápis, papel e um sorriso 😊  
+        Faça os cálculos com calma — e quando terminar, clique em <strong>“Mostrar Gabarito”</strong> para conferir tudo com explicações!
+      </p>
+    </div>
+  </section>
+
+  <!-- Exercícios Diretos -->
+  <div class="container">
+    <div class="card">
+      <h3><i class="fas fa-calculator"></i> Exercícios Diretos (1 a 10)</h3>
+      <p>Aqui é só <strong>somar</strong> e <strong>dividir</strong> — números pequenos, conta tranquila!</p>
+
+      <div class="exercicio"><strong>1.</strong> Calcule a média dos números: <span>4, 6, 8</span>.</div>
+      <div class="exercicio"><strong>2.</strong> Qual é a média de <span>10, 20, 30</span>?</div>
+      <div class="exercicio"><strong>3.</strong> Encontre a média de <span>5, 5, 5, 5</span>.</div>
+      <div class="exercicio"><strong>4.</strong> Calcule a média de <span>2, 4, 6, 8, 10</span>.</div>
+      <div class="exercicio"><strong>5.</strong> Clara tirou 7 e 9 nas duas provas. Qual foi a média dela?</div>
+      <div class="exercicio"><strong>6.</strong> Davi marcou 3, 5 e 4 pontos em três jogos. Qual foi sua média de pontos?</div>
+      <div class="exercicio"><strong>7.</strong> Qual é a média de <span>0, 10, 20</span>?</div>
+      <div class="exercicio"><strong>8.</strong> Lívia leu 6 páginas na segunda, 8 na quarta e 4 na sexta. Média diária?</div>
+      <div class="exercicio"><strong>9.</strong> Calcule a média de <span>12, 18, 24</span>.</div>
+      <div class="exercicio"><strong>10.</strong> Seus lanches da semana custaram: R$3, R$5, R$4, R$6. Qual foi o gasto médio?</div>
+    </div>
+
+    <!-- Exercícios de Interpretação -->
+    <div class="card">
+      <h3><i class="fas fa-book-open"></i> Exercícios de Interpretação (11 a 20)</h3>
+      <p>Agora é hora de <strong>ler com atenção</strong>, entender a história e descobrir a média!</p>
+
+      <div class="exercicio"><strong>11.</strong> Um time jogou 4 partidas e marcou: 2, 0, 3 e 1 gol. Quantos gols, em média, o time fez por jogo?</div>
+      <div class="exercicio"><strong>12.</strong> Em uma pesquisa, 5 amigos disseram quantas horas dormiram na noite passada: 8, 9, 7, 8, 8. Qual foi o tempo médio de sono?</div>
+      <div class="exercicio"><strong>13.</strong> A tabela mostra quantas frutas a turma levou para a festa junina:<br>
+        • Maçãs: 12 &nbsp; • Bananas: 8 &nbsp; • Laranjas: 10<br>
+        Qual foi a média de frutas por tipo?</div>
+      <div class="exercicio"><strong>14.</strong> Seu celular usou: 20%, 30% e 10% da bateria em três dias seguidos. Qual foi o consumo médio diário?</div>
+      <div class="exercicio"><strong>15.</strong> Três irmãos têm 8, 10 e 12 anos. Qual é a idade média deles?</div>
+      <div class="exercicio"><strong>16.</strong> Em um concurso de pipas, as alturas alcançadas foram: 15m, 25m, 10m e 30m. Qual foi a altura média?</div>
+      <div class="exercicio"><strong>17.</strong> Uma plantinha cresceu: 2 cm na 1ª semana, 3 cm na 2ª e 1 cm na 3ª. Crescimento médio por semana?</div>
+      <div class="exercicio"><strong>18.</strong> Em 5 dias, o número de mensagens que você recebeu no grupo da turma foi: 12, 8, 10, 14, 6. Qual foi a média diária?</div>
+      <div class="exercicio"><strong>19.</strong> Quatro amigos têm: 5, 7, 6 e 2 bolinhas de gude. Se repartissem igualmente, quantas cada um teria?</div>
+      <div class="exercicio"><strong>20.</strong> Numa prova com 3 questões, as notas da turma foram: 2 alunos tiraram 3, 3 alunos tiraram 6, e 1 aluno tirou 9. Qual foi a média da turma? (Dica: some todas as notas primeiro!)</div>
+    </div>
+
+    <!-- Botão e Gabarito -->
+    <div class="card" style="text-align: center;">
+      <h3><i class="fas fa-check-circle"></i> Vamos conferir?</h3>
+      <p>Clique no botão abaixo para ver o gabarito completo, com explicações passo a passo.</p>
+      <button class="botao" onclick="mostrarGabarito()">
+        <i class="fas fa-clipboard-list"></i> Mostrar Gabarito
+      </button>
+
+      <div id="gabarito" class="gabarito">
+        <h4>✅ Gabarito com Explicações</h4>
+        <ol>
+          <li><strong>6</strong> — Soma: 4+6+8 = 18. Quantidade: 3. Média: 18 ÷ 3 = <span class="destaque">6</span>.</li>
+          <li><strong>20</strong> — 10+20+30 = 60 → 60 ÷ 3 = <span class="destaque">20</span>.</li>
+          <li><strong>5</strong> — Todos são 5, então a média é <span class="destaque">5</span>.</li>
+          <li><strong>6</strong> — 2+4+6+8+10 = 30 → 30 ÷ 5 = <span class="destaque">6</span>.</li>
+          <li><strong>8</strong> — 7+9 = 16 → 16 ÷ 2 = <span class="destaque">8</span>.</li>
+          <li><strong>4</strong> — 3+5+4 = 12 → 12 ÷ 3 = <span class="destaque">4</span>.</li>
+          <li><strong>10</strong> — 0+10+20 = 30 → 30 ÷ 3 = <span class="destaque">10</span>.</li>
+          <li><strong>6</strong> — 6+8+4 = 18 → 18 ÷ 3 = <span class="destaque">6</span>.</li>
+          <li><strong>18</strong> — 12+18+24 = 54 → 54 ÷ 3 = <span class="destaque">18</span>.</li>
+          <li><strong>R$4,50</strong> — 3+5+4+6 = 18 → 18 ÷ 4 = <span class="destaque">4,5</span>.</li>
+          <li><strong>1,5 gol</strong> — 2+0+3+1 = 6 → 6 ÷ 4 = <span class="destaque">1,5</span>.</li>
+          <li><strong>8 horas</strong> — 8+9+7+8+8 = 40 → 40 ÷ 5 = <span class="destaque">8</span>.</li>
+          <li><strong>10 frutas</strong> — 12+8+10 = 30 → 30 ÷ 3 = <span class="destaque">10</span>.</li>
+          <li><strong>20%</strong> — 20+30+10 = 60 → 60 ÷ 3 = <span class="destaque">20</span>.</li>
+          <li><strong>10 anos</strong> — 8+10+12 = 30 → 30 ÷ 3 = <span class="destaque">10</span>.</li>
+          <li><strong>20 metros</strong> — 15+25+10+30 = 80 → 80 ÷ 4 = <span class="destaque">20</span>.</li>
+          <li><strong>2 cm</strong> — 2+3+1 = 6 → 6 ÷ 3 = <span class="destaque">2</span>.</li>
+          <li><strong>10 mensagens</strong> — 12+8+10+14+6 = 50 → 50 ÷ 5 = <span class="destaque">10</span>.</li>
+          <li><strong>5 bolinhas</strong> — 5+7+6+2 = 20 → 20 ÷ 4 = <span class="destaque">5</span>.</li>
+          <li><strong>5,5</strong> — Total de notas: (2×3) + (3×6) + (1×9) = 6 + 18 + 9 = 33.<br>
+            Total de alunos: 2+3+1 = 6 → Média: 33 ÷ 6 = <span class="destaque">5,5</span>.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Exercícios alinhados à BNCC — Matemática do 6º ano (Habilidade: EF06MA27)</p>
+    </div>
+  </footer>
+
+  <script>
+    function mostrarGabarito() {
+      document.getElementById('gabarito').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

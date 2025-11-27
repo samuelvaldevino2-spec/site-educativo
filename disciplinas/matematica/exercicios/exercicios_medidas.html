@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercícios de Medidas | Matemática 6º Ano | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 18px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+    }
+    .exercicio {
+      background-color: rgba(52, 152, 219, 0.1);
+      border-left: 4px solid #2980b9;
+      padding: 14px 18px;
+      margin: 16px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 1.1rem;
+    }
+    .exercicio strong {
+      color: #f1c40f;
+    }
+    .exercicio span {
+      color: #3498db;
+      font-weight: 600;
+    }
+    .botao {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .botao:hover {
+      background-color: #2980b9;
+    }
+
+    .gabarito {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      border-left: 4px solid #f1c40f;
+    }
+    .gabarito h4 {
+      color: #f1c40f;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    .gabarito ol {
+      padding-left: 25px;
+    }
+    .gabarito li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .gabarito .destaque {
+      color: #3498db;
+      font-weight: 600;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card { padding: 20px 15px; }
+      .botao { padding: 10px 20px; font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>✏️ Exercícios de Medidas</h2>
+      <p><em>Massa, Capacidade e Tempo — 20 desafios para você arrasar na prova!</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Prepare lápis, borracha e muita atenção!  
+        Os 10 primeiros são diretos (treino de conversão), e os 10 seguintes exigem interpretação — como nas provas.  
+        Ao final, clique em <strong>“Mostrar Gabarito”</strong> para ver tudo com explicações!
+      </p>
+    </div>
+  </section>
+
+  <!-- Exercícios Diretos -->
+  <div class="container">
+    <div class="card">
+      <h3><i class="fas fa-bolt"></i> Exercícios Diretos (1 a 10)</h3>
+      <p>Transforme, some ou converta — sem textos longos, só prática!</p>
+
+      <div class="exercicio"><strong>1.</strong> Quantos gramas tem <span>3,2 kg</span>?</div>
+      <div class="exercicio"><strong>2.</strong> Uma caixa tem <span>750 g</span>. Quantos quilogramas isso representa?</div>
+      <div class="exercicio"><strong>3.</strong> Transforme <span>2,5 L</span> em mililitros.</div>
+      <div class="exercicio"><strong>4.</strong> Um frasco tem <span>450 mL</span>. Quantos litros?</div>
+      <div class="exercicio"><strong>5.</strong> Quantos segundos tem <span>5 minutos</span>?</div>
+      <div class="exercicio"><strong>6.</strong> Um filme dura <span>1 h e 40 min</span>. Quantos minutos no total?</div>
+      <div class="exercicio"><strong>7.</strong> Converta <span>1,8 kg</span> para gramas.</div>
+      <div class="exercicio"><strong>8.</strong> Quantos mililitros cabem em <span>0,75 L</span>?</div>
+      <div class="exercicio"><strong>9.</strong> Um experimento durou <span>320 segundos</span>. Quantos minutos e segundos?</div>
+      <div class="exercicio"><strong>10.</strong> Uma criança pesa <span>42,5 kg</span>. Quantos gramas?</div>
+    </div>
+
+    <!-- Exercícios de Interpretação -->
+    <div class="card">
+      <h3><i class="fas fa-brain"></i> Exercícios de Interpretação (11 a 20)</h3>
+      <p>Leia com calma, imagine a situação e resolva — como nas provas de verdade!</p>
+
+      <div class="exercicio"><strong>11.</strong> Clara comprou 4 pacotes de café de <span>250 g</span> cada. Quantos quilogramas ela levou?</div>
+      <div class="exercicio"><strong>12.</strong> Uma receita pede <span>1,2 L</span> de leite. Davi tem uma jarra de <span>500 mL</span>. Quantas jarras cheias ele precisa?</div>
+      <div class="exercicio"><strong>13.</strong> O ônibus escolar saiu às <span>6h50</span> e chegou à escola às <span>7h25</span>. Quanto tempo durou a viagem?</div>
+      <div class="exercicio"><strong>14.</strong> Um remédio líquido tem frascos de <span>120 mL</span>. Cada dose é de <span>5 mL</span>, 3 vezes ao dia. Quantos dias dura 1 frasco?</div>
+      <div class="exercicio"><strong>15.</strong> Uma piscina de plástico tem capacidade de <span>1,5 m³</span>. Quantos litros de água cabem nela? (Lembre-se: 1 m³ = 1 000 L)</div>
+      <div class="exercicio"><strong>16.</strong> Lívia correu <span>2 400 metros</span> em <span>20 minutos</span>. Qual foi seu tempo médio por quilômetro?</div>
+      <div class="exercicio"><strong>17.</strong> Um bolo precisa ficar no forno por <span>45 minutos</span>. Se for colocado às <span>14h20</span>, a que horas deve sair?</div>
+      <div class="exercicio"><strong>18.</strong> Uma caixa de suco concentrado tem <span>1 L</span>. Para preparar, mistura-se 1 parte de suco com 4 partes de água. Quantos mL de suco há em cada copo de <span>300 mL</span> da bebida pronta?</div>
+      <div class="exercicio"><strong>19.</strong> Um elefante pesa <span>5,8 toneladas</span>. Quantos quilogramas?</div>
+      <div class="exercicio"><strong>20.</strong> Um jogo tem 2 tempos de <span>35 minutos</span> e um intervalo de <span>15 minutos</span>. Se começou às <span>15h00</span>, a que horas termina?</div>
+    </div>
+
+    <!-- Botão e Gabarito -->
+    <div class="card" style="text-align: center;">
+      <h3><i class="fas fa-check-double"></i> Hora de conferir!</h3>
+      <p>Clique abaixo para ver o gabarito completo, com explicações passo a passo — como se estivéssemos revisando juntos!</p>
+      <button class="botao" onclick="mostrarGabarito()">
+        <i class="fas fa-clipboard-check"></i> Mostrar Gabarito
+      </button>
+
+      <div id="gabarito" class="gabarito">
+        <h4>✅ Gabarito com Explicações</h4>
+        <ol>
+          <li><strong>3 200 g</strong> — 3,2 kg × 1 000 = <span class="destaque">3 200 g</span>.</li>
+          <li><strong>0,75 kg</strong> — 750 g ÷ 1 000 = <span class="destaque">0,75 kg</span>.</li>
+          <li><strong>2 500 mL</strong> — 2,5 L × 1 000 = <span class="destaque">2 500 mL</span>.</li>
+          <li><strong>0,45 L</strong> — 450 mL ÷ 1 000 = <span class="destaque">0,45 L</span>.</li>
+          <li><strong>300 s</strong> — 5 min × 60 = <span class="destaque">300 segundos</span>.</li>
+          <li><strong>100 min</strong> — 1 h = 60 min → 60 + 40 = <span class="destaque">100 min</span>.</li>
+          <li><strong>1 800 g</strong> — 1,8 × 1 000 = <span class="destaque">1 800 g</span>.</li>
+          <li><strong>750 mL</strong> — 0,75 × 1 000 = <span class="destaque">750 mL</span>.</li>
+          <li><strong>5 min e 20 s</strong> — 320 ÷ 60 = 5 (300 s) e sobra 20 s → <span class="destaque">5 min 20 s</span>.</li>
+          <li><strong>42 500 g</strong> — 42,5 kg × 1 000 = <span class="destaque">42 500 g</span>.</li>
+          <li><strong>1 kg</strong> — 4 × 250 g = 1 000 g = <span class="destaque">1 kg</span>.</li>
+          <li><strong>3 jarras</strong> — 1,2 L = 1 200 mL; 1 200 ÷ 500 = 2,4 → precisa de <span class="destaque">3 jarras</span> (2 não bastam).</li>
+          <li><strong>35 minutos</strong> — de 6h50 a 7h00 = 10 min; de 7h00 a 7h25 = 25 min → total = <span class="destaque">35 min</span>.</li>
+          <li><strong>8 dias</strong> — Dose diária: 5 mL × 3 = 15 mL/dia. Frasco: 120 mL → 120 ÷ 15 = <span class="destaque">8 dias</span>.</li>
+          <li><strong>1 500 L</strong> — 1,5 m³ × 1 000 = <span class="destaque">1 500 L</span>.</li>
+          <li><strong>8 min 20 s</strong> — 2 400 m = 2,4 km; 20 min ÷ 2,4 = 8,333... min = 8 min + 0,333×60 s = <span class="destaque">8 min 20 s</span>.</li>
+          <li><strong>15h05</strong> — 14h20 + 45 min: 20+45=65 → 1h05 → 14+1 = 15h, e 5 min → <span class="destaque">15h05</span>.</li>
+          <li><strong>60 mL</strong> — Mistura: 1 parte suco + 4 água = 5 partes. 300 mL ÷ 5 = 60 mL de suco por copo → <span class="destaque">60 mL</span>.</li>
+          <li><strong>5 800 kg</strong> — 5,8 t × 1 000 = <span class="destaque">5 800 kg</span>.</li>
+          <li><strong>16h25</strong> — Tempo total: 35 + 15 + 35 = 85 min = 1h25min. 15h00 + 1h25 = <span class="destaque">16h25</span>.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Exercícios alinhados à BNCC — Matemática do 6º ano (Habilidades: EF06MA24, EF06MA25, EF06MA27)</p>
+    </div>
+  </footer>
+
+  <script>
+    function mostrarGabarito() {
+      document.getElementById('gabarito').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
