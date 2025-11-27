@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Média Aritmética | Matemática 6º Ano | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 18px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .analogia {
+      background-color: rgba(52, 152, 219, 0.12);
+      border-left: 4px solid #2980b9;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.3rem;
+      text-align: center;
+      margin: 20px 0;
+      letter-spacing: 1px;
+    }
+    .casos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .caso {
+      background: rgba(0, 0, 0, 0.25);
+      padding: 16px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .caso strong {
+      color: #f1c40f;
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(52, 152, 219, 0.25);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+    .card-link a:hover {
+      background-color: #2980b9;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>📊 Média Aritmética</h2>
+      <p><em>Para alunos do 6º ano — Uma ideia simples, poderosa e usada todos os dias!</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Você já se perguntou como calcular a "nota média" da turma? Ou quantos gols um time fez por jogo, em média?  
+        A média aritmética é como um "valor justo" que representa um grupo de números.  
+        Vamos aprender de um jeito fácil — com exemplos do seu dia a dia!
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- Tópico 1 -->
+    <div class="card">
+      <h3><i class="fas fa-lightbulb"></i> 1. O que é média aritmética?</h3>
+      <p>Imagina que você e seus 3 amigos têm figurinhas:</p>
+      <p>• Você: 6 figurinhas<br>
+         • Clara: 4 figurinhas<br>
+         • Davi: 8 figurinhas<br>
+         • Lívia: 2 figurinhas</p>
+      <p>Se vocês juntassem <em>todas</em> as figurinhas e dividissem igualmente… quantas cada um levaria?</p>
+      
+      <div class="exemplo">
+        <p>✅ Total de figurinhas: 6 + 4 + 8 + 2 = <strong>20</strong><br>
+           ✅ Número de amigos: <strong>4</strong><br>
+           ✅ Cada um levaria: 20 ÷ 4 = <strong>5</strong></p>
+        <p>➡️ Esse número **5** é a <span class="destaque">média aritmética</span>!</p>
+      </div>
+
+      <div class="analogia">
+        🍕 <strong>Analogia:</strong> Pense em dividir uma pizza de 8 fatias entre 4 amigos. Cada um fica com 2 fatias — ou seja, **2** é a média de fatias por pessoa. A média é como “repartir tudo igual”!
+      </div>
+    </div>
+
+    <!-- Tópico 2 -->
+    <div class="card">
+      <h3><i class="fas fa-ruler-combined"></i> 2. Como calcular? A fórmula mágica!</h3>
+      <p>Não se assuste: é só **somar tudo** e depois **dividir pela quantidade de números**.</p>
+      
+      <div class="formula">
+        Média = (Soma de todos os valores) ÷ (Quantos valores tem)
+      </div>
+
+      <p>👉 Em símbolos, se temos os números *a*, *b*, *c*, … até *n*:</p>
+      <div class="formula">
+        Média = (a + b + c + … + n) ÷ (número de termos)
+      </div>
+
+      <div class="exemplo">
+        <p><strong>Exemplo rápido:</strong> Notas de Matemática da semana:<br>
+        Segunda: 7, Terça: 9, Quarta: 6, Quinta: 8</p>
+        <p>Soma = 7 + 9 + 6 + 8 = <strong>30</strong><br>
+        Quantidade = <strong>4 dias</strong><br>
+        Média = 30 ÷ 4 = <strong>7,5</strong></p>
+        <p>➡️ A nota média foi 7,5 — legal, né?</p>
+      </div>
+
+      <div class="analogia">
+        🎮 <strong>Pense comigo:</strong> Se em 3 partidas de um jogo você fez 100, 200 e 0 pontos, a média (100) mostra o que você “costuma” fazer — mesmo que um jogo tenha sido zero!
+      </div>
+    </div>
+
+    <!-- Tópico 3 -->
+    <div class="card">
+      <h3><i class="fas fa-bolt"></i> 3. Cuidado! A média não é sempre o “normal”</h3>
+      <p>A média é útil, mas às vezes pode enganar um pouquinho…</p>
+      
+      <div class="exemplo">
+        <p>⚠️ <strong>Exemplo engraçado:</strong> Num grupo de 5 pessoas:<br>
+        — 4 delas têm 10 anos.<br>
+        — 1 delas tem 70 anos (é o avô! 😄)</p>
+        <p>Média de idade = (10 + 10 + 10 + 10 + 70) ÷ 5 = 110 ÷ 5 = <strong>22 anos</strong></p>
+        <p>Mas… ninguém tem 22 anos! A média foi puxada pelo avô.</p>
+      </div>
+
+      <p>➡️ Isso mostra que a média é uma “representante”, mas nem sempre reflete cada pessoa.</p>
+      
+      <div class="analogia">
+        🧊 <strong>Dica prática:</strong> Quando há números muito maiores ou menores (como o avô de 70 anos), dizemos que há um **valor extremo**. Nesses casos, às vezes outras medidas (como a *mediana*) podem ajudar mais — mas isso é assunto para mais tarde!
+      </div>
+    </div>
+
+    <!-- Tópico 4 -->
+    <div class="card">
+      <h3><i class="fas fa-weight-hanging"></i> 4. Onde usamos a média no dia a dia?</h3>
+      <p>A média está por toda parte! Veja só:</p>
+      
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li>📚 <strong>Notas escolares:</strong> média bimestral, semestral…</li>
+        <li>⚽ <strong>Esportes:</strong> gols por jogo, pontos por partida</li>
+        <li>🌡️ <strong>Clima:</strong> temperatura média do mês</li>
+        <li>🛒 <strong>Compras:</strong> gasto médio por semana no lanche</li>
+        <li>📱 <strong>Redes sociais:</strong> curtidas médias por post</li>
+      </ul>
+
+      <div class="exemplo">
+        <p>📈 <strong>Desafio rápido:</strong><br>
+        Seu time marcou: 3 gols, 1 gol, 4 gols e 0 gols em 4 jogos.<br>
+        Qual foi a média de gols por jogo?</p>
+        <p>Soma = 3 + 1 + 4 + 0 = 8<br>
+        Quantidade = 4 jogos<br>
+        Média = 8 ÷ 4 = <strong>2 gols por jogo</strong></p>
+      </div>
+
+      <div class="analogia">
+        🍬 <strong>Visualize:</strong> Se você ganhou 5 balas na segunda, 3 na quarta e 4 na sexta, a média (4 balas por dia de aula) não significa que ganhou 4 todos os dias — mas mostra o “ritmo” geral da semana. Legal, hein?
+      </div>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Vamos praticar juntos?</h3>
+      <p>Resolva mini-desafios divertidos sobre média — com dicas e respostas passo a passo!</p>
+      <a href="/site-educativo/matematica/exercicios-media-aritmetica.html">
+        <i class="fas fa-play-circle"></i> Começar os exercícios
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — Matemática do 6º ano (Habilidade: EF06MA26)</p>
+    </div>
+  </footer>
+
+</body>
+</html>

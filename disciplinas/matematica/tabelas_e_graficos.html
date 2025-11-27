@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tabelas e Gráficos | Matemática 6º Ano | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 18px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .analogia {
+      background-color: rgba(52, 152, 219, 0.12);
+      border-left: 4px solid #2980b9;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    .cuidado {
+      background-color: rgba(231, 76, 60, 0.15);
+      border-left: 4px solid #e74c3c;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      color: #f8f8f8;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.3rem;
+      text-align: center;
+      margin: 20px 0;
+      letter-spacing: 1px;
+    }
+    .tabela-simulada {
+      background: rgba(44, 62, 80, 0.25);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: monospace;
+      font-size: 1.05rem;
+      margin: 20px 0;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    .grafico-desc {
+      background: rgba(52, 152, 219, 0.1);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+      border-left: 3px solid #3498db;
+    }
+    .grafico-desc strong {
+      color: #f1c40f;
+    }
+
+    /* Estilo para imagens de gráficos */
+    .grafico-img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 8px;
+      margin: 24px auto;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+      .grafico-img { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>📊 Tabelas e Gráficos</h2>
+      <p><em>Para o 6º ano — Como organizar e entender informações com clareza!</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Hoje em dia, vivemos cercados de dados: redes sociais, jogos, clima, notícias…  
+        Tabelas e gráficos são ferramentas poderosas para <strong>organizar</strong> e <strong>contar histórias com números</strong>.  
+        Vamos aprender a ler, interpretar — e até desconfiar — deles!
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- Tabelas -->
+    <div class="card">
+      <h3><i class="fas fa-table"></i> 1. O que é uma Tabela?</h3>
+      <p>É como uma “planilha organizada” com linhas e colunas, onde cada célula guarda uma informação.</p>
+      
+      <div class="exemplo">
+        <p>✅ <strong>Exemplo: Temperatura média na semana (em °C)</strong></p>
+        <div class="tabela-simulada">
+Dia        | Seg | Ter | Qua | Qui | Sex
+-----------|-----|-----|-----|-----|----
+Temperatura| 24  | 26  | 22  | 28  | 25
+        </div>
+        <p>➡️ Fácil de ler? Sim! Com ela, você vê rapidamente que a <span class="destaque">Quinta-feira</span> foi o dia mais quente.</p>
+      </div>
+
+      <div class="analogia">
+        📱 <strong>Imagine:</strong> Uma tabela é como a tela do seu jogo favorito mostrando: Nome | Pontos | Nível. Tudo certinho, sem bagunça!
+      </div>
+
+      <div class="cuidado">
+        ⚠️ <strong>CUIDADO NA PROVA!</strong><br>
+        • Sempre olhe o <span class="destaque">título</span> e os <span class="destaque">cabeçalhos das colunas/linhas</span>.<br>
+        • Questão típica: <em>“Na tabela acima, qual foi a diferença entre a temperatura mais alta e a mais baixa?”</em><br>
+        → 28°C – 22°C = <strong>6°C</strong>.
+      </div>
+    </div>
+
+    <!-- Gráfico de Colunas -->
+    <div class="card">
+      <h3><i class="fas fa-chart-bar"></i> 2. Gráfico de Colunas (ou Barras Verticais)</h3>
+      <p><strong>Para quê?</strong> Comparar quantidades entre categorias (ex: times, frutas preferidas, meses).</p>
+      <p><strong>Quando usar?</strong> Quando os nomes das categorias são curtos e o número de categorias é pequeno (≤ 6).</p>
+
+      <div class="grafico-desc">
+        <strong>Como ler:</strong><br>
+        → Eixo horizontal (x): <em>categorias</em> (ex: nomes dos amigos)<br>
+        → Eixo vertical (y): <em>valores</em> (ex: número de gols)<br>
+        → Quanto mais alta a coluna, maior o valor.
+      </div>
+
+      <div class="exemplo">
+        <p>✅ <strong>Exemplo mental:</strong> Gols marcados no campeonato da turma:<br>
+        • Clara: 5 &nbsp; • Davi: 8 &nbsp; • Lívia: 3 &nbsp; • Pedro: 6</p>
+        <p>Você “vê” que a coluna do <span class="destaque">Davi</span> é a mais alta → ele foi o artilheiro!</p>
+      </div>
+
+      <!-- Imagem do gráfico de colunas -->
+      <img src="imagens/grafico-colunas.png" alt="Gráfico de colunas mostrando gols por aluno: Clara (5), Davi (8), Lívia (3), Pedro (6)" class="grafico-img">
+
+      <div class="analogia">
+        🏆 <strong>Dica visual:</strong> Imagine prédios de alturas diferentes: cada prédio é um valor. O mais alto “ganha destaque” — assim é o gráfico de colunas!
+      </div>
+    </div>
+
+    <!-- Gráfico de Barras (Horizontais) -->
+    <div class="card">
+      <h3><i class="fas fa-bars"></i> 3. Gráfico de Barras (Horizontais)</h3>
+      <p><strong>Só muda a posição!</strong> É igual ao de colunas, mas deitado.</p>
+      <p><strong>Vantagem:</strong> Permite nomes longos nas categorias (ex: “Suco de laranja natural”, “Refrigerante zero açúcar”).</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Situação real:</strong> Pesquisa “Bebida preferida no lanche”:<br>
+        • Água: 12 votos<br>
+        • Suco de laranja: 9 votos<br>
+        • Leite com chocolate: 7 votos</p>
+        <p>No gráfico de barras, os nomes ficam à esquerda, e as barras saem para a direita — tudo legível!</p>
+      </div>
+
+      <!-- Imagem do gráfico de barras -->
+      <img src="imagens/grafico-barras.png" alt="Gráfico de barras horizontais com bebidas preferidas: Água (12), Suco (9), Leite com chocolate (7)" class="grafico-img">
+    </div>
+
+    <!-- Gráfico de Linhas -->
+    <div class="card">
+      <h3><i class="fas fa-chart-line"></i> 4. Gráfico de Linhas</h3>
+      <p><strong>Para quê?</strong> Mostrar como algo <span class="destaque">muda ao longo do tempo</span>.</p>
+      <p><strong>Quando usar?</strong> Para acompanhar evoluções: temperatura, crescimento, pontuação em jogos, vendas.</p>
+
+      <div class="grafico-desc">
+        <strong>Como ler:</strong><br>
+        → Eixo x: <em>tempo</em> (dias, meses, anos)<br>
+        → Eixo y: <em>valor</em> (altura, pontos, graus)<br>
+        → A linha “sobe” quando aumenta e “desce” quando diminui.
+      </div>
+
+      <div class="exemplo">
+        <p>✅ <strong>Exemplo:</strong> Altura de uma plantinha (em cm):<br>
+        Semana 1: 5 cm &nbsp; Semana 2: 8 cm &nbsp; Semana 3: 10 cm &nbsp; Semana 4: 14 cm</p>
+        <p>A linha vai subindo suavemente → crescimento constante.</p>
+      </div>
+
+      <!-- Imagem do gráfico de linhas -->
+      <img src="imagens/grafico-linhas.png" alt="Gráfico de linhas mostrando o crescimento da plantinha ao longo de 4 semanas" class="grafico-img">
+
+      <div class="cuidado">
+        ⚠️ <strong>CUIDADO NA PROVA!</strong><br>
+        • A linha <span class="destaque">não mostra o que aconteceu entre os pontos</span> — só os valores medidos.<br>
+        • Questão clássica: <em>“Entre qual período houve o maior crescimento?”</em><br>
+        → Compare a <em>inclinação</em> dos trechos: o mais íngreme é onde cresceu mais rápido.
+      </div>
+    </div>
+
+    <!-- Gráfico de Pizza (Setores) -->
+    <div class="card">
+      <h3><i class="fas fa-chart-pie"></i> 5. Gráfico de Pizza (ou Setores)</h3>
+      <p><strong>Para quê?</strong> Mostrar partes de um <span class="destaque">todo</span> (100%).</p>
+      <p><strong>Quando usar?</strong> Para porcentagens ou frações: preferências, tempo do dia, orçamento.</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Exemplo:</strong> Tempo de uma tarde de estudos (3 horas = 180 minutos):<br>
+        • Matemática: 90 min (½ = 50%)<br>
+        • Português: 60 min (⅓ ≈ 33%)<br>
+        • Intervalo: 30 min (⅙ ≈ 17%)</p>
+        <p>A “fatia” de Matemática ocupa metade da pizza — fácil de entender!</p>
+      </div>
+
+      <!-- Imagem do gráfico de pizza -->
+      <img src="imagens/grafico-pizza.png" alt="Gráfico de pizza com distribuição do tempo: Matemática (50%), Português (33%), Intervalo (17%)" class="grafico-img">
+
+      <div class="analogia">
+        🍕 <strong>Lembrete divertido:</strong> Cada fatia é uma parte do seu dia, da sua turma, do seu orçamento… mas <em>só use pizza se a soma for 100%!</em>
+      </div>
+
+      <div class="cuidado">
+        ⚠️ <strong>CUIDADO NA PROVA!</strong><br>
+        • Se a soma dos setores <span class="destaque">não for 100%</span>, o gráfico está errado!<br>
+        • Evite pizzas com muitas fatias (mais de 5–6) — fica confuso!<br>
+        • Questão clássica: <em>“Numa turma de 30 alunos, 12 preferem futebol. Que porcentagem aparece na fatia?”</em><br>
+        → 12 ÷ 30 = 0,4 = <strong>40%</strong>.
+      </div>
+    </div>
+
+    <!-- Como não se enganar -->
+    <div class="card">
+      <h3><i class="fas fa-shield-alt"></i> 6. Dicas para Ler com Inteligência</h3>
+      <p>Gráficos podem ser usados para <em>enganar</em> se mal feitos. Aprenda a desconfiar!</p>
+
+      <div class="cuidado">
+        🔍 <strong>O que SEMPRE verificar:</strong><br>
+        • <span class="destaque">Escala do eixo y:</span> Começa em 0? Se começar em 50, pequenas diferenças parecem enormes!<br>
+        • <span class="destaque">Título claro:</span> “Vendas” não diz nada. “Vendas de picolé em janeiro (em unidades)” sim.<br>
+        • <span class="destaque">Fonte dos dados:</span> Quem fez a pesquisa? Quando? Com quantas pessoas?<br>
+        • <span class="destaque">Unidades:</span> São reais? Milhares? Porcentagem? Sem unidade, não dá para confiar!
+      </div>
+
+      <div class="exemplo">
+        <p>✅ <strong>Exemplo de armadilha:</strong><br>
+        Dois gráficos mostram “crescimento de seguidores”:<br>
+        → Um tem eixo y de 0 a 10 000<br>
+        → Outro tem eixo y de 9 500 a 10 000<br>
+        No segundo, o aumento parece gigante… mas foi só de 200 para 500 pessoas!<br>
+        ➡️ <span class="destaque">Sempre olhe os números nos eixos!</span>
+      </div>
+      
+      <div class="analogia">
+        🕵️ <strong>Seja um detetive dos dados!</strong> Um bom leitor de gráficos não acredita na primeira impressão — ele pergunta: <em>“Isso realmente mostra o que diz que mostra?”</em>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — Matemática do 6º ano (Habilidades: EF06MA31, EF06MA32)</p>
+    </div>
+  </footer>
+
+</body>
+</html>
