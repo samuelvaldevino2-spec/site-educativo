@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ácidos | Química 1º EM | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(52, 152, 219, 0.25);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 16px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+      line-height: 1.7;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.25rem;
+      text-align: center;
+      margin: 18px 0;
+      letter-spacing: 1px;
+    }
+    .tabela {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    .tabela th,
+    .tabela td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .tabela th {
+      background-color: rgba(52, 152, 219, 0.2);
+      color: #3498db;
+    }
+    .tabela tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+      .tabela th, .tabela td { padding: 8px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>🍋 Ácidos</h2>
+      <p><em>Arrhenius, dissociação, hidrácidos vs. oxiácidos, nomenclatura e força — com as regras matemáticas do seu professor.</em></p>
+      <hr>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- 1. Ácidos de Arrhenius -->
+    <div class="card">
+      <h3><i class="fas fa-book"></i> 1. Ácidos de Arrhenius</h3>
+      <p>Segundo Arrhenius, <span class="destaque">ácido é toda substância que, em solução aquosa, libera íons H⁺</span>.</p>
+      
+      <div class="formula">
+        HCl(aq) → H⁺(aq) + Cl⁻(aq)
+      </div>
+
+      <div class="exemplo">
+        <p>✅ <strong>Exemplos:</strong><br>
+        HNO₃ → H⁺ + NO₃⁻ &nbsp;&nbsp;|&nbsp;&nbsp; H₂SO₄ → 2H⁺ + SO₄²⁻</p>
+      </div>
+    </div>
+
+    <!-- 2. Dissociação de ácidos -->
+    <div class="card">
+      <h3><i class="fas fa-water"></i> 2. Dissociação iônica</h3>
+      <p>Ácidos sofrem <span class="destaque">dissociação</span> em água (não ionização — isso é para bases e sais).</p>
+      <p>O H⁺ se liga à água, formando H₃O⁺, mas usamos H⁺ por simplicidade.</p>
+      
+      <img src="imagens/tirinha.png" alt="Tirinha: ácido se dissociando em H⁺ e ânion" style="max-width: 100%; border-radius: 8px; margin: 20px 0; display: block; margin-left: auto; margin-right: auto; box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
+    </div>
+
+    <!-- 3. Hidrácidos vs. Oxiácidos -->
+    <div class="card">
+      <h3><i class="fas fa-balance-scale"></i> 3. Hidrácidos vs. Oxiácidos</h3>
+      <p>A classificação depende da presença de oxigênio:</p>
+
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Composição</th>
+            <th>Exemplos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hidrácidos</strong></td>
+            <td>H + ametal <em>(sem oxigênio)</em></td>
+            <td>HCl, HBr, HI, H₂S</td>
+          </tr>
+          <tr>
+            <td><strong>Oxiácidos</strong></td>
+            <td>H + ametal + oxigênio</td>
+            <td>HNO₃, H₂SO₄, H₃PO₄, HClO</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="exemplo">
+        <p>✅ <strong>Dica:</strong><br>
+        Se o nome do ácido tem “oxi”, tem oxigênio — caso contrário, é hidrácido.</p>
+      </div>
+    </div>
+
+    <!-- 4. Nomenclatura: regra dos oxigênios -->
+    <div class="card">
+      <h3><i class="fas fa-calculator"></i> 4. Nome dos oxiácidos: a regra dos oxigênios</h3>
+      <p>Para <strong>halogênios</strong> (Cl, Br, I), conte os átomos de oxigênio:</p>
+
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Nº de O</th>
+            <th>Nome</th>
+            <th>Exemplo (Cl)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td><strong>hipo</strong>…<strong>oso</strong></td>
+            <td>HClO → ácido <strong>hipocloroso</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>…<strong>oso</strong></td>
+            <td>HClO₂ → ácido <strong>cloroso</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>…<strong>ico</strong></td>
+            <td>HClO₃ → ácido <strong>clórico</strong></td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td><strong>per</strong>…<strong>ico</strong></td>
+            <td>HClO₄ → ácido <strong>perclórico</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="exemplo">
+        <p>✅ <strong>Outros elementos:</strong><br>
+        H₂SO₃ (3 O) → sulfuroso &nbsp;&nbsp;|&nbsp;&nbsp; H₂SO₄ (4 O) → sulfúrico</p>
+      </div>
+    </div>
+
+    <!-- 5. Força do ácido: regra (O – H) -->
+    <div class="card">
+      <h3><i class="fas fa-chart-line"></i> 5. Força do ácido: a conta (O – H)</h3>
+      <p>Para ácidos da forma <strong>HₐXO_b</strong>, calcule:</p>
+      <div class="formula">
+        n = (nº de O) – (nº de H ionizáveis)
+      </div>
+
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>n</th>
+            <th>Força</th>
+            <th>Exemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>0</strong></td>
+            <td>Fraco</td>
+            <td>HClO (1–1=0)</td>
+          </tr>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Fraco</td>
+            <td>H₃PO₄ (4–3=1)</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Forte</td>
+            <td>HNO₃ (3–1=2)</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Muito forte</td>
+            <td>HClO₄ (4–1=3)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="exemplo">
+        <p>✅ <strong>Regra do seu professor:</strong><br>
+        “Quanto maior for <em>(oxigênios – hidrogênios)</em>, mais forte o ácido.”</p>
+      </div>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Exercícios sobre ácidos</h3>
+      <p>Pratique nomear, classificar e prever a força dos ácidos com base nas regras acima.</p>
+      <a href="/site-educativo/quimica/exercicios-acidos.html">
+        <i class="fas fa-play-circle"></i> Acessar Exercícios
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — Química do 1º ano EM (Habilidade: EM13CHS101)</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ligações Covalentes | Química 1º EM | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 18px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .analogia {
+      background-color: rgba(52, 152, 219, 0.12);
+      border-left: 4px solid #2980b9;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.3rem;
+      text-align: center;
+      margin: 20px 0;
+      letter-spacing: 1px;
+    }
+    .diagrama-lewis {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      margin: 20px 0;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      justify-content: center;
+    }
+    .atomo {
+      text-align: center;
+      font-size: 1.1rem;
+      padding: 10px;
+      min-width: 60px;
+    }
+    .eletron {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      margin: 2px;
+    }
+    .par-livre {
+      background: #f1c40f;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      margin: 2px;
+    }
+    .ligacao {
+      display: inline-block;
+      width: 12px;
+      height: 2px;
+      background: #3498db;
+      margin: 0 4px;
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(52, 152, 219, 0.25);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+    .card-link a:hover {
+      background-color: #2980b9;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+      .diagrama-lewis {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>🧪 Ligações Covalentes & Pares de Elétrons Livres</h2>
+      <p><em>Para o 1º ano do Ensino Médio — Entenda como os átomos compartilham elétrons e por que alguns "sobram" sem formar ligações.</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Nesta página, vamos explorar como os átomos se ligam covalentemente — e, mais importante, como os <strong>pares de elétrons não ligantes</strong> (ou pares livres) influenciam a geometria molecular e as propriedades das substâncias.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- Tópico 1 -->
+    <div class="card">
+      <h3><i class="fas fa-lightbulb"></i> 1. O que é uma ligação covalente?</h3>
+      <p>É um tipo de ligação química em que dois átomos <span class="destaque">compartilham um ou mais pares de elétrons</span> para atingir estabilidade eletrônica (regra do octeto).</p>
+      
+      <div class="exemplo">
+        <p>✅ <strong>Exemplo:</strong> Na molécula de H₂, cada átomo de hidrogênio tem 1 elétron. Ao compartilhar esse elétron, ambos passam a “sentir” que têm 2 elétrons na camada de valência — completando sua camada.</p>
+      </div>
+
+      <div class="analogia">
+        💡 <strong>Analogia:</strong> Imagine dois amigos que querem jogar videogame, mas só têm um controle. Eles decidem <em>compartilhar</em> o controle — nenhum fica com o controle sozinho, mas ambos conseguem jogar. Assim são os elétrons nas ligações covalentes.
+      </div>
+    </div>
+
+    <!-- Tópico 2 -->
+    <div class="card">
+      <h3><i class="fas fa-eye"></i> 2. Pares de elétrons livres: o que são e por que importam?</h3>
+      <p>Nem todos os elétrons de valência participam de ligações. Os que <span class="destaque">não são compartilhados</span> ficam “livres” ao redor do átomo — chamados de <strong>pares de elétrons não ligantes</strong>.</p>
+      
+      <div class="diagrama-lewis">
+        <div class="atomo">
+          <strong>O</strong><br>
+          <span class="eletron"></span><span class="eletron"></span><br>
+          <span class="eletron"></span><span class="eletron"></span><br>
+          <span class="eletron"></span><span class="eletron"></span><br>
+          <span class="eletron"></span><span class="eletron"></span>
+        </div>
+        <div class="ligacao"></div>
+        <div class="atomo">
+          <strong>H</strong><br>
+          <span class="eletron"></span>
+        </div>
+      </div>
+
+      <p>No H₂O, o oxigênio tem 6 elétrons de valência. Ele forma 2 ligações com hidrogênios (usando 2 elétrons), mas ainda sobram 4 elétrons → <span class="destaque">2 pares livres</span>!</p>
+
+      <div class="analogia">
+        🧭 <strong>Visualize:</strong> Os pares livres são como pessoas sentadas num banco de parque. Elas não estão andando (não formam ligação), mas ocupam espaço e empurram os outros — afetando a forma da molécula!
+      </div>
+    </div>
+
+    <!-- Tópico 3 -->
+    <div class="card">
+      <h3><i class="fas fa-ruler-combined"></i> 3. Como os pares livres influenciam a geometria molecular?</h3>
+      <p>Segundo a teoria VSEPR (Valence Shell Electron Pair Repulsion), <span class="destaque">todos os pares de elétrons (ligantes e não ligantes) repelem-se entre si</span>, buscando o máximo afastamento possível.</p>
+      
+      <div class="casos">
+        <div class="caso">
+          <strong>CH₄ (metano)</strong><br>
+          4 ligações, 0 pares livres<br>
+          → Geometria: <span class="destaque">tetraédrica</span>
+        </div>
+        <div class="caso">
+          <strong>NH₃ (amônia)</strong><br>
+          3 ligações + 1 par livre<br>
+          → Geometria: <span class="destaque">piramidal</span>
+        </div>
+        <div class="caso">
+          <strong>H₂O (água)</strong><br>
+          2 ligações + 2 pares livres<br>
+          → Geometria: <span class="destaque">angular</span>
+        </div>
+      </div>
+
+      <div class="exemplo">
+        <p>➡️ A água é angular porque os 2 pares livres no oxigênio “empurram” os átomos de hidrogênio para mais perto, diminuindo o ângulo de ligação (104,5° vs 109,5° no metano).</p>
+      </div>
+
+      <div class="analogia">
+        🎯 <strong>Pense comigo:</strong> Se você tiver 4 balões amarrados a um ponto, eles se espalham em todas as direções (tetraédrico). Mas se 2 forem “fantasmas” (pares livres), os outros 2 serão forçados a se aproximar — resultando em um ângulo menor.
+      </div>
+    </div>
+
+    <!-- Tópico 4 -->
+    <div class="card">
+      <h3><i class="fas fa-water"></i> 4. Impacto nos fenômenos físicos</h3>
+      <p>Os pares livres influenciam diretamente propriedades como:</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li><span class="destaque">Polaridade:</span> Moléculas com pares livres tendem a ser polares (ex: H₂O, NH₃).</li>
+        <li><span class="destaque">Ponto de ebulição:</span> A água tem ponto de ebulição alto graças aos pares livres que permitem ligações de hidrogênio.</li>
+        <li><span class="destaque">Reatividade:</span> Átomos com pares livres podem doá-los para formar novas ligações (bases de Lewis).</li>
+      </ul>
+
+      <div class="exemplo">
+        <p>📚 <strong>Comparação:</strong> CO₂ (linear, apolar) vs H₂O (angular, polar). Ambos têm 2 ligações, mas a água tem pares livres — o que muda tudo!</p>
+      </div>
+    </div>
+
+    <!-- Tirinha Ilustrativa -->
+    <div class="card">
+      <h3><i class="fas fa-image"></i> Veja como os elétrons se organizam</h3>
+      <p>Abaixo, uma tirinha ilustrativa mostrando a distribuição dos elétrons de valência nos elementos do segundo período — note como os pares livres aumentam conforme avançamos na tabela periódica.</p>
+      <img src="imagens/tirinha.png" alt="Tirinha mostrando elétrons de valência de H a F" style="max-width: 100%; border-radius: 10px; margin: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+      <p><em>Observe: H tem 1 elétron, Be tem 2, B tem 3... até F, que tem 7 — e precisa de apenas 1 para completar o octeto. Os pontos pretos representam elétrons de valência.</em></p>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Pratique o que aprendeu!</h3>
+      <p>Resolva exercícios interativos sobre ligações covalentes, pares livres e geometria molecular com feedback imediato e gabarito detalhado.</p>
+      <a href="/site-educativo/quimica/exercicios-ligacoes-covalentes.html">
+        <i class="fas fa-play-circle"></i> Acessar Exercícios
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — Química do 1º ano EM (Habilidade: EM13CHS101)</p>
+    </div>
+  </footer>
+
+</body>
+</html>
