@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Português 6º ano | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/347145/pexels-photo-347145.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(52, 152, 219, 0.25);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 16px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+      line-height: 1.7;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .dica {
+      background-color: rgba(241, 196, 15, 0.15);
+      border-left: 4px solid #f1c40f;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-weight: 500;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.25rem;
+      text-align: center;
+      margin: 18px 0;
+      letter-spacing: 1px;
+    }
+    .tabela {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    .tabela th,
+    .tabela td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .tabela th {
+      background-color: rgba(52, 152, 219, 0.2);
+      color: #3498db;
+    }
+    .tabela tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+      .tabela th, .tabela td { padding: 8px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>📚 Português — 6º ano</h2>
+      <p><em>Texto dramático, sentido próprio e figurado, sinônimos, períodos e linguagem literária — resumo para prova!</em></p>
+      <hr>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- 1. Texto dramático -->
+    <div class="card">
+      <h3><i class="fas fa-theater-masks"></i> 1. Texto dramático</h3>
+      <p>É o texto escrito para ser <span class="destaque">representado</span> por atores — como peças de teatro, roteiros de filme ou HQs com fala.</p>
+      
+      <div class="exemplo">
+        <p>✅ <strong>Características:</strong><br>
+        • Tem <strong>falas</strong> (entre aspas ou com travessão)<br>
+        • Tem <strong>personagens</strong><br>
+        • Pode ter <strong>didascálias</strong> (instruções entre parênteses, ex: <em>(sussurrando)</em>)</p>
+      </div>
+
+      <div class="formula">
+        — Olá, tudo bem? — disse Ana, sorrindo.<br>
+        (didascália: mostra como a fala é feita)
+      </div>
+
+      <div class="dica">
+        📝 <strong>Dica de prova:</strong> Se o texto tem travessões e falas diretas, provavelmente é dramático!
+      </div>
+    </div>
+
+    <!-- 2. Sentido próprio e figurado -->
+    <div class="card">
+      <h3><i class="fas fa-language"></i> 2. Sentido próprio e figurado</h3>
+      <p>• <strong>Sentido próprio</strong>: o significado real, literal.<br>
+      • <strong>Sentido figurado</strong>: o significado simbólico, criativo.</p>
+
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Frase</th>
+            <th>Sentido</th>
+            <th>Explicação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>“O sol queimou minha pele.”</td>
+            <td><strong>Próprio</strong></td>
+            <td>O sol realmente causou queimadura.</td>
+          </tr>
+          <tr>
+            <td>“Ele tem um coração de pedra.”</td>
+            <td><strong>Figurado</strong></td>
+            <td>Não é literal — significa que é frio, insensível.</td>
+          </tr>
+          <tr>
+            <td>“Estou morrendo de sede!”</td>
+            <td><strong>Figurado</strong></td>
+            <td>É exagero (hipérbole) — só quer dizer que está com muita sede.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="dica">
+        🔍 <strong>Dica de prova:</strong> Pergunte: “Isso pode acontecer de verdade?” Se não, é figurado!
+      </div>
+    </div>
+
+    <!-- 3. Sinônimo e Antônimo -->
+    <div class="card">
+      <h3><i class="fas fa-sync-alt"></i> 3. Sinônimo e Antônimo</h3>
+      <p>• <strong>Sinônimos</strong>: palavras com significados <span class="destaque">parecidos</span>.<br>
+      • <strong>Antônimos</strong>: palavras com significados <span class="destaque">opostos</span>.</p>
+
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Palavra</th>
+            <th>Sinônimos</th>
+            <th>Antônimos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>feliz</td>
+            <td>alegre, contente</td>
+            <td>triste, infeliz</td>
+          </tr>
+          <tr>
+            <td>rápido</td>
+            <td>veloz, ligeiro</td>
+            <td>lento, devagar</td>
+          </tr>
+          <tr>
+            <td>grande</td>
+            <td>enorme, gigante</td>
+            <td>pequeno, minúsculo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="exemplo">
+        <p>✅ <strong>No WhatsApp:</strong><br>
+        Você pode trocar “triste” por “deprimido” (sinônimo) ou “feliz” (antônimo), dependendo do que quer dizer.</p>
+      </div>
+    </div>
+
+    <!-- 4. Período simples e composto -->
+    <div class="card">
+      <h3><i class="fas fa-puzzle-piece"></i> 4. Período simples e composto</h3>
+      <p>• <strong>Período simples</strong>: tem <strong>uma só oração</strong> (um verbo ou locução verbal).<br>
+      • <strong>Período composto</strong>: tem <strong>duas ou mais orações</strong> (dois ou mais verbos).</p>
+
+      <div class="formula">
+        Período simples: <strong>Ela correu.</strong> (1 verbo)<br>
+        Período composto: <strong>Ela correu e caiu.</strong> (2 verbos: correu, caiu)
+      </div>
+
+      <div class="exemplo">
+        <p>✅ Outros exemplos:<br>
+        • Simples: “O cachorro late.”<br>
+        • Composto: “O cachorro late quando vê o carteiro.”</p>
+      </div>
+
+      <div class="dica">
+        ✅ <strong>Dica de prova:</strong> Conte os verbos! Um verbo = simples. Dois ou mais = composto.
+      </div>
+    </div>
+
+    <!-- 5. Linguagem literária e características -->
+    <div class="card">
+      <h3><i class="fas fa-book-open"></i> 5. Linguagem literária</h3>
+      <p>É a linguagem usada em poemas, contos e romances — com o objetivo de <span class="destaque">emocionar, surpreender ou fazer pensar</span>.</p>
+      
+      <p><strong>Características:</strong></p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li>✅ Uso de <strong>figuras de linguagem</strong> (metáfora, comparação, hipérbole)</li>
+        <li>✅ <strong>Sentido figurado</strong> frequente</li>
+        <li>✅ <strong>Ritmo, sonoridade</strong> (rimas, aliterações)</li>
+        <li>✅ <strong>Subjetividade</strong> (opinião, emoção do autor)</li>
+      </ul>
+
+      <div class="formula">
+        “O mundo é um moinho — e vai moer teu coração.”<br>
+        (Vinicius de Moraes — metáfora + sentido figurado)
+      </div>
+
+      <div class="exemplo">
+        <p>✅ <strong>Contraste com linguagem não literária:</strong><br>
+        • Literária: “Seus olhos são estrelas no céu noturno.”<br>
+        • Não literária: “Ela tem olhos castanhos.”</p>
+      </div>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Exercícios para revisão</h3>
+      <p>Teste seus conhecimentos com questões de múltipla escolha e identificação em textos curtos.</p>
+      <a href="/site-educativo/portugues/exercicios-6ano.html">
+        <i class="fas fa-play-circle"></i> Acessar Exercícios
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — Língua Portuguesa, 6º ano (EF6LP05, EF6LP08, EF6LP11)</p>
+    </div>
+  </footer>
+
+</body>
+</html>
