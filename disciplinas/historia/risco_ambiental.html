@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Risco Ambiental, Economia e Decadência | Geografia 1º–3º EM | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(52, 152, 219, 0.25);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 16px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+      line-height: 1.7;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .dica {
+      background-color: rgba(241, 196, 15, 0.15);
+      border-left: 4px solid #f1c40f;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-weight: 500;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.25rem;
+      text-align: center;
+      margin: 18px 0;
+      letter-spacing: 1px;
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>⚠️ Risco Ambiental, Economia e Decadência</h2>
+      <p><em>Como a natureza, as escolhas humanas e o tempo moldam — ou desmontam — lugares e sociedades.</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Muitas cidades e civilizações prosperaram… e depois entraram em colapso. O que elas têm em comum? <strong>Ignorar riscos ambientais + modelos econômicos insustentáveis</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- 1. Risco ambiental: não é "desastre natural" -->
+    <div class="card">
+      <h3><i class="fas fa-mountain"></i> 1. Risco ambiental ≠ desastre natural</h3>
+      <p>O termo correto é <span class="destaque">desastre socioambiental</span>. Por quê?</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li>✅ <strong>Evento natural</strong>: terremoto, chuva forte, seca.</li>
+        <li>❌ <strong>Desastre</strong>: ocorre quando há <strong>vulnerabilidade social</strong> (favela em encosta, desmatamento, ausência de drenagem).</li>
+      </ul>
+
+      <div class="exemplo">
+        <p>✅ <strong>Exemplo:</strong><br>
+        • <em>Chuva forte</em> + <em>encosta desmatada</em> + <em>favela</em> = deslizamento → <strong>desastre</strong><br>
+        • A mesma chuva em área preservada = só um <strong>evento natural</strong>.</p>
+      </div>
+
+      <div class="dica">
+        📝 <strong>Dica de prova:</strong> Sempre que o enunciado disser “desastre natural”, desconfie! É quase sempre **socioambiental**.
+      </div>
+    </div>
+
+    <!-- 2. Economia e exploração do território -->
+    <div class="card">
+      <h3><i class="fas fa-industry"></i> 2. Quando a economia ignora o ambiente</h3>
+      <p>Muitos modelos econômicos priorizam <span class="destaque">crescimento imediato</span> e ignoram os limites ecológicos:</p>
+
+      <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+        <tr>
+          <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);"><strong>Mineração</strong></td>
+          <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);">→ Rompimento de barragens (Mariana, 2015)</td>
+        </tr>
+        <tr>
+          <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);"><strong>Agricultura extensiva</strong></td>
+          <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);">→ Desertificação (Nordeste, Saara)</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;"><strong>Turismo desordenado</strong></td>
+          <td style="padding:10px;">→ Erosão costeira (litoral nordestino)</td>
+        </tr>
+      </table>
+
+      <div class="formula">
+        Lucro de curto prazo + Ausência de planejamento = Risco acumulado
+      </div>
+    </div>
+
+    <!-- 3. Decadência: o fim de cidades e civilizações -->
+    <div class="card">
+      <h3><i class="fas fa-ruins"></i> 3. Casos históricos de decadência</h3>
+      <p>A história mostra que **nenhuma sociedade é imune** à decadência quando ignora o meio ambiente:</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Pompeia (79 d.C.):</strong><br>
+        Construída perto do Vesúvio por causa do solo fértil — mas sem plano para erupção.<br>
+        → Enterro súbito.</p>
+
+        <p>✅ <strong>Civilização Maia (século IX):</strong><br>
+        Desmatamento + seca prolongada + guerra por recursos.<br>
+        → Abandono das cidades.</p>
+
+        <p>✅ <strong>Mohenjo-Daro (Vale do Indo, 1900 a.C.):</strong><br>
+        Mudança no curso do rio Indo + salinização do solo.<br>
+        → Fim da agricultura → colapso urbano.</p>
+      </div>
+    </div>
+
+    <!-- 4. Caso brasileiro: Nova Orleans vs. São Luiz do Paraitinga -->
+    <div class="card">
+      <h3><i class="fas fa-globe-americas"></i> 4. Brasil: lições recentes</h3>
+      <p>Comparação entre duas cidades atingidas por enchentes:</p>
+
+      <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+        <thead>
+          <tr>
+            <th></th>
+            <th><strong>Nova Orleans (EUA)</strong></th>
+            <th><strong>São Luiz do Paraitinga (SP)</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Evento</strong></td>
+            <td>Furacão Katrina (2005)</td>
+            <td>Enchente (2010)</td>
+          </tr>
+          <tr>
+            <td><strong>Causa principal</strong></td>
+            <td>Falha em diques + má gestão</td>
+            <td>Ocupação irregular em várzea + desmatamento</td>
+          </tr>
+          <tr>
+            <td><strong>Recuperação</strong></td>
+            <td>Lenta, com investimento bilionário</td>
+            <td>Rápida, com reconstrução em estilo colonial + turismo cultural</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="dica">
+        💡 <strong>Reflexão:</strong> A decadência não é inevitável. Depende de <strong>planejamento, memória coletiva e respeito ao território</strong>.
+      </div>
+    </div>
+
+    <!-- 5. Sustentabilidade: o caminho oposto -->
+    <div class="card">
+      <h3><i class="fas fa-seedling"></i> 5. E como evitar a decadência?</h3>
+      <p>A Geografia propõe soluções baseadas em:</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li>✅ <strong>Mapeamento de riscos</strong> (zonas de inundação, escorregamento)</li>
+        <li>✅ <strong>Economia circular</strong> (reuso, reciclagem, menor extração)</li>
+        <li>✅ <strong>Gestão participativa</strong> (comunidades no planejamento urbano)</li>
+        <li>✅ <strong>Valorização do patrimônio ambiental e cultural</strong></li>
+      </ul>
+
+      <div class="exemplo">
+        <p>✅ <strong>Exemplo positivo:</strong><br>
+        • <em>Curitiba</em>: integra transporte, áreas verdes e gestão de resíduos.<br>
+        • <em>Assentamentos agroflorestais</em> no Pará: produção + conservação.</p>
+      </div>
+
+      <div class="formula">
+        Território saudável = Equilíbrio entre Sociedade, Economia e Natureza
+      </div>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Exercícios sobre Riscos e Decadência</h3>
+      <p>Questões sobre desastres socioambientais, casos históricos e sustentabilidade.</p>
+      <a href="/site-educativo/geografia/exercicios-riscos-decadencia.html">
+        <i class="fas fa-play-circle"></i> Acessar Exercícios
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — Geografia, EM (EM13CHS301, EM13CHS304)</p>
+    </div>
+  </footer>
+
+</body>
+</html>
