@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>As Primeiras Cidades — História do RN | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/34963408/pexels-photo-34963408.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(52, 152, 219, 0.25);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 16px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+      line-height: 1.7;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .dica {
+      background-color: rgba(241, 196, 15, 0.15);
+      border-left: 4px solid #f1c40f;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-weight: 500;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .tabela {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    .tabela th,
+    .tabela td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .tabela th {
+      background-color: rgba(52, 152, 219, 0.2);
+      color: #3498db;
+    }
+    .tabela tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .tabela th, .tabela td { padding: 8px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>🏰 As Primeiras Cidades do Rio Grande do Norte</h2>
+      <p><em>Descubra como surgiram os primeiros núcleos urbanos no nosso estado!</em></p>
+      <hr>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- 1. Colonização e os primeiros núcleos -->
+    <div class="card">
+      <h3><i class="fas fa-ship"></i> 1. Colonização e os primeiros núcleos</h3>
+      <p>Após a chegada dos portugueses em 1500, o litoral do Nordeste foi dividido em Capitanias Hereditárias.</p>
+      <p>No século XVI, os portugueses queriam proteger a costa do RN de piratas e invasores (como franceses e holandeses). Assim, começaram a fundar vilas — núcleos pequenos, com igreja, casa do governador e fortaleza.</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Curiosidade:</strong> No RN, a primeira vila foi fundada em <span class="destaque">1599</span> pelos portugueses: <strong>São Miguel do Gostoso</strong> já existia como núcleo pesqueiro, mas a primeira vila oficial foi…</p>
+      </div>
+    </div>
+
+    <!-- 2. As três primeiras vilas do RN -->
+    <div class="card">
+      <h3><i class="fas fa-map-marked-alt"></i> 2. As três primeiras vilas do RN</h3>
+      <p>O Rio Grande do Norte teve suas primeiras vilas fundadas entre os séculos XVI e XVII. Foram elas:</p>
+
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Vila</th>
+            <th>Ano</th>
+            <th>Origem/Importância</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Vila de Natal</strong></td>
+            <td>1599</td>
+            <td>Fundada após a expulsão dos franceses; nome vem do dia do nascimento de Cristo (25/12) — o Forte dos Reis Magos foi inaugurado nesse dia.</td>
+          </tr>
+          <tr>
+            <td><strong>Vila de São Miguel do Rio Grande</strong></td>
+            <td>1687</td>
+            <td>Hoje é <strong>São Miguel</strong>, no Oeste potiguar. Foi criada para proteger a fronteira com o Ceará e organizar a pecuária.</td>
+          </tr>
+          <tr>
+            <td><strong>Vila de Nova Cruz</strong></td>
+            <td>1742</td>
+            <td>Hoje é <strong>João Câmara</strong>. Criada por tropeiros e fazendeiros, virou importante ponto de descanso e comércio.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="dica">
+        📝 <strong>Dica de prova:</strong> A <strong>primeira vila</strong> do RN foi <strong>Natal (1599)</strong>, mas só virou <em>cidade</em> em 1818 — antes disso, era apenas uma vila!
+      </div>
+    </div>
+
+    <!-- 3. Como era uma vila no século XVII? -->
+    <div class="card">
+      <h3><i class="fas fa-church"></i> 3. Como era uma vila no século XVII?</h3>
+      <p>Uma vila não era uma cidade grande — era um pequeno centro com funções administrativas e religiosas. Tinha:</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li>✅ Uma <strong>igreja matriz</strong> (centro da vida religiosa)</li>
+        <li>✅ A <strong>casa de câmara e cadeia</strong> (equivalente à prefeitura + prisão)</li>
+        <li>✅ Um <strong>pelourinho</strong> (poste onde se lia leis e, às vezes, punia criminosos)</li>
+        <li>✅ Ruas em torno da praça principal (a “praça da matriz”)</li>
+      </ul>
+
+      <div class="exemplo">
+        <p>➡️ Em Natal, a <strong>Praça André de Albuquerque</strong> (centro da cidade velha) era o coração da vila — e ainda hoje abriga a Igreja Matriz, o Teatro e o Museu do Café.</p>
+      </div>
+
+      <div class="dica">
+        🔍 <strong>Pense comigo:</strong> Se uma vila dependia da Coroa Portuguesa, quem escolhia o <em>juiz de fora</em> (o prefeito da época)? Resposta: o rei — daí o nome “de <em>fora</em>”!
+      </div>
+    </div>
+
+    <!-- 4. Da vila à cidade -->
+    <div class="card">
+      <h3><i class="fas fa-landmark"></i> 4. Da vila à cidade</h3>
+      <p>Para virar <strong>cidade</strong>, uma vila precisava crescer muito: mais habitantes, comércio, igrejas, escolas. No RN, as primeiras cidades foram:</p>
+
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Cidade</th>
+            <th>Ano de elevação</th>
+            <th>Motivo do crescimento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Natal</strong></td>
+            <td>1818</td>
+            <td>Porto ativo, sede da capitania, produção de algodão e sal.</td>
+          </tr>
+          <tr>
+            <td><strong>Areia Branca</strong></td>
+            <td>1835</td>
+            <td>Extração de sal marinho e comércio marítimo.</td>
+          </tr>
+          <tr>
+            <td><strong>Currais Novos</strong></td>
+            <td>1872</td>
+            <td>Mineração de ouro e crescimento da pecuária.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="exemplo">
+        <p>✅ <strong>Observação:</strong> Muitas cidades atuais começaram como <em>arraiais</em> (núcleos menores que vilas), como <strong>Parelhas</strong> (arraial em 1750 → vila em 1862 → município em 1938).</p>
+      </div>
+
+      <div class="dica">
+        ✅ <strong>Dica de prova:</strong> Ordem correta de crescimento: <strong>arrabalde/arraial → vila → cidade → município</strong>. O título de “município” veio só com a República (1889).
+      </div>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Exercícios de revisão</h3>
+      <p>Teste seus conhecimentos com mapas, cronologia e curiosidades sobre as primeiras cidades do RN.</p>
+      <a href="/site-educativo/historia/exercicios-rn-6ano.html">
+        <i class="fas fa-play-circle"></i> Acessar Exercícios
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — História, 6º ano (EF06HI01, EF06HI04)</p>
+    </div>
+  </footer>
+
+</body>
+</html>

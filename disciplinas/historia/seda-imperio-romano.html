@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Seda no Império Romano | História | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(52, 152, 219, 0.25);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 16px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+      line-height: 1.7;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .dica {
+      background-color: rgba(241, 196, 15, 0.15);
+      border-left: 4px solid #f1c40f;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-weight: 500;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.25rem;
+      text-align: center;
+      margin: 18px 0;
+      letter-spacing: 1px;
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>🧵 A Seda no Império Romano</h2>
+      <p><em>Um tecido mais valioso que ouro — e o que ele revela sobre comércio, luxo e poder no mundo antigo.</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Na Roma antiga, um quilo de seda custava <strong>mais que um quilo de ouro</strong>. Mas ninguém sabia como era feita — só que vinha do “Extremo Oriente”, em jornadas de milhares de quilômetros.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- 1. Origem: o segredo chinês -->
+    <div class="card">
+      <h3><i class="fas fa-dragon"></i> 1. Origem: o segredo mais bem guardado da Antiguidade</h3>
+      <p>A seda era produzida na <span class="destaque">China</span> desde cerca de <strong>2700 a.C.</strong>, a partir do casulo do bicho-da-seda (<em>Bombyx mori</em>).</p>
+      <p>O processo — criação, desenrolamento do fio, tingimento — era <strong>segredo de Estado</strong>. Quem revelasse era punido com <span class="destaque">morte</span>.</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Curiosidade:</strong><br>
+        A palavra “seda” vem do grego <em>ser</em>, que vem do nome chinês da China: <em>Seres</em> (“terra da seda”).</p>
+      </div>
+    </div>
+
+    <!-- 2. A Rota da Seda -->
+    <div class="card">
+      <h3><i class="fas fa-route"></i> 2. A Rota da Seda: uma rede, não um caminho</h3>
+      <p>Não havia uma “estrada” única. Eram <span class="destaque">várias rotas terrestres e marítimas</span> ligando a China ao Mediterrâneo.</p>
+
+      <div class="formula">
+        China → Ásia Central (Samarcanda) → Pérsia → Império Romano<br>
+        ou<br>
+        China → Índia → Mar Vermelho → Egito → Roma
+      </div>
+
+      <p>➡️ Cada etapa envolvia <strong>novos intermediários</strong> — e cada um aumentava o preço.</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Distância:</strong><br>
+        De Chang’an (China) a Roma: cerca de <strong>8.000 km</strong> — mais que a distância de Natal a Lisboa… ida e volta!</p>
+      </div>
+    </div>
+
+    <!-- 3. Valor em Roma -->
+    <div class="card">
+      <h3><i class="fas fa-coins"></i> 3. Quanto valia a seda em Roma?</h3>
+      <p>No século I d.C., o historiador Plínio, o Velho, reclamava:</p>
+      <blockquote style="font-style: italic; padding: 15px; border-left: 3px solid #f1c40f; margin: 15px 0; color: #f0f0f0;">
+        “<strong>100 milhões de sestércios por ano</strong> saem do Império só para comprar seda, pérolas e especiarias. É um dreno da riqueza romana!”
+      </blockquote>
+
+      <div class="exemplo">
+        <p>✅ <strong>Comparação:</strong><br>
+        • 1 kg de seda ≈ 300–500 denários<br>
+        • 1 soldado romano ganhava 225 denários/ano<br>
+        → Um metro de seda custava <em>mais que um mês de salário</em>!</p>
+      </div>
+
+      <div class="dica">
+        📝 <strong>Dica de prova:</strong> A seda era símbolo de <strong>status</strong>. Só ricos (senadores, imperadores) podiam usá-la — e mesmo assim, com restrições.
+      </div>
+    </div>
+
+    <!-- 4. Críticas e leis suntuárias -->
+    <div class="card">
+      <h3><i class="fas fa-gavel"></i> 4. Luxo, moral e leis contra a seda</h3>
+      <p>Muitos romanos viam a seda como <span class="destaque">ameaça à moral tradicional</span>:</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li>❌ Era <strong>transparente</strong> — considerado indecente</li>
+        <li>❌ Vinha de “bárbaros” (chineses, persas)</li>
+        <li>❌ Enfraquecia a economia (ouro saindo do Império)</li>
+      </ul>
+
+      <p>➡️ Vários imperadores tentaram <strong>proibir ou limitar</strong> seu uso:</p>
+      <ul style="padding-left: 30px; margin: 10px 0;">
+        <li>• <strong>Augusto</strong>: proibiu homens de usarem seda</li>
+        <li>• <strong>Tibério</strong>: proibiu o uso de seda em público (não pegou)</li>
+        <li>• <strong>Aureliano</strong> (século III): só o imperador podia usar seda <em>pura</em> — os outros, só com fios de lã misturados</li>
+      </ul>
+    </div>
+
+    <!-- 5. O fim do segredo: os monges espiões -->
+    <div class="card">
+      <h3><i class="fas fa-user-secret"></i> 5. Como a seda saiu da China: a missão secreta</h3>
+      <p>No século VI d.C., o imperador bizantino <strong>Justiniano</strong> queria quebrar o monopólio chinês.</p>
+      <p>Contratou <span class="destaque">monges nestorianos</span> para viajarem à China disfarçados.</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>O plano deu certo:</strong><br>
+        Os monges esconderam <strong>ovos de bicho-da-seda</strong> em seus cajados ocos, trouxeram para Constantinopla… e a Europa passou a produzir sua própria seda!</p>
+      </div>
+
+      <div class="formula">
+        China (monopólio) → Bizâncio (século VI) → Itália (século XII) → França (século XV)
+      </div>
+
+      <div class="dica">
+        🔍 <strong>Reflexão:</strong> A seda mostra que o comércio sempre foi uma mistura de <strong>economia, política, espionagem e desejo humano</strong>.
+      </div>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Exercícios sobre a seda romana</h3>
+      <p>Questões sobre rotas comerciais, valor econômico e impacto cultural da seda.</p>
+      <a href="/site-educativo/historia/exercicios-seda-romana.html">
+        <i class="fas fa-play-circle"></i> Acessar Exercícios
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — História, 6º–8º ano (EF06HI07, EF08HI06)</p>
+    </div>
+  </footer>
+
+</body>
+</html>
