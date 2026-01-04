@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Os Pré-Socráticos | Filosofia 1º EM | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(52, 152, 219, 0.25);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 16px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+      line-height: 1.7;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .dica {
+      background-color: rgba(241, 196, 15, 0.15);
+      border-left: 4px solid #f1c40f;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-weight: 500;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.25rem;
+      text-align: center;
+      margin: 18px 0;
+      letter-spacing: 1px;
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>🌊 Os Pré-Socráticos</h2>
+      <p><em>Os primeiros filósofos: quando a Grécia trocou mitos por razão.</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Antes de Sócrates, um grupo de pensadores ousou perguntar: <strong>“De que é feito o mundo?”</strong><br>
+        Eles não responderam com deuses — mas com <em>água, ar, fogo, átomos</em>… e até com o <em>ilimitado</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- Introdução -->
+    <div class="card">
+      <h3><i class="fas fa-compass"></i> Por que “pré-socráticos”?</h3>
+      <p>São chamados assim porque viveram <span class="destaque">antes de Sócrates</span> (469–399 a.C.) — entre os séculos VI e V a.C.</p>
+      <p>Seus objetivos:</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li>✅ Explicar a <strong>physis</strong> (natureza) sem recorrer a mitos</li>
+        <li>✅ Encontrar o <strong>arché</strong> (princípio, origem de tudo)</li>
+        <li>✅ Usar a <strong>razão</strong> (logos), não só a tradição</li>
+      </ul>
+
+      <div class="exemplo">
+        <p>✅ <strong>Curiosidade:</strong><br>
+        Os pré-socráticos não escreveram livros — só fragmentos citados por outros (como Aristóteles). Por isso, dependemos de “testemunhos indiretos”.</p>
+      </div>
+    </div>
+
+    <!-- Escola Jônica -->
+    <div class="card">
+      <h3><i class="fas fa-water"></i> 🌍 Escola Jônica (Naturalistas)</h3>
+
+      <p><strong>Tales de Mileto</strong> (c. 624–546 a.C.)</p>
+      <p>• <strong>Arché:</strong> Água<br>
+      • <strong>Justificativa:</strong> Tudo precisa de umidade para viver; sementes são úmidas; a Terra flutua na água.<br>
+      • <strong>Curiosidade:</strong> Prevê um eclipse solar (585 a.C.) e mede a altura das pirâmides com sombras.</p>
+
+      <p><strong>Anaximandro</strong> (c. 610–546 a.C.)</p>
+      <p>• <strong>Arché:</strong> <em>Ápeiron</em> (o ilimitado)<br>
+      • <strong>Inovação:</strong> O princípio não pode ser algo concreto (como água), pois geraria desequilíbrio. Precisa ser <em>neutro e infinito</em>.<br>
+      • <strong>Relevância:</strong> Primeiro a propor um conceito <strong>abstrato</strong> como fundamento da realidade.</p>
+
+      <p><strong>Anaxímenes</strong> (c. 588–524 a.C.)</p>
+      <p>• <strong>Arché:</strong> Ar<br>
+      • <strong>Mecanismo:</strong> <em>Rarefação</em> (ar quente → fogo) e <em>condensação</em> (ar frio → vento → nuvem → água → terra → pedra).<br>
+      • <strong>Legado:</strong> Introduz a ideia de <strong>mudança quantitativa</strong> (não qualitativa) como motor do cosmos.</p>
+    </div>
+
+    <!-- Heráclito e Parmênides -->
+    <div class="card">
+      <h3><i class="fas fa-fire"></i> 🔥 Heráclito vs. 🧱 Parmênides</h3>
+
+      <p><strong>Heráclito de Éfeso</strong> (c. 540–470 a.C.)</p>
+      <p>• <strong>Arché:</strong> Fogo<br>
+      • <strong>Frase famosa:</strong> <em>“Panta rhei”</em> (“Tudo flui”).<br>
+      • <strong>Conceito-chave:</strong> <em>Logos</em> — ordem racional por trás do caos aparente.<br>
+      • <strong>Paradoxo:</strong> “Não se entra duas vezes no mesmo rio.”<br>
+      • <strong>Curiosidade:</strong> Era chamado de “o Obscuro” por escrever em estilo enigmático.</p>
+
+      <p><strong>Parmênides de Eleia</strong> (c. 530–460 a.C.)</p>
+      <p>• <strong>Arché:</strong> O Ser<br>
+      • <strong>Tese radical:</strong> O Ser é <strong>uno, eterno, imóvel, imutável</strong>.<br>
+      • <strong>Consequência:</strong> Movimento, mudança e multiplicidade são <em>ilusões dos sentidos</em>.<br>
+      • <strong>Impacto:</strong> Primeiro a usar argumentação lógica pura (razão > experiência).</p>
+
+      <div class="dica">
+        🧠 <strong>Para a prova:</strong> Heráclito (mudança) e Parmênides (imutabilidade) são os dois polos da filosofia ocidental — até hoje!
+      </div>
+    </div>
+
+    <!-- Pluralistas -->
+    <div class="card">
+      <h3><i class="fas fa-balance-scale"></i> 🌱 Pluralistas: conciliando mudança e permanência</h3>
+
+      <p><strong>Empédocles</strong> (c. 490–430 a.C.)</p>
+      <p>• <strong>Arché:</strong> <strong>Quatro raízes</strong> (terra, água, ar, fogo)<br>
+      • <strong>Forças:</strong> <em>Filia</em> (Amor, une) e <em>Neikos</em> (Ódio, separa)<br>
+      • <strong>Curiosidade:</strong> Acreditava ser um deus e, segundo a lenda, se jogou no vulcão Etna para “provar” sua imortalidade (só restou uma sandália…).</p>
+
+      <p><strong>Anaxágoras</strong> (c. 500–428 a.C.)</p>
+      <p>• <strong>Arché:</strong> <em>Homeomerias</em> (partículas de tudo em tudo)<br>
+      • <strong>Princípio ordenador:</strong> <em>Nous</em> (Intelecto divino, racional)<br>
+      • <strong>Inovação:</strong> Primeiro a dizer que a Lua brilha por reflexão do Sol — e que os eclipses têm causa natural.</p>
+    </div>
+
+    <!-- Atomistas -->
+    <div class="card">
+      <h3><i class="fas fa-atom"></i> ⚛️ Atomistas: os primeiros materialistas</h3>
+
+      <p><strong>Leucipo</strong> (séc. V a.C.)</p>
+      <p>• Fundador da teoria atômica (pouco se sabe dele — talvez mítico).</p>
+
+      <p><strong>Demócrito</strong> (c. 460–370 a.C.)</p>
+      <p>• <strong>Arché:</strong> <strong>Átomos</strong> (do grego: <em>a-tomos</em> = “indivisível”) + <strong>Vazio</strong><br>
+      • <strong>Características:</strong> eternos, invisíveis, só diferem em forma, tamanho e posição.<br>
+      • <strong>Mudança:</strong> combinações e separações casuais no vazio.<br>
+      • <strong>Curiosidade:</strong> Era chamado de “o filósofo que ri” — acreditava que a felicidade vem da serenidade da alma (<em>ataraxia</em>).</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Relevância hoje:</strong><br>
+        A física quântica confirma: a matéria é formada por partículas elementares em movimento — e a maior parte do átomo é <em>vazio</em>.</p>
+      </div>
+    </div>
+
+    <!-- Resumo final -->
+    <div class="card">
+      <h3><i class="fas fa-list"></i> 📌 Resumo: Quem pensou o quê?</h3>
+
+      <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+        <thead>
+          <tr>
+            <th>Filósofo</th>
+            <th><em>Arché</em></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Tales</td><td>Água</td></tr>
+          <tr><td>Anaximandro</td><td>Ápeiron</td></tr>
+          <tr><td>Anaxímenes</td><td>Ar</td></tr>
+          <tr><td>Heráclito</td><td>Fogo</td></tr>
+          <tr><td>Parmênides</td><td>Ser</td></tr>
+          <tr><td>Empédocles</td><td>4 elementos</td></tr>
+          <tr><td>Anaxágoras</td><td>Homeomerias + Nous</td></tr>
+          <tr><td>Demócrito</td><td>Átomos + Vazio</td></tr>
+        </tbody>
+      </table>
+
+      <div class="dica">
+        ✅ <strong>Dica de prova:</strong> Os pré-socráticos não são “ingênuos”. Eles lançaram as bases da <strong>ciência natural</strong>, da <strong>lógica</strong> e da <strong>metafísica</strong>.
+      </div>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Exercícios sobre Pré-Socráticos</h3>
+      <p>Questões sobre *arché*, escolas filosóficas e comparação Heráclito × Parmênides.</p>
+      <a href="/site-educativo/filosofia/exercicios-pre-socraticos.html">
+        <i class="fas fa-play-circle"></i> Acessar Exercícios
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — Filosofia, 1º EM (EM13CHS601)</p>
+    </div>
+  </footer>
+
+</body>
+</html>
