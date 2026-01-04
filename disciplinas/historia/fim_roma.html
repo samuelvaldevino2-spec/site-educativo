@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Queda do Império Romano | História | Prof. Samuel Valdevino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #3498db;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #3498db;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #3498db; }
+
+    /* Seção Principal */
+    section.conteudo {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+    section.conteudo h2 {
+      font-size: 2.6rem;
+      color: #3498db;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    section.conteudo p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 800px;
+      margin: 0 auto 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    section.conteudo hr {
+      width: 80px;
+      border: 2px solid #3498db;
+      margin: 30px auto;
+    }
+
+    /* Card de Conteúdo */
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid rgba(52, 152, 219, 0.25);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+    .card h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h3 i {
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 16px;
+      font-size: 1.15rem;
+      color: #f0f0f0;
+      line-height: 1.7;
+    }
+    .exemplo {
+      background-color: rgba(52, 152, 219, 0.15);
+      border-left: 4px solid #3498db;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .dica {
+      background-color: rgba(241, 196, 15, 0.15);
+      border-left: 4px solid #f1c40f;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-weight: 500;
+    }
+    .destaque {
+      color: #f1c40f;
+      font-weight: 600;
+    }
+    .formula {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.25rem;
+      text-align: center;
+      margin: 18px 0;
+      letter-spacing: 1px;
+    }
+
+    /* Card de Redirecionamento */
+    .card-link {
+      background-color: rgba(52, 152, 219, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px 0;
+      text-align: center;
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .card-link h3 {
+      color: #3498db;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .card-link a {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 15px;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #3498db;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      section.conteudo h2 { font-size: 2.2rem; }
+      .card, .card-link { padding: 20px 15px; }
+      .formula { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Prof. Samuel Valdevino</h1>
+      <br>
+      <nav>
+        <ul>
+          <li><a href="/site-educativo/index.html">Início</a></li>
+          <li><a href="/site-educativo/disciplinas.html">Disciplinas</a></li>
+          <li><a href="/site-educativo/dicas.html">Dicas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Principal -->
+  <section class="conteudo">
+    <div class="container">
+      <h2>🏛️ A Queda do Império Romano</h2>
+      <p><em>Não foi um “fim repentino” — foi um colapso gradual, com causas profundas e consequências até hoje.</em></p>
+      <hr>
+      <p style="font-size: 1.15rem; color: #bbb; max-width: 900px; margin: 20px auto 0;">
+        Em <strong>476 d.C.</strong>, o último imperador romano do Ocidente, Rômulo Augústulo, foi deposto por Odoacro, um chefe germânico. Mas o Império já estava em crise havia séculos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Estruturado -->
+  <div class="container">
+
+    <!-- 1. Cronologia essencial -->
+    <div class="card">
+      <h3><i class="fas fa-calendar-alt"></i> 1. Quando aconteceu — e o que realmente caiu?</h3>
+      <p>• <strong>285 d.C.</strong>: Diocleciano divide o Império em <span class="destaque">Ocidente</span> (capital: Roma/Milão/Ravena) e <span class="destaque">Oriente</span> (capital: Constantinopla).</p>
+      <p>• <strong>395 d.C.</strong>: Divisão definitiva após a morte de Teodósio.</p>
+      <p>• <strong>476 d.C.</strong>: Queda do <strong>Império Romano do Ocidente</strong>.</p>
+      <p>• <strong>1453</strong>: Queda de Constantinopla — fim do <strong>Império Bizantino</strong> (Roma do Oriente).</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Curiosidade:</strong><br>
+        Os bizantinos se chamavam de <em>romanos</em> até o fim. Para eles, o Império nunca caiu — só perdeu o Ocidente.</p>
+      </div>
+
+      <div class="dica">
+        📝 <strong>Dica de prova:</strong> A “Queda do Império Romano” refere-se <strong>só ao Ocidente</strong>. O Oriente sobreviveu por quase 1.000 anos a mais!
+      </div>
+    </div>
+
+    <!-- 2. Causas internas -->
+    <div class="card">
+      <h3><i class="fas fa-cogs"></i> 2. Causas internas (problemas de dentro)</h3>
+
+      <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+        <tr>
+          <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);"><strong>Crise política</strong></td>
+          <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);">• Troca constante de imperadores (muitos assassinados)<br>• Guerras civis frequentes</td>
+        </tr>
+        <tr>
+          <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);"><strong>Crise econômica</strong></td>
+          <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);">• Inflação descontrolada<br>• Queda da produção agrícola<br>• Pesados impostos → fuga para o campo (colonato)</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;"><strong>Crise militar</strong></td>
+          <td style="padding:10px;">• Exército dependente de mercenários bárbaros<br>• Fronteiras imensas → difícil defesa</td>
+        </tr>
+      </table>
+
+      <div class="formula">
+        Império grande + recursos escassos + elite dividida = fragilidade
+      </div>
+    </div>
+
+    <!-- 3. Causas externas -->
+    <div class="card">
+      <h3><i class="fas fa-shield-alt"></i> 3. Causas externas (pressão de fora)</h3>
+      <p>A partir do século IV, grandes migrações forçaram povos germânicos a entrarem no Império:</p>
+
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li>✅ <strong>Visigodos:</strong> saqueiam Roma em <strong>410</strong> (primeira vez em 800 anos!)</li>
+        <li>✅ <strong>Vândalos:</strong> saqueiam Roma em <strong>455</strong> (daí vem “vandalismo”)</li>
+        <li>✅ <strong>Ostrogodos, Francos, Burgúndios:</strong> criam reinos dentro do território romano</li>
+      </ul>
+
+      <p>➡️ O gatilho: a chegada dos <strong>Hunos</strong> (liderados por Átila) empurrou os povos germânicos para o Ocidente.</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Mapa mental:</strong><br>
+        Hunos → pressionam visigodos → visigodos entram no Império → romanos perdem controle.</p>
+      </div>
+    </div>
+
+    <!-- 4. Papel do Cristianismo -->
+    <div class="card">
+      <h3><i class="fas fa-church"></i> 4. E o Cristianismo? Ajudou ou atrapalhou?</h3>
+      <p>Não foi causa direta, mas teve impacto:</p>
+      <ul style="padding-left: 30px; margin: 15px 0; line-height: 1.8;">
+        <li>✅ <strong>Positivo:</strong> unificou culturalmente o Império após a adoção oficial (380 d.C.).</li>
+        <li>❌ <strong>Negativo:</strong> deslocou o foco do “mundo aqui” (política, exército) para o “mundo depois” (salvação eterna).</li>
+        <li>✅ <strong>Legado:</strong> a Igreja Católica preservou textos, escolas e autoridade — tornou-se o novo centro após 476.</li>
+      </ul>
+
+      <div class="dica">
+        🔍 <strong>Pense comigo:</strong> Quando o Estado fraqueja, instituições fortes (como a Igreja) assumem seu papel — como aconteceu na Idade Média.
+      </div>
+    </div>
+
+    <!-- 5. O que aconteceu depois? -->
+    <div class="card">
+      <h3><i class="fas fa-history"></i> 5. Consequências: o mundo que nasceu das ruínas</h3>
+      <p>• <strong>Europa Ocidental:</strong> fragmentação política → início da <span class="destaque">Idade Média</span> e do <span class="destaque">feudalismo</span>.</p>
+      <p>• <strong>Igreja Católica:</strong> tornou-se a principal autoridade espiritual e política.</p>
+      <p>• <strong>Língua:</strong> latim vulgar evoluiu para o português, espanhol, francês, etc.</p>
+      <p>• <strong>Direito:</strong> base do sistema jurídico ocidental até hoje (Código Civil, Constituições).</p>
+
+      <div class="exemplo">
+        <p>✅ <strong>Herança viva:</strong><br>
+        • “Senado” no Brasil e EUA<br>
+        • Estradas romanas = base das rodovias europeias<br>
+        • Calendário gregoriano (baseado no juliano)</p>
+      </div>
+    </div>
+
+    <!-- Card de Redirecionamento -->
+    <div class="card-link">
+      <h3><i class="fas fa-graduation-cap"></i> Exercícios sobre a Queda de Roma</h3>
+      <p>Questões sobre causas, cronologia e legado do Império Romano.</p>
+      <a href="/site-educativo/historia/exercicios-queda-roma.html">
+        <i class="fas fa-play-circle"></i> Acessar Exercícios
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Prof. Samuel Valdevino. Todos os direitos reservados.</p>
+      <p>Conteúdo alinhado à BNCC — História, 7º ano (EF07HI06) e EM (EM13CHS103)</p>
+    </div>
+  </footer>
+
+</body>
+</html>
