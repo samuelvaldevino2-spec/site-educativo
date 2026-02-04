@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consulta de Peças | Oficina Mecânica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-image:
+        linear-gradient(rgba(3, 3, 4, 0.92), rgba(3, 3, 4, 0.95)),
+        url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #030304;
+      color: white;
+      padding: 40px 0;
+      border-bottom: 3px solid #30ab5a;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #30ab5a;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Barra de Busca */
+    .search-box {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 1.1rem;
+      border: 2px solid #30ab5a;
+      border-radius: 8px;
+      background-color: rgba(32, 32, 36, 0.7);
+      color: white;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #searchInput:focus {
+      border-color: #eb5c2f;
+      box-shadow: 0 0 0 3px rgba(235, 92, 47, 0.2);
+    }
+    #searchInput::placeholder {
+      color: #aaa;
+    }
+
+    /* Tabela de Peças */
+    .tabela-pecas {
+      background-color: rgba(32, 32, 36, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 40px 0;
+      border: 1px solid rgba(48, 171, 90, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      background-color: rgba(48, 171, 90, 0.25);
+      color: #30ab5a;
+      padding: 16px 20px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    td {
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #f0f0f0;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover {
+      background-color: rgba(235, 92, 47, 0.1);
+    }
+
+    /* Link de nome do item */
+    .nome-item {
+      color: #30ab5a;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nome-item:hover {
+      color: #eb5c2f;
+      text-decoration: underline;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #30ab5a;
+    }
+    footer .container p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      .container { width: 98%; padding: 0 10px; }
+      th, td { padding: 12px 10px; font-size: 0.95rem; }
+      #searchInput { padding: 12px 15px; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>Oficina Mecânica — Consulta de Peças</h1>
+      <p style="color: #ccc; font-size: 1.2rem;">Sistema rápido para identificar códigos e acessar fotos das peças</p>
+    </div>
+  </header>
+
+  <!-- Barra de Busca -->
+  <div class="container">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="🔍 Digite o nome da peça (ex: filtro, óleo, pastilha...)">
+    </div>
+  </div>
+
+  <!-- Tabela de Peças -->
+  <div class="container">
+    <div class="tabela-pecas">
+      <table id="pecasTable">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome da Peça</th>
+            <th>Tipo</th>
+            <th>Observações</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Conteúdo será inserido aqui pelo JavaScript -->
+        </tbody>
+      </table>
+      <div id="loading" style="padding: 30px; text-align: center; color: #aaa;">Carregando peças...</div>
+      <div id="error" style="padding: 30px; text-align: center; color: #eb5c2f; display: none;">Erro ao carregar o arquivo de peças.</div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Oficina Mecânica. Sistema interno para uso exclusivo da equipe.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Função para converter CSV em array de objetos
+    function csvToArray(str, delimiter = ',') {
+      const lines = str.split('\n').filter(line => line.trim() !== '');
+      const headers = lines[0].split(delimiter).map(h => h.trim());
+      const rows = lines.slice(1);
+      
+      return rows.map(row => {
+        const values = row.split(delimiter).map(val => {
+          // Remove aspas externas se existirem
+          let clean = val.trim();
+          if (clean.startsWith('"') && clean.endsWith('"')) {
+            clean = clean.slice(1, -1);
+          }
+          return clean;
+        });
+        
+        const obj = {};
+        headers.forEach((header, index) => {
+          obj[header] = values[index] || '';
+        });
+        return obj;
+      });
+    }
+
+    // Carregar CSV e popular a tabela
+    async function loadPecas() {
+      try {
+        const response = await fetch("C:\Users\samue\OneDrive\Documentos\catálogo\pecas.csv");
+        if (!response.ok) throw new Error('Arquivo não encontrado');
+        const csvText = await response.text();
+        const pecas = csvToArray(csvText);
+
+        const tableBody = document.getElementById('tableBody');
+        tableBody.innerHTML = '';
+
+        pecas.forEach(peca => {
+          if (!peca.Código && !peca.codigo) return;
+
+          // Normaliza o nome da coluna (CSV pode ter "Código" ou "codigo")
+          const codigo = peca.Código || peca.codigo || '';
+          const nome = peca.Nome || peca.nome || '';
+          const tipo = peca.Tipo || peca.tipo || '';
+          const obs = peca.Observação || peca.observacao || peca.Observacoes || peca.observacoes || '';
+
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${codigo}</td>
+            <td><a href="imagens/${codigo}.jpg" target="_blank" class="nome-item">${nome}</a></td>
+            <td>${tipo}</td>
+            <td>${obs}</td>
+          `;
+          tableBody.appendChild(row);
+        });
+
+        document.getElementById('loading').style.display = 'none';
+      } catch (err) {
+        console.error('Erro:', err);
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('error').style.display = 'block';
+      }
+    }
+
+    // Busca em tempo real (procura em Nome e Tipo)
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+      const term = this.value.toLowerCase();
+      const rows = document.querySelectorAll('#pecasTable tbody tr');
+      rows.forEach(row => {
+        const nome = row.cells[1]?.textContent.toLowerCase() || '';
+        const tipo = row.cells[2]?.textContent.toLowerCase() || '';
+        const match = nome.includes(term) || tipo.includes(term);
+        row.style.display = match ? '' : 'none';
+      });
+    });
+
+    // Iniciar
+    document.addEventListener('DOMContentLoaded', loadPecas);
+  </script>
+
+</body>
+</html>
