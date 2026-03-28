@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fermentação — Biologia MEXT</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #09090b;
+            --bg-card: #18181b;
+            --bg-card-hover: #27272a;
+            --border: #3f3f46;
+            --bio-color: #14b8a6; /* Teal para Biologia */
+            --bio-glow: rgba(20, 184, 166, 0.3);
+            --text-main: #fafafa;
+            --text-muted: #a1a1aa;
+            --radius: 16px;
+            --font-main: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.7;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 { font-weight: 800; letter-spacing: -0.03em; color: #fff; }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; background: linear-gradient(to right, #fff, #5eead4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 { font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--bio-color); padding-left: 1rem; }
+        h3 { font-size: 1.3rem; margin-top: 1.5rem; margin-bottom: 1rem; color: var(--bio-color); }
+        p { margin-bottom: 1.2rem; color: #d4d4d8; font-size: 1.05rem; }
+        
+        blockquote {
+            background: rgba(20, 184, 166, 0.1);
+            border-left: 4px solid var(--bio-color);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #fff;
+        }
+
+        .bio-text { font-family: var(--font-mono); color: var(--bio-color); background: rgba(20, 184, 166, 0.1); padding: 2px 6px; border-radius: 4px; font-size: 0.95em; }
+
+        /* Layout */
+        .container { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
+        .back-link { display: inline-block; margin-bottom: 2rem; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--bio-color); }
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover { border-color: var(--bio-color); box-shadow: 0 10px 40px -10px var(--bio-glow); }
+
+        .hero { text-align: center; padding: 4rem 0; margin-bottom: 2rem; }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(20, 184, 166, 0.1);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            border-radius: 100px;
+            color: var(--bio-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        /* --- INTERACTIVE COMPONENTS --- */
+
+        /* Equation Display */
+        .equation-box {
+            background: linear-gradient(145deg, #000, #18181b);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .equation-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--bio-color), #3b82f6, var(--bio-color));
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+        .comparison-table th {
+            background: rgba(20, 184, 166, 0.1);
+            color: var(--bio-color);
+        }
+        .comparison-table tr:hover { background: rgba(255,255,255,0.03); }
+
+        /* Fermentation Types Toggle */
+        .fermentation-types {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .fermentation-btn {
+            flex: 1;
+            padding: 1rem;
+            background: var(--bg-card-hover);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .fermentation-btn.active {
+            border-color: var(--bio-color);
+            background: rgba(20, 184, 166, 0.1);
+            color: var(--bio-color);
+        }
+        .fermentation-content {
+            display: none;
+            background: rgba(0,0,0,0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            animation: fadeIn 0.3s;
+        }
+        .fermentation-content.show { display: block; }
+
+        /* System Flow */
+        .system-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .flow-box {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            border: 1px solid var(--border);
+        }
+        .flow-arrow {
+            font-size: 1.5rem;
+            color: var(--bio-color);
+        }
+
+        /* Application Cards */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .app-card {
+            background: rgba(255,255,255,0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .app-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--bio-color);
+        }
+        .app-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+
+        /* Error Cards */
+        .error-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .error-card.correct {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+        .error-label {
+            font-weight: bold;
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+        .error-label.wrong { color: #ef4444; }
+        .error-label.right { color: var(--success); }
+
+        /* Exercises */
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .ex-card {
+            background: rgba(255,255,255,0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .ex-input {
+            width: 100%;
+            background: #000;
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 0.8rem;
+            margin-top: 0.8rem;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+        }
+        .ex-input:focus { outline: 2px solid var(--bio-color); border-color: transparent; }
+        .ex-input.correct { border-color: var(--success); color: var(--success); }
+        .ex-input.wrong { border-color: #ef4444; color: #ef4444; }
+
+        .btn-check {
+            background: var(--bio-color);
+            color: #000;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        /* Image Download Section */
+        .image-download-section {
+            background: linear-gradient(145deg, #18181b, #09090b);
+            border: 2px solid var(--bio-color);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .image-preview {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 40px -10px var(--bio-glow);
+        }
+        .btn-download {
+            background: var(--bio-color);
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-download:hover {
+            background: #0d9488;
+            transform: scale(1.05);
+        }
+
+        /* Feynman Flip */
+        .flip-container {
+            perspective: 1000px;
+            height: 250px;
+            cursor: pointer;
+            margin: 2rem 0;
+        }
+        .flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-container.flipped .flip-inner { transform: rotateY(180deg); }
+        .flip-front, .flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+        .flip-front { background: linear-gradient(145deg, var(--bg-card), #202023); }
+        .flip-back { background: linear-gradient(145deg, #202023, var(--bg-card)); transform: rotateY(180deg); border-color: var(--bio-color); }
+
+        /* Summary Grid */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .summary-item {
+            background: rgba(255,255,255,0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--bio-color);
+        }
+        .summary-item h4 { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+        .summary-item p { font-size: 1.1rem; font-weight: 600; color: #fff; margin: 0; }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="biologia.html" class="back-link">← Voltar para Biologia</a>
+
+        <header class="hero fade-in">
+            <span class="hero-badge">Metabolismo Celular</span>
+            <h1>📘 FERMENTAÇÃO</h1>
+            <p style="color: var(--text-muted);">Energia sem oxigênio: o plano B da célula</p>
+        </header>
+
+        <!-- 1. DEFINIÇÃO INTUITIVA -->
+        <section class="card fade-in">
+            <h2>1. Definição Intuitiva</h2>
+            <p>Fermentação é um processo em que células produzem energia <strong>sem usar oxigênio</strong>, degradando moléculas orgânicas (principalmente glicose).</p>
+            
+            <div style="background: rgba(20, 184, 166, 0.1); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; text-align: center;">
+                <p style="margin-bottom: 0.5rem; font-weight: 600;">👉 Em termos simples:</p>
+                <p>quando não há oxigênio, a célula "improvisa" para continuar gerando energia.</p>
+            </div>
+        </section>
+
+        <!-- 2. DEFINIÇÃO FORMAL -->
+        <section class="card fade-in">
+            <h2>2. Definição Formal</h2>
+            <p>Fermentação é um processo metabólico anaeróbico no qual a glicose é parcialmente degradada para gerar ATP, com regeneração de NAD⁺ a partir de NADH, permitindo a continuidade da glicólise.</p>
+            
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                <span class="bio-text">anaeróbico</span>
+                <span class="bio-text">parcialmente degradada</span>
+                <span class="bio-text">regeneração de NAD⁺</span>
+            </div>
+        </section>
+
+        <!-- 3. EQUAÇÃO GERAL -->
+        <section class="card fade-in">
+            <h2>3. Equação Geral (Base Energética)</h2>
+            
+            <div class="equation-box">
+                <div style="font-size: 1.5rem; font-family: var(--font-mono);">
+                    $$ C_6H_{12}O_6 \rightarrow 2ATP + \text{produtos finais} $$
+                </div>
+            </div>
+
+            <blockquote>
+                👉 A fermentação sempre depende da <strong>glicólise</strong>, que gera:
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>2 ATP</li>
+                    <li>2 NADH</li>
+                </ul>
+            </blockquote>
+        </section>
+
+        <!-- 4. INTERPRETAÇÃO DA EQUAÇÃO -->
+        <section class="card fade-in">
+            <h2>4. Interpretação da Equação</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+                <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 8px;">
+                    <strong style="color: var(--bio-color);">Glicose</strong><br>
+                    <span style="font-size: 0.9rem; color: var(--text-muted);">fonte de energia</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 8px;">
+                    <strong style="color: var(--bio-color);">ATP</strong><br>
+                    <span style="font-size: 0.9rem; color: var(--text-muted);">energia utilizável pela célula</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 8px;">
+                    <strong style="color: var(--bio-color);">Produtos finais</strong><br>
+                    <span style="font-size: 0.9rem; color: var(--text-muted);">variam conforme o tipo</span>
+                </div>
+            </div>
+
+            <div style="background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid #ef4444;">
+                <p>👉 <strong>Diferente da respiração:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Aqui NÃO há produção alta de ATP</li>
+                    <li>Energia é <strong>mal aproveitada</strong></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 5. GLICÓLISE -->
+        <section class="card fade-in">
+            <h2>5. Etapa Central: Glicólise</h2>
+            <p>Antes da fermentação acontecer:</p>
+            
+            <div style="background: rgba(20, 184, 166, 0.1); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0;">
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li>Ocorre no citoplasma</li>
+                    <li>Glicose → 2 piruvatos</li>
+                    <li>Produz:
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>2 ATP</li>
+                            <li>2 NADH</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid #ef4444;">
+                    <p>👉 <strong>Problema:</strong><br>Sem oxigênio, o NADH não pode ser reoxidado normalmente</p>
+                </div>
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--success);">
+                    <p>👉 <strong>Solução:</strong><br>A fermentação regenera NAD⁺</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TIPOS DE FERMENTAÇÃO -->
+        <section class="card fade-in">
+            <h2>6. Tipos de Fermentação</h2>
+
+            <div class="fermentation-types">
+                <div class="fermentation-btn active" onclick="showFermentation('latica')">🦴 Lática</div>
+                <div class="fermentation-btn" onclick="showFermentation('alcoolica')">🍺 Alcoólica</div>
+            </div>
+
+            <div id="fermentation-latica" class="fermentation-content show">
+                <h3>6.1 Fermentação Lática</h3>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; text-align: center; margin: 1rem 0; font-family: var(--font-mono);">
+                    $$ \text{piruvato} + NADH \rightarrow \text{ácido lático} + NAD^+ $$
+                </div>
+
+                <p><strong>Onde ocorre:</strong></p>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li>Músculos (falta de O₂)</li>
+                    <li>Bactérias</li>
+                </ul>
+
+                <p><strong>Características:</strong></p>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li>Não libera CO₂</li>
+                    <li>Produz ácido lático</li>
+                </ul>
+
+                <div style="background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p>👉 <strong>Consequência:</strong> Sensação de queimação muscular</p>
+                </div>
+            </div>
+
+            <div id="fermentation-alcoolica" class="fermentation-content">
+                <h3>6.2 Fermentação Alcoólica</h3>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; text-align: center; margin: 1rem 0; font-family: var(--font-mono);">
+                    $$ \text{piruvato} \rightarrow \text{etanol} + CO_2 $$
+                </div>
+
+                <p><strong>Onde ocorre:</strong></p>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li>Leveduras</li>
+                    <li>Algumas bactérias</li>
+                </ul>
+
+                <p><strong>Características:</strong></p>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li>Libera CO₂</li>
+                    <li>Produz etanol</li>
+                </ul>
+
+                <div style="background: rgba(20, 184, 166, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p>👉 <strong>Aplicações:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Pão (crescimento da massa)</li>
+                        <li>Bebidas alcoólicas</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. INTERPRETAÇÃO SISTÊMICA -->
+        <section class="card fade-in">
+            <h2>7. Interpretação Sistêmica (Anti-Superficialidade)</h2>
+            <p>A fermentação NÃO é um processo isolado:</p>
+            
+            <blockquote>👉 Ela existe para manter a glicólise funcionando</blockquote>
+
+            <div class="system-flow">
+                <div class="flow-box">
+                    <span style="font-size: 2rem;">🍬</span><br>
+                    <strong>Glicólise</strong><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">produz ATP e NADH</span>
+                </div>
+                <div class="flow-arrow">➜</div>
+                <div class="flow-box">
+                    <span style="font-size: 2rem;">🔄</span><br>
+                    <strong>Fermentação</strong><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">regenera NAD⁺</span>
+                </div>
+                <div class="flow-arrow">➜</div>
+                <div class="flow-box">
+                    <span style="font-size: 2rem;">♻️</span><br>
+                    <strong>NAD⁺</strong><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">permite continuidade</span>
+                </div>
+            </div>
+
+            <div style="background: rgba(239, 68, 68, 0.1); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">👉 Sem fermentação:</p>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li>NAD⁺ acaba</li>
+                    <li>Glicólise para</li>
+                    <li>Produção de energia zera</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 8. COMPARAÇÃO COM RESPIRAÇÃO -->
+        <section class="card fade-in">
+            <h2>8. Comparação com Respiração Aeróbica</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Fermentação</th>
+                        <th>Respiração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Oxigênio</strong></td>
+                        <td>Não usa</td>
+                        <td>Usa</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ATP</strong></td>
+                        <td>2 ATP</td>
+                        <td>~36 ATP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Degradação</strong></td>
+                        <td>Parcial</td>
+                        <td>Completa</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Produtos</strong></td>
+                        <td>Orgânicos</td>
+                        <td>CO₂ + H₂O</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid #f59e0b;">
+                    <p>Fermentação = <strong>emergência energética</strong></p>
+                </div>
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--success);">
+                    <p>Respiração = <strong>eficiência máxima</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. CASOS REAIS E APLICAÇÕES -->
+        <section class="card fade-in">
+            <h2>9. Casos Reais e Aplicações</h2>
+
+            <div class="app-grid">
+                <div class="app-card">
+                    <span class="app-icon">🏃</span>
+                    <h4 style="color: var(--bio-color); margin-bottom: 0.5rem;">9.1 Corpo humano</h4>
+                    <ul style="margin-left: 1.5rem; font-size: 0.9rem; line-height: 2;">
+                        <li>Exercício intenso → falta de O₂</li>
+                        <li>Ativa fermentação lática</li>
+                    </ul>
+                </div>
+                <div class="app-card">
+                    <span class="app-icon">🍞</span>
+                    <h4 style="color: var(--bio-color); margin-bottom: 0.5rem;">9.2 Indústria alimentícia</h4>
+                    <ul style="margin-left: 1.5rem; font-size: 0.9rem; line-height: 2;">
+                        <li>Pão → CO₂ faz a massa crescer</li>
+                        <li>Iogurte → fermentação lática</li>
+                        <li>Cerveja → fermentação alcoólica</li>
+                    </ul>
+                </div>
+                <div class="app-card">
+                    <span class="app-icon">🌊</span>
+                    <h4 style="color: var(--bio-color); margin-bottom: 0.5rem;">9.3 Ecologia</h4>
+                    <ul style="margin-left: 1.5rem; font-size: 0.9rem; line-height: 2;">
+                        <li>Ambientes sem oxigênio</li>
+                        <li>(pântanos, fundo do mar)</li>
+                        <li>Micro-organismos fermentadores dominam</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. ERROS COMUNS -->
+        <section class="card fade-in" style="border-color: #ef4444;">
+            <h2 style="color: #ef4444; border-left-color: #ef4444;">10. Erros Comuns</h2>
+            
+            <div class="error-card">
+                <span class="error-label wrong">❌</span>
+                <div>
+                    <span style="text-decoration: line-through; color: var(--text-muted);">"Fermentação produz muita energia"</span><br>
+                    <span style="color: var(--success); font-weight: 600;">✔ Produz muito pouco (2 ATP)</span>
+                </div>
+            </div>
+
+            <div class="error-card">
+                <span class="error-label wrong">❌</span>
+                <div>
+                    <span style="text-decoration: line-through; color: var(--text-muted);">"Fermentação substitui respiração"</span><br>
+                    <span style="color: var(--success); font-weight: 600;">✔ É apenas alternativa emergencial</span>
+                </div>
+            </div>
+
+            <div class="error-card correct">
+                <span class="error-label right">✔</span>
+                <div>
+                    <span style="text-decoration: line-through; color: var(--text-muted);">"Ácido lático é lixo inútil"</span><br>
+                    <span style="color: var(--success); font-weight: 600;">✔ Pode ser reutilizado depois</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. EXEMPLOS RESOLVIDOS -->
+        <section class="card fade-in">
+            <h2>11. Exemplos Resolvidos</h2>
+
+            <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                <h4 style="color: var(--bio-color); margin-bottom: 0.5rem;">Exemplo 1 (Direto)</h4>
+                <p>Quantos ATP são produzidos na fermentação?</p>
+                <div style="margin-top: 1rem; padding: 1rem; background: rgba(20, 184, 166, 0.1); border-radius: 8px;">
+                    <strong>Resposta:</strong> <span class="bio-text">2 ATP</span> (vindos da glicólise)
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px;">
+                <h4 style="color: var(--bio-color); margin-bottom: 0.5rem;">Exemplo 2 (Interpretação)</h4>
+                <p>Por que a fermentação é necessária?</p>
+                <div style="margin-top: 1rem; padding: 1rem; background: rgba(20, 184, 166, 0.1); border-radius: 8px;">
+                    <strong>Resposta:</strong>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Para regenerar NAD⁺</li>
+                        <li>Permitir continuidade da glicólise</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. EXERCÍCIOS DE FIXAÇÃO -->
+        <section class="card fade-in">
+            <h2>12. Exercícios de Fixação</h2>
+
+            <h3 style="color: #3b82f6;">🔹 Básico</h3>
+            <div class="exercise-grid">
+                <div class="ex-card">
+                    <p>1. O que é fermentação?</p>
+                    <input type="text" class="ex-input" placeholder="Sua resposta..." data-ans="anaerobico">
+                    <button class="btn-check" onclick="checkEx(this)">Verificar</button>
+                </div>
+                <div class="ex-card">
+                    <p>2. Qual o papel do NAD⁺?</p>
+                    <input type="text" class="ex-input" placeholder="Sua resposta..." data-ans="regenerar">
+                    <button class="btn-check" onclick="checkEx(this)">Verificar</button>
+                </div>
+                <div class="ex-card">
+                    <p>3. Onde ocorre a glicólise?</p>
+                    <input type="text" class="ex-input" placeholder="Sua resposta..." data-ans="citoplasma">
+                    <button class="btn-check" onclick="checkEx(this)">Verificar</button>
+                </div>
+            </div>
+
+            <h3 style="color: #f59e0b; margin-top: 2rem;">🔹 Intermediário</h3>
+            <div class="exercise-grid">
+                <div class="ex-card">
+                    <p>4. Por que a fermentação é menos eficiente?</p>
+                    <input type="text" class="ex-input" placeholder="Sua resposta..." data-ans="parcial">
+                    <button class="btn-check" onclick="checkEx(this)">Verificar</button>
+                </div>
+                <div class="ex-card">
+                    <p>5. Explique a relação entre NADH e NAD⁺</p>
+                    <input type="text" class="ex-input" placeholder="Sua resposta..." data-ans="oxidacao">
+                    <button class="btn-check" onclick="checkEx(this)">Verificar</button>
+                </div>
+                <div class="ex-card">
+                    <p>6. Compare fermentação lática e alcoólica</p>
+                    <input type="text" class="ex-input" placeholder="Sua resposta..." data-ans="laticanaoliberaco2">
+                    <button class="btn-check" onclick="checkEx(this)">Verificar</button>
+                </div>
+            </div>
+
+            <h3 style="color: #ef4444; margin-top: 2rem;">🔹 Difícil (MEXT+)</h3>
+            <div class="exercise-grid">
+                <div class="ex-card">
+                    <p>7. Explique por que a falta de O₂ afeta a produção de ATP</p>
+                    <input type="text" class="ex-input" placeholder="Sua resposta..." data-ans="nad">
+                    <button class="btn-check" onclick="checkEx(this)">Verificar</button>
+                </div>
+                <div class="ex-card">
+                    <p>8. Relacione fermentação com metabolismo celular</p>
+                    <input type="text" class="ex-input" placeholder="Sua resposta..." data-ans="emergencia">
+                    <button class="btn-check" onclick="checkEx(this)">Verificar</button>
+                </div>
+                <div class="ex-card">
+                    <p>9. Analise o impacto da fermentação em ambientes anaeróbicos</p>
+                    <input type="text" class="ex-input" placeholder="Sua resposta..." data-ans="sobrevivencia">
+                    <button class="btn-check" onclick="checkEx(this)">Verificar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. DESAFIOS (ITA/IME) -->
+        <section class="card fade-in" style="border-color: #ef4444;">
+            <h2 style="color: #ef4444; border-left-color: #ef4444;">13. Desafios (ITA/IME)</h2>
+            
+            <div style="display: grid; gap: 1.5rem;">
+                <div style="background: rgba(239, 68, 68, 0.1); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.3);">
+                    <p>1. Modele a fermentação como sistema de controle de NAD⁺</p>
+                </div>
+                <div style="background: rgba(239, 68, 68, 0.1); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.3);">
+                    <p>2. Explique por que a glicose não é totalmente degradada</p>
+                </div>
+                <div style="background: rgba(239, 68, 68, 0.1); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.3);">
+                    <p>3. Compare eficiência energética com base em ligações químicas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. CONEXÕES -->
+        <section class="card fade-in">
+            <h2>14. Conexões com Outros Tópicos</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h4>Respiração celular</h4>
+                    <p>Vias alternativas</p>
+                </div>
+                <div class="summary-item">
+                    <h4>Glicólise</h4>
+                    <p>Etapas iniciais</p>
+                </div>
+                <div class="summary-item">
+                    <h4>Metabolismo energético</h4>
+                    <p>Produção de ATP</p>
+                </div>
+                <div class="summary-item">
+                    <h4>Bioquímica</h4>
+                    <p>Reações enzimáticas</p>
+                </div>
+                <div class="summary-item">
+                    <h4>Ecologia microbiana</h4>
+                    <p>Ambientes anaeróbicos</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 15. SÍNTESE FINAL -->
+        <section class="card fade-in" style="border-color: var(--bio-color);">
+            <h2 style="border: none; padding: 0; margin-bottom: 1.5rem;">15. Síntese Final</h2>
+            
+            <p>Fermentação é um mecanismo de sobrevivência energética:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: rgba(20, 184, 166, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                    <span style="font-size: 2rem;">⚡</span><br>
+                    <strong>Permite produção de ATP sem oxigênio</strong>
+                </div>
+                <div style="background: rgba(20, 184, 166, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                    <span style="font-size: 2rem;">🔄</span><br>
+                    <strong>Mantém a glicólise ativa</strong>
+                </div>
+                <div style="background: rgba(20, 184, 166, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                    <span style="font-size: 2rem;">⚖️</span><br>
+                    <strong>Sacrifica eficiência em troca de continuidade</strong>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center; padding: 2rem; background: linear-gradient(145deg, #18181b, #09090b); border-radius: 16px; border: 1px solid var(--border);">
+                <p style="font-size: 1.2rem; color: var(--text-muted);">👉 Não é o melhor sistema</p>
+                <p style="font-size: 1.5rem; font-weight: 800; color: var(--bio-color); margin-top: 0.5rem;">👉 É o sistema que mantém a vida funcionando <strong>quando tudo falha</strong></p>
+            </div>
+        </section>
+
+        <!-- DESAFIO FEYNMAN -->
+        <section class="card fade-in">
+            <h2>🧠 DESAFIO FEYNMAN</h2>
+            <p>Explique com suas palavras:</p>
+            <p>👉 Por que a fermentação é necessária mesmo produzindo tão pouco ATP?</p>
+            <p>Se você não conseguir explicar claramente, volte e revise.</p>
+
+            <div class="flip-container" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <h3>Clique para ver a explicação</h3>
+                        <p style="margin-top: 1rem; color: var(--text-muted);">(Flip Card)</p>
+                    </div>
+                    <div class="flip-back">
+                        <h3 style="color: var(--bio-color);">Explicação:</h3>
+                        <p>A fermentação não é sobre produzir muito ATP, mas sim sobre <strong>regenerar NAD⁺</strong>.</p>
+                        <p style="margin-top: 1rem;">Sem NAD⁺, a glicólise para completamente e a célula morre por falta TOTAL de energia.</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">2 ATP é melhor que 0 ATP!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 16. IMAGEM PARA DOWNLOAD -->
+        <section class="image-download-section fade-in">
+            <h2 style="border: none; padding: 0; margin: 0;">📊 Material Visual de Apoio</h2>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Diagrama completo da fermentação para estudo</p>
+            
+            <img src="fermentacao.png" alt="Diagrama da Fermentação" class="image-preview" id="foto-preview" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMTgxODFiIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzE0YjhhNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkZlcm1lbnRhY2FvLnBuZzwvdGV4dD48L3N2Zz4='">
+            
+            <button class="btn-download" onclick="downloadImage()">
+                📥 Baixar Imagem (fermentacao.png)
+            </button>
+            
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
+                Clique no botão acima para fazer o download da imagem em alta resolução.
+            </p>
+        </section>
+
+    </div>
+
+    <script>
+        // --- 1. Inicializar KaTeX ---
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError : false
+            });
+
+            // Observer para animações de entrada
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        // --- 2. Fermentation Type Toggle ---
+        function showFermentation(type) {
+            // Hide all
+            document.querySelectorAll('.fermentation-content').forEach(el => el.classList.remove('show'));
+            document.querySelectorAll('.fermentation-btn').forEach(el => el.classList.remove('active'));
+            
+            // Show selected
+            document.getElementById(`fermentation-${type}`).classList.add('show');
+            
+            // Update buttons
+            const btnIndex = type === 'latica' ? 0 : 1;
+            document.querySelectorAll('.fermentation-btn')[btnIndex].classList.add('active');
+        }
+
+        // --- 3. Exercise Checker ---
+        function checkEx(btn) {
+            const input = btn.previousElementSibling;
+            const userVal = input.value.replace(/\s/g, '').toLowerCase();
+            const correctVal = input.getAttribute('data-ans').toLowerCase();
+            
+            // Simple check - contains the key term
+            let isCorrect = userVal.includes(correctVal) || correctVal.includes(userVal);
+            
+            if (isCorrect && userVal.length > 3) {
+                input.classList.add('correct');
+                input.classList.remove('wrong');
+                btn.textContent = "Correto! ✅";
+                btn.style.background = "var(--success)";
+            } else {
+                input.classList.add('wrong');
+                input.classList.remove('correct');
+                btn.textContent = "Tente novamente ❌";
+                btn.style.background = "#ef4444";
+            }
+        }
+
+        // --- 4. Download Image ---
+        function downloadImage() {
+            const img = document.getElementById('foto-preview');
+            const link = document.createElement('a');
+            link.href = img.src;
+            link.download = 'fermentacao.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Feedback visual
+            const btn = document.querySelector('.btn-download');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '✅ Download iniciado!';
+            btn.style.background = 'var(--success)';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = 'var(--bio-color)';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
