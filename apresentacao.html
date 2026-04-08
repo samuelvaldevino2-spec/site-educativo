@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeito Estufa e Camada de Ozônio - Apresentação Interativa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0f;
+            --neon-blue: #00d4ff;
+            --neon-purple: #b829dd;
+            --neon-cyan: #00f5ff;
+            --neon-green: #39ff14;
+            --neon-yellow: #ffd700;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Canvas */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Grid Background Effect */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Sections - Normal flow with scroll */
+        section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+            pointer-events: none;
+        }
+
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .content-wrapper.single-col {
+            grid-template-columns: 1fr;
+            max-width: 900px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: clamp(1rem, 1.3vw, 1.1rem);
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            margin: 1.5rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--neon-green);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .key-idea {
+            color: var(--neon-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-idea::before {
+            content: "💡";
+        }
+
+        /* Cards */
+        .card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(184, 41, 221, 0.1));
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .card h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .card li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--neon-purple);
+            font-weight: bold;
+        }
+
+        /* Visual Elements */
+        .visual-container {
+            position: relative;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animated Earth */
+        .earth-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+        }
+
+        .earth {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #7e8ba3);
+            box-shadow: 0 0 60px rgba(0, 212, 255, 0.4), inset -20px -20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            animation: rotate 20s linear infinite;
+        }
+
+        .earth::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(0,255,0,0.3) 0%, transparent 20%),
+                        radial-gradient(circle at 70% 60%, rgba(0,255,0,0.2) 0%, transparent 15%);
+            animation: rotate 30s linear infinite reverse;
+        }
+
+        .atmosphere {
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes pulse { 0%,100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 0.8; } }
+
+        /* Greenhouse Simulation */
+        .greenhouse-sim {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(to bottom, rgba(0, 212, 255, 0.1), rgba(184, 41, 221, 0.1));
+            border-radius: 20px;
+            border: 2px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sun {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 60px; height: 60px;
+            background: radial-gradient(circle, #ffd700, #ff8c00);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255,215,0,0.6);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .ray {
+            position: absolute;
+            width: 4px; height: 150px;
+            background: linear-gradient(to bottom, rgba(255,215,0,0.8), transparent);
+            top: 80px; right: 45px;
+            animation: rayMove 3s ease-in-out infinite;
+        }
+
+        .ground {
+            position: absolute;
+            bottom: 0; width: 100%; height: 100px;
+            background: linear-gradient(to top, #2d5016, #3d6b22);
+            border-top: 2px solid var(--neon-green);
+        }
+
+        .heat-particle {
+            position: absolute;
+            width: 8px; height: 8px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon-green);
+            animation: heatRise 4s ease-in-out infinite;
+        }
+
+        @keyframes glow { from { box-shadow: 0 0 20px rgba(255,215,0,0.4); } to { box-shadow: 0 0 60px rgba(255,215,0,0.8); } }
+        @keyframes rayMove { 0%,100% { transform: rotate(-10deg); opacity: 0.5; } 50% { transform: rotate(10deg); opacity: 1; } }
+        @keyframes heatRise { 0% { bottom: 100px; opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { bottom: 320px; opacity: 0; transform: translateX(20px); } }
+
+        /* Counter */
+        .counter-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .counter-value {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .counter-label {
+            color: rgba(255,255,255,0.7);
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Mind Map Sections - Full screen display */
+        .mindmap-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .mindmap-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1000px;
+            padding: 2rem;
+        }
+
+        .mindmap-img {
+            max-width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+            border-radius: 20px;
+            border: 3px solid var(--glass-border);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .mindmap-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 70px rgba(0, 212, 255, 0.5);
+        }
+
+        .download-btn {
+            margin-top: 2rem;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Tooltip */
+        .tooltip-trigger {
+            display: inline;
+            border-bottom: 2px dotted var(--neon-cyan);
+            cursor: help;
+            position: relative;
+            color: var(--neon-cyan);
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-dark);
+            border: 1px solid var(--neon-blue);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+
+        .tooltip-trigger:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: 110%;
+        }
+
+        /* Fixed Navigation Buttons - Bottom Right */
+        .nav-fixed {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Progress Indicator - Bottom Left */
+        .progress-container {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.8);
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .progress-indicator {
+            display: flex;
+            gap: 8px;
+        }
+
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .progress-dot.active {
+            background: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+            transform: scale(1.3);
+        }
+
+        .section-counter {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+
+        /* Section side dots */
+        .section-indicator {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .section-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .section-dot.active {
+            background: var(--neon-cyan);
+            box-shadow: 0 0 12px var(--neon-cyan);
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .section-indicator { display: none; }
+            .nav-fixed { bottom: 20px; right: 20px; }
+            .progress-container { bottom: 20px; left: 20px; padding: 10px 15px; }
+        }
+
+        /* Quiz Section */
+        .quiz-container {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 800px;
+            margin-top: 2rem;
+        }
+
+        .quiz-question {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 1.5rem;
+            color: var(--neon-cyan);
+            font-weight: 600;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid transparent;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .quiz-option:hover:not(:disabled) {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: var(--neon-blue);
+            transform: translateX(5px);
+        }
+
+        .quiz-option.correct {
+            background: rgba(57, 255, 20, 0.3);
+            border-color: var(--neon-green);
+        }
+
+        .quiz-option.wrong {
+            background: rgba(255, 107, 107, 0.3);
+            border-color: #ff6b6b;
+        }
+
+        .quiz-option:disabled {
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        .quiz-feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            display: none;
+            font-weight: 600;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quiz-progress {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .quiz-progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .quiz-progress-dot.answered-correct { background: var(--neon-green); box-shadow: 0 0 8px var(--neon-green); }
+        .quiz-progress-dot.answered-wrong { background: #ff6b6b; box-shadow: 0 0 8px #ff6b6b; }
+        .quiz-progress-dot.current { background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); transform: scale(1.3); }
+
+        .final-message {
+            text-align: center;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--neon-green);
+            margin-top: 2rem;
+            padding: 2rem;
+            border-top: 2px solid var(--glass-border);
+            border-bottom: 2px solid var(--glass-border);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .visual-container {
+                height: 250px;
+            }
+            .earth-container {
+                width: 200px;
+                height: 200px;
+            }
+            section { padding: 3rem 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .nav-btn { padding: 12px 20px; font-size: 0.9rem; min-width: 120px; }
+            .progress-container { padding: 8px 12px; }
+            .highlight-box { padding: 1rem; }
+            .card { padding: 1.5rem; }
+            .mindmap-img { max-height: 50vh; }
+            .quiz-container { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+    <div class="grid-overlay"></div>
+
+    <!-- Side Navigation Dots -->
+    <div class="section-indicator" id="sectionIndicator"></div>
+
+    <!-- Fixed Navigation Buttons (Bottom Right) -->
+    <div class="nav-fixed">
+        <button class="nav-btn" id="prevBtn" onclick="changeSection(-1)">← Anterior</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSection(1)">Próximo →</button>
+    </div>
+
+    <!-- Fixed Progress Indicator (Bottom Left) -->
+    <div class="progress-container">
+        <div class="progress-indicator" id="progressIndicator"></div>
+        <span class="section-counter" id="sectionCounter">1/9</span>
+    </div>
+
+    <!-- ==================== SEÇÃO 1: INTRODUÇÃO AO EFEITO ESTUFA ==================== -->
+    <section class="section-1 active" id="section-1">
+        <div class="content-wrapper">
+            <div class="text-content">
+                <h1>Introdução ao Efeito Estufa</h1>
+                <p>O efeito estufa é um fenômeno <span class="tooltip-trigger">natural<span class="tooltip">Processo que ocorre sem intervenção humana e é fundamental para a manutenção da vida</span></span> e absolutamente essencial para a existência de seres vivos na Terra. Quando a luz solar atinge o planeta, aproximadamente 30% dessa energia é refletida de volta ao espaço por superfícies claras, como gelo e nuvens, enquanto os 70% restantes são absorvidos pela superfície terrestre e pelos oceanos.</p>
+                <p>Essa energia absorvida se transforma em calor e é reemitida pela Terra na forma de radiação infravermelha (ondas longas). Os gases presentes na atmosfera, conhecidos como <strong>gases de efeito estufa (GEE)</strong>, possuem a capacidade física de absorver parte dessa radiação infravermelha e reemití-la em todas as direções, inclusive de volta para a superfície. Esse mecanismo cria uma espécie de "cobertor térmico" que mantém o planeta aquecido.</p>
+                <div class="highlight-box">
+                    <p>Os principais gases responsáveis por esse processo são o dióxido de carbono (CO₂), metano (CH₄), vapor de água (H₂O), óxido nitroso (N₂O) e ozônio (O₃). Cada um deles possui propriedades químicas distintas e contribui de forma diferenciada para a retenção de calor na atmosfera.</p>
+                    <div class="key-idea">O efeito estufa é natural, necessário e mantém a temperatura média da Terra em aproximadamente 15°C.</div>
+                </div>
+                <p>Sem esse mecanismo atmosférico, a temperatura média global cairia para cerca de <strong>-18°C</strong>, transformando a Terra em um planeta gelado e hostil, incapaz de sustentar a biodiversidade que conhecemos. Portanto, é crucial diferenciar o efeito estufa natural (benéfico) do efeito estufa intensificado pelas atividades humanas (prejudicial).</p>
+            </div>
+            <div class="visual-container">
+                <div class="earth-container">
+                    <div class="earth"></div>
+                    <div class="atmosphere"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO 2: FUNCIONAMENTO DO EFEITO ESTUFA ==================== -->
+    <section class="section-2" id="section-2">
+        <div class="content-wrapper">
+            <div class="visual-container">
+                <div class="greenhouse-sim" id="greenhouseSim">
+                    <div class="sun"></div>
+                    <div class="ray"></div>
+                    <div class="ground"></div>
+                </div>
+            </div>
+            <div class="text-content">
+                <h1>Funcionamento do Efeito Estufa</h1>
+                <p>O funcionamento do efeito estufa pode ser compreendido como um processo cíclico e dinâmico, baseado nas leis da termodinâmica e da física atmosférica. O processo inicia-se com a chegada da radiação solar à Terra, composta majoritariamente por ondas curtas (luz visível e ultravioleta), que conseguem atravessar a atmosfera com relativa facilidade.</p>
+                <div class="card">
+                    <h3>Etapas do Processo:</h3>
+                    <ul>
+                        <li>Entrada da radiação solar (ondas curtas)</li>
+                        <li>Absorção pela superfície terrestre e oceanos</li>
+                        <li>Aquecimento do solo e emissão de calor</li>
+                        <li>Emissão de radiação infravermelha (ondas longas)</li>
+                        <li>Absorção e reemissão pelos gases de efeito estufa</li>
+                        <li>Equilíbrio térmico planetário</li>
+                    </ul>
+                </div>
+                <p>Após absorver a energia solar, a superfície terrestre se aquece e passa a emitir calor na forma de radiação infravermelha. Diferentemente das ondas curtas, essa radiação de ondas longas interage fortemente com moléculas gasosas poliatômicas (como CO₂ e CH₄). Quando a radiação infravermelha atinge essas moléculas, ela induz vibrações em suas ligações químicas, armazenando energia térmica.</p>
+                <p>Posteriormente, essas moléculas excitadas liberam essa energia na forma de nova radiação infravermelha, que se propaga em múltiplas direções. Uma fração significativa retorna à superfície, aquecendo-a novamente, enquanto outra parte escapa para o espaço. Esse fluxo contínuo de absorção e reemissão cria um equilíbrio térmico fundamental.</p>
+                <div class="highlight-box">
+                    <div class="key-idea">O efeito estufa depende de um equilíbrio delicado entre energia recebida e energia perdida.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO 3: EFEITO ESTUFA INTENSIFICADO ==================== -->
+    <section class="section-3" id="section-3">
+        <div class="content-wrapper">
+            <div class="text-content">
+                <h1>Efeito Estufa Intensificado</h1>
+                <p>O efeito estufa intensificado (ou antropogênico) ocorre quando há um <span class="tooltip-trigger">aumento excessivo<span class="tooltip">Causado principalmente por atividades humanas desde a Revolução Industrial (meados do século XVIII)</span></span> na concentração de gases de efeito estufa na atmosfera, rompendo o equilíbrio natural que se manteve estável por milhares de anos.</p>
+                <p>Desde o início da industrialização, a queima desenfreada de combustíveis fósseis (carvão, petróleo e gás natural), o desmatamento em larga escala, a expansão da agropecuária e os processos industriais liberaram quantidades colossais de CO₂, CH₄ e N₂O. Segundo dados do NOAA e do IPCC, a concentração de CO₂ na atmosfera ultrapassou <strong>420 partes por milhão (ppm)</strong> em 2023, o maior nível em pelo menos 800 mil anos.</p>
+                <div class="counter-box">
+                    <div class="counter-value" id="co2Counter">0</div>
+                    <div class="counter-label">ppm de CO₂ na atmosfera (nível atual)</div>
+                </div>
+                <p>Esse acúmulo de gases intensifica a capacidade da atmosfera de reter calor, elevando a temperatura média global. Além do CO₂, o metano (CH₄), embora presente em menor concentração, é cerca de 28 vezes mais potente que o CO₂ em um horizonte de 100 anos. O óxido nitroso (N₂O), proveniente de fertilizantes agrícolas e queima de biomassa, possui potencial de aquecimento cerca de 265 vezes maior.</p>
+                <div class="card">
+                    <h3>Principais Fontes Antropogênicas:</h3>
+                    <ul>
+                        <li>Queima de combustíveis fósseis (transporte, indústria, geração de energia)</li>
+                        <li>Desmatamento e queimadas (liberação de carbono estocado)</li>
+                        <li>Agropecuária (digestão de ruminantes, manejo de dejetos, arrozais)</li>
+                        <li>Processos industriais e resíduos sólidos</li>
+                    </ul>
+                </div>
+                <div class="highlight-box">
+                    <div class="key-idea">A ação humana está alterando o equilíbrio natural do planeta em uma velocidade sem precedentes.</div>
+                </div>
+            </div>
+            <div class="visual-container">
+                <div class="earth-container">
+                    <div class="earth" style="background: linear-gradient(135deg, #5a1a1a, #8B0000, #DC143C);"></div>
+                    <div class="atmosphere" style="border-color: rgba(255,107,107,0.5); box-shadow: 0 0 40px rgba(255,107,107,0.4);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO 4: CONSEQUÊNCIAS DO AQUECIMENTO GLOBAL ==================== -->
+    <section class="section-4" id="section-4">
+        <div class="content-wrapper">
+            <div class="visual-container">
+                <div class="earth-container">
+                    <div class="earth" style="background: linear-gradient(135deg, #8B0000, #DC143C, #FF6347);"></div>
+                    <div class="atmosphere" style="border-color: rgba(255,107,107,0.5); box-shadow: 0 0 40px rgba(255,107,107,0.4);"></div>
+                </div>
+            </div>
+            <div class="text-content">
+                <h1>Consequências do Aquecimento Global</h1>
+                <p>O aumento contínuo da temperatura média global desencadeia uma cadeia complexa de consequências ambientais, sociais e econômicas. A ciência climática já documenta mudanças mensuráveis em praticamente todos os sistemas naturais do planeta, desde os oceanos até as camadas de gelo polares.</p>
+                <p>Um dos impactos mais visíveis é o <strong>derretimento acelerado das geleiras</strong> e das calotas polares. O Ártico está perdendo gelo marinho a uma taxa de cerca de 13% por década, enquanto a Groenlândia e a Antártida contribuem significativamente para a elevação do nível do mar. Estima-se que o nível dos oceanos subiu aproximadamente 20 cm desde 1900, ameaçando cidades costeiras e ilhas baixas.</p>
+                <div class="card">
+                    <h3>Principais Impactos Documentados:</h3>
+                    <ul>
+                        <li>Aumento da temperatura média global (+1,2°C desde a era pré-industrial)</li>
+                        <li>Derretimento de geleiras, calotas polares e permafrost</li>
+                        <li>Elevação do nível do mar e salinização de aquíferos costeiros</li>
+                        <li>Eventos climáticos extremos mais frequentes e intensos</li>
+                        <li>Acidificação dos oceanos (absorção de CO₂ pela água)</li>
+                        <li>Perda de biodiversidade e extinção de espécies</li>
+                        <li>Impactos na segurança alimentar e hídrica</li>
+                    </ul>
+                </div>
+                <p>Além disso, o aquecimento global intensifica eventos extremos: ondas de calor tornam-se mais longas e severas, secas prolongadas afetam a agricultura, e tempestades tornam-se mais carregadas de umidade, provocando enchentes devastadoras. A acidificação dos oceanos, causada pela dissolução de CO₂ na água, prejudica corais, moluscos e toda a cadeia alimentar marinha.</p>
+                <p>Esses efeitos também afetam diretamente a vida humana, especialmente em regiões mais vulneráveis e com menor capacidade de adaptação. Migrações climáticas, conflitos por recursos naturais e prejuízos econômicos bilionários são projeções realistas caso a temperatura ultrapasse 2°C.</p>
+                <div class="highlight-box">
+                    <div class="key-idea">Pequenas mudanças na temperatura média podem gerar impactos desproporcionais e irreversíveis.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO 5: CAMADA DE OZÔNIO ==================== -->
+    <section class="section-5" id="section-5">
+        <div class="content-wrapper">
+            <div class="text-content">
+                <h1>Camada de Ozônio</h1>
+                <p>A camada de ozônio é uma região da atmosfera localizada na <span class="tooltip-trigger">estratosfera<span class="tooltip">Segunda camada da atmosfera, situada entre 10 e 50 km de altitude</span></span>, entre aproximadamente 15 e 35 quilômetros de altitude, onde se concentra cerca de 90% de todo o ozônio (O₃) presente no planeta. Diferente do ozônio troposférico (que é um poluente), o ozônio estratosférico exerce uma função protetora vital.</p>
+                <p>Sua formação ocorre naturalmente pela ação da radiação ultravioleta (UV) sobre moléculas de oxigênio (O₂). Quando a luz UV atinge o O₂, ele se divide em dois átomos livres de oxigênio, que se recombinam com outras moléculas de O₂ para formar O₃. Esse processo contínuo, conhecido como <strong>Ciclo de Chapman</strong>, mantém um equilíbrio dinâmico entre formação e destruição do ozônio.</p>
+                <div class="highlight-box">
+                    <p>A principal função da camada de ozônio é absorver a maior parte da radiação ultravioleta-B (UV-B) e toda a radiação ultravioleta-C (UV-C) emitida pelo Sol. A UV-B é parcialmente absorvida, enquanto a UV-C é completamente bloqueada, evitando que atinja a superfície terrestre.</p>
+                    <div class="key-idea">A camada de ozônio funciona como um escudo protetor contra radiação solar nociva.</div>
+                </div>
+                <div class="card">
+                    <h3>Importância Biológica e Ecológica:</h3>
+                    <ul>
+                        <li>Proteção contra câncer de pele e catarata em humanos</li>
+                        <li>Preservação do fitoplâncton (base da cadeia alimentar marinha)</li>
+                        <li>Proteção de cultivos agrícolas e ecossistemas terrestres</li>
+                        <li>Manutenção do equilíbrio biológico e genético das espécies</li>
+                        <li>Prevenção de danos ao DNA celular e mutações</li>
+                    </ul>
+                </div>
+                <p>Sem essa camada, a radiação UV atingiria diretamente a superfície terrestre em níveis letais, causando sérios danos à saúde humana, comprometendo a produtividade agrícola e desestabilizando ecossistemas inteiros. A unidade de medida da espessura da camada é a <strong>Unidade Dobson (DU)</strong>, sendo que valores abaixo de 220 DU são considerados indicativos de "buraco" na camada.</p>
+            </div>
+            <div class="visual-container">
+                <div class="earth-container">
+                    <div class="earth" style="background: linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9);"></div>
+                    <div class="atmosphere" style="border-color: rgba(0,212,255,0.6); box-shadow: 0 0 50px rgba(0,212,255,0.5);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO 6: DESTRUIÇÃO DA CAMADA DE OZÔNIO ==================== -->
+    <section class="section-6" id="section-6">
+        <div class="content-wrapper">
+            <div class="visual-container">
+                <div class="greenhouse-sim" style="background: linear-gradient(to bottom, rgba(184,41,221,0.2), rgba(0,0,0,0.3));">
+                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+                        <div style="font-size:4rem;animation:pulse 2s infinite;">🕳️</div>
+                        <p style="margin-top:1rem;color:var(--neon-purple);font-weight:bold;">Buraco na Camada</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-content">
+                <h1>Destruição da Camada de Ozônio</h1>
+                <p>A destruição da camada de ozônio está intrinsecamente relacionada ao uso industrial de substâncias químicas sintéticas, especialmente os <span class="tooltip-trigger">clorofluorcarbonetos (CFCs)<span class="tooltip">Compostos estáveis na troposfera, mas altamente reativos na estratosfera</span></span>, que foram amplamente utilizados em aerossóis, sistemas de refrigeração, espumas isolantes e processos de limpeza eletrônica a partir da década de 1930.</p>
+                <p>Os CFCs são quimicamente inertes na baixa atmosfera, o que lhes permite permanecer estáveis por décadas até serem transportados para a estratosfera por correntes de ar. Lá, a radiação UV intensa quebra suas ligações, liberando átomos de cloro (Cl). Um único átomo de cloro pode destruir <strong>mais de 100 mil moléculas de ozônio</strong> através de um ciclo catalítico, onde o cloro é regenerado e continua reagindo.</p>
+                <p>Esse processo é intensificado nas regiões polares durante o inverno e a primavera. As <strong>Nuvens Estratosféricas Polares (PSCs)</strong>, formadas em temperaturas extremamente baixas (abaixo de -78°C), fornecem superfícies sólidas que aceleram as reações químicas de destruição do ozônio. É por isso que o "buraco" se forma principalmente sobre a Antártida entre agosto e outubro.</p>
+                <div class="card">
+                    <h3>Consequências da Depleção do Ozônio:</h3>
+                    <ul>
+                        <li>Aumento da radiação UV-B na superfície terrestre</li>
+                        <li>Riscos elevados de câncer de pele, envelhecimento precoce e catarata</li>
+                        <li>Supressão do sistema imunológico humano e animal</li>
+                        <li>Redução da produtividade do fitoplâncton e colapsos na cadeia alimentar marinha</li>
+                        <li>Danos ao crescimento de plantas e cultivos agrícolas</li>
+                        <li>Desequilíbrio em ecossistemas terrestres e aquáticos</li>
+                    </ul>
+                </div>
+                <p>Como consequência direta, ocorre a formação do chamado "buraco na camada de ozônio", especialmente observado na região da Antártida. A descoberta desse fenômeno na década de 1980 por pesquisadores britânicos (Farman, Gardiner e Shanklin) foi um marco científico que mobilizou a comunidade internacional.</p>
+                <div class="highlight-box">
+                    <div class="key-idea">A ação humana pode enfraquecer a proteção natural do planeta, mas a cooperação global pode reverter o dano.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO 7: MAPA MENTAL - EFEITO ESTUFA ==================== -->
+    <section class="section-7 mindmap-section" id="section-7">
+        <div class="mindmap-container">
+            <h1 style="margin-bottom: 2rem;">Mapa Mental: Efeito Estufa</h1>
+            <img src="estufa.png" alt="Mapa Mental - Efeito Estufa" class="mindmap-img" id="imgEstufa">
+            <a href="estufa.png" download="mapa-mental-efeito-estufa.png" class="download-btn" id="dlEstufa" style="display:none;">
+                ⬇ Baixar Mapa Mental
+            </a>
+            <p style="margin-top: 2rem; color: rgba(255,255,255,0.6); font-size: 0.95rem; max-width: 600px;">
+                Resumo visual interativo dos principais conceitos sobre o efeito estufa, gases envolvidos, equilíbrio térmico e impacto antropogênico.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO 8: MAPA MENTAL - CAMADA DE OZÔNIO ==================== -->
+    <section class="section-8 mindmap-section" id="section-8">
+        <div class="mindmap-container">
+            <h1 style="margin-bottom: 2rem;">Mapa Mental: Camada de Ozônio</h1>
+            <img src="ozonio.png" alt="Mapa Mental - Camada de Ozônio" class="mindmap-img" id="imgOzonio">
+            <a href="ozonio.png" download="mapa-mental-camada-de-ozonio.png" class="download-btn" id="dlOzonio" style="display:none;">
+                ⬇ Baixar Mapa Mental
+            </a>
+            <p style="margin-top: 2rem; color: rgba(255,255,255,0.6); font-size: 0.95rem; max-width: 600px;">
+                Síntese visual sobre a localização, função, ciclo de formação, destruição por CFCs e importância da camada de ozônio para a biosfera.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO 9: SOLUÇÕES E CONCLUSÃO + QUIZ ==================== -->
+    <section class="section-9" id="section-9">
+        <div class="content-wrapper single-col" style="justify-items:center;">
+            <h1 style="text-align:center;">Soluções e Conclusão</h1>
+            <p style="text-align:center;max-width:800px;">Apesar da gravidade dos problemas ambientais, a história recente demonstra que soluções globais são possíveis. Um dos maiores exemplos de sucesso é o <strong>Protocolo de Montreal (1987)</strong>, que estabeleceu a eliminação progressiva das substâncias que destroem a camada de ozônio. Graças a essa cooperação internacional, a concentração de CFCs na atmosfera tem diminuído e a camada de ozônio mostra sinais claros de recuperação, com projeção de retorno aos níveis pré-1980 até meados do século XXI.</p>
+            <div class="card" style="width:100%;max-width:600px;">
+                <h3>Ações Globais e Individuais:</h3>
+                <ul>
+                    <li>Transição para matrizes energéticas renováveis (solar, eólica, hidrelétrica, biomassa)</li>
+                    <li>Reflorestamento e conservação de biomas nativos</li>
+                    <li>Agricultura regenerativa e redução do desperdício alimentar</li>
+                    <li>Economia circular e redução de plásticos descartáveis</li>
+                    <li>Mobilidade sustentável (transporte público, ciclovias, veículos elétricos)</li>
+                    <li>Educação ambiental e consumo consciente</li>
+                </ul>
+            </div>
+            <p style="text-align:center;max-width:800px;">No âmbito das mudanças climáticas, o <strong>Acordo de Paris (2015)</strong> estabeleceu a meta de limitar o aquecimento global a 1,5°C acima dos níveis pré-industriais. Para isso, é necessário alcançar a neutralidade de carbono até 2050, o que exige transformações profundas nos setores energético, industrial, agrícola e de transporte.</p>
+            <p style="text-align:center;max-width:800px;">Cada indivíduo também pode contribuir por meio de atitudes simples, porém impactantes: economizar energia elétrica, reduzir o consumo de carne, optar por produtos locais e sazonais, reciclar corretamente, utilizar meios de transporte menos poluentes e exercer pressão política por políticas ambientais rigorosas.</p>
+            <div class="final-message">
+                "Nós não herdamos a Terra de nossos antepassados; a tomamos emprestada de nossos filhos." — Provérbio indígena adaptado
+            </div>
+
+            <!-- QUIZ INTERATIVO -->
+            <div class="quiz-container" id="quizContainer">
+                <h2 style="text-align:center;margin-bottom:0.5rem;">🧠 Quiz Interativo</h2>
+                <p style="text-align:center;color:rgba(255,255,255,0.6);font-size:0.95rem;margin-bottom:1.5rem;">10 perguntas — 5 sobre Efeito Estufa e 5 sobre Camada de Ozônio</p>
+                <div class="quiz-progress" id="quizProgress"></div>
+                <div class="quiz-question" id="questionText"></div>
+                <div class="quiz-options" id="optionsContainer"></div>
+                <div class="quiz-feedback" id="quizFeedback"></div>
+                <button class="nav-btn" id="nextQuestionBtn" style="margin-top:1.5rem;display:none;">Próxima Pergunta →</button>
+                <div id="quizResult" style="display:none;text-align:center;margin-top:1.5rem;"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ===== GLOBAL STATE =====
+        let currentSection = 0;
+        const totalSections = 9;
+        const sections = document.querySelectorAll('section');
+
+        // ===== INIT =====
+        document.addEventListener('DOMContentLoaded', () => {
+            initParticles();
+            initNavigation();
+            initGreenhouseSim();
+            createSectionDots();
+            initQuiz();
+
+            // Check if images load successfully to show download buttons
+            checkImage('imgEstufa', 'dlEstufa');
+            checkImage('imgOzonio', 'dlOzonio');
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { 
+                    changeSection(1); 
+                    e.preventDefault(); 
+                }
+                else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { 
+                    changeSection(-1); 
+                    e.preventDefault(); 
+                }
+            });
+
+            // Scroll spy - update active section on scroll
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    let current = 0;
+                    sections.forEach((section, index) => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.clientHeight;
+                        if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+                            current = index;
+                        }
+                    });
+                    
+                    if (current !== currentSection) {
+                        setActiveSection(current);
+                    }
+                }, 100);
+            });
+        });
+
+        // ===== IMAGE LOADING CHECK =====
+        function checkImage(imgId, btnId) {
+            const img = document.getElementById(imgId);
+            const btn = document.getElementById(btnId);
+            if (img) {
+                img.onload = () => { btn.style.display = 'inline-flex'; };
+                if (img.complete && img.naturalWidth > 0) { 
+                    btn.style.display = 'inline-flex'; 
+                }
+            }
+        }
+
+        // ===== PARTICLE SYSTEM =====
+        function initParticles() {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            for (let i = 0; i < 100; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    speedX: (Math.random() - 0.5) * 0.5,
+                    speedY: (Math.random() - 0.5) * 0.5,
+                    color: Math.random() > 0.5 ? '#00d4ff' : '#b829dd'
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.speedX; p.y += p.speedY;
+                    if (p.x > canvas.width) p.x = 0;
+                    if (p.x < 0) p.x = canvas.width;
+                    if (p.y > canvas.height) p.y = 0;
+                    if (p.y < 0) p.y = canvas.height;
+                    ctx.fillStyle = p.color;
+                    ctx.globalAlpha = 0.5;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+                // Draw connections
+                ctx.globalAlpha = 0.1;
+                ctx.strokeStyle = '#00d4ff';
+                ctx.lineWidth = 0.5;
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 150) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // ===== NAVIGATION =====
+        function initNavigation() {
+            const container = document.getElementById('progressIndicator');
+            container.innerHTML = '';
+            for (let i = 0; i < totalSections; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'progress-dot' + (i === currentSection ? ' active' : '');
+                dot.onclick = () => goToSection(i);
+                container.appendChild(dot);
+            }
+            updateNav();
+        }
+
+        function changeSection(dir) {
+            const next = currentSection + dir;
+            if (next >= 0 && next < totalSections) {
+                goToSection(next);
+            }
+        }
+
+        function goToSection(index) {
+            // Remove active class from all sections
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Add active class to target section
+            sections[index].classList.add('active');
+            
+            // Update current section
+            currentSection = index;
+            
+            // Scroll to section
+            sections[index].scrollIntoView({ behavior: 'smooth' });
+            
+            // Update navigation
+            updateNav();
+            updateSectionDots();
+
+            // Trigger section-specific animations
+            if (currentSection === 2) animateCO2Counter();
+        }
+
+        function setActiveSection(index) {
+            // Remove active class from all sections
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Add active class to target section
+            sections[index].classList.add('active');
+            
+            // Update current section
+            currentSection = index;
+            
+            // Update navigation
+            updateNav();
+            updateSectionDots();
+
+            // Trigger section-specific animations
+            if (currentSection === 2) animateCO2Counter();
+        }
+
+        function updateNav() {
+            document.getElementById('prevBtn').disabled = currentSection === 0;
+            document.getElementById('nextBtn').disabled = currentSection === totalSections - 1;
+            document.getElementById('sectionCounter').textContent = `${currentSection + 1}/${totalSections}`;
+            
+            const dots = document.querySelectorAll('.progress-dot');
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentSection));
+        }
+
+        function createSectionDots() {
+            const container = document.getElementById('sectionIndicator');
+            for (let i = 0; i < totalSections; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'section-dot' + (i === currentSection ? ' active' : '');
+                dot.onclick = () => goToSection(i);
+                container.appendChild(dot);
+            }
+        }
+
+        function updateSectionDots() {
+            document.querySelectorAll('.section-dot').forEach((d, i) => d.classList.toggle('active', i === currentSection));
+        }
+
+        // ===== CO2 COUNTER =====
+        function animateCO2Counter() {
+            const el = document.getElementById('co2Counter');
+            if (!el) return;
+            let cur = 0;
+            const target = 420;
+            const step = target / (2000 / 16);
+            const timer = setInterval(() => {
+                cur += step;
+                if (cur >= target) { cur = target; clearInterval(timer); }
+                el.textContent = Math.floor(cur);
+            }, 16);
+        }
+
+        // ===== GREENHOUSE SIM =====
+        function initGreenhouseSim() {
+            const container = document.getElementById('greenhouseSim');
+            if (!container) return;
+            for (let i = 0; i < 5; i++) {
+                const p = document.createElement('div');
+                p.className = 'heat-particle';
+                p.style.left = (Math.random() * 70 + 15) + '%';
+                p.style.animationDelay = (Math.random() * 4) + 's';
+                container.appendChild(p);
+            }
+        }
+
+        // ===== QUIZ SYSTEM =====
+        const quizData = [
+            {
+                category: "Efeito Estufa",
+                question: "Qual é a temperatura média aproximada da Terra sem o efeito estufa natural?",
+                options: ["-18°C", "0°C", "15°C", "25°C"],
+                correct: 0,
+                explanation: "Sem o efeito estufa, a temperatura média da Terra seria de aproximadamente -18°C, tornando o planeta inabitável para a maioria das formas de vida."
+            },
+            {
+                category: "Efeito Estufa",
+                question: "Qual dos seguintes gases NÃO é considerado um gás de efeito estufa?",
+                options: ["CO₂", "CH₄", "N₂ (Nitrogênio molecular)", "N₂O"],
+                correct: 2,
+                explanation: "O nitrogênio molecular (N₂) não absorve radiação infravermelha e, portanto, não é um gás de efeito estufa. Os principais são CO₂, CH₄, H₂O e N₂O."
+            },
+            {
+                category: "Efeito Estufa",
+                question: "Qual atividade humana é a maior responsável pelo aumento do CO₂ atmosférico?",
+                options: ["Uso de fertilizantes", "Queima de combustíveis fósseis", "Desmatamento", "Indústria têxtil"],
+                correct: 1,
+                explanation: "A queima de combustíveis fósseis (petróleo, carvão e gás natural) para transporte, geração de energia e indústria é a principal fonte antropogênica de CO₂."
+            },
+            {
+                category: "Efeito Estufa",
+                question: "O que são 'pontos de não retorno' (tipping points) no contexto climático?",
+                options: ["Datas limite para acordos internacionais", "Mudanças irreversíveis nos sistemas climáticos", "Temperaturas máximas permitidas", "Limites de emissão industrial"],
+                correct: 1,
+                explanation: "Pontos de não retorno são limiares que, uma vez ultrapassados, desencadeiam mudanças irreversíveis e autossustentáveis no clima, como o colapso da camada de gelo da Groenlândia."
+            },
+            {
+                category: "Efeito Estufa",
+                question: "Qual é o principal impacto da acidificação dos oceanos?",
+                options: ["Aumento da salinidade", "Dissolução de carbonato de cálcio em corais e moluscos", "Eutrofização", "Aumento da temperatura da água"],
+                correct: 1,
+                explanation: "O CO₂ dissolvido na água forma ácido carbônico, reduzindo o pH e dificultando a formação de conchas e esqueletos de carbonato de cálcio em corais, moluscos e plâncton."
+            },
+            {
+                category: "Camada de Ozônio",
+                question: "Em qual camada da atmosfera está localizada a maior concentração de ozônio?",
+                options: ["Troposfera", "Estratosfera", "Mesosfera", "Termosfera"],
+                correct: 1,
+                explanation: "A camada de ozônio está concentrada na estratosfera, entre 15 e 35 km de altitude, onde protege a biosfera da radiação UV nociva."
+            },
+            {
+                category: "Camada de Ozônio",
+                question: "Qual elemento químico liberado pelos CFCs catalisa a destruição do ozônio?",
+                options: ["Carbono", "Hidrogênio", "Cloro", "Flúor"],
+                correct: 2,
+                explanation: "O cloro (Cl) liberado pela fotólise dos CFCs na estratosfera atua como catalisador, destruindo milhares de moléculas de O₃ sem ser consumido no processo."
+            },
+            {
+                category: "Camada de Ozônio",
+                question: "Por que o 'buraco' na camada de ozônio se forma principalmente sobre a Antártida?",
+                options: ["Maior incidência de raios UV", "Presença de Nuvens Estratosféricas Polares (PSCs) e vórtices polares", "Maior concentração de CFCs na região", "Atividade vulcânica intensa"],
+                correct: 1,
+                explanation: "As temperaturas extremamente baixas formam PSCs que aceleram reações químicas destrutivas, enquanto o vórtice polar isola o ar antártico, concentrando a depleção."
+            },
+            {
+                category: "Camada de Ozônio",
+                question: "Qual é a unidade de medida utilizada para quantificar a espessura da camada de ozônio?",
+                options: ["Partes por milhão (ppm)", "Unidade Dobson (DU)", "Índice UV", "Decibéis (dB)"],
+                correct: 1,
+                explanation: "A Unidade Dobson (DU) mede a quantidade total de ozônio em uma coluna vertical da atmosfera. Valores abaixo de 220 DU indicam depleção severa."
+            },
+            {
+                category: "Camada de Ozônio",
+                question: "Qual tratado internacional foi responsável pela recuperação gradual da camada de ozônio?",
+                options: ["Acordo de Paris", "Protocolo de Kyoto", "Protocolo de Montreal", "Convenção de Basileia"],
+                correct: 2,
+                explanation: "O Protocolo de Montreal (1987) estabeleceu a eliminação global de substâncias destruidoras do ozônio e é considerado o acordo ambiental mais bem-sucedido da história."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answeredQuestions = [];
+
+        function initQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            answeredQuestions = [];
+            document.getElementById('quizResult').style.display = 'none';
+            document.getElementById('quizFeedback').style.display = 'none';
+            document.getElementById('quizFeedback').classList.remove('show');
+            document.getElementById('nextQuestionBtn').style.display = 'none';
+
+            // Create progress dots
+            const prog = document.getElementById('quizProgress');
+            prog.innerHTML = '';
+            quizData.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = 'quiz-progress-dot';
+                prog.appendChild(dot);
+            });
+
+            showQuestion();
+        }
+
+        function showQuestion() {
+            if (currentQuestion >= quizData.length) {
+                showQuizResult();
+                return;
+            }
+
+            const q = quizData[currentQuestion];
+            document.getElementById('questionText').innerHTML =
+                `<span style="font-size:0.85rem;color:rgba(255,255,255,0.5);">${q.category}</span><br>${currentQuestion + 1}. ${q.question}`;
+
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option';
+                btn.textContent = opt;
+                btn.onclick = () => checkAnswer(idx);
+                container.appendChild(btn);
+            });
+
+            document.getElementById('quizFeedback').classList.remove('show');
+            document.getElementById('quizFeedback').style.display = 'none';
+            document.getElementById('nextQuestionBtn').style.display = 'none';
+
+            // Update progress
+            const dots = document.querySelectorAll('.quiz-progress-dot');
+            dots.forEach((d, i) => {
+                d.className = 'quiz-progress-dot';
+                if (i < currentQuestion) d.classList.add(answeredQuestions[i] ? 'answered-correct' : 'answered-wrong');
+                if (i === currentQuestion) d.classList.add('current');
+            });
+        }
+
+        function checkAnswer(selected) {
+            const q = quizData[currentQuestion];
+            const isCorrect = selected === q.correct;
+            if (isCorrect) score++;
+            answeredQuestions.push(isCorrect);
+
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach((opt, idx) => {
+                opt.disabled = true;
+                if (idx === q.correct) opt.classList.add('correct');
+                else if (idx === selected && !isCorrect) opt.classList.add('wrong');
+            });
+
+            const fb = document.getElementById('quizFeedback');
+            fb.innerHTML = (isCorrect ? '✅ Correto! ' : '❌ Incorreto. ') + q.explanation;
+            fb.style.display = 'block';
+            fb.classList.add('show');
+
+            // Update progress dot
+            const dots = document.querySelectorAll('.quiz-progress-dot');
+            dots[currentQuestion].className = 'quiz-progress-dot ' + (isCorrect ? 'answered-correct' : 'answered-wrong');
+
+            if (currentQuestion < quizData.length - 1) {
+                document.getElementById('nextQuestionBtn').style.display = 'inline-block';
+                document.getElementById('nextQuestionBtn').onclick = () => { currentQuestion++; showQuestion(); };
+            } else {
+                document.getElementById('nextQuestionBtn').style.display = 'inline-block';
+                document.getElementById('nextQuestionBtn').textContent = '🏆 Ver Resultado';
+                document.getElementById('nextQuestionBtn').onclick = showQuizResult;
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('questionText').style.display = 'none';
+            document.getElementById('optionsContainer').style.display = 'none';
+            document.getElementById('quizFeedback').style.display = 'none';
+            document.getElementById('nextQuestionBtn').style.display = 'none';
+
+            const pct = Math.round((score / quizData.length) * 100);
+            let emoji = '🎉';
+            let msg = 'Excelente! Você domina o conteúdo!';
+            if (pct < 50) { emoji = '📚'; msg = 'Recomendamos revisar o material e tentar novamente!'; }
+            else if (pct < 80) { emoji = '👍'; msg = 'Bom desempenho! Revise os pontos que errou para consolidar o aprendizado.'; }
+            else { msg = 'Desempenho excepcional! Você está preparado para aplicar esse conhecimento.'; }
+
+            const res = document.getElementById('quizResult');
+            res.style.display = 'block';
+            res.innerHTML = `
+                <div style="font-size:3rem;margin:1rem 0;">${emoji}</div>
+                <h2 style="color:var(--neon-cyan);">${score}/${quizData.length} acertos (${pct}%)</h2>
+                <p style="color:rgba(255,255,255,0.8);font-size:1.1rem;margin:1rem 0;">${msg}</p>
+                <button class="nav-btn" style="margin-top:1rem;" onclick="resetQuiz()">🔄 Refazer Quiz</button>
+            `;
+        }
+
+        function resetQuiz() {
+            document.getElementById('questionText').style.display = 'block';
+            document.getElementById('optionsContainer').style.display = 'flex';
+            initQuiz();
+        }
+    </script>
+</body>
+</html>
