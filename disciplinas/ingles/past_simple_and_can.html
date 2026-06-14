@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Past & Can - Aula Interativa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            top: 50%;
+            right: -50px;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 350px;
+            height: 350px;
+            background: var(--accent);
+            bottom: -100px;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        /* Header & Progress */
+        .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem;
+        }
+
+        .content-image {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+        .progress-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .xp-badge {
+            background: linear-gradient(135deg, var(--warning), #fbbf24);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .section-indicator {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+            min-width: 80px;
+            text-align: right;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* Cards */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #fff;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, var(--accent), #f43f5e);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 2rem;
+            animation: slideIn 0.8s ease;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 0 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            max-width: 300px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 50%;
+            margin-left: -10px;
+            border: 4px solid var(--dark);
+            box-shadow: 0 0 0 4px var(--accent);
+        }
+
+        /* Structure Builder */
+        .structure-builder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .structure-piece {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+            border: 2px solid var(--primary);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            animation: popIn 0.5s ease backwards;
+        }
+
+        .structure-piece:nth-child(1) { animation-delay: 0.1s; }
+        .structure-piece:nth-child(2) { animation-delay: 0.2s; }
+        .structure-piece:nth-child(3) { animation-delay: 0.3s; }
+
+        .structure-piece:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .structure-piece.active {
+            background: linear-gradient(135deg, var(--success), #34d399);
+            border-color: var(--success);
+            animation: correct 0.5s ease;
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes correct {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Verb Cards */
+        .verb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .verb-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verb-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .verb-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .verb-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .verb-infinitive {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .verb-past {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .verb-rule {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.5rem;
+        }
+
+        /* Flashcards */
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 2rem 0;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border: 2px solid var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(244, 63, 94, 0.2));
+        }
+
+        .flashcard-word {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .flashcard-hint {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .data-table th, .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .data-table th {
+            background: rgba(99, 102, 241, 0.3);
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .data-table tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Interactive Exercises */
+        .exercise-container {
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .exercise-question {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .exercise-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .option-btn {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid transparent;
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .option-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: var(--primary);
+        }
+
+        .option-btn.correct {
+            background: rgba(16, 185, 129, 0.3);
+            border-color: var(--success);
+            animation: correct 0.5s ease;
+        }
+
+        .option-btn.wrong {
+            background: rgba(239, 68, 68, 0.3);
+            border-color: #ef4444;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--success);
+        }
+
+        .feedback.wrong {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid #ef4444;
+        }
+
+        /* Input Exercise */
+        .input-exercise {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .word-input {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid var(--glass-border);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            min-width: 150px;
+        }
+
+        .word-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Canva Link */
+        .canva-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #00c4cc, #00d4aa);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 196, 204, 0.3);
+        }
+
+        .canva-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 196, 204, 0.4);
+        }
+
+        /* Transformation Animation */
+        .transformation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .transform-step {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        .transform-step:nth-child(1) { animation-delay: 0s; }
+        .transform-step:nth-child(2) { animation-delay: 0.5s; }
+        .transform-step:nth-child(3) { animation-delay: 1s; }
+
+        .transform-arrow {
+            font-size: 2rem;
+            color: var(--accent);
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Quiz Final */
+        .quiz-container {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+            border: 2px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-progress {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .quiz-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .quiz-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .quiz-dot.correct {
+            background: var(--success);
+        }
+
+        .quiz-dot.wrong {
+            background: #ef4444;
+        }
+
+        .quiz-question {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid transparent;
+            padding: 1.25rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .quiz-option.selected {
+            background: rgba(99, 102, 241, 0.3);
+            border-color: var(--primary);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            position: absolute;
+            animation: confetti-fall 3s linear forwards;
+            z-index: 9999;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+
+            .timeline-dot {
+                left: 20px;
+                margin-left: -10px;
+            }
+
+            .exercise-options {
+                grid-template-columns: 1fr;
+            }
+
+            .structure-builder {
+                flex-direction: column;
+            }
+
+            .structure-piece {
+                width: 100%;
+                text-align: center;
+            }
+
+            .quiz-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mt-2 { margin-top: 2rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .hidden { display: none; }
+        .highlight {
+            background: linear-gradient(120deg, rgba(236, 72, 153, 0.3), rgba(236, 72, 153, 0.1));
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: rgba(255,255,255,0.05);
+            border: 2px dashed var(--glass-border);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: bold;
+            margin: 0.25rem;
+        }
+
+        .badge-bronze { background: linear-gradient(135deg, #cd7f32, #8b4513); }
+        .badge-silver { background: linear-gradient(135deg, #c0c0c0, #808080); }
+        .badge-gold { background: linear-gradient(135deg, #ffd700, #daa520); }
+
+        .level-indicator {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 100;
+        }
+
+        .level-indicator:hover {
+            transform: scale(1.1);
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, var(--success), #34d399);
+            border: none;
+        }
+
+        .btn-next:hover {
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="progress-container">
+            <div class="xp-badge">
+                <span>⭐</span>
+                <span id="xp-display">0 XP</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="section-indicator" id="section-indicator">1/10</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <h1>🎓 Simple Past & Can</h1>
+            <p>Aprenda inglês de forma divertida e interativa!</p>
+            <button class="btn-primary" onclick="startJourney()">
+                🚀 Começar Jornada
+            </button>
+            <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <span class="badge badge-bronze">🥉 50 XP</span>
+                <span class="badge badge-silver">🥈 100 XP</span>
+                <span class="badge badge-gold">🥇 200 XP</span>
+            </div>
+        </section>
+
+        <!-- Section 1: What is Simple Past -->
+        <section class="section" id="section1">
+            <div class="glass-card">
+                <h2 class="section-title">
+                    <span class="section-number">1</span>
+                    O que é o Simple Past?
+                </h2>
+                
+                <!-- PLACEHOLDER FOR IMAGE 1 -->
+                <img 
+    src="image1.png" 
+    alt="Ilustração de linha do tempo mostrando passado"
+    class="content-image"
+/>
+
+                <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+                    O <span class="highlight">Simple Past</span> (Passado Simples) é usado para falar sobre ações que <strong>aconteceram e terminaram</strong> no passado.
+                </p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>Infância</strong><br>
+                            <small>Childhood</small>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>Experiências</strong><br>
+                            <small>Past experiences</small>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>Viagens</strong><br>
+                            <small>Travels</small>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>Eventos Concluídos</strong><br>
+                            <small>Finished events</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-container">
+                    <div class="exercise-question">Exemplos:</div>
+                    <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <strong>Yesterday, I studied a lot for the exam.</strong><br>
+                        <span style="color: rgba(255,255,255,0.7);">(Ontem eu estudei muito para a prova.)</span>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <strong>My father traveled to São Paulo in 2024.</strong><br>
+                        <span style="color: rgba(255,255,255,0.7);">(Meu pai viajou para São Paulo em 2024.)</span>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+                        <strong>I ate my lunch before going to school.</strong><br>
+                        <span style="color: rgba(255,255,255,0.7);">(Eu comi meu almoço antes de ir para a escola.)</span>
+                    </div>
+                </div>
+
+                <button class="btn-primary btn-next" onclick="nextSection(2)">Continuar →</button>
+            </div>
+        </section>
+
+        <!-- Section 2: Structure -->
+        <section class="section" id="section2">
+            <div class="glass-card">
+                <h2 class="section-title">
+                    <span class="section-number">2</span>
+                    Estrutura do Simple Past
+                </h2>
+
+                
+                <p style="text-align: center; font-size: 1.25rem; margin: 2rem 0;">
+                    <span class="highlight">Sujeito + Verbo no Passado + Complemento</span>
+                </p>
+
+                <div class="structure-builder">
+                    <div class="structure-piece" onclick="checkStructure(this, 'I')">I<br><small>(Eu)</small></div>
+                    <div class="structure-piece" onclick="checkStructure(this, 'worked')">worked<br><small>(trabalhei)</small></div>
+                    <div class="structure-piece" onclick="checkStructure(this, 'until 10pm')">until 10 p.m. yesterday<br><small>(até as 22h ontem)</small></div>
+                </div>
+
+                <div class="exercise-container">
+                    <div class="exercise-question">Monte a frase:</div>
+                    <div style="margin-bottom: 1rem;">"Você jogou futebol ontem"</div>
+                    <div class="input-exercise">
+                        <input type="text" class="word-input" id="struct-input" placeholder="Digite a frase em inglês...">
+                        <button class="btn-primary" onclick="checkStructureInput()">Verificar</button>
+                    </div>
+                    <div class="feedback" id="struct-feedback"></div>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; margin-top: 1rem;">
+                    <strong>Exemplos:</strong><br>
+                    • I worked until 10 p.m. yesterday.<br>
+                    • You played soccer yesterday.<br>
+                    • They studied English last week.
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="prevSection(1)">← Voltar</button>
+                    <button class="btn-primary btn-next" onclick="nextSection(3)">Continuar →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Regular Verbs -->
+        <section class="section" id="section3">
+            <div class="glass-card">
+                <h2 class="section-title">
+                    <span class="section-number">3</span>
+                    Verbos Regulares
+                </h2>
+
+                <img 
+                    src="image3.png" 
+                    alt="Ilustração de linha do tempo mostrando passado"
+                    class="content-image"
+                />
+
+                <div class="verb-grid">
+                    <div class="verb-card" onclick="flipCard(this)">
+                        <div class="verb-infinitive">Work</div>
+                        <div class="verb-past">Worked</div>
+                        <div class="verb-rule">Regra 1: Verbo + ED</div>
+                    </div>
+                    <div class="verb-card" onclick="flipCard(this)">
+                        <div class="verb-infinitive">Talk</div>
+                        <div class="verb-past">Talked</div>
+                        <div class="verb-rule">Regra 1: Verbo + ED</div>
+                    </div>
+                    <div class="verb-card" onclick="flipCard(this)">
+                        <div class="verb-infinitive">Dance</div>
+                        <div class="verb-past">Danced</div>
+                        <div class="verb-rule">Regra 2: Termina em E + D</div>
+                    </div>
+                    <div class="verb-card" onclick="flipCard(this)">
+                        <div class="verb-infinitive">Study</div>
+                        <div class="verb-past">Studied</div>
+                        <div class="verb-rule">Regra 3: Consoante + Y → IED</div>
+                    </div>
+                    <div class="verb-card" onclick="flipCard(this)">
+                        <div class="verb-infinitive">Play</div>
+                        <div class="verb-past">Played</div>
+                        <div class="verb-rule">Regra 4: Vogal + Y + ED</div>
+                    </div>
+                </div>
+
+                <div class="exercise-container">
+                    <div class="exercise-question">Qual é o passado de "To Talk"?</div>
+                    <div class="exercise-options">
+                        <button class="option-btn" onclick="checkVerb(this, 'talked', 'talk')">Talke</button>
+                        <button class="option-btn" onclick="checkVerb(this, 'talked', 'talking')">Talking</button>
+                        <button class="option-btn" onclick="checkVerb(this, 'talked', 'talks')">Talks</button>
+                        <button class="option-btn" onclick="checkVerb(this, 'talked', 'talked')">Talked</button>
+                    </div>
+                    <div class="feedback" id="verb-feedback"></div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="prevSection(2)">← Voltar</button>
+                    <button class="btn-primary btn-next" onclick="nextSection(4)">Continuar →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Irregular Verbs -->
+        <section class="section" id="section4">
+            <div class="glass-card">
+                <h2 class="section-title">
+                    <span class="section-number">4</span>
+                    Verbos Irregulares
+                </h2>
+
+                <img 
+                    src="image4.png" 
+                    alt="Ilustração de linha do tempo mostrando passado"
+                    class="content-image"
+                />
+
+                <p style="margin-bottom: 1.5rem;">
+                    Os verbos irregulares <span class="highlight">não seguem regras</span>. É necessário memorizar!
+                </p>
+
+                <a href="https://canva.link/3ozv60mzrlzv3b6" target="_blank" class="canva-link">
+                    📋 Lista de Verbos Irregulares Personalizada
+                </a>
+
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-front">
+                            <div class="flashcard-word">Eat</div>
+                            <div class="flashcard-hint">Clique para ver o passado →</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="flashcard-word">Ate</div>
+                            <div class="flashcard-hint">(Comi/Comeu)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Infinitivo</th>
+                            <th>Passado</th>
+                            <th>Tradução</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Eat</td><td>Ate</td><td>Comer</td></tr>
+                        <tr><td>Make</td><td>Made</td><td>Fazer</td></tr>
+                        <tr><td>Have</td><td>Had</td><td>Ter</td></tr>
+                        <tr><td>Do</td><td>Did</td><td>Fazer</td></tr>
+                        <tr><td>Come</td><td>Came</td><td>Vir</td></tr>
+                        <tr><td>Take</td><td>Took</td><td>Pegar</td></tr>
+                        <tr><td>See</td><td>Saw</td><td>Ver</td></tr>
+                        <tr><td>Go</td><td>Went</td><td>Ir</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="exercise-container">
+                    <div class="exercise-question">Qual é o passado de "Go"?</div>
+                    <div class="input-exercise">
+                        <input type="text" class="word-input" id="irreg-input" placeholder="Digite o passado...">
+                        <button class="btn-primary" onclick="checkIrregular()">Verificar</button>
+                    </div>
+                    <div class="feedback" id="irreg-feedback"></div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="prevSection(3)">← Voltar</button>
+                    <button class="btn-primary btn-next" onclick="nextSection(5)">Continuar →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: To Be Past -->
+        <section class="section" id="section5">
+            <div class="glass-card">
+                <h2 class="section-title">
+                    <span class="section-number">5</span>
+                    To Be no Passado
+                </h2>
+
+                <!-- PLACEHOLDER FOR IMAGE 5 -->
+                    <img 
+                    src="image5.png" 
+                    alt="Ilustração de linha do tempo mostrando passado"
+                    class="content-image"
+                />
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+                    <div style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2)); padding: 1.5rem; border-radius: 16px; text-align: center;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem;">WAS</h3>
+                        <div style="font-size: 1.25rem;">I</div>
+                        <div style="font-size: 1.25rem;">He</div>
+                        <div style="font-size: 1.25rem;">She</div>
+                        <div style="font-size: 1.25rem;">It</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(244, 63, 94, 0.2)); padding: 1.5rem; border-radius: 16px; text-align: center;">
+                        <h3 style="color: var(--accent); margin-bottom: 1rem;">WERE</h3>
+                        <div style="font-size: 1.25rem;">You</div>
+                        <div style="font-size: 1.25rem;">We</div>
+                        <div style="font-size: 1.25rem;">They</div>
+                    </div>
+                </div>
+
+                <div class="exercise-container">
+                    <div class="exercise-question">Complete: I ___ very happy when I was a child.</div>
+                    <div class="exercise-options">
+                        <button class="option-btn" onclick="checkWasWere(this, 'was')">was</button>
+                        <button class="option-btn" onclick="checkWasWere(this, 'were')">were</button>
+                    </div>
+                    <div class="feedback" id="waswere-feedback"></div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="prevSection(4)">← Voltar</button>
+                    <button class="btn-primary btn-next" onclick="nextSection(6)">Continuar →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Affirmative -->
+        <section class="section" id="section6">
+            <div class="glass-card">
+                <h2 class="section-title">
+                    <span class="section-number">6</span>
+                    Frases Afirmativas
+                </h2>
+
+                <!-- PLACEHOLDER FOR IMAGE 6 -->
+<img 
+                    src="image2.png" 
+                    alt="Ilustração de linha do tempo mostrando passado"
+                    class="content-image"
+                />
+
+                <div style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--success); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+                    <h3 style="color: var(--success); margin-bottom: 1rem;">Estrutura:</h3>
+                    <p style="font-size: 1.25rem;"><strong>Sujeito + verbo no passado + complemento</strong></p>
+                </div>
+
+                <div class="exercise-container">
+                    <div class="exercise-question">Exemplos Interativos:</div>
+                    
+                    <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; cursor: pointer;" onclick="showExample('cinema')">
+                        <strong>Clique para ver:</strong> I went to the cinema in 2023.<br>
+                        <small>(Eu fui ao cinema em 2023.)</small>
+                    </div>
+
+                    <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; cursor: pointer;" onclick="showExample('party')">
+                        <strong>Clique para ver:</strong> I didn't eat cake at Fernanda's birthday party.<br>
+                        <small>(Eu não comi bolo na festa de aniversário da Fernanda.)</small>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="prevSection(5)">← Voltar</button>
+                    <button class="btn-primary btn-next" onclick="nextSection(7)">Continuar →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Negative -->
+        <section class="section" id="section7">
+            <div class="glass-card">
+                <h2 class="section-title">
+                    <span class="section-number">7</span>
+                    Frases Negativas
+                </h2>
+
+                <!-- PLACEHOLDER FOR IMAGE 7 -->
+<img 
+                    src="image2.png" 
+                    alt="Ilustração de linha do tempo mostrando passado"
+                    class="content-image"
+                />
+
+                <div class="transformation">
+                    <div class="transform-step" style="background: rgba(99, 102, 241, 0.2);">
+                        <strong>Afirmativa:</strong><br>
+                        I went to school.
+                    </div>
+                    <div class="transform-arrow">↓</div>
+                    <div class="transform-step" style="background: rgba(236, 72, 153, 0.2);">
+                        <strong>Negativa:</strong><br>
+                        I <span style="color: var(--accent); font-weight: bold;">didn't go</span> to school.
+                    </div>
+                </div>
+
+                <div style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+                    <h3 style="color: #ef4444; margin-bottom: 1rem;">Regra Importante:</h3>
+                    <p>Use <strong>didn't + verbo base</strong> (sem passado!)</p>
+                </div>
+
+                <div class="exercise-container">
+                    <div class="exercise-question">Transforme: "She played soccer"</div>
+                    <div class="input-exercise">
+                        <input type="text" class="word-input" id="neg-input" placeholder="She didn't...">
+                        <button class="btn-primary" onclick="checkNegative()">Verificar</button>
+                    </div>
+                    <div class="feedback" id="neg-feedback"></div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="prevSection(6)">← Voltar</button>
+                    <button class="btn-primary btn-next" onclick="nextSection(8)">Continuar →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Questions -->
+        <section class="section" id="section8">
+            <div class="glass-card">
+                <h2 class="section-title">
+                    <span class="section-number">8</span>
+                    Perguntas (Questions)
+                </h2>
+
+                <!-- PLACEHOLDER FOR IMAGE 8 -->
+   <img 
+                    src="image2.png" 
+                    alt="Ilustração de linha do tempo mostrando passado"
+                    class="content-image"
+                />
+
+                <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(251, 191, 36, 0.2)); padding: 1.5rem; border-radius: 16px; margin: 1.5rem 0; text-align: center;">
+                    <h3 style="color: var(--warning); margin-bottom: 1rem;">Estrutura:</h3>
+                    <p style="font-size: 1.5rem;"><strong>Did + sujeito + verbo base + complemento?</strong></p>
+                </div>
+
+                <div class="exercise-container">
+                    <div class="exercise-question">Exemplos:</div>
+                    <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                        Did you see where I put my watch yesterday?<br>
+                        <small>(Você viu onde eu coloquei meu relógio ontem?)</small>
+                    </div>
+                    <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                        Did they travel last year?<br>
+                        <small>(Eles viajaram ano passado?)</small>
+                    </div>
+                </div>
+
+                <div class="exercise-container">
+                    <div class="exercise-question">Transforme em pergunta: "You studied English"</div>
+                    <div class="input-exercise">
+                        <input type="text" class="word-input" id="quest-input" placeholder="Did you...">
+                        <button class="btn-primary" onclick="checkQuestion()">Verificar</button>
+                    </div>
+                    <div class="feedback" id="quest-feedback"></div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="prevSection(7)">← Voltar</button>
+                    <button class="btn-primary btn-next" onclick="nextSection(9)">Continuar →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Modal Can -->
+        <section class="section" id="section9">
+            <div class="glass-card">
+                <h2 class="section-title">
+                    <span class="section-number">9</span>
+                    Modal Verb: CAN
+                </h2>
+
+                <!-- PLACEHOLDER FOR IMAGE 9 -->
+                <img 
+                    src="image6.png" 
+                    alt="Ilustração de linha do tempo mostrando passado"
+                    class="content-image"
+                />
+
+                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(52, 211, 153, 0.2)); padding: 1.5rem; border-radius: 16px; margin: 1.5rem 0;">
+                    <h3 style="color: var(--success); margin-bottom: 1rem;">Significados:</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ Poder</li>
+                        <li>✓ Conseguir</li>
+                        <li>✓ Saber fazer</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(239, 68, 68, 0.2); border: 2px solid #ef4444; padding: 1rem; border-radius: 12px; margin: 1.5rem 0; text-align: center;">
+                    <strong style="color: #ef4444;">⚠️ ATENÇÃO:</strong><br>
+                    Após CAN, <strong>NÃO</strong> usamos "to"!
+                </div>
+
+                <div class="exercise-container">
+                    <div class="exercise-question">Corrija a frase:</div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-decoration: line-through; opacity: 0.7;">
+                        I can to swim. ❌
+                    </div>
+                    <div class="input-exercise">
+                        <input type="text" class="word-input" id="can-input" placeholder="Correção: I can...">
+                        <button class="btn-primary" onclick="checkCan()">Verificar</button>
+                    </div>
+                    <div class="feedback" id="can-feedback"></div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="prevSection(8)">← Voltar</button>
+                    <button class="btn-primary btn-next" onclick="nextSection(10)">Desafio Final →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Final Quiz -->
+        <section class="section" id="section10">
+            <div class="glass-card">
+                <h2 class="section-title">
+                    <span class="section-number">10</span>
+                    Desafio Final
+                </h2>
+
+                <!-- PLACEHOLDER FOR IMAGE 10 -->
+  <img 
+                    src="image7.png" 
+                    alt="Ilustração de linha do tempo mostrando passado"
+                    class="content-image"
+                />
+
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <div>
+                            <h3>Quiz Final</h3>
+                            <p style="opacity: 0.7;">10 perguntas • Ganhe 100 XP</p>
+                        </div>
+                        <div class="quiz-progress" id="quiz-progress">
+                            <!-- Generated by JS -->
+                        </div>
+                    </div>
+
+                    <div id="quiz-content">
+                        <div class="quiz-question" id="quiz-question">
+                            Carregando...
+                        </div>
+                        <div class="quiz-options" id="quiz-options">
+                            <!-- Generated by JS -->
+                        </div>
+                    </div>
+
+                    <div class="feedback" id="quiz-feedback"></div>
+                </div>
+
+                <div id="quiz-result" style="display: none; text-align: center; padding: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🏆</div>
+                    <h2 style="margin-bottom: 1rem;">Parabéns!</h2>
+                    <p style="font-size: 1.25rem; margin-bottom: 2rem;">Você completou a aula!</p>
+                    <button class="btn-primary" onclick="restartJourney()">Recomeçar Jornada</button>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="prevSection(9)">← Voltar</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Level Indicator -->
+    <div class="level-indicator" id="level-indicator" title="Seu Nível">
+        🌟
+    </div>
+
+    <script>
+        // Game State
+        let xp = 0;
+        let currentSection = 0;
+        let totalSections = 10;
+        let quizIndex = 0;
+        let quizScore = 0;
+        let answeredQuestions = new Set();
+
+        // Quiz Questions - 10 QUESTÕES COMPLETAS
+        const quizQuestions = [
+            {
+                question: "1. Qual é o passado de 'work'?",
+                options: ["Worked", "Work", "Working", "Works"],
+                correct: 0,
+                xp: 10
+            },
+            {
+                question: "2. Complete: I ___ to the beach yesterday.",
+                options: ["go", "went", "gone", "going"],
+                correct: 1,
+                xp: 10
+            },
+            {
+                question: "3. Qual é a forma negativa correta?",
+                options: ["I didn't went", "I didn't go", "I not went", "I no go"],
+                correct: 1,
+                xp: 10
+            },
+            {
+                question: "4. Complete: She ___ very happy.",
+                options: ["were", "was", "are", "is"],
+                correct: 1,
+                xp: 10
+            },
+            {
+                question: "5. Qual está correto?",
+                options: ["I can to swim", "I can swim", "I can swimming", "I can swims"],
+                correct: 1,
+                xp: 10
+            },
+            {
+                question: "6. Transforme em pergunta: 'You studied'",
+                options: ["Did you studied?", "Did you study?", "You did study?", "Study you did?"],
+                correct: 1,
+                xp: 10
+            },
+            {
+                question: "7. Qual é o passado de 'eat'?",
+                options: ["Eated", "Ate", "Eaten", "Eating"],
+                correct: 1,
+                xp: 10
+            },
+            {
+                question: "8. Complete: They ___ friends.",
+                options: ["was", "were", "are", "is"],
+                correct: 1,
+                xp: 10
+            },
+            {
+                question: "9. Qual regra se aplica a 'study'?",
+                options: ["+ed", "+d", "y → ied", "y → ied (vogal antes)"],
+                correct: 2,
+                xp: 10
+            },
+            {
+                question: "10. Complete: I ___ my homework last night.",
+                options: ["do", "did", "done", "doing"],
+                correct: 1,
+                xp: 10
+            }
+        ];
+
+        // Initialize
+        function init() {
+            updateProgress();
+            createQuizDots();
+        }
+
+        function startJourney() {
+            document.getElementById('hero').style.display = 'none';
+            nextSection(1);
+            addXP(10);
+        }
+
+        function nextSection(num) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            
+            // Show target section
+            document.getElementById('section' + num).classList.add('active');
+            currentSection = num;
+            
+            // Update progress
+            updateProgress();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Add XP for completing section
+            if (!answeredQuestions.has('section' + num)) {
+                addXP(10);
+                answeredQuestions.add('section' + num);
+            }
+            
+            // Load quiz if section 10
+            if (num === 10) {
+                loadQuizQuestion();
+            }
+        }
+
+        function prevSection(num) {
+            nextSection(num);
+        }
+
+        function updateProgress() {
+            const percentage = (currentSection / totalSections) * 100;
+            document.getElementById('progress-fill').style.width = percentage + '%';
+            document.getElementById('section-indicator').textContent = currentSection + '/' + totalSections;
+        }
+
+        function addXP(amount) {
+            xp += amount;
+            document.getElementById('xp-display').textContent = xp + ' XP';
+            
+            // Check level
+            let level = 1;
+            let emoji = '🌟';
+            
+            if (xp >= 200) {
+                level = 3;
+                emoji = '👑';
+                createConfetti();
+            } else if (xp >= 100) {
+                level = 2;
+                emoji = '⭐';
+            }
+            
+            document.getElementById('level-indicator').textContent = emoji;
+            
+            // Visual feedback
+            const xpBadge = document.querySelector('.xp-badge');
+            xpBadge.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                xpBadge.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        function createConfetti() {
+            const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#10b981', '#f59e0b'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 50);
+            }
+        }
+
+        // Structure Builder
+        function checkStructure(element, correct) {
+            const pieces = document.querySelectorAll('.structure-piece');
+            pieces.forEach(p => p.classList.remove('active'));
+            element.classList.add('active');
+            
+            if (correct === 'worked') {
+                addXP(5);
+                showFeedback('struct-feedback', 'Correto! "Worked" é o passado de work.', true);
+            }
+        }
+
+        function checkStructureInput() {
+            const input = document.getElementById('struct-input').value.toLowerCase();
+            const feedback = document.getElementById('struct-feedback');
+            
+            if (input.includes('you played soccer yesterday')) {
+                feedback.className = 'feedback correct show';
+                feedback.innerHTML = '✅ Perfeito! <br><small>You played soccer yesterday.</small>';
+                addXP(15);
+            } else {
+                feedback.className = 'feedback wrong show';
+                feedback.innerHTML = '❌ Tente novamente!<br><small>Dica: You + played + soccer yesterday</small>';
+            }
+        }
+
+        // Verb Cards
+        function flipCard(card) {
+            card.style.transform = 'rotateY(180deg)';
+            setTimeout(() => {
+                card.style.transform = 'rotateY(0)';
+            }, 1000);
+        }
+
+        function checkVerb(btn, correct, answer) {
+            const buttons = btn.parentElement.querySelectorAll('.option-btn');
+            buttons.forEach(b => {
+                b.classList.remove('correct', 'wrong');
+                if (b === btn) {
+                    if (answer === correct) {
+                        b.classList.add('correct');
+                        showFeedback('verb-feedback', '✅ Correto! Talked é o passado de Talk.', true);
+                        addXP(10);
+                    } else {
+                        b.classList.add('wrong');
+                        showFeedback('verb-feedback', '❌ Não é esse. Lembre-se: verbos regulares + ed', false);
+                    }
+                }
+            });
+        }
+
+        function showFeedback(elementId, message, isCorrect) {
+            const el = document.getElementById(elementId);
+            el.className = 'feedback show ' + (isCorrect ? 'correct' : 'wrong');
+            el.innerHTML = message;
+        }
+
+        // Irregular Verbs
+        function checkIrregular() {
+            const input = document.getElementById('irreg-input').value.toLowerCase().trim();
+            const feedback = document.getElementById('irreg-feedback');
+            
+            if (input === 'went') {
+                feedback.className = 'feedback correct show';
+                feedback.innerHTML = '✅ Excelente! Go → Went';
+                addXP(15);
+            } else {
+                feedback.className = 'feedback wrong show';
+                feedback.innerHTML = '❌ Quase! Dica: É uma palavra curta que começa com W.';
+            }
+        }
+
+        // Was/Were
+        function checkWasWere(btn, answer) {
+            const buttons = btn.parentElement.querySelectorAll('.option-btn');
+            buttons.forEach(b => b.classList.remove('correct', 'wrong'));
+            
+            if (answer === 'was') {
+                btn.classList.add('correct');
+                showFeedback('waswere-feedback', '✅ Correto! I/he/she/it usa WAS', true);
+                addXP(10);
+            } else {
+                btn.classList.add('wrong');
+                showFeedback('waswere-feedback', '❌ Lembre-se: I/he/she/it = WAS', false);
+            }
+        }
+
+        // Examples
+        function showExample(type) {
+            alert(type === 'cinema' ? 
+                'I went to the cinema in 2023.\n(Eu fui ao cinema em 2023.)' : 
+                'I didn\'t eat cake at Fernanda\'s birthday party.\n(Eu não comi bolo na festa.)');
+        }
+
+        // Negative
+        function checkNegative() {
+            const input = document.getElementById('neg-input').value.toLowerCase();
+            const feedback = document.getElementById('neg-feedback');
+            
+            if (input.includes("didn't play") || input.includes("did not play")) {
+                feedback.className = 'feedback correct show';
+                feedback.innerHTML = '✅ Perfeito! She didn\'t play soccer.';
+                addXP(15);
+            } else {
+                feedback.className = 'feedback wrong show';
+                feedback.innerHTML = '❌ Lembre-se: didn\'t + verbo base (play, não played)';
+            }
+        }
+
+        // Questions
+        function checkQuestion() {
+            const input = document.getElementById('quest-input').value.toLowerCase();
+            const feedback = document.getElementById('quest-feedback');
+            
+            if (input.includes('did you study')) {
+                feedback.className = 'feedback correct show';
+                feedback.innerHTML = '✅ Excelente! Did you study English?';
+                addXP(15);
+            } else {
+                feedback.className = 'feedback wrong show';
+                feedback.innerHTML = '❌ Did + you + study (verbo base) + English?';
+            }
+        }
+
+        // Can
+        function checkCan() {
+            const input = document.getElementById('can-input').value.toLowerCase();
+            const feedback = document.getElementById('can-feedback');
+            
+            if (input.includes('can swim') && !input.includes('to')) {
+                feedback.className = 'feedback correct show';
+                feedback.innerHTML = '✅ Correto! Após CAN não usamos "to"';
+                addXP(15);
+            } else if (input.includes('to')) {
+                feedback.className = 'feedback wrong show';
+                feedback.innerHTML = '❌ Lembre-se: CAN + verbo (sem TO!)';
+            } else {
+                feedback.className = 'feedback wrong show';
+                feedback.innerHTML = '❌ Tente: I can swim';
+            }
+        }
+
+        // Quiz System
+        function createQuizDots() {
+            const container = document.getElementById('quiz-progress');
+            container.innerHTML = '';
+            for (let i = 0; i < quizQuestions.length; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'quiz-dot';
+                dot.id = 'quiz-dot-' + i;
+                container.appendChild(dot);
+            }
+        }
+
+        function loadQuizQuestion() {
+            if (quizIndex >= quizQuestions.length) {
+                showQuizResult();
+                return;
+            }
+
+            const q = quizQuestions[quizIndex];
+            document.getElementById('quiz-question').textContent = q.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option';
+                btn.textContent = opt;
+                btn.onclick = () => checkQuizAnswer(idx, btn);
+                optionsContainer.appendChild(btn);
+            });
+
+            // Update dots
+            document.querySelectorAll('.quiz-dot').forEach((dot, idx) => {
+                dot.classList.remove('active');
+                if (idx === quizIndex) dot.classList.add('active');
+            });
+        }
+
+        function checkQuizAnswer(selected, btn) {
+            const q = quizQuestions[quizIndex];
+            const feedback = document.getElementById('quiz-feedback');
+            const options = document.querySelectorAll('.quiz-option');
+            
+            options.forEach(o => o.style.pointerEvents = 'none');
+            
+            if (selected === q.correct) {
+                btn.classList.add('correct');
+                feedback.className = 'feedback correct show';
+                feedback.innerHTML = '✅ Correto! +' + q.xp + ' XP';
+                addXP(q.xp);
+                quizScore++;
+                document.getElementById('quiz-dot-' + quizIndex).classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                options[q.correct].classList.add('correct');
+                feedback.className = 'feedback wrong show';
+                feedback.innerHTML = '❌ A resposta correta era: ' + q.options[q.correct];
+                document.getElementById('quiz-dot-' + quizIndex).classList.add('wrong');
+            }
+            
+            setTimeout(() => {
+                quizIndex++;
+                feedback.classList.remove('show');
+                loadQuizQuestion();
+            }, 2000);
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-content').style.display = 'none';
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'block';
+            
+            if (quizScore >= 8) {
+                createConfetti();
+                addXP(50);
+            }
+        }
+
+        function restartJourney() {
+            location.reload();
+        }
+
+        // Initialize on load
+        window.onload = init;
+    </script>
+</body>
+</html>
