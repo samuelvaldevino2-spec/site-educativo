@@ -1,0 +1,3653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Exercises - 50 Interactive Challenges</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --primary: #6366f1;
+    --secondary: #8b5cf6;
+    --accent: #ec4899;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --glass: rgba(255,255,255,0.08);
+    --glass-border: rgba(255,255,255,0.15);
+}
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+    color: var(--light);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+.bg-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
+.bg-animation .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: float 20s infinite ease-in-out; }
+.orb-1 { width: 400px; height: 400px; background: var(--primary); top: -100px; left: -100px; }
+.orb-2 { width: 300px; height: 300px; background: var(--secondary); top: 50%; right: -50px; animation-delay: 5s; }
+.orb-3 { width: 350px; height: 350px; background: var(--accent); bottom: -100px; left: 30%; animation-delay: 10s; }
+@keyframes float {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(30px,-50px) scale(1.1); }
+    66% { transform: translate(-20px,20px) scale(0.9); }
+}
+.top-bar {
+    position: sticky; top: 0; z-index: 1000;
+    background: rgba(15,23,42,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border); padding: 0.75rem 1rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.xp-badge {
+    background: linear-gradient(135deg, var(--warning), #fbbf24);
+    color: var(--dark); padding: 0.4rem 0.9rem; border-radius: 20px;
+    font-weight: bold; font-size: 0.875rem;
+    box-shadow: 0 4px 15px rgba(245,158,11,0.3);
+    display: flex; align-items: center; gap: 0.4rem;
+}
+.streak-badge {
+    background: linear-gradient(135deg, var(--danger), #f43f5e);
+    color: white; padding: 0.4rem 0.9rem; border-radius: 20px;
+    font-weight: bold; font-size: 0.875rem;
+    display: flex; align-items: center; gap: 0.4rem;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem; }
+.screen { display: none; animation: fadeIn 0.5s ease; }
+.screen.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* HOME */
+.home-title {
+    font-size: 2.5rem; text-align: center; margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #fff, #a5b4fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.home-subtitle { text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 1.1rem; }
+.stages-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin-bottom: 2rem;
+}
+.stage-card {
+    background: var(--glass); backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border); border-radius: 20px;
+    padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+}
+.stage-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left;
+}
+.stage-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(99,102,241,0.3); }
+.stage-card:hover::before { transform: scaleX(1); }
+.stage-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+.stage-title { font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem; }
+.stage-desc { font-size: 0.875rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem; }
+.stage-progress {
+    height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;
+}
+.stage-progress-fill {
+    height: 100%; background: linear-gradient(90deg, var(--success), #34d399);
+    border-radius: 10px; transition: width 0.5s ease;
+}
+.stage-badge {
+    position: absolute; top: 1rem; right: 1rem;
+    background: var(--success); color: white;
+    padding: 0.25rem 0.6rem; border-radius: 12px;
+    font-size: 0.75rem; font-weight: bold;
+}
+
+/* EXERCISE SCREEN */
+.exercise-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap;
+}
+.back-btn {
+    background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border);
+    color: white; padding: 0.5rem 1rem; border-radius: 50px;
+    cursor: pointer; font-size: 0.875rem; transition: all 0.3s ease;
+}
+.back-btn:hover { background: rgba(255,255,255,0.2); }
+.exercise-title {
+    font-size: 1.5rem; font-weight: bold;
+    background: linear-gradient(135deg, #fff, #a5b4fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    flex: 1; text-align: center;
+}
+.exercise-card {
+    background: var(--glass); backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border); border-radius: 24px;
+    padding: 2rem; margin-bottom: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.exercise-instructions {
+    background: rgba(99,102,241,0.1); border-left: 4px solid var(--primary);
+    padding: 1rem 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+.exercise-instructions strong { color: var(--primary); }
+
+/* BUTTONS */
+.btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white; border: none; padding: 0.875rem 1.75rem;
+    border-radius: 50px; cursor: pointer; font-weight: bold;
+    font-size: 1rem; transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(99,102,241,0.3);
+    display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(99,102,241,0.4); }
+.btn:active { transform: translateY(0); }
+.btn-success { background: linear-gradient(135deg, var(--success), #34d399); box-shadow: 0 8px 24px rgba(16,185,129,0.3); }
+.btn-danger { background: linear-gradient(135deg, var(--danger), #f43f5e); box-shadow: 0 8px 24px rgba(239,68,68,0.3); }
+.btn-warning { background: linear-gradient(135deg, var(--warning), #fbbf24); color: var(--dark); }
+.btn-outline {
+    background: transparent; border: 2px solid var(--glass-border);
+    box-shadow: none;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+.btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
+
+/* GAME AREAS */
+.game-area {
+    min-height: 300px; background: rgba(0,0,0,0.2);
+    border-radius: 16px; padding: 1.5rem; margin: 1rem 0;
+    position: relative; overflow: hidden;
+}
+.drop-zone {
+    border: 3px dashed var(--glass-border); border-radius: 16px;
+    padding: 2rem; text-align: center; margin: 1rem 0;
+    transition: all 0.3s ease; min-height: 100px;
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 0.5rem;
+}
+.drop-zone.hover { border-color: var(--primary); background: rgba(99,102,241,0.1); }
+.drop-zone.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+.drop-zone.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); animation: shake 0.5s; }
+
+.draggable {
+    background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(139,92,246,0.3));
+    border: 2px solid var(--primary); padding: 0.75rem 1.25rem;
+    border-radius: 12px; cursor: grab; font-weight: bold;
+    transition: all 0.2s ease; user-select: none;
+    display: inline-block; margin: 0.25rem;
+}
+.draggable:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(99,102,241,0.4); }
+.draggable.dragging { opacity: 0.5; cursor: grabbing; }
+.draggable.placed { background: linear-gradient(135deg, var(--success), #34d399); border-color: var(--success); }
+
+/* OPTIONS */
+.options-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem; margin: 1rem 0;
+}
+.option-btn {
+    background: rgba(255,255,255,0.08); border: 2px solid var(--glass-border);
+    color: white; padding: 1rem; border-radius: 12px;
+    cursor: pointer; font-size: 1rem; transition: all 0.3s ease;
+    text-align: center; font-weight: 500;
+}
+.option-btn:hover { background: rgba(255,255,255,0.15); border-color: var(--primary); transform: translateY(-2px); }
+.option-btn.correct { background: rgba(16,185,129,0.3); border-color: var(--success); animation: correctPulse 0.5s; }
+.option-btn.wrong { background: rgba(239,68,68,0.3); border-color: var(--danger); animation: shake 0.5s; }
+.option-btn.disabled { pointer-events: none; opacity: 0.6; }
+
+/* INPUTS */
+.game-input {
+    background: rgba(255,255,255,0.1); border: 2px solid var(--glass-border);
+    color: white; padding: 0.875rem 1.25rem; border-radius: 12px;
+    font-size: 1.1rem; width: 100%; transition: all 0.3s ease;
+    font-family: inherit;
+}
+.game-input:focus { outline: none; border-color: var(--primary); background: rgba(255,255,255,0.15); }
+
+/* FEEDBACK */
+.feedback {
+    margin-top: 1rem; padding: 1rem 1.25rem; border-radius: 12px;
+    display: none; animation: fadeIn 0.3s ease; font-weight: 500;
+}
+.feedback.show { display: block; }
+.feedback.success { background: rgba(16,185,129,0.2); border: 1px solid var(--success); color: #86efac; }
+.feedback.error { background: rgba(239,68,68,0.2); border: 1px solid var(--danger); color: #fca5a5; }
+
+/* TIMELINE */
+.timeline-container { display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap; justify-content: center; }
+.timeline-zone {
+    flex: 1; min-width: 120px; padding: 1.5rem 1rem;
+    border-radius: 16px; text-align: center; min-height: 150px;
+    transition: all 0.3s ease; position: relative;
+}
+.zone-past { background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.1)); border: 2px solid var(--danger); }
+.zone-present { background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(99,102,241,0.1)); border: 2px solid var(--primary); }
+.zone-future { background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.1)); border: 2px solid var(--success); }
+.zone-title { font-weight: bold; font-size: 1.1rem; margin-bottom: 0.75rem; }
+.zone-items { display: flex; flex-direction: column; gap: 0.5rem; }
+
+/* FLASHCARD */
+.flashcard {
+    perspective: 1000px; width: 100%; max-width: 400px;
+    height: 220px; margin: 1.5rem auto; cursor: pointer;
+}
+.flashcard-inner {
+    width: 100%; height: 100%; position: relative;
+    transform-style: preserve-3d; transition: transform 0.6s;
+}
+.flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+.flashcard-face {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; border-radius: 20px;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 1.5rem; text-align: center;
+    border: 2px solid var(--glass-border);
+}
+.flashcard-front { background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(139,92,246,0.3)); }
+.flashcard-back { background: linear-gradient(135deg, rgba(236,72,153,0.3), rgba(244,63,94,0.3)); transform: rotateY(180deg); }
+.flashcard-word { font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; }
+.flashcard-hint { font-size: 0.875rem; color: rgba(255,255,255,0.6); }
+
+/* MEMORY GRID */
+.memory-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem; margin: 1.5rem 0;
+}
+.memory-card {
+    aspect-ratio: 1; background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px; cursor: pointer; position: relative;
+    transform-style: preserve-3d; transition: transform 0.6s;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 0.875rem; padding: 0.5rem;
+    text-align: center; min-height: 80px;
+}
+.memory-card.flipped { transform: rotateY(180deg); background: rgba(255,255,255,0.1); }
+.memory-card.matched { background: linear-gradient(135deg, var(--success), #34d399); pointer-events: none; }
+.memory-card-front { backface-visibility: hidden; font-size: 1.5rem; }
+.memory-card-back { position: absolute; transform: rotateY(180deg); backface-visibility: hidden; padding: 0.5rem; }
+
+/* CANVAS */
+#gameCanvas { width: 100%; max-width: 100%; border-radius: 16px; background: rgba(0,0,0,0.3); touch-action: none; display: block; margin: 0 auto; }
+
+/* STATS */
+.stats-bar {
+    display: flex; justify-content: space-around; padding: 1rem;
+    background: rgba(0,0,0,0.2); border-radius: 12px; margin-bottom: 1rem;
+    flex-wrap: wrap; gap: 0.5rem;
+}
+.stat-item { text-align: center; }
+.stat-value { font-size: 1.5rem; font-weight: bold; color: var(--warning); }
+.stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+
+/* HEALTH BAR */
+.health-bar {
+    width: 100%; height: 20px; background: rgba(0,0,0,0.3);
+    border-radius: 10px; overflow: hidden; margin: 0.5rem 0;
+    border: 1px solid var(--glass-border);
+}
+.health-fill {
+    height: 100%; transition: width 0.5s ease;
+    background: linear-gradient(90deg, var(--danger), var(--warning), var(--success));
+}
+
+/* COMBO */
+.combo-display {
+    position: fixed; top: 80px; right: 20px; z-index: 999;
+    background: linear-gradient(135deg, var(--warning), #fbbf24);
+    color: var(--dark); padding: 0.75rem 1.25rem; border-radius: 50px;
+    font-weight: bold; box-shadow: 0 8px 24px rgba(245,158,11,0.4);
+    display: none; animation: comboPop 0.5s ease;
+}
+.combo-display.show { display: block; }
+@keyframes comboPop { 0% { transform: scale(0); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+
+/* ANIMATIONS */
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
+@keyframes correctPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes confettiFall { 0% { transform: translateY(-100px) rotate(0); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+
+.confetti {
+    position: fixed; width: 10px; height: 10px; z-index: 9999;
+    animation: confettiFall 3s linear forwards; pointer-events: none;
+}
+
+/* FLOATING TEXT */
+.floating-text {
+    position: fixed; font-weight: bold; font-size: 1.5rem;
+    pointer-events: none; z-index: 9999;
+    animation: floatUp 1.5s ease-out forwards;
+}
+@keyframes floatUp { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-80px); } }
+
+/* TIMER */
+.timer-bar {
+    width: 100%; height: 8px; background: rgba(255,255,255,0.1);
+    border-radius: 10px; overflow: hidden; margin-bottom: 1rem;
+}
+.timer-fill {
+    height: 100%; background: linear-gradient(90deg, var(--success), var(--warning), var(--danger));
+    transition: width 0.1s linear;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .home-title { font-size: 1.75rem; }
+    .exercise-title { font-size: 1.1rem; }
+    .exercise-card { padding: 1.25rem; }
+    .memory-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .memory-card { font-size: 0.7rem; min-height: 60px; }
+    .timeline-container { flex-direction: column; }
+    .options-grid { grid-template-columns: 1fr; }
+    .top-bar { flex-wrap: wrap; }
+}
+
+/* EXERCISE MENU */
+.exercise-menu {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem; margin: 1.5rem 0;
+}
+.ex-menu-item {
+    background: var(--glass); border: 1px solid var(--glass-border);
+    border-radius: 16px; padding: 1rem; cursor: pointer;
+    transition: all 0.3s ease; text-align: center;
+}
+.ex-menu-item:hover { transform: translateY(-3px); background: rgba(255,255,255,0.12); border-color: var(--primary); }
+.ex-menu-item.completed { border-color: var(--success); }
+.ex-menu-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.ex-menu-title { font-size: 0.95rem; font-weight: bold; }
+.ex-menu-status { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.25rem; }
+
+/* BOSS BATTLE */
+.boss-scene { text-align: center; padding: 1.5rem; }
+.boss-sprite {
+    font-size: 6rem; margin: 1rem 0;
+    animation: bossIdle 2s infinite ease-in-out;
+}
+@keyframes bossIdle { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.boss-name { font-size: 1.5rem; font-weight: bold; color: var(--danger); margin-bottom: 0.5rem; }
+
+/* CHAT */
+.chat-container {
+    max-height: 400px; overflow-y: auto;
+    background: rgba(0,0,0,0.2); border-radius: 16px; padding: 1rem;
+}
+.chat-message {
+    margin-bottom: 1rem; display: flex; gap: 0.75rem;
+    animation: slideUp 0.3s ease;
+}
+.chat-message.user { flex-direction: row-reverse; }
+.chat-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem; flex-shrink: 0;
+}
+.chat-bubble {
+    background: rgba(255,255,255,0.1); padding: 0.75rem 1rem;
+    border-radius: 16px; max-width: 75%;
+}
+.chat-message.user .chat-bubble { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+
+/* PORTRAITS */
+.portrait-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+.portrait {
+    background: white; padding: 0.75rem; border-radius: 8px;
+    text-align: center; cursor: pointer; transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.portrait:hover { transform: scale(1.05) rotate(-2deg); }
+.portrait.selected { border: 3px solid var(--primary); }
+.portrait-emoji { font-size: 3rem; margin-bottom: 0.5rem; }
+.portrait-text { font-size: 0.875rem; color: var(--dark); font-weight: 500; }
+
+/* SUPERHERO */
+.hero-card {
+    background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(236,72,153,0.2));
+    border: 2px solid var(--glass-border); border-radius: 20px;
+    padding: 1.5rem; text-align: center; margin: 1rem 0;
+}
+.hero-avatar { font-size: 4rem; margin-bottom: 0.5rem; }
+.hero-name { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; }
+.power-list { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.power-tag {
+    background: rgba(16,185,129,0.2); border: 1px solid var(--success);
+    padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.875rem;
+}
+
+/* SENTENCE BUILDER */
+.sentence-slots {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; min-height: 60px;
+    padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 12px;
+    margin-bottom: 1rem; align-items: center; justify-content: center;
+}
+.word-bank {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;
+    padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 12px;
+}
+.word-chip {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    padding: 0.6rem 1.1rem; border-radius: 10px; cursor: pointer;
+    font-weight: bold; transition: all 0.2s ease; user-select: none;
+}
+.word-chip:hover { transform: scale(1.05); }
+.word-chip.used { opacity: 0.3; pointer-events: none; }
+</style>
+</head>
+<body>
+<div class="bg-animation">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+</div>
+
+<div class="combo-display" id="comboDisplay">🔥 Combo x1</div>
+
+<div class="top-bar">
+    <div class="xp-badge">⭐ <span id="xpDisplay">0 XP</span></div>
+    <div class="streak-badge">🔥 <span id="streakDisplay">0</span></div>
+    <button class="back-btn" onclick="goHome()" id="homeBtn" style="display:none;">🏠 Home</button>
+</div>
+
+<div class="container">
+    <!-- HOME SCREEN -->
+    <div class="screen active" id="homeScreen">
+        <h1 class="home-title">🎮 English Exercises</h1>
+        <p class="home-subtitle">50 desafios interativos • Simple Past & Can</p>
+        <div class="stages-grid" id="stagesGrid"></div>
+    </div>
+
+    <!-- STAGE MENU -->
+    <div class="screen" id="stageScreen">
+        <div class="exercise-header">
+            <button class="back-btn" onclick="goHome()">← Voltar</button>
+            <h2 class="exercise-title" id="stageTitle">Etapa</h2>
+            <div style="width:80px;"></div>
+        </div>
+        <div class="exercise-menu" id="exerciseMenu"></div>
+    </div>
+
+    <!-- EXERCISE SCREEN -->
+    <div class="screen" id="exerciseScreen">
+        <div class="exercise-header">
+            <button class="back-btn" onclick="backToStage()">← Voltar</button>
+            <h2 class="exercise-title" id="exerciseTitle">Exercício</h2>
+            <div style="width:80px;"></div>
+        </div>
+        <div class="exercise-card">
+            <div class="exercise-instructions" id="exerciseInstructions"></div>
+            <div class="stats-bar" id="statsBar" style="display:none;">
+                <div class="stat-item"><div class="stat-value" id="statScore">0</div><div class="stat-label">Pontos</div></div>
+                <div class="stat-item"><div class="stat-value" id="statLives">❤️❤️❤️</div><div class="stat-label">Vidas</div></div>
+                <div class="stat-item"><div class="stat-value" id="statTime">--</div><div class="stat-label">Tempo</div></div>
+            </div>
+            <div class="timer-bar" id="timerBar" style="display:none;"><div class="timer-fill" id="timerFill" style="width:100%;"></div></div>
+            <div class="game-area" id="gameArea"></div>
+            <div class="feedback" id="feedback"></div>
+            <div class="btn-group" id="btnGroup"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ============ GAME STATE ============
+const state = {
+    xp: 0, streak: 0, combo: 0,
+    currentStage: null, currentExercise: null,
+    completed: JSON.parse(localStorage.getItem('ex_completed') || '{}'),
+    highScores: JSON.parse(localStorage.getItem('ex_highscores') || '{}')
+};
+
+function saveState() {
+    localStorage.setItem('ex_completed', JSON.stringify(state.completed));
+    localStorage.setItem('ex_highscores', JSON.stringify(state.highScores));
+}
+
+function addXP(amount) {
+    state.xp += amount;
+    document.getElementById('xpDisplay').textContent = state.xp + ' XP';
+    const badge = document.querySelector('.xp-badge');
+    badge.style.transform = 'scale(1.2)';
+    setTimeout(() => badge.style.transform = 'scale(1)', 200);
+    playSound('correct');
+}
+
+function updateCombo(correct) {
+    if (correct) {
+        state.combo++;
+        state.streak++;
+        if (state.combo >= 3) {
+            const cd = document.getElementById('comboDisplay');
+            cd.textContent = `🔥 Combo x${state.combo}`;
+            cd.classList.add('show');
+            setTimeout(() => cd.classList.remove('show'), 1500);
+        }
+    } else {
+        state.combo = 0;
+        state.streak = 0;
+    }
+    document.getElementById('streakDisplay').textContent = state.streak;
+}
+
+function markCompleted(stageId, exId, score) {
+    const key = `${stageId}_${exId}`;
+    state.completed[key] = true;
+    const hsKey = `hs_${stageId}_${exId}`;
+    if (!state.highScores[hsKey] || score > state.highScores[hsKey]) {
+        state.highScores[hsKey] = score;
+    }
+    saveState();
+}
+
+// ============ AUDIO ============
+let audioCtx;
+function getAudioCtx() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+}
+function playSound(type) {
+    try {
+        const ctx = getAudioCtx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain); gain.connect(ctx.destination);
+        if (type === 'correct') {
+            osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+            osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.1);
+            gain.gain.setValueAtTime(0.2, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+            osc.start(); osc.stop(ctx.currentTime + 0.3);
+        } else if (type === 'wrong') {
+            osc.frequency.value = 200;
+            gain.gain.setValueAtTime(0.2, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+            osc.start(); osc.stop(ctx.currentTime + 0.3);
+        } else if (type === 'click') {
+            osc.frequency.value = 800;
+            gain.gain.setValueAtTime(0.1, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.05);
+            osc.start(); osc.stop(ctx.currentTime + 0.05);
+        } else if (type === 'win') {
+            [523.25, 659.25, 783.99, 1046.50].forEach((f, i) => {
+                const o = ctx.createOscillator(); const g = ctx.createGain();
+                o.connect(g); g.connect(ctx.destination);
+                o.frequency.value = f;
+                g.gain.setValueAtTime(0.15, ctx.currentTime + i*0.1);
+                g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i*0.1 + 0.3);
+                o.start(ctx.currentTime + i*0.1); o.stop(ctx.currentTime + i*0.1 + 0.3);
+            });
+        }
+    } catch(e) {}
+}
+
+function createConfetti() {
+    const colors = ['#6366f1','#8b5cf6','#ec4899','#10b981','#f59e0b'];
+    for (let i = 0; i < 60; i++) {
+        setTimeout(() => {
+            const c = document.createElement('div');
+            c.className = 'confetti';
+            c.style.left = Math.random() * 100 + 'vw';
+            c.style.background = colors[Math.floor(Math.random()*colors.length)];
+            c.style.animationDuration = (Math.random()*2+2) + 's';
+            document.body.appendChild(c);
+            setTimeout(() => c.remove(), 4000);
+        }, i * 30);
+    }
+}
+
+function showFloating(text, color = '#fbbf24', x = null, y = null) {
+    const el = document.createElement('div');
+    el.className = 'floating-text';
+    el.textContent = text;
+    el.style.color = color;
+    el.style.left = (x || window.innerWidth/2 - 50) + 'px';
+    el.style.top = (y || window.innerHeight/2) + 'px';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 1500);
+}
+
+function showFeedback(msg, type = 'success') {
+    const fb = document.getElementById('feedback');
+    fb.className = `feedback show ${type}`;
+    fb.innerHTML = msg;
+    setTimeout(() => fb.classList.remove('show'), 3000);
+}
+
+// ============ STAGES DATA ============
+const stages = [
+    { id: 1, icon: '⏰', title: 'O que é Simple Past?', desc: 'Entenda o passado simples', color: '#6366f1' },
+    { id: 2, icon: '🧱', title: 'Estrutura', desc: 'Monte frases corretamente', color: '#8b5cf6' },
+    { id: 3, icon: '🔧', title: 'Verbos Regulares', desc: 'Regras ED, D, IED', color: '#ec4899' },
+    { id: 4, icon: '🎲', title: 'Verbos Irregulares', desc: 'Memorize os irregulares', color: '#f59e0b' },
+    { id: 5, icon: '⚖️', title: 'Was & Were', desc: 'Aprenda was/were', color: '#10b981' },
+    { id: 6, icon: '✅', title: 'Frases Afirmativas', desc: 'Construa afirmações', color: '#06b6d4' },
+    { id: 7, icon: '❌', title: 'Frases Negativas', desc: 'Use didn\'t corretamente', color: '#ef4444' },
+    { id: 8, icon: '❓', title: 'Perguntas com Did', desc: 'Formule perguntas', color: '#a855f7' },
+    { id: 9, icon: '💪', title: 'Modal Verb CAN', desc: 'Poder, conseguir, saber', color: '#14b8a6' },
+    { id: 10, icon: '👑', title: 'Desafio Final', desc: 'Boss Battle épico', color: '#f43f5e' }
+];
+
+const exercises = {
+    1: [
+        { id: 1, icon: '⏰', title: 'Máquina do Tempo', fn: 'ex1_1' },
+        { id: 2, icon: '🔍', title: 'Detector de Passado', fn: 'ex1_2' },
+        { id: 3, icon: '🎯', title: 'Caça ao Tempo', fn: 'ex1_3' },
+        { id: 4, icon: '📸', title: 'Histórias da Infância', fn: 'ex1_4' },
+        { id: 5, icon: '🧠', title: 'Memória Temporal', fn: 'ex1_5' }
+    ],
+    2: [
+        { id: 1, icon: '🏗️', title: 'Construtor de Frases', fn: 'ex2_1' },
+        { id: 2, icon: '🧱', title: 'Lego de Frases', fn: 'ex2_2' },
+        { id: 3, icon: '⚡', title: 'Corrida Contra o Tempo', fn: 'ex2_3' },
+        { id: 4, icon: '🔀', title: 'Frase Embaralhada', fn: 'ex2_4' },
+        { id: 5, icon: '🧩', title: 'Quebra-Cabeça Gramatical', fn: 'ex2_5' }
+    ],
+    3: [
+        { id: 1, icon: '🏭', title: 'Fábrica de Verbos', fn: 'ex3_1' },
+        { id: 2, icon: '📦', title: 'Drag and Drop', fn: 'ex3_2' },
+        { id: 3, icon: '🎴', title: 'Cartas Mágicas', fn: 'ex3_3' },
+        { id: 4, icon: '⚡', title: 'Jogo da Velocidade', fn: 'ex3_4' },
+        { id: 5, icon: '🎯', title: 'Classificador Inteligente', fn: 'ex3_5' }
+    ],
+    4: [
+        { id: 1, icon: '🐉', title: 'Batalha dos Chefes', fn: 'ex4_1' },
+        { id: 2, icon: '🧠', title: 'Flashcards Inteligentes', fn: 'ex4_2' },
+        { id: 3, icon: '🔗', title: 'Pareamento', fn: 'ex4_3' },
+        { id: 4, icon: '⌨️', title: 'Digitação Rápida', fn: 'ex4_4' },
+        { id: 5, icon: '💀', title: 'Modo Sobrevivência', fn: 'ex4_5' }
+    ],
+    5: [
+        { id: 1, icon: '⚖️', title: 'Tribunal WAS/WERE', fn: 'ex5_1' },
+        { id: 2, icon: '🎯', title: 'Arrastar Pronome', fn: 'ex5_2' },
+        { id: 3, icon: '🚪', title: 'Jogo dos Portais', fn: 'ex5_3' },
+        { id: 4, icon: '⚡', title: 'Quiz Relâmpago', fn: 'ex5_4' },
+        { id: 5, icon: '👨‍🏫', title: 'Corrigir Professor', fn: 'ex5_5' }
+    ],
+    6: [
+        { id: 1, icon: '📖', title: 'Contador de Histórias', fn: 'ex6_1' },
+        { id: 2, icon: '🖼️', title: 'Complete a Cena', fn: 'ex6_2' },
+        { id: 3, icon: '🎯', title: 'Escolha o Verbo', fn: 'ex6_3' },
+        { id: 4, icon: '🧩', title: 'Reconstrução', fn: 'ex6_4' },
+        { id: 5, icon: '🎨', title: 'Transformação Visual', fn: 'ex6_5' }
+    ],
+    7: [
+        { id: 1, icon: '🔄', title: 'Transformador Negativo', fn: 'ex7_1' },
+        { id: 2, icon: '🎯', title: 'Arrastar DIDN\'T', fn: 'ex7_2' },
+        { id: 3, icon: '🤖', title: 'Corrigir Robô', fn: 'ex7_3' },
+        { id: 4, icon: '🕵️', title: 'Missão Secreta', fn: 'ex7_4' },
+        { id: 5, icon: '🚪', title: 'Escape Room', fn: 'ex7_5' }
+    ],
+    8: [
+        { id: 1, icon: '🎤', title: 'Entrevista', fn: 'ex8_1' },
+        { id: 2, icon: '🏗️', title: 'Montar Perguntas', fn: 'ex8_2' },
+        { id: 3, icon: '✨', title: 'Inversão Mágica', fn: 'ex8_3' },
+        { id: 4, icon: '🔍', title: 'Quiz Detective', fn: 'ex8_4' },
+        { id: 5, icon: '💬', title: 'Chat Simulado', fn: 'ex8_5' }
+    ],
+    9: [
+        { id: 1, icon: '🦸', title: 'Superpoderes', fn: 'ex9_1' },
+        { id: 2, icon: '✏️', title: 'Corrigir Frases', fn: 'ex9_2' },
+        { id: 3, icon: '🎯', title: 'Desafio Habilidades', fn: 'ex9_3' },
+        { id: 4, icon: '🏠', title: 'Simulador de Vida', fn: 'ex9_4' },
+        { id: 5, icon: '✅', title: 'Verdadeiro ou Falso', fn: 'ex9_5' }
+    ],
+    10: [
+        { id: 1, icon: '👑', title: 'BOSS BATTLE', fn: 'ex10_1' }
+    ]
+};
+
+// ============ NAVIGATION ============
+function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goHome() {
+    document.getElementById('homeBtn').style.display = 'none';
+    showScreen('homeScreen');
+    renderStages();
+}
+
+function renderStages() {
+    const grid = document.getElementById('stagesGrid');
+    grid.innerHTML = '';
+    stages.forEach(stage => {
+        const exs = exercises[stage.id];
+        const completed = exs.filter(e => state.completed[`${stage.id}_${e.id}`]).length;
+        const progress = (completed / exs.length) * 100;
+        const card = document.createElement('div');
+        card.className = 'stage-card';
+        card.onclick = () => openStage(stage.id);
+        card.innerHTML = `
+            ${completed === exs.length ? '<div class="stage-badge">✓ Completo</div>' : ''}
+            <div class="stage-icon">${stage.icon}</div>
+            <div class="stage-title">${stage.title}</div>
+            <div class="stage-desc">${stage.desc}</div>
+            <div class="stage-progress"><div class="stage-progress-fill" style="width:${progress}%"></div></div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;">${completed}/${exs.length} exercícios</div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function openStage(stageId) {
+    state.currentStage = stageId;
+    const stage = stages.find(s => s.id === stageId);
+    document.getElementById('stageTitle').textContent = `${stage.icon} ${stage.title}`;
+    const menu = document.getElementById('exerciseMenu');
+    menu.innerHTML = '';
+    exercises[stageId].forEach(ex => {
+        const isCompleted = state.completed[`${stageId}_${ex.id}`];
+        const item = document.createElement('div');
+        item.className = 'ex-menu-item' + (isCompleted ? ' completed' : '');
+        item.onclick = () => startExercise(stageId, ex.id, ex.fn, ex.title);
+        item.innerHTML = `
+            <div class="ex-menu-icon">${ex.icon}</div>
+            <div class="ex-menu-title">${ex.title}</div>
+            <div class="ex-menu-status">${isCompleted ? '✓ Concluído' : 'Não iniciado'}</div>
+        `;
+        menu.appendChild(item);
+    });
+    document.getElementById('homeBtn').style.display = 'block';
+    showScreen('stageScreen');
+}
+
+function backToStage() {
+    if (currentTimer) { clearInterval(currentTimer); currentTimer = null; }
+    openStage(state.currentStage);
+}
+
+let currentTimer = null;
+
+function startExercise(stageId, exId, fn, title) {
+    state.currentExercise = { stageId, exId, fn };
+    state.combo = 0;
+    document.getElementById('exerciseTitle').textContent = title;
+    document.getElementById('feedback').classList.remove('show');
+    document.getElementById('statsBar').style.display = 'none';
+    document.getElementById('timerBar').style.display = 'none';
+    document.getElementById('btnGroup').innerHTML = '';
+    document.getElementById('gameArea').innerHTML = '';
+    showScreen('exerciseScreen');
+    if (typeof window[fn] === 'function') window[fn]();
+}
+
+// ============ STAGE 1: WHAT IS SIMPLE PAST ============
+
+// Ex 1.1 - Máquina do Tempo
+function ex1_1() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Arraste cada frase para o tempo verbal correto (Passado, Presente ou Futuro).';
+    const items = [
+        { text: 'Yesterday I studied', type: 'past' },
+        { text: 'I am eating now', type: 'present' },
+        { text: 'Tomorrow I will travel', type: 'future' },
+        { text: 'Last week I worked', type: 'past' },
+        { text: 'She is studying', type: 'present' },
+        { text: 'Next year I will graduate', type: 'future' }
+    ];
+    let score = 0;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `
+        <div id="itemsPool" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-bottom:1.5rem;"></div>
+        <div class="timeline-container">
+            <div class="timeline-zone zone-past" data-zone="past"><div class="zone-title">🔴 PASSADO</div><div class="zone-items" id="zone-past"></div></div>
+            <div class="timeline-zone zone-present" data-zone="present"><div class="zone-title">🔵 PRESENTE</div><div class="zone-items" id="zone-present"></div></div>
+            <div class="timeline-zone zone-future" data-zone="future"><div class="zone-title">🟢 FUTURO</div><div class="zone-items" id="zone-future"></div></div>
+        </div>
+    `;
+    const pool = document.getElementById('itemsPool');
+    const shuffled = [...items].sort(() => Math.random() - 0.5);
+    shuffled.forEach((item, i) => {
+        const el = document.createElement('div');
+        el.className = 'draggable';
+        el.textContent = item.text;
+        el.draggable = true;
+        el.dataset.type = item.type;
+        el.id = 'item-' + i;
+        el.addEventListener('dragstart', e => {
+            e.dataTransfer.setData('text/plain', el.id);
+            el.classList.add('dragging');
+        });
+        el.addEventListener('dragend', () => el.classList.remove('dragging'));
+        // Touch support
+        el.addEventListener('click', () => handleItemClick(el));
+        pool.appendChild(el);
+    });
+    
+    let selectedItem = null;
+    function handleItemClick(el) {
+        if (selectedItem) selectedItem.style.outline = '';
+        selectedItem = el;
+        el.style.outline = '3px solid var(--warning)';
+    }
+    
+    document.querySelectorAll('.timeline-zone').forEach(zone => {
+        zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('hover'); });
+        zone.addEventListener('dragleave', () => zone.classList.remove('hover'));
+        zone.addEventListener('drop', e => {
+            e.preventDefault();
+            zone.classList.remove('hover');
+            const id = e.dataTransfer.getData('text/plain');
+            const el = document.getElementById(id);
+            handleDrop(el, zone.dataset.zone);
+        });
+        zone.addEventListener('click', () => {
+            if (selectedItem) {
+                handleDrop(selectedItem, zone.dataset.zone);
+                selectedItem.style.outline = '';
+                selectedItem = null;
+            }
+        });
+    });
+    
+    function handleDrop(el, zone) {
+        if (!el || el.parentElement.id === 'zone-' + zone) return;
+        const correct = el.dataset.type === zone;
+        const target = document.getElementById('zone-' + zone);
+        if (correct) {
+            el.classList.add('placed');
+            target.appendChild(el);
+            score += 20;
+            addXP(20);
+            updateCombo(true);
+            showFloating('+20 XP', '#10b981');
+            playSound('correct');
+            if (document.getElementById('itemsPool').children.length === 0) {
+                setTimeout(() => {
+                    createConfetti();
+                    playSound('win');
+                    showFeedback(`🎉 Perfeito! Você completou a Máquina do Tempo! +${score} XP`, 'success');
+                    markCompleted(1, 1, score);
+                }, 500);
+            }
+        } else {
+            el.style.animation = 'shake 0.5s';
+            setTimeout(() => el.style.animation = '', 500);
+            updateCombo(false);
+            playSound('wrong');
+            showFeedback('❌ Tempo incorreto! Tente novamente.', 'error');
+        }
+    }
+}
+
+// Ex 1.2 - Detector de Passado
+function ex1_2() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Clique APENAS nas frases que estão no Simple Past.';
+    const sentences = [
+        { text: 'Yesterday I worked hard', past: true },
+        { text: 'I am working now', past: false },
+        { text: 'She studied English', past: true },
+        { text: 'They will travel soon', past: false },
+        { text: 'He played soccer', past: true },
+        { text: 'I eat breakfast daily', past: false },
+        { text: 'We watched a movie', past: true },
+        { text: 'She is reading a book', past: false },
+        { text: 'Last year I traveled', past: true }
+    ];
+    let score = 0, lives = 3, found = 0;
+    const total = sentences.filter(s => s.past).length;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `<div class="options-grid" id="sentencesGrid"></div>`;
+    const grid = document.getElementById('sentencesGrid');
+    const shuffled = [...sentences].sort(() => Math.random() - 0.5);
+    shuffled.forEach(s => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = s.text;
+        btn.onclick = () => {
+            if (btn.classList.contains('disabled')) return;
+            btn.classList.add('disabled');
+            if (s.past) {
+                btn.classList.add('correct');
+                score += 15; found++;
+                addXP(15); updateCombo(true);
+                showFloating('+15 XP', '#10b981');
+                if (found === total) {
+                    setTimeout(() => {
+                        createConfetti(); playSound('win');
+                        showFeedback(`🎉 Excelente! Todas as frases do passado encontradas! +${score} XP`, 'success');
+                        markCompleted(1, 2, score);
+                    }, 500);
+                }
+            } else {
+                btn.classList.add('wrong');
+                lives--;
+                updateCombo(false);
+                playSound('wrong');
+                showFeedback(`❌ Essa não está no passado! Vidas: ${'❤️'.repeat(lives)}`, 'error');
+                if (lives <= 0) {
+                    setTimeout(() => showFeedback(`💀 Game Over! Score: ${score} XP`, 'error'), 500);
+                }
+            }
+        };
+        grid.appendChild(btn);
+    });
+}
+
+// Ex 1.3 - Caça ao Tempo Verbal (Canvas)
+function ex1_3() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Toque/clique APENAS nos verbos do PASSADO (verde). Evite os do presente (vermelho)!';
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `<canvas id="gameCanvas" width="400" height="500"></canvas>`;
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = Math.min(400, ga.clientWidth - 20);
+    canvas.height = 500;
+    
+    const words = [];
+    let score = 0, lives = 3, spawnTimer = 0;
+    const pastVerbs = ['WORKED','STUDIED','PLAYED','WENT','ATE','TRAVELED','WATCHED','DANCED'];
+    const presentVerbs = ['WORK','STUDY','PLAY','GO','EAT','TRAVEL','WATCH','DANCE'];
+    
+    function spawnWord() {
+        const isPast = Math.random() > 0.45;
+        const list = isPast ? pastVerbs : presentVerbs;
+        words.push({
+            text: list[Math.floor(Math.random()*list.length)],
+            x: Math.random() * (canvas.width - 80) + 40,
+            y: -30,
+            speed: 1 + Math.random() * 1.5,
+            isPast, alive: true
+        });
+    }
+    
+    function handleClick(e) {
+        const rect = canvas.getBoundingClientRect();
+        const x = (e.clientX || e.touches[0].clientX) - rect.left;
+        const y = (e.clientY || e.touches[0].clientY) - rect.top;
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        const cx = x * scaleX, cy = y * scaleY;
+        
+        for (let i = words.length - 1; i >= 0; i--) {
+            const w = words[i];
+            if (!w.alive) continue;
+            if (Math.abs(cx - w.x) < 50 && Math.abs(cy - w.y) < 20) {
+                w.alive = false;
+                if (w.isPast) {
+                    score += 10; addXP(10); updateCombo(true);
+                    showFloating('+10', '#10b981', e.clientX, e.clientY);
+                    playSound('correct');
+                } else {
+                    lives--; updateCombo(false);
+                    showFloating('-1 ❤️', '#ef4444', e.clientX, e.clientY);
+                    playSound('wrong');
+                    if (lives <= 0) endGame();
+                }
+                break;
+            }
+        }
+    }
+    
+    canvas.addEventListener('click', handleClick);
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); handleClick(e); });
+    
+    function endGame() {
+        running = false;
+        createConfetti();
+        showFeedback(`🎯 Fim de jogo! Score: ${score} XP`, 'success');
+        markCompleted(1, 3, score);
+    }
+    
+    let running = true;
+    function loop() {
+        if (!running) return;
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        spawnTimer++;
+        if (spawnTimer % 60 === 0) spawnWord();
+        
+        // HUD
+        ctx.fillStyle = 'white'; ctx.font = 'bold 16px sans-serif';
+        ctx.fillText(`Score: ${score}`, 10, 25);
+        ctx.fillText('❤️'.repeat(lives), canvas.width - 80, 25);
+        
+        for (let i = words.length - 1; i >= 0; i--) {
+            const w = words[i];
+            if (!w.alive) { words.splice(i,1); continue; }
+            w.y += w.speed;
+            if (w.y > canvas.height + 30) {
+                if (w.isPast) { lives--; if (lives <= 0) endGame(); }
+                words.splice(i,1); continue;
+            }
+            ctx.fillStyle = w.isPast ? '#10b981' : '#ef4444';
+            ctx.font = 'bold 18px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(w.text, w.x, w.y);
+        }
+        requestAnimationFrame(loop);
+    }
+    loop();
+}
+
+// Ex 1.4 - Histórias da Infância
+function ex1_4() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Combine cada imagem com a frase correta no passado.';
+    const pairs = [
+        { emoji: '🧸', text: 'I played with toys', trans: '(Eu brincava com brinquedos)' },
+        { emoji: '🏫', text: 'I went to school', trans: '(Eu ia para a escola)' },
+        { emoji: '🎂', text: 'I celebrated birthdays', trans: '(Eu comemorava aniversários)' },
+        { emoji: '🌳', text: 'I climbed trees', trans: '(Eu subia em árvores)' }
+    ];
+    let score = 0, selectedImg = null;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `
+        <h3 style="text-align:center;margin-bottom:1rem;">📸 Imagens</h3>
+        <div class="portrait-grid" id="imgGrid"></div>
+        <h3 style="text-align:center;margin:1.5rem 0 1rem;">📝 Frases</h3>
+        <div class="options-grid" id="txtGrid"></div>
+    `;
+    const imgGrid = document.getElementById('imgGrid');
+    const txtGrid = document.getElementById('txtGrid');
+    const shuffledImgs = [...pairs].sort(() => Math.random() - 0.5);
+    const shuffledTxt = [...pairs].sort(() => Math.random() - 0.5);
+    
+    shuffledImgs.forEach((p, i) => {
+        const div = document.createElement('div');
+        div.className = 'portrait';
+        div.dataset.id = i;
+        div.dataset.match = pairs.indexOf(p);
+        div.innerHTML = `<div class="portrait-emoji">${p.emoji}</div>`;
+        div.onclick = () => {
+            document.querySelectorAll('.portrait').forEach(x => x.classList.remove('selected'));
+            div.classList.add('selected');
+            selectedImg = div;
+            checkMatch();
+        };
+        imgGrid.appendChild(div);
+    });
+    
+    shuffledTxt.forEach((p, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.dataset.match = pairs.indexOf(p);
+        btn.innerHTML = `${p.text}<br><small style="opacity:0.6;">${p.trans}</small>`;
+        btn.onclick = () => {
+            document.querySelectorAll('#txtGrid .option-btn').forEach(x => x.style.outline = '');
+            btn.style.outline = '3px solid var(--warning)';
+            selectedTxt = btn;
+            checkMatch();
+        };
+        txtGrid.appendChild(btn);
+    });
+    
+    let selectedTxt = null;
+    function checkMatch() {
+        if (!selectedImg || !selectedTxt) return;
+        if (selectedImg.dataset.match === selectedTxt.dataset.match) {
+            selectedImg.classList.add('selected');
+            selectedImg.style.background = 'linear-gradient(135deg,#10b981,#34d399)';
+            selectedImg.style.pointerEvents = 'none';
+            selectedTxt.classList.add('correct');
+            selectedTxt.classList.add('disabled');
+            selectedTxt.style.outline = '';
+            score += 25; addXP(25); updateCombo(true);
+            playSound('correct');
+            selectedImg = null; selectedTxt = null;
+            if (document.querySelectorAll('.portrait[style*="pointer-events"]').length === pairs.length) {
+                setTimeout(() => {
+                    createConfetti(); playSound('win');
+                    showFeedback(`🎉 Perfeito! Todas as histórias combinadas! +${score} XP`, 'success');
+                    markCompleted(1, 4, score);
+                }, 500);
+            }
+        } else {
+            selectedImg.style.animation = 'shake 0.5s';
+            selectedTxt.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                if (selectedImg) selectedImg.style.animation = '';
+                if (selectedTxt) selectedTxt.style.animation = '';
+            }, 500);
+            updateCombo(false); playSound('wrong');
+            showFeedback('❌ Combinação incorreta!', 'error');
+            selectedImg = null; selectedTxt = null;
+        }
+    }
+}
+
+// Ex 1.5 - Memória Temporal
+function ex1_5() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Encontre os pares: marcador temporal + frase no passado.';
+    const pairs = [
+        { a: 'Yesterday', b: 'I studied' },
+        { a: 'Last week', b: 'She traveled' },
+        { a: 'In 2020', b: 'We moved' },
+        { a: 'Last night', b: 'He watched' },
+        { a: 'Long ago', b: 'They lived' },
+        { a: 'Before', b: 'I ate' }
+    ];
+    const cards = [];
+    pairs.forEach((p, i) => {
+        cards.push({ text: p.a, pairId: i, type: 'time' });
+        cards.push({ text: p.b, pairId: i, type: 'sentence' });
+    });
+    cards.sort(() => Math.random() - 0.5);
+    
+    let flipped = [], matched = 0, moves = 0, score = 0;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `<div class="memory-grid" id="memGrid" style="grid-template-columns:repeat(4,1fr);"></div>`;
+    const grid = document.getElementById('memGrid');
+    
+    cards.forEach((c, i) => {
+        const card = document.createElement('div');
+        card.className = 'memory-card';
+        card.dataset.idx = i;
+        card.dataset.pairId = c.pairId;
+        card.innerHTML = `<div class="memory-card-front">?</div><div class="memory-card-back">${c.text}</div>`;
+        card.onclick = () => flipCard(card);
+        grid.appendChild(card);
+    });
+    
+    function flipCard(card) {
+        if (flipped.length >= 2 || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+        card.classList.add('flipped');
+        playSound('click');
+        flipped.push(card);
+        if (flipped.length === 2) {
+            moves++;
+            if (flipped[0].dataset.pairId === flipped[1].dataset.pairId) {
+                setTimeout(() => {
+                    flipped.forEach(c => c.classList.add('matched'));
+                    flipped = []; matched++;
+                    score += 20; addXP(20); updateCombo(true);
+                    playSound('correct');
+                    if (matched === pairs.length) {
+                        setTimeout(() => {
+                            createConfetti(); playSound('win');
+                            showFeedback(`🎉 Memória completa! Movimentos: ${moves} | +${score} XP`, 'success');
+                            markCompleted(1, 5, score);
+                        }, 500);
+                    }
+                }, 500);
+            } else {
+                setTimeout(() => {
+                    flipped.forEach(c => c.classList.remove('flipped'));
+                    flipped = [];
+                    updateCombo(false);
+                }, 1000);
+            }
+        }
+    }
+}
+
+// ============ STAGE 2: STRUCTURE ============
+
+// Ex 2.1 - Construtor de Frases
+function ex2_1() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Clique nas palavras na ordem correta para montar a frase.';
+    const sentences = [
+        { words: ['I','studied','English','yesterday'], trans: 'Eu estudei inglês ontem' },
+        { words: ['She','played','soccer','last week'], trans: 'Ela jogou futebol semana passada' },
+        { words: ['They','watched','a movie','last night'], trans: 'Eles assistiram um filme ontem à noite' }
+    ];
+    let current = 0, score = 0;
+    
+    function renderSentence() {
+        if (current >= sentences.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Todas as frases montadas! +${score} XP`, 'success');
+            markCompleted(2, 1, score);
+            return;
+        }
+        const s = sentences[current];
+        const shuffled = [...s.words].sort(() => Math.random() - 0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <p style="text-align:center;margin-bottom:1rem;opacity:0.7;">Frase ${current+1}/${sentences.length}: <em>${s.trans}</em></p>
+            <div class="sentence-slots" id="slots"></div>
+            <div class="word-bank" id="bank"></div>
+        `;
+        const bank = document.getElementById('bank');
+        const slots = document.getElementById('slots');
+        shuffled.forEach(w => {
+            const chip = document.createElement('div');
+            chip.className = 'word-chip';
+            chip.textContent = w;
+            chip.onclick = () => {
+                chip.classList.add('used');
+                const slot = document.createElement('div');
+                slot.className = 'word-chip';
+                slot.textContent = w;
+                slot.onclick = () => {
+                    slot.remove();
+                    chip.classList.remove('used');
+                    checkOrder();
+                };
+                slots.appendChild(slot);
+                checkOrder();
+            };
+            bank.appendChild(chip);
+        });
+        
+        function checkOrder() {
+            const currentWords = Array.from(slots.children).map(c => c.textContent);
+            if (currentWords.length === s.words.length) {
+                const correct = currentWords.every((w, i) => w === s.words[i]);
+                if (correct) {
+                    score += 30; addXP(30); updateCombo(true);
+                    playSound('correct');
+                    showFloating('+30 XP', '#10b981');
+                    current++;
+                    setTimeout(renderSentence, 1000);
+                } else {
+                    updateCombo(false); playSound('wrong');
+                    showFeedback('❌ Ordem incorreta! Tente novamente.', 'error');
+                    setTimeout(() => {
+                        slots.innerHTML = '';
+                        bank.querySelectorAll('.word-chip').forEach(c => c.classList.remove('used'));
+                    }, 1000);
+                }
+            }
+        }
+    }
+    renderSentence();
+}
+
+// Ex 2.2 - Lego de Frases
+function ex2_2() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Arraste as peças do Lego para formar a frase correta.';
+    const phrases = [
+        { parts: ['My father','traveled','to São Paulo'], trans: 'Meu pai viajou para São Paulo' },
+        { parts: ['I','ate','my lunch'], trans: 'Eu comi meu almoço' },
+        { parts: ['We','studied','English'], trans: 'Nós estudamos inglês' }
+    ];
+    let current = 0, score = 0;
+    
+    function renderPhrase() {
+        if (current >= phrases.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Todas as frases construídas! +${score} XP`, 'success');
+            markCompleted(2, 2, score);
+            return;
+        }
+        const p = phrases[current];
+        const shuffled = [...p.parts].sort(() => Math.random() - 0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <p style="text-align:center;margin-bottom:1rem;opacity:0.7;">${p.trans}</p>
+            <div class="drop-zone" id="dropZone" style="min-height:80px;">📦 Arraste as peças aqui</div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-top:1rem;" id="partsPool"></div>
+        `;
+        const pool = document.getElementById('partsPool');
+        const dropZone = document.getElementById('dropZone');
+        const placed = [];
+        
+        shuffled.forEach((part, i) => {
+            const el = document.createElement('div');
+            el.className = 'draggable';
+            el.textContent = part;
+            el.draggable = true;
+            el.dataset.idx = p.parts.indexOf(part);
+            el.id = 'part-' + i;
+            el.addEventListener('dragstart', e => e.dataTransfer.setData('text', el.id));
+            el.addEventListener('click', () => {
+                if (el.parentElement === pool) {
+                    placed.push(el);
+                    dropZone.appendChild(el);
+                    checkComplete();
+                }
+            });
+            pool.appendChild(el);
+        });
+        
+        dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('hover'); });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('hover'));
+        dropZone.addEventListener('drop', e => {
+            e.preventDefault(); dropZone.classList.remove('hover');
+            const id = e.dataTransfer.getData('text');
+            const el = document.getElementById(id);
+            placed.push(el);
+            dropZone.appendChild(el);
+            checkComplete();
+        });
+        
+        function checkComplete() {
+            if (placed.length === p.parts.length) {
+                const order = Array.from(dropZone.querySelectorAll('.draggable')).map(e => parseInt(e.dataset.idx));
+                const correct = order.every((v, i) => v === i);
+                if (correct) {
+                    dropZone.classList.add('correct');
+                    score += 30; addXP(30); updateCombo(true);
+                    playSound('correct');
+                    current++;
+                    setTimeout(renderPhrase, 1200);
+                } else {
+                    dropZone.classList.add('wrong');
+                    updateCombo(false); playSound('wrong');
+                    showFeedback('❌ Ordem incorreta! Tente de novo.', 'error');
+                    setTimeout(() => {
+                        placed.forEach(el => pool.appendChild(el));
+                        placed.length = 0;
+                        dropZone.classList.remove('wrong');
+                        dropZone.innerHTML = '📦 Arraste as peças aqui';
+                    }, 1200);
+                }
+            }
+        }
+    }
+    renderPhrase();
+}
+
+// Ex 2.3 - Corrida Contra o Tempo
+function ex2_3() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Monte o máximo de frases em 30 segundos!';
+    const sentences = [
+        ['I','worked','yesterday'],
+        ['She','studied','English'],
+        ['They','played','soccer'],
+        ['He','watched','TV'],
+        ['We','traveled','last week']
+    ];
+    let score = 0, current = 0, timeLeft = 30;
+    document.getElementById('statsBar').style.display = 'flex';
+    document.getElementById('timerBar').style.display = 'block';
+    
+    function renderCurrent() {
+        if (current >= sentences.length) current = 0;
+        const s = sentences[current];
+        const shuffled = [...s].sort(() => Math.random() - 0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div class="sentence-slots" id="slots"></div>
+            <div class="word-bank" id="bank"></div>
+        `;
+        const bank = document.getElementById('bank');
+        const slots = document.getElementById('slots');
+        shuffled.forEach(w => {
+            const chip = document.createElement('div');
+            chip.className = 'word-chip';
+            chip.textContent = w;
+            chip.onclick = () => {
+                chip.classList.add('used');
+                const slot = document.createElement('div');
+                slot.className = 'word-chip';
+                slot.textContent = w;
+                slot.onclick = () => { slot.remove(); chip.classList.remove('used'); check(); };
+                slots.appendChild(slot);
+                check();
+            };
+            bank.appendChild(chip);
+        });
+        function check() {
+            const arr = Array.from(slots.children).map(c => c.textContent);
+            if (arr.length === s.length && arr.every((w,i) => w === s[i])) {
+                score += 20; addXP(20); updateCombo(true);
+                current++;
+                renderCurrent();
+            }
+        }
+    }
+    renderCurrent();
+    
+    const timerInt = setInterval(() => {
+        timeLeft--;
+        document.getElementById('statTime').textContent = timeLeft + 's';
+        document.getElementById('timerFill').style.width = (timeLeft/30*100) + '%';
+        document.getElementById('statScore').textContent = score;
+        if (timeLeft <= 0) {
+            clearInterval(timerInt);
+            createConfetti(); playSound('win');
+            showFeedback(`⏰ Tempo! Score final: ${score} XP`, 'success');
+            markCompleted(2, 3, score);
+        }
+    }, 1000);
+    currentTimer = timerInt;
+}
+
+// Ex 2.4 - Frase Embaralhada
+function ex2_4() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Organize as palavras para formar a frase correta.';
+    const phrases = [
+        { words: ['Yesterday','I','studied','a lot'], trans: 'Ontem eu estudei muito' },
+        { words: ['My father','traveled','to São Paulo','in 2024'], trans: 'Meu pai viajou para SP em 2024' },
+        { words: ['I','ate','my lunch','before school'], trans: 'Eu comi meu almoço antes da escola' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= phrases.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Todas organizadas! +${score} XP`, 'success');
+            markCompleted(2, 4, score);
+            return;
+        }
+        const p = phrases[current];
+        const shuffled = [...p.words].sort(() => Math.random() - 0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <p style="text-align:center;margin-bottom:1rem;opacity:0.7;">${p.trans}</p>
+            <div id="slotsArea" style="display:flex;flex-wrap:wrap;gap:0.5rem;min-height:60px;padding:1rem;background:rgba(0,0,0,0.2);border-radius:12px;margin-bottom:1rem;justify-content:center;"></div>
+            <div id="bankArea" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;"></div>
+        `;
+        const bank = document.getElementById('bankArea');
+        const slots = document.getElementById('slotsArea');
+        shuffled.forEach(w => {
+            const chip = document.createElement('div');
+            chip.className = 'word-chip';
+            chip.textContent = w;
+            chip.onclick = () => {
+                chip.remove();
+                const s = document.createElement('div');
+                s.className = 'word-chip';
+                s.textContent = w;
+                s.onclick = () => { s.remove(); bank.appendChild(chip); check(); };
+                slots.appendChild(s);
+                check();
+            };
+            bank.appendChild(chip);
+        });
+        function check() {
+            const arr = Array.from(slots.children).map(c => c.textContent);
+            if (arr.length === p.words.length) {
+                if (arr.every((w,i) => w === p.words[i])) {
+                    score += 25; addXP(25); updateCombo(true);
+                    playSound('correct');
+                    current++;
+                    setTimeout(render, 1000);
+                } else {
+                    updateCombo(false); playSound('wrong');
+                    showFeedback('❌ Ordem errada!', 'error');
+                    setTimeout(() => {
+                        Array.from(slots.children).forEach(c => bank.appendChild(c));
+                    }, 1000);
+                }
+            }
+        }
+    }
+    render();
+}
+
+// Ex 2.5 - Quebra-Cabeça Gramatical
+function ex2_5() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Monte a fórmula do Simple Past na ordem correta.';
+    const formulas = [
+        { parts: ['Subject','+','Past Verb','+','Complement'], name: 'Afirmativa' },
+        { parts: ['Subject','+','didn\'t','+','Base Verb','+','Complement'], name: 'Negativa' },
+        { parts: ['Did','+','Subject','+','Base Verb','+','Complement','?'], name: 'Pergunta' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= formulas.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Todas as fórmulas montadas! +${score} XP`, 'success');
+            markCompleted(2, 5, score);
+            return;
+        }
+        const f = formulas[current];
+        const shuffled = [...f.parts].sort(() => Math.random() - 0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <p style="text-align:center;margin-bottom:1rem;"><strong>Estrutura ${f.name}</strong></p>
+            <div id="slotsArea" style="display:flex;flex-wrap:wrap;gap:0.5rem;min-height:60px;padding:1rem;background:rgba(0,0,0,0.2);border-radius:12px;margin-bottom:1rem;justify-content:center;"></div>
+            <div id="bankArea" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;"></div>
+        `;
+        const bank = document.getElementById('bankArea');
+        const slots = document.getElementById('slotsArea');
+        shuffled.forEach(w => {
+            const chip = document.createElement('div');
+            chip.className = 'word-chip';
+            chip.textContent = w;
+            chip.onclick = () => {
+                chip.classList.add('used');
+                const s = document.createElement('div');
+                s.className = 'word-chip';
+                s.textContent = w;
+                s.onclick = () => { s.remove(); chip.classList.remove('used'); check(); };
+                slots.appendChild(s);
+                check();
+            };
+            bank.appendChild(chip);
+        });
+        function check() {
+            const arr = Array.from(slots.children).map(c => c.textContent);
+            if (arr.length === f.parts.length && arr.every((w,i) => w === f.parts[i])) {
+                score += 30; addXP(30); updateCombo(true);
+                playSound('correct');
+                current++;
+                setTimeout(render, 1000);
+            } else if (arr.length === f.parts.length) {
+                updateCombo(false); playSound('wrong');
+                showFeedback('❌ Ordem incorreta!', 'error');
+                setTimeout(() => {
+                    slots.innerHTML = '';
+                    bank.querySelectorAll('.word-chip').forEach(c => c.classList.remove('used'));
+                }, 1000);
+            }
+        }
+    }
+    render();
+}
+
+// ============ STAGE 3: REGULAR VERBS ============
+
+// Ex 3.1 - Fábrica de Verbos
+function ex3_1() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Escolha a regra correta para cada verbo: +ED, +D ou +IED.';
+    const verbs = [
+        { verb: 'Work', rule: '+ED', past: 'Worked' },
+        { verb: 'Dance', rule: '+D', past: 'Danced' },
+        { verb: 'Study', rule: '+IED', past: 'Studied' },
+        { verb: 'Play', rule: '+ED', past: 'Played' },
+        { verb: 'Live', rule: '+D', past: 'Lived' },
+        { verb: 'Cry', rule: '+IED', past: 'Cried' },
+        { verb: 'Talk', rule: '+ED', past: 'Talked' },
+        { verb: 'Smile', rule: '+D', past: 'Smiled' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= verbs.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Fábrica completa! +${score} XP`, 'success');
+            markCompleted(3, 1, score);
+            return;
+        }
+        const v = verbs[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <div style="font-size:4rem;margin-bottom:1rem;">🏭</div>
+                <h2 style="font-size:2.5rem;margin-bottom:0.5rem;">${v.verb}</h2>
+                <p style="opacity:0.7;margin-bottom:2rem;">Qual regra aplicar?</p>
+                <div class="options-grid" style="grid-template-columns:repeat(3,1fr);">
+                    <button class="option-btn" onclick="checkRule31('+ED')">+ED</button>
+                    <button class="option-btn" onclick="checkRule31('+D')">+D</button>
+                    <button class="option-btn" onclick="checkRule31('+IED')">+IED</button>
+                </div>
+            </div>
+        `;
+        window.checkRule31 = (rule) => {
+            const btns = document.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.add('disabled'));
+            if (rule === v.rule) {
+                event.target.classList.add('correct');
+                score += 15; addXP(15); updateCombo(true);
+                showFloating(`+15 → ${v.past}`, '#10b981');
+                current++;
+                setTimeout(render, 1200);
+            } else {
+                event.target.classList.add('wrong');
+                updateCombo(false); playSound('wrong');
+                showFeedback(`❌ Errado! A resposta era ${v.rule} → ${v.past}`, 'error');
+                current++;
+                setTimeout(render, 2000);
+            }
+        };
+    }
+    render();
+}
+
+// Ex 3.2 - Drag and Drop分类
+function ex3_2() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Arraste cada verbo para a regra correta.';
+    const verbs = [
+        { v: 'Work', rule: 'ED' }, { v: 'Talk', rule: 'ED' }, { v: 'Walk', rule: 'ED' },
+        { v: 'Dance', rule: 'D' }, { v: 'Live', rule: 'D' }, { v: 'Smile', rule: 'D' },
+        { v: 'Study', rule: 'IED' }, { v: 'Cry', rule: 'IED' }, { v: 'Try', rule: 'IED' }
+    ];
+    let score = 0;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `
+        <div id="pool" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-bottom:1.5rem;"></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;">
+            <div class="drop-zone" data-rule="ED" style="flex-direction:column;"><div style="font-weight:bold;margin-bottom:0.5rem;">+ED</div><div class="zone-items"></div></div>
+            <div class="drop-zone" data-rule="D" style="flex-direction:column;"><div style="font-weight:bold;margin-bottom:0.5rem;">+D</div><div class="zone-items"></div></div>
+            <div class="drop-zone" data-rule="IED" style="flex-direction:column;"><div style="font-weight:bold;margin-bottom:0.5rem;">+IED</div><div class="zone-items"></div></div>
+        </div>
+    `;
+    const pool = document.getElementById('pool');
+    const shuffled = [...verbs].sort(() => Math.random() - 0.5);
+    shuffled.forEach((v, i) => {
+        const el = document.createElement('div');
+        el.className = 'draggable';
+        el.textContent = v.v;
+        el.dataset.rule = v.rule;
+        el.id = 'v-' + i;
+        el.draggable = true;
+        el.addEventListener('dragstart', e => e.dataTransfer.setData('text', el.id));
+        el.addEventListener('click', () => {
+            if (selectedV) selectedV.style.outline = '';
+            selectedV = el;
+            el.style.outline = '3px solid var(--warning)';
+        });
+        pool.appendChild(el);
+    });
+    let selectedV = null;
+    document.querySelectorAll('.drop-zone').forEach(zone => {
+        zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('hover'); });
+        zone.addEventListener('dragleave', () => zone.classList.remove('hover'));
+        zone.addEventListener('drop', e => {
+            e.preventDefault(); zone.classList.remove('hover');
+            const id = e.dataTransfer.getData('text');
+            handleDrop32(document.getElementById(id), zone);
+        });
+        zone.addEventListener('click', () => {
+            if (selectedV) {
+                handleDrop32(selectedV, zone);
+                selectedV.style.outline = '';
+                selectedV = null;
+            }
+        });
+    });
+    function handleDrop32(el, zone) {
+        if (!el) return;
+        if (el.dataset.rule === zone.dataset.rule) {
+            el.classList.add('placed');
+            zone.querySelector('.zone-items').appendChild(el);
+            score += 15; addXP(15); updateCombo(true);
+            playSound('correct');
+            if (pool.children.length === 0) {
+                setTimeout(() => {
+                    createConfetti(); playSound('win');
+                    showFeedback(`🎉 Todos classificados! +${score} XP`, 'success');
+                    markCompleted(3, 2, score);
+                }, 500);
+            }
+        } else {
+            el.style.animation = 'shake 0.5s';
+            setTimeout(() => el.style.animation = '', 500);
+            updateCombo(false); playSound('wrong');
+        }
+    }
+}
+
+// Ex 3.3 - Cartas Mágicas
+function ex3_3() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Vire as cartas e memorize os verbos no passado. Depois responda o quiz!';
+    const verbs = [
+        { inf: 'Work', past: 'Worked' },
+        { inf: 'Dance', past: 'Danced' },
+        { inf: 'Study', past: 'Studied' },
+        { inf: 'Play', past: 'Played' },
+        { inf: 'Live', past: 'Lived' },
+        { inf: 'Cry', past: 'Cried' }
+    ];
+    let score = 0;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `
+        <p style="text-align:center;margin-bottom:1rem;">Estude as cartas por 15 segundos!</p>
+        <div id="cardsArea" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;"></div>
+    `;
+    const area = document.getElementById('cardsArea');
+    verbs.forEach(v => {
+        const fc = document.createElement('div');
+        fc.className = 'flashcard flipped';
+        fc.innerHTML = `
+            <div class="flashcard-inner">
+                <div class="flashcard-face flashcard-front"><div class="flashcard-word" style="font-size:1.5rem;">${v.inf}</div></div>
+                <div class="flashcard-face flashcard-back"><div class="flashcard-word" style="font-size:1.5rem;">${v.past}</div></div>
+            </div>
+        `;
+        area.appendChild(fc);
+    });
+    setTimeout(() => startQuiz33(), 15000);
+    
+    function startQuiz33() {
+        let qi = 0;
+        function ask() {
+            if (qi >= verbs.length) {
+                createConfetti(); playSound('win');
+                showFeedback(`🎉 Quiz completo! +${score} XP`, 'success');
+                markCompleted(3, 3, score);
+                return;
+            }
+            const v = verbs[qi];
+            const opts = [v.past, ...verbs.filter(x => x.past !== v.past).sort(() => Math.random()-0.5).slice(0,2).map(x => x.past)].sort(() => Math.random()-0.5);
+            ga.innerHTML = `
+                <div style="text-align:center;padding:2rem;">
+                    <p style="opacity:0.7;">Qual o passado de:</p>
+                    <h2 style="font-size:2.5rem;margin:1rem 0;">${v.inf}</h2>
+                    <div class="options-grid" style="grid-template-columns:repeat(3,1fr);">
+                        ${opts.map(o => `<button class="option-btn" data-opt="${o}">${o}</button>`).join('')}
+                    </div>
+                </div>
+            `;
+            ga.querySelectorAll('.option-btn').forEach(btn => {
+                btn.onclick = () => {
+                    ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                    if (btn.dataset.opt === v.past) {
+                        btn.classList.add('correct');
+                        score += 20; addXP(20); updateCombo(true);
+                    } else {
+                        btn.classList.add('wrong');
+                        ga.querySelector(`[data-opt="${v.past}"]`).classList.add('correct');
+                        updateCombo(false); playSound('wrong');
+                    }
+                    qi++;
+                    setTimeout(ask, 1200);
+                };
+            });
+        }
+        ask();
+    }
+}
+
+// Ex 3.4 - Jogo da Velocidade
+function ex3_4() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Digite o passado do verbo o mais rápido possível!';
+    const verbs = [
+        { inf: 'Work', past: 'worked' },
+        { inf: 'Study', past: 'studied' },
+        { inf: 'Play', past: 'played' },
+        { inf: 'Dance', past: 'danced' },
+        { inf: 'Cry', past: 'cried' },
+        { inf: 'Talk', past: 'talked' },
+        { inf: 'Live', past: 'lived' },
+        { inf: 'Walk', past: 'walked' }
+    ];
+    let current = 0, score = 0, timeLeft = 40;
+    document.getElementById('statsBar').style.display = 'flex';
+    document.getElementById('timerBar').style.display = 'block';
+    
+    function render() {
+        if (current >= verbs.length) current = 0;
+        const v = verbs[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <p style="opacity:0.7;">Digite o passado de:</p>
+                <h2 style="font-size:3rem;margin:1rem 0;color:var(--primary);">${v.inf}</h2>
+                <input type="text" class="game-input" id="typeInput" placeholder="Digite aqui..." autocomplete="off" style="max-width:300px;margin:0 auto;text-align:center;font-size:1.5rem;">
+            </div>
+        `;
+        const input = document.getElementById('typeInput');
+        input.focus();
+        input.oninput = () => {
+            if (input.value.toLowerCase().trim() === v.past) {
+                score += 15; addXP(15); updateCombo(true);
+                current++;
+                render();
+            }
+        };
+    }
+    render();
+    
+    const timerInt = setInterval(() => {
+        timeLeft--;
+        document.getElementById('statTime').textContent = timeLeft + 's';
+        document.getElementById('timerFill').style.width = (timeLeft/40*100) + '%';
+        document.getElementById('statScore').textContent = score;
+        if (timeLeft <= 0) {
+            clearInterval(timerInt);
+            createConfetti(); playSound('win');
+            showFeedback(`⏰ Tempo! Score: ${score} XP`, 'success');
+            markCompleted(3, 4, score);
+        }
+    }, 1000);
+    currentTimer = timerInt;
+}
+
+// Ex 3.5 - Classificador Inteligente
+function ex3_5() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Classifique cada verbo pela regra que se aplica.';
+    const verbs = [
+        { v: 'Call', rule: '+ED' }, { v: 'Use', rule: '+D' }, { v: 'Carry', rule: '+IED' },
+        { v: 'Enjoy', rule: '+ED' }, { v: 'Love', rule: '+D' }, { v: 'Worry', rule: '+IED' },
+        { v: 'Stay', rule: '+ED' }, { v: 'Hope', rule: '+D' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= verbs.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Classificação completa! +${score} XP`, 'success');
+            markCompleted(3, 5, score);
+            return;
+        }
+        const v = verbs[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <h2 style="font-size:3rem;margin-bottom:1rem;">${v.v}</h2>
+                <p style="margin-bottom:2rem;">Qual regra?</p>
+                <div class="options-grid" style="grid-template-columns:repeat(3,1fr);">
+                    <button class="option-btn" onclick="check35('+ED')">+ED<br><small>(work→worked)</small></button>
+                    <button class="option-btn" onclick="check35('+D')">+D<br><small>(dance→danced)</small></button>
+                    <button class="option-btn" onclick="check35('+IED')">+IED<br><small>(study→studied)</small></button>
+                </div>
+            </div>
+        `;
+        window.check35 = (rule) => {
+            const btns = document.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.add('disabled'));
+            if (rule === v.rule) {
+                event.target.classList.add('correct');
+                score += 15; addXP(15); updateCombo(true);
+            } else {
+                event.target.classList.add('wrong');
+                updateCombo(false); playSound('wrong');
+            }
+            current++;
+            setTimeout(render, 1200);
+        };
+    }
+    render();
+}
+
+// ============ STAGE 4: IRREGULAR VERBS ============
+
+// Ex 4.1 - Batalha dos Chefes
+function ex4_1() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Derrote o chefe respondendo os verbos irregulares!';
+    const bosses = [
+        { name: 'Go Monster', emoji: '👹', hp: 100, verbs: [{inf:'Go',past:'went'},{inf:'See',past:'saw'},{inf:'Eat',past:'ate'}] },
+        { name: 'Have Dragon', emoji: '🐉', hp: 100, verbs: [{inf:'Have',past:'had'},{inf:'Make',past:'made'},{inf:'Take',past:'took'}] },
+        { name: 'Do Boss', emoji: '👿', hp: 100, verbs: [{inf:'Do',past:'did'},{inf:'Come',past:'came'},{inf:'Bring',past:'brought'}] }
+    ];
+    let bossIdx = 0, verbIdx = 0, bossHP = 100, playerHP = 100, score = 0;
+    
+    function render() {
+        if (bossIdx >= bosses.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`👑 Você derrotou todos os chefes! +${score} XP`, 'success');
+            markCompleted(4, 1, score);
+            return;
+        }
+        const b = bosses[bossIdx];
+        const v = b.verbs[verbIdx];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div class="boss-scene">
+                <div class="boss-name">${b.name}</div>
+                <div class="boss-sprite">${b.emoji}</div>
+                <div style="margin:1rem 0;">
+                    <div style="display:flex;justify-content:space-between;font-size:0.875rem;"><span>Chefe HP</span><span>${bossHP}/100</span></div>
+                    <div class="health-bar"><div class="health-fill" style="width:${bossHP}%;background:linear-gradient(90deg,#ef4444,#f59e0b);"></div></div>
+                </div>
+                <div style="margin:1rem 0;">
+                    <div style="display:flex;justify-content:space-between;font-size:0.875rem;"><span>Seu HP</span><span>${playerHP}/100</span></div>
+                    <div class="health-bar"><div class="health-fill" style="width:${playerHP}%;"></div></div>
+                </div>
+                <p style="margin:1.5rem 0;">Qual o passado de <strong style="font-size:1.5rem;color:var(--warning);">${v.inf}</strong>?</p>
+                <input type="text" class="game-input" id="bossInput" placeholder="Digite o passado..." autocomplete="off" style="max-width:300px;margin:0 auto;text-align:center;">
+            </div>
+        `;
+        const input = document.getElementById('bossInput');
+        input.focus();
+        input.oninput = () => {
+            if (input.value.toLowerCase().trim() === v.past) {
+                bossHP -= 34;
+                score += 20; addXP(20); updateCombo(true);
+                playSound('correct');
+                showFloating('-34 HP', '#ef4444');
+                verbIdx++;
+                if (verbIdx >= b.verbs.length) {
+                    bossIdx++; verbIdx = 0; bossHP = 100;
+                    setTimeout(render, 1000);
+                } else {
+                    setTimeout(render, 800);
+                }
+            }
+        };
+    }
+    render();
+}
+
+// Ex 4.2 - Flashcards Inteligentes
+function ex4_2() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Estude os flashcards e depois responda o quiz!';
+    const verbs = [
+        { inf: 'Eat', past: 'Ate' }, { inf: 'Go', past: 'Went' },
+        { inf: 'See', past: 'Saw' }, { inf: 'Make', past: 'Made' },
+        { inf: 'Have', past: 'Had' }, { inf: 'Take', past: 'Took' }
+    ];
+    let current = 0, score = 0, phase = 'study';
+    
+    function renderStudy() {
+        const v = verbs[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <p style="text-align:center;margin-bottom:1rem;">Carta ${current+1}/${verbs.length} - Clique para virar</p>
+            <div class="flashcard" id="fc" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard-inner">
+                    <div class="flashcard-face flashcard-front">
+                        <div class="flashcard-word">${v.inf}</div>
+                        <div class="flashcard-hint">Clique para ver o passado</div>
+                    </div>
+                    <div class="flashcard-face flashcard-back">
+                        <div class="flashcard-word">${v.past}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group">
+                ${current > 0 ? '<button class="btn btn-outline" onclick="prev42()">← Anterior</button>' : ''}
+                ${current < verbs.length-1 ? '<button class="btn" onclick="next42()">Próximo →</button>' : '<button class="btn btn-success" onclick="startQuiz42()">Iniciar Quiz →</button>'}
+            </div>
+        `;
+        window.next42 = () => { current++; renderStudy(); };
+        window.prev42 = () => { current--; renderStudy(); };
+        window.startQuiz42 = () => { phase = 'quiz'; current = 0; renderQuiz(); };
+    }
+    
+    function renderQuiz() {
+        if (current >= verbs.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Quiz completo! +${score} XP`, 'success');
+            markCompleted(4, 2, score);
+            return;
+        }
+        const v = verbs[current];
+        const opts = [v.past, ...verbs.filter(x => x.past !== v.past).sort(() => Math.random()-0.5).slice(0,2).map(x => x.past)].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <p style="opacity:0.7;">Qual o passado de:</p>
+                <h2 style="font-size:3rem;margin:1rem 0;">${v.inf}</h2>
+                <div class="options-grid">
+                    ${opts.map(o => `<button class="option-btn" data-o="${o}">${o}</button>`).join('')}
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.o === v.past) {
+                    btn.classList.add('correct');
+                    score += 20; addXP(20); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-o="${v.past}"]`).classList.add('correct');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(renderQuiz, 1200);
+            };
+        });
+    }
+    renderStudy();
+}
+
+// Ex 4.3 - Pareamento
+function ex4_3() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Conecte cada infinitivo ao seu passado.';
+    const pairs = [
+        { a: 'Eat', b: 'Ate' }, { a: 'Go', b: 'Went' }, { a: 'See', b: 'Saw' },
+        { a: 'Make', b: 'Made' }, { a: 'Take', b: 'Took' }, { a: 'Have', b: 'Had' }
+    ];
+    let selected = null, matched = 0, score = 0;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div id="colA"></div>
+            <div id="colB"></div>
+        </div>
+    `;
+    const colA = document.getElementById('colA');
+    const colB = document.getElementById('colB');
+    const shuffledA = [...pairs].sort(() => Math.random()-0.5);
+    const shuffledB = [...pairs].sort(() => Math.random()-0.5);
+    
+    shuffledA.forEach(p => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = p.a;
+        btn.dataset.pair = pairs.indexOf(p);
+        btn.dataset.side = 'a';
+        btn.style.marginBottom = '0.5rem';
+        btn.onclick = () => select(btn);
+        colA.appendChild(btn);
+    });
+    shuffledB.forEach(p => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = p.b;
+        btn.dataset.pair = pairs.indexOf(p);
+        btn.dataset.side = 'b';
+        btn.style.marginBottom = '0.5rem';
+        btn.onclick = () => select(btn);
+        colB.appendChild(btn);
+    });
+    
+    function select(btn) {
+        if (btn.classList.contains('disabled')) return;
+        if (!selected) {
+            selected = btn;
+            btn.style.outline = '3px solid var(--warning)';
+        } else {
+            if (selected.dataset.side === btn.dataset.side) {
+                selected.style.outline = '';
+                selected = btn;
+                btn.style.outline = '3px solid var(--warning)';
+            } else {
+                if (selected.dataset.pair === btn.dataset.pair) {
+                    selected.classList.add('correct','disabled');
+                    btn.classList.add('correct','disabled');
+                    selected.style.outline = '';
+                    score += 20; addXP(20); updateCombo(true);
+                    matched++;
+                    if (matched === pairs.length) {
+                        setTimeout(() => {
+                            createConfetti(); playSound('win');
+                            showFeedback(`🎉 Todos pareados! +${score} XP`, 'success');
+                            markCompleted(4, 3, score);
+                        }, 500);
+                    }
+                } else {
+                    selected.classList.add('wrong');
+                    btn.classList.add('wrong');
+                    updateCombo(false); playSound('wrong');
+                    const s = selected;
+                    setTimeout(() => {
+                        s.classList.remove('wrong');
+                        btn.classList.remove('wrong');
+                        s.style.outline = '';
+                    }, 800);
+                }
+                selected = null;
+            }
+        }
+    }
+}
+
+// Ex 4.4 - Digitação Rápida
+function ex4_4() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Digite o passado dos verbos irregulares o mais rápido possível!';
+    const verbs = [
+        { inf: 'Eat', past: 'ate' }, { inf: 'Go', past: 'went' },
+        { inf: 'See', past: 'saw' }, { inf: 'Make', past: 'made' },
+        { inf: 'Take', past: 'took' }, { inf: 'Have', past: 'had' },
+        { inf: 'Do', past: 'did' }, { inf: 'Come', past: 'came' }
+    ];
+    let current = 0, score = 0, timeLeft = 45;
+    document.getElementById('statsBar').style.display = 'flex';
+    document.getElementById('timerBar').style.display = 'block';
+    
+    function render() {
+        if (current >= verbs.length) current = 0;
+        const v = verbs[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <h2 style="font-size:3rem;margin-bottom:1rem;color:var(--warning);">${v.inf}</h2>
+                <input type="text" class="game-input" id="typeInput" placeholder="Past..." autocomplete="off" style="max-width:300px;margin:0 auto;text-align:center;font-size:1.5rem;">
+            </div>
+        `;
+        const input = document.getElementById('typeInput');
+        input.focus();
+        input.oninput = () => {
+            if (input.value.toLowerCase().trim() === v.past) {
+                score += 15; addXP(15); updateCombo(true);
+                current++;
+                render();
+            }
+        };
+    }
+    render();
+    
+    const timerInt = setInterval(() => {
+        timeLeft--;
+        document.getElementById('statTime').textContent = timeLeft + 's';
+        document.getElementById('timerFill').style.width = (timeLeft/45*100) + '%';
+        document.getElementById('statScore').textContent = score;
+        if (timeLeft <= 0) {
+            clearInterval(timerInt);
+            createConfetti(); playSound('win');
+            showFeedback(`⏰ Tempo! Score: ${score} XP`, 'success');
+            markCompleted(4, 4, score);
+        }
+    }, 1000);
+    currentTimer = timerInt;
+}
+
+// Ex 4.5 - Modo Sobrevivência
+function ex4_5() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Sobreviva o máximo possível! 3 erros = Game Over.';
+    const verbs = [
+        { inf: 'Eat', past: 'ate' }, { inf: 'Go', past: 'went' },
+        { inf: 'See', past: 'saw' }, { inf: 'Make', past: 'made' },
+        { inf: 'Take', past: 'took' }, { inf: 'Have', past: 'had' },
+        { inf: 'Do', past: 'did' }, { inf: 'Come', past: 'came' },
+        { inf: 'Bring', past: 'brought' }, { inf: 'Blow', past: 'blew' }
+    ];
+    let score = 0, lives = 3, current = 0;
+    document.getElementById('statsBar').style.display = 'flex';
+    
+    function render() {
+        document.getElementById('statScore').textContent = score;
+        document.getElementById('statLives').textContent = '❤️'.repeat(lives);
+        if (lives <= 0) {
+            createConfetti(); playSound('win');
+            showFeedback(`💀 Game Over! Score: ${score} XP`, 'success');
+            markCompleted(4, 5, score);
+            return;
+        }
+        const v = verbs[current % verbs.length];
+        const opts = [v.past, ...verbs.filter(x => x.past !== v.past).sort(() => Math.random()-0.5).slice(0,2).map(x => x.past)].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <p style="opacity:0.7;">Qual o passado de:</p>
+                <h2 style="font-size:3rem;margin:1rem 0;">${v.inf}</h2>
+                <div class="options-grid">
+                    ${opts.map(o => `<button class="option-btn" data-o="${o}">${o}</button>`).join('')}
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.o === v.past) {
+                    btn.classList.add('correct');
+                    score += 15; addXP(15); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-o="${v.past}"]`).classList.add('correct');
+                    lives--;
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 1200);
+            };
+        });
+    }
+    render();
+}
+
+// ============ STAGE 5: WAS/WERE ============
+
+// Ex 5.1 - Tribunal WAS/WERE
+function ex5_1() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Decida: WAS ou WERE? Seja o juiz!';
+    const sentences = [
+        { s: 'I ___ happy yesterday.', a: 'was' },
+        { s: 'They ___ at home.', a: 'were' },
+        { s: 'She ___ my friend.', a: 'was' },
+        { s: 'We ___ students.', a: 'were' },
+        { s: 'He ___ tired.', a: 'was' },
+        { s: 'You ___ late.', a: 'were' },
+        { s: 'It ___ cold.', a: 'was' },
+        { s: 'The children ___ playing.', a: 'were' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= sentences.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`⚖️ Tribunal encerrado! +${score} XP`, 'success');
+            markCompleted(5, 1, score);
+            return;
+        }
+        const s = sentences[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <div style="font-size:4rem;margin-bottom:1rem;">⚖️</div>
+                <h2 style="font-size:1.5rem;margin-bottom:2rem;">${s.s}</h2>
+                <div class="options-grid" style="grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;">
+                    <button class="option-btn" onclick="judge51('was')" style="font-size:1.5rem;font-weight:bold;">WAS</button>
+                    <button class="option-btn" onclick="judge51('were')" style="font-size:1.5rem;font-weight:bold;">WERE</button>
+                </div>
+            </div>
+        `;
+        window.judge51 = (answer) => {
+            const btns = document.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.add('disabled'));
+            if (answer === s.a) {
+                event.target.classList.add('correct');
+                score += 15; addXP(15); updateCombo(true);
+            } else {
+                event.target.classList.add('wrong');
+                updateCombo(false); playSound('wrong');
+            }
+            current++;
+            setTimeout(render, 1000);
+        };
+    }
+    render();
+}
+
+// Ex 5.2 - Arrastar Pronome
+function ex5_2() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Arraste cada pronome para WAS ou WERE.';
+    const pronouns = [
+        { p: 'I', w: 'was' }, { p: 'He', w: 'was' }, { p: 'She', w: 'was' }, { p: 'It', w: 'was' },
+        { p: 'You', w: 'were' }, { p: 'We', w: 'were' }, { p: 'They', w: 'were' }
+    ];
+    let score = 0;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `
+        <div id="pool52" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-bottom:1.5rem;"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div class="drop-zone zone-past" data-w="was" style="flex-direction:column;"><div style="font-weight:bold;font-size:1.5rem;margin-bottom:0.5rem;">WAS</div><div class="zone-items" style="display:flex;flex-wrap:wrap;gap:0.5rem;"></div></div>
+            <div class="drop-zone zone-future" data-w="were" style="flex-direction:column;"><div style="font-weight:bold;font-size:1.5rem;margin-bottom:0.5rem;">WERE</div><div class="zone-items" style="display:flex;flex-wrap:wrap;gap:0.5rem;"></div></div>
+        </div>
+    `;
+    const pool = document.getElementById('pool52');
+    const shuffled = [...pronouns].sort(() => Math.random()-0.5);
+    shuffled.forEach((pr, i) => {
+        const el = document.createElement('div');
+        el.className = 'draggable';
+        el.textContent = pr.p;
+        el.dataset.w = pr.w;
+        el.id = 'pr-' + i;
+        el.draggable = true;
+        el.addEventListener('dragstart', e => e.dataTransfer.setData('text', el.id));
+        el.addEventListener('click', () => {
+            if (selPr) selPr.style.outline = '';
+            selPr = el;
+            el.style.outline = '3px solid var(--warning)';
+        });
+        pool.appendChild(el);
+    });
+    let selPr = null;
+    document.querySelectorAll('.drop-zone').forEach(zone => {
+        zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('hover'); });
+        zone.addEventListener('dragleave', () => zone.classList.remove('hover'));
+        zone.addEventListener('drop', e => {
+            e.preventDefault(); zone.classList.remove('hover');
+            handleDrop52(document.getElementById(e.dataTransfer.getData('text')), zone);
+        });
+        zone.addEventListener('click', () => {
+            if (selPr) {
+                handleDrop52(selPr, zone);
+                selPr.style.outline = '';
+                selPr = null;
+            }
+        });
+    });
+    function handleDrop52(el, zone) {
+        if (!el) return;
+        if (el.dataset.w === zone.dataset.w) {
+            el.classList.add('placed');
+            zone.querySelector('.zone-items').appendChild(el);
+            score += 15; addXP(15); updateCombo(true);
+            playSound('correct');
+            if (pool.children.length === 0) {
+                setTimeout(() => {
+                    createConfetti(); playSound('win');
+                    showFeedback(`🎉 Todos classificados! +${score} XP`, 'success');
+                    markCompleted(5, 2, score);
+                }, 500);
+            }
+        } else {
+            el.style.animation = 'shake 0.5s';
+            setTimeout(() => el.style.animation = '', 500);
+            updateCombo(false); playSound('wrong');
+        }
+    }
+}
+
+// Ex 5.3 - Jogo dos Portais
+function ex5_3() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Escolha o portal correto (WAS ou WERE) para cada frase!';
+    const sentences = [
+        { s: 'I ___ a child.', a: 'was' },
+        { s: 'They ___ friends.', a: 'were' },
+        { s: 'She ___ happy.', a: 'was' },
+        { s: 'We ___ at school.', a: 'were' },
+        { s: 'He ___ tired.', a: 'was' },
+        { s: 'You ___ late.', a: 'were' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= sentences.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🚪 Portais atravessados! +${score} XP`, 'success');
+            markCompleted(5, 3, score);
+            return;
+        }
+        const s = sentences[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:1rem;">
+                <h2 style="font-size:1.5rem;margin-bottom:2rem;">${s.s}</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="drop-zone zone-past" onclick="portal53('was')" style="cursor:pointer;min-height:200px;flex-direction:column;">
+                        <div style="font-size:4rem;">🚪</div>
+                        <div style="font-size:2rem;font-weight:bold;margin-top:1rem;">WAS</div>
+                    </div>
+                    <div class="drop-zone zone-future" onclick="portal53('were')" style="cursor:pointer;min-height:200px;flex-direction:column;">
+                        <div style="font-size:4rem;">🚪</div>
+                        <div style="font-size:2rem;font-weight:bold;margin-top:1rem;">WERE</div>
+                    </div>
+                </div>
+            </div>
+        `;
+        window.portal53 = (answer) => {
+            if (answer === s.a) {
+                score += 20; addXP(20); updateCombo(true);
+                playSound('correct');
+                showFloating('+20 XP', '#10b981');
+            } else {
+                updateCombo(false); playSound('wrong');
+                showFeedback(`❌ Era ${s.a.toUpperCase()}!`, 'error');
+            }
+            current++;
+            setTimeout(render, 1000);
+        };
+    }
+    render();
+}
+
+// Ex 5.4 - Quiz Relâmpago
+function ex5_4() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Responda o máximo em 25 segundos!';
+    const questions = [
+        { q: 'I ___ happy.', a: 'was' },
+        { q: 'They ___ here.', a: 'were' },
+        { q: 'She ___ sad.', a: 'was' },
+        { q: 'We ___ ready.', a: 'were' },
+        { q: 'He ___ a doctor.', a: 'was' },
+        { q: 'You ___ right.', a: 'were' },
+        { q: 'It ___ cold.', a: 'was' },
+        { q: 'The dogs ___ big.', a: 'were' }
+    ];
+    let current = 0, score = 0, timeLeft = 25;
+    document.getElementById('statsBar').style.display = 'flex';
+    document.getElementById('timerBar').style.display = 'block';
+    
+    function render() {
+        if (current >= questions.length) current = 0;
+        const q = questions[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <h2 style="font-size:1.75rem;margin-bottom:2rem;">${q.q}</h2>
+                <div class="options-grid" style="grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;">
+                    <button class="option-btn" data-a="was" style="font-size:1.5rem;">WAS</button>
+                    <button class="option-btn" data-a="were" style="font-size:1.5rem;">WERE</button>
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                if (btn.dataset.a === q.a) {
+                    btn.classList.add('correct');
+                    score += 15; addXP(15); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 600);
+            };
+        });
+    }
+    render();
+    
+    const timerInt = setInterval(() => {
+        timeLeft--;
+        document.getElementById('statTime').textContent = timeLeft + 's';
+        document.getElementById('timerFill').style.width = (timeLeft/25*100) + '%';
+        document.getElementById('statScore').textContent = score;
+        if (timeLeft <= 0) {
+            clearInterval(timerInt);
+            createConfetti(); playSound('win');
+            showFeedback(`⚡ Tempo! Score: ${score} XP`, 'success');
+            markCompleted(5, 4, score);
+        }
+    }, 1000);
+    currentTimer = timerInt;
+}
+
+// Ex 5.5 - Corrigir Professor
+function ex5_5() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> O professor errou! Corrija as frases.';
+    const errors = [
+        { wrong: 'You was happy.', correct: 'You were happy.', fix: 'was→were' },
+        { wrong: 'They was at home.', correct: 'They were at home.', fix: 'was→were' },
+        { wrong: 'I were tired.', correct: 'I was tired.', fix: 'were→was' },
+        { wrong: 'She were my friend.', correct: 'She was my friend.', fix: 'were→was' },
+        { wrong: 'We was ready.', correct: 'We were ready.', fix: 'was→were' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= errors.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`👨‍🏫 Professor corrigido! +${score} XP`, 'success');
+            markCompleted(5, 5, score);
+            return;
+        }
+        const e = errors[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="padding:1.5rem;">
+                <p style="opacity:0.7;margin-bottom:1rem;">👨‍🏫 O professor escreveu:</p>
+                <div style="background:rgba(239,68,68,0.1);border-left:4px solid var(--danger);padding:1rem;border-radius:8px;margin-bottom:1.5rem;font-size:1.25rem;">
+                    "${e.wrong}" ❌
+                </div>
+                <p style="margin-bottom:1rem;">Qual a correção?</p>
+                <div class="options-grid">
+                    <button class="option-btn" data-c="${e.correct}">${e.correct}</button>
+                    <button class="option-btn" data-c="${e.wrong}">${e.wrong}</button>
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.c === e.correct) {
+                    btn.classList.add('correct');
+                    score += 20; addXP(20); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-c="${e.correct}"]`).classList.add('correct');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 1500);
+            };
+        });
+    }
+    render();
+}
+
+// ============ STAGE 6: AFFIRMATIVE ============
+
+// Ex 6.1 - Contador de Histórias
+function ex6_1() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Monte a história clicando nas frases na ordem correta.';
+    const story = [
+        { text: 'Yesterday was a busy day.', trans: 'Ontem foi um dia ocupado.' },
+        { text: 'I woke up early.', trans: 'Eu acordei cedo.' },
+        { text: 'I ate my breakfast.', trans: 'Eu comi meu café da manhã.' },
+        { text: 'I went to school.', trans: 'Eu fui para a escola.' },
+        { text: 'I studied English.', trans: 'Eu estudei inglês.' },
+        { text: 'I came home happy.', trans: 'Eu voltei para casa feliz.' }
+    ];
+    let current = 0, score = 0;
+    const shuffled = [...story].sort(() => Math.random()-0.5);
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `
+        <p style="text-align:center;margin-bottom:1rem;opacity:0.7;">Clique na próxima frase da história</p>
+        <div id="storyBuilt" style="background:rgba(0,0,0,0.2);padding:1rem;border-radius:12px;min-height:80px;margin-bottom:1rem;"></div>
+        <div id="storyOptions" style="display:flex;flex-direction:column;gap:0.5rem;"></div>
+    `;
+    const opts = document.getElementById('storyOptions');
+    const built = document.getElementById('storyBuilt');
+    shuffled.forEach((s, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerHTML = `${s.text}<br><small style="opacity:0.6;">${s.trans}</small>`;
+        btn.dataset.idx = story.indexOf(s);
+        btn.onclick = () => {
+            if (parseInt(btn.dataset.idx) === current) {
+                btn.classList.add('correct','disabled');
+                built.innerHTML += `<p style="animation:slideUp 0.3s;">${s.text}</p>`;
+                score += 15; addXP(15); updateCombo(true);
+                current++;
+                if (current === story.length) {
+                    setTimeout(() => {
+                        createConfetti(); playSound('win');
+                        showFeedback(`📖 História completa! +${score} XP`, 'success');
+                        markCompleted(6, 1, score);
+                    }, 500);
+                }
+            } else {
+                btn.classList.add('wrong');
+                updateCombo(false); playSound('wrong');
+                setTimeout(() => btn.classList.remove('wrong'), 800);
+            }
+        };
+        opts.appendChild(btn);
+    });
+}
+
+// Ex 6.2 - Complete a Cena
+function ex6_2() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Escolha a frase que descreve a cena.';
+    const scenes = [
+        { emoji: '📚👨', correct: 'He studied English.', wrong: ['He study English.','He studies English.'] },
+        { emoji: '⚽👧', correct: 'She played soccer.', wrong: ['She play soccer.','She plays soccer.'] },
+        { emoji: '🎬👨‍👩‍👧', correct: 'They watched a movie.', wrong: ['They watch a movie.','They watched movie.'] },
+        { emoji: '🍕👦', correct: 'I ate pizza.', wrong: ['I eat pizza.','I eated pizza.'] }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= scenes.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Todas as cenas! +${score} XP`, 'success');
+            markCompleted(6, 2, score);
+            return;
+        }
+        const s = scenes[current];
+        const opts = [s.correct, ...s.wrong].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <div style="font-size:5rem;margin-bottom:1rem;">${s.emoji}</div>
+                <p style="margin-bottom:1.5rem;">Qual frase descreve a cena?</p>
+                <div class="options-grid">
+                    ${opts.map(o => `<button class="option-btn" data-o="${o}">${o}</button>`).join('')}
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.o === s.correct) {
+                    btn.classList.add('correct');
+                    score += 20; addXP(20); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-o="${s.correct}"]`).classList.add('correct');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 1200);
+            };
+        });
+    }
+    render();
+}
+
+// Ex 6.3 - Escolha o Verbo
+function ex6_3() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Escolha o verbo correto no passado.';
+    const sentences = [
+        { s: 'I ___ to the cinema.', opts: ['go','went','gone'], a: 'went' },
+        { s: 'She ___ a cake.', opts: ['make','made','maked'], a: 'made' },
+        { s: 'They ___ the bus.', opts: ['take','took','taked'], a: 'took' },
+        { s: 'He ___ his homework.', opts: ['do','did','done'], a: 'did' },
+        { s: 'We ___ a great time.', opts: ['have','had','haved'], a: 'had' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= sentences.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Todos os verbos! +${score} XP`, 'success');
+            markCompleted(6, 3, score);
+            return;
+        }
+        const s = sentences[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <h2 style="font-size:1.5rem;margin-bottom:2rem;">${s.s}</h2>
+                <div class="options-grid">
+                    ${s.opts.map(o => `<button class="option-btn" data-o="${o}">${o}</button>`).join('')}
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.o === s.a) {
+                    btn.classList.add('correct');
+                    score += 15; addXP(15); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-o="${s.a}"]`).classList.add('correct');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 1200);
+            };
+        });
+    }
+    render();
+}
+
+// Ex 6.4 - Reconstrução
+function ex6_4() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Reconstrua a frase afirmativa.';
+    const phrases = [
+        { words: ['My father','traveled','to São Paulo'], trans: 'Meu pai viajou para SP' },
+        { words: ['I','ate','my lunch'], trans: 'Eu comi meu almoço' },
+        { words: ['She','worked','hard'], trans: 'Ela trabalhou duro' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= phrases.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Todas reconstruídas! +${score} XP`, 'success');
+            markCompleted(6, 4, score);
+            return;
+        }
+        const p = phrases[current];
+        const shuffled = [...p.words].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <p style="text-align:center;margin-bottom:1rem;opacity:0.7;">${p.trans}</p>
+            <div id="slots" style="min-height:60px;padding:1rem;background:rgba(0,0,0,0.2);border-radius:12px;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;"></div>
+            <div id="bank" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;"></div>
+        `;
+        const bank = document.getElementById('bank');
+        const slots = document.getElementById('slots');
+        shuffled.forEach(w => {
+            const chip = document.createElement('div');
+            chip.className = 'word-chip';
+            chip.textContent = w;
+            chip.onclick = () => {
+                chip.classList.add('used');
+                const s = document.createElement('div');
+                s.className = 'word-chip';
+                s.textContent = w;
+                s.onclick = () => { s.remove(); chip.classList.remove('used'); check(); };
+                slots.appendChild(s);
+                check();
+            };
+            bank.appendChild(chip);
+        });
+        function check() {
+            const arr = Array.from(slots.children).map(c => c.textContent);
+            if (arr.length === p.words.length) {
+                if (arr.every((w,i) => w === p.words[i])) {
+                    score += 25; addXP(25); updateCombo(true);
+                    playSound('correct');
+                    current++;
+                    setTimeout(render, 1000);
+                } else {
+                    updateCombo(false); playSound('wrong');
+                    showFeedback('❌ Ordem errada!', 'error');
+                    setTimeout(() => {
+                        slots.innerHTML = '';
+                        bank.querySelectorAll('.word-chip').forEach(c => c.classList.remove('used'));
+                    }, 1000);
+                }
+            }
+        }
+    }
+    render();
+}
+
+// Ex 6.5 - Transformação Visual
+function ex6_5() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Combine a imagem com a frase afirmativa correta.';
+    const pairs = [
+        { emoji: '🏃‍♂️', text: 'He ran fast.' },
+        { emoji: '📚', text: 'She studied hard.' },
+        { emoji: '🎵', text: 'They danced together.' },
+        { emoji: '🍕', text: 'I ate pizza.' }
+    ];
+    let selectedImg = null, selectedTxt = null, matched = 0, score = 0;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `
+        <div class="portrait-grid" id="imgs"></div>
+        <div class="options-grid" id="txts" style="margin-top:1.5rem;"></div>
+    `;
+    const imgs = document.getElementById('imgs');
+    const txts = document.getElementById('txts');
+    const shuffledI = [...pairs].sort(() => Math.random()-0.5);
+    const shuffledT = [...pairs].sort(() => Math.random()-0.5);
+    shuffledI.forEach((p, i) => {
+        const div = document.createElement('div');
+        div.className = 'portrait';
+        div.dataset.idx = pairs.indexOf(p);
+        div.innerHTML = `<div class="portrait-emoji">${p.emoji}</div>`;
+        div.onclick = () => {
+            document.querySelectorAll('.portrait').forEach(x => x.classList.remove('selected'));
+            div.classList.add('selected');
+            selectedImg = div;
+            check();
+        };
+        imgs.appendChild(div);
+    });
+    shuffledT.forEach((p, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = p.text;
+        btn.dataset.idx = pairs.indexOf(p);
+        btn.onclick = () => {
+            document.querySelectorAll('#txts .option-btn').forEach(x => x.style.outline = '');
+            btn.style.outline = '3px solid var(--warning)';
+            selectedTxt = btn;
+            check();
+        };
+        txts.appendChild(btn);
+    });
+    function check() {
+        if (!selectedImg || !selectedTxt) return;
+        if (selectedImg.dataset.idx === selectedTxt.dataset.idx) {
+            selectedImg.style.background = 'linear-gradient(135deg,#10b981,#34d399)';
+            selectedImg.style.pointerEvents = 'none';
+            selectedTxt.classList.add('correct','disabled');
+            selectedTxt.style.outline = '';
+            score += 25; addXP(25); updateCombo(true);
+            matched++;
+            if (matched === pairs.length) {
+                setTimeout(() => {
+                    createConfetti(); playSound('win');
+                    showFeedback(`🎉 Todas combinadas! +${score} XP`, 'success');
+                    markCompleted(6, 5, score);
+                }, 500);
+            }
+        } else {
+            selectedImg.style.animation = 'shake 0.5s';
+            selectedTxt.style.animation = 'shake 0.5s';
+            updateCombo(false); playSound('wrong');
+            setTimeout(() => {
+                if (selectedImg) selectedImg.style.animation = '';
+                if (selectedTxt) selectedTxt.style.animation = '';
+            }, 500);
+        }
+        selectedImg = null; selectedTxt = null;
+    }
+}
+
+// ============ STAGE 7: NEGATIVE ============
+
+// Ex 7.1 - Transformador Negativo
+function ex7_1() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Transforme as frases afirmativas em negativas.';
+    const phrases = [
+        { aff: 'I worked yesterday.', neg: "I didn't work yesterday." },
+        { aff: 'She played soccer.', neg: "She didn't play soccer." },
+        { aff: 'They studied English.', neg: "They didn't study English." },
+        { aff: 'He went to school.', neg: "He didn't go to school." }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= phrases.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Todas transformadas! +${score} XP`, 'success');
+            markCompleted(7, 1, score);
+            return;
+        }
+        const p = phrases[current];
+        const opts = [p.neg, p.aff.replace('worked','workeded'), p.aff.replace('I',"I not")].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="padding:1.5rem;">
+                <p style="opacity:0.7;margin-bottom:1rem;">Transforme em negativa:</p>
+                <div style="background:rgba(99,102,241,0.1);border-left:4px solid var(--primary);padding:1rem;border-radius:8px;margin-bottom:1.5rem;font-size:1.25rem;">
+                    "${p.aff}" ✅
+                </div>
+                <div class="options-grid">
+                    ${opts.map(o => `<button class="option-btn" data-o="${o}">${o}</button>`).join('')}
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.o === p.neg) {
+                    btn.classList.add('correct');
+                    score += 20; addXP(20); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-o="${p.neg}"]`).classList.add('correct');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 1500);
+            };
+        });
+    }
+    render();
+}
+
+// Ex 7.2 - Arrastar DIDN'T
+function ex7_2() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Posicione "didn\'t" no lugar correto e ajuste o verbo.';
+    const phrases = [
+        { parts: ['I','didn\'t','work','yesterday'], wrong: ['I','worked','didn\'t','yesterday'] },
+        { parts: ['She','didn\'t','play','soccer'], wrong: ['She','played','didn\'t','soccer'] },
+        { parts: ['They','didn\'t','study','English'], wrong: ['They','studied','didn\'t','English'] }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= phrases.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Todas montadas! +${score} XP`, 'success');
+            markCompleted(7, 2, score);
+            return;
+        }
+        const p = phrases[current];
+        const shuffled = [...p.wrong].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <p style="text-align:center;margin-bottom:1rem;opacity:0.7;">Monte a frase negativa na ordem correta</p>
+            <div id="slots" style="min-height:60px;padding:1rem;background:rgba(0,0,0,0.2);border-radius:12px;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;"></div>
+            <div id="bank" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;"></div>
+        `;
+        const bank = document.getElementById('bank');
+        const slots = document.getElementById('slots');
+        shuffled.forEach(w => {
+            const chip = document.createElement('div');
+            chip.className = 'word-chip';
+            chip.textContent = w;
+            chip.onclick = () => {
+                chip.classList.add('used');
+                const s = document.createElement('div');
+                s.className = 'word-chip';
+                s.textContent = w;
+                s.onclick = () => { s.remove(); chip.classList.remove('used'); check(); };
+                slots.appendChild(s);
+                check();
+            };
+            bank.appendChild(chip);
+        });
+        function check() {
+            const arr = Array.from(slots.children).map(c => c.textContent);
+            if (arr.length === p.parts.length) {
+                if (arr.every((w,i) => w === p.parts[i])) {
+                    score += 25; addXP(25); updateCombo(true);
+                    playSound('correct');
+                    current++;
+                    setTimeout(render, 1000);
+                } else {
+                    updateCombo(false); playSound('wrong');
+                    showFeedback('❌ Ordem errada! Lembre: Subject + didn\'t + base verb', 'error');
+                    setTimeout(() => {
+                        slots.innerHTML = '';
+                        bank.querySelectorAll('.word-chip').forEach(c => c.classList.remove('used'));
+                    }, 1200);
+                }
+            }
+        }
+    }
+    render();
+}
+
+// Ex 7.3 - Corrigir Robô
+function ex7_3() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> O robô escreveu errado! Corrija as frases negativas.';
+    const errors = [
+        { wrong: "I didn't worked yesterday.", correct: "I didn't work yesterday." },
+        { wrong: "She didn't played soccer.", correct: "She didn't play soccer." },
+        { wrong: "They didn't studied.", correct: "They didn't study." },
+        { wrong: "He didn't went home.", correct: "He didn't go home." }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= errors.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🤖 Robô corrigido! +${score} XP`, 'success');
+            markCompleted(7, 3, score);
+            return;
+        }
+        const e = errors[current];
+        const opts = [e.correct, e.wrong, e.wrong.replace("didn't",'not')].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="padding:1.5rem;">
+                <p style="opacity:0.7;margin-bottom:1rem;">🤖 O robô escreveu:</p>
+                <div style="background:rgba(239,68,68,0.1);border-left:4px solid var(--danger);padding:1rem;border-radius:8px;margin-bottom:1.5rem;font-size:1.1rem;">
+                    "${e.wrong}" ❌
+                </div>
+                <p style="margin-bottom:1rem;">Qual a forma correta?</p>
+                <div class="options-grid">
+                    ${opts.map(o => `<button class="option-btn" data-o="${o}">${o}</button>`).join('')}
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.o === e.correct) {
+                    btn.classList.add('correct');
+                    score += 20; addXP(20); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-o="${e.correct}"]`).classList.add('correct');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 1500);
+            };
+        });
+    }
+    render();
+}
+
+// Ex 7.4 - Missão Secreta
+function ex7_4() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Encontre APENAS as frases negativas!';
+    const sentences = [
+        { text: "I didn't eat cake.", neg: true },
+        { text: 'She played soccer.', neg: false },
+        { text: "They didn't go.", neg: true },
+        { text: 'He worked hard.', neg: false },
+        { text: "We didn't study.", neg: true },
+        { text: 'I traveled last week.', neg: false },
+        { text: "She didn't watch TV.", neg: true }
+    ];
+    let score = 0, lives = 3, found = 0;
+    const total = sentences.filter(s => s.neg).length;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `<div class="options-grid" id="grid"></div>`;
+    const grid = document.getElementById('grid');
+    const shuffled = [...sentences].sort(() => Math.random()-0.5);
+    shuffled.forEach(s => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = s.text;
+        btn.onclick = () => {
+            if (btn.classList.contains('disabled')) return;
+            btn.classList.add('disabled');
+            if (s.neg) {
+                btn.classList.add('correct');
+                score += 15; found++;
+                addXP(15); updateCombo(true);
+                if (found === total) {
+                    setTimeout(() => {
+                        createConfetti(); playSound('win');
+                        showFeedback(`🕵️ Missão completa! +${score} XP`, 'success');
+                        markCompleted(7, 4, score);
+                    }, 500);
+                }
+            } else {
+                btn.classList.add('wrong');
+                lives--;
+                updateCombo(false); playSound('wrong');
+                if (lives <= 0) {
+                    setTimeout(() => showFeedback(`💀 Missão falhou! Score: ${score} XP`, 'error'), 500);
+                }
+            }
+        };
+        grid.appendChild(btn);
+    });
+}
+
+// Ex 7.5 - Escape Room
+function ex7_5() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Resolva 3 portas para escapar! Cada porta é uma negativa.';
+    const doors = [
+        { q: 'Transforme: "I played soccer"', a: "I didn't play soccer" },
+        { q: 'Transforme: "She worked hard"', a: "She didn't work hard" },
+        { q: 'Transforme: "They studied English"', a: "They didn't study English" }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= doors.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🚪 Você escapou! +${score} XP`, 'success');
+            markCompleted(7, 5, score);
+            return;
+        }
+        const d = doors[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:1.5rem;">
+                <div style="font-size:4rem;margin-bottom:1rem;">🚪</div>
+                <h3 style="margin-bottom:1.5rem;">Porta ${current+1}/3</h3>
+                <p style="margin-bottom:1rem;">${d.q}</p>
+                <input type="text" class="game-input" id="doorInput" placeholder="Digite a negativa..." autocomplete="off" style="max-width:400px;margin:0 auto;">
+            </div>
+        `;
+        const input = document.getElementById('doorInput');
+        input.focus();
+        input.oninput = () => {
+            const val = input.value.toLowerCase().trim().replace(/[.?!]/g,'');
+            const target = d.a.toLowerCase().replace(/[.?!]/g,'');
+            if (val === target) {
+                score += 30; addXP(30); updateCombo(true);
+                playSound('correct');
+                current++;
+                setTimeout(render, 800);
+            }
+        };
+    }
+    render();
+}
+
+// ============ STAGE 8: QUESTIONS ============
+
+// Ex 8.1 - Entrevista
+function ex8_1() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Faça perguntas para o personagem usando "Did".';
+    const interviews = [
+        { ctx: '👨‍💼 John traveled last year.', q: 'Did John travel last year?' },
+        { ctx: '👩 She studied English.', q: 'Did she study English?' },
+        { ctx: '🧒 They played soccer.', q: 'Did they play soccer?' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= interviews.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎤 Entrevista completa! +${score} XP`, 'success');
+            markCompleted(8, 1, score);
+            return;
+        }
+        const it = interviews[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="padding:1.5rem;">
+                <div style="background:rgba(99,102,241,0.1);padding:1rem;border-radius:12px;margin-bottom:1.5rem;">
+                    <p style="opacity:0.7;">Contexto:</p>
+                    <p style="font-size:1.25rem;">${it.ctx}</p>
+                </div>
+                <p style="margin-bottom:1rem;">Formule a pergunta:</p>
+                <input type="text" class="game-input" id="intInput" placeholder="Did...?" autocomplete="off">
+            </div>
+        `;
+        const input = document.getElementById('intInput');
+        input.focus();
+        input.oninput = () => {
+            const val = input.value.toLowerCase().trim().replace(/[?!.]/g,'');
+            const target = it.q.toLowerCase().replace(/[?!.]/g,'');
+            if (val === target) {
+                score += 25; addXP(25); updateCombo(true);
+                playSound('correct');
+                current++;
+                setTimeout(render, 800);
+            }
+        };
+    }
+    render();
+}
+
+// Ex 8.2 - Montar Perguntas
+function ex8_2() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Monte a pergunta com as palavras na ordem correta.';
+    const questions = [
+        { words: ['Did','you','study','English','?'], trans: 'Você estudou inglês?' },
+        { words: ['Did','she','play','soccer','?'], trans: 'Ela jogou futebol?' },
+        { words: ['Did','they','travel','last year','?'], trans: 'Eles viajaram ano passado?' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= questions.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🎉 Todas as perguntas! +${score} XP`, 'success');
+            markCompleted(8, 2, score);
+            return;
+        }
+        const q = questions[current];
+        const shuffled = [...q.words].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <p style="text-align:center;margin-bottom:1rem;opacity:0.7;">${q.trans}</p>
+            <div id="slots" style="min-height:60px;padding:1rem;background:rgba(0,0,0,0.2);border-radius:12px;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;"></div>
+            <div id="bank" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;"></div>
+        `;
+        const bank = document.getElementById('bank');
+        const slots = document.getElementById('slots');
+        shuffled.forEach(w => {
+            const chip = document.createElement('div');
+            chip.className = 'word-chip';
+            chip.textContent = w;
+            chip.onclick = () => {
+                chip.classList.add('used');
+                const s = document.createElement('div');
+                s.className = 'word-chip';
+                s.textContent = w;
+                s.onclick = () => { s.remove(); chip.classList.remove('used'); check(); };
+                slots.appendChild(s);
+                check();
+            };
+            bank.appendChild(chip);
+        });
+        function check() {
+            const arr = Array.from(slots.children).map(c => c.textContent);
+            if (arr.length === q.words.length) {
+                if (arr.every((w,i) => w === q.words[i])) {
+                    score += 25; addXP(25); updateCombo(true);
+                    playSound('correct');
+                    current++;
+                    setTimeout(render, 1000);
+                } else {
+                    updateCombo(false); playSound('wrong');
+                    setTimeout(() => {
+                        slots.innerHTML = '';
+                        bank.querySelectorAll('.word-chip').forEach(c => c.classList.remove('used'));
+                    }, 1000);
+                }
+            }
+        }
+    }
+    render();
+}
+
+// Ex 8.3 - Inversão Mágica
+function ex8_3() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Transforme a afirmação em pergunta.';
+    const pairs = [
+        { aff: 'You studied English.', q: 'Did you study English?' },
+        { aff: 'She worked hard.', q: 'Did she work hard?' },
+        { aff: 'They played soccer.', q: 'Did they play soccer?' },
+        { aff: 'He traveled last year.', q: 'Did he travel last year?' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= pairs.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`✨ Inversões completas! +${score} XP`, 'success');
+            markCompleted(8, 3, score);
+            return;
+        }
+        const p = pairs[current];
+        const opts = [p.q, p.aff, p.aff.replace('You','Did you')].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="padding:1.5rem;text-align:center;">
+                <div style="font-size:3rem;margin-bottom:1rem;">✨</div>
+                <p style="opacity:0.7;margin-bottom:1rem;">Transforme em pergunta:</p>
+                <div style="background:rgba(99,102,241,0.1);padding:1rem;border-radius:12px;margin-bottom:1.5rem;font-size:1.25rem;">
+                    "${p.aff}"
+                </div>
+                <div class="options-grid">
+                    ${opts.map(o => `<button class="option-btn" data-o="${o}">${o}</button>`).join('')}
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.o === p.q) {
+                    btn.classList.add('correct');
+                    score += 20; addXP(20); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-o="${p.q}"]`).classList.add('correct');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 1200);
+            };
+        });
+    }
+    render();
+}
+
+// Ex 8.4 - Quiz Detective
+function ex8_4() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Descubra a pista fazendo a pergunta correta.';
+    const clues = [
+        { ctx: '🔍 Alguém comeu o bolo!', q: 'Did someone eat the cake?', a: 'Yes, John did!' },
+        { ctx: '🔍 A janela está quebrada!', q: 'Did someone break the window?', a: 'Yes, the ball did!' },
+        { ctx: '🔍 O cachorro sumiu!', q: 'Did the dog run away?', a: 'Yes, he did!' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= clues.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🔍 Caso resolvido! +${score} XP`, 'success');
+            markCompleted(8, 4, score);
+            return;
+        }
+        const c = clues[current];
+        const opts = [c.q, c.q.replace('Did','Do'), c.q.replace('Did','Does')].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="padding:1.5rem;text-align:center;">
+                <div style="font-size:3rem;margin-bottom:1rem;">🔍</div>
+                <p style="margin-bottom:1.5rem;">${c.ctx}</p>
+                <p style="margin-bottom:1rem;">Qual pergunta fazer?</p>
+                <div class="options-grid">
+                    ${opts.map(o => `<button class="option-btn" data-o="${o}">${o}</button>`).join('')}
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.o === c.q) {
+                    btn.classList.add('correct');
+                    score += 25; addXP(25); updateCombo(true);
+                    setTimeout(() => showFeedback(`🎯 Pista: ${c.a}`, 'success'), 500);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-o="${c.q}"]`).classList.add('correct');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 2500);
+            };
+        });
+    }
+    render();
+}
+
+// Ex 8.5 - Chat Simulado
+function ex8_5() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Converse com o NPC fazendo perguntas com "Did".';
+    const chat = [
+        { npc: 'Hi! I had an amazing weekend!', prompt: 'Pergunte se ele viajou', expected: 'Did you travel' },
+        { npc: 'Yes! I went to the beach!', prompt: 'Pergunte se ele nadou', expected: 'Did you swim' },
+        { npc: 'Yes, I swam a lot!', prompt: 'Pergunte se ele comeu peixe', expected: 'Did you eat fish' }
+    ];
+    let current = 0, score = 0;
+    const ga = document.getElementById('gameArea');
+    
+    function render() {
+        if (current >= chat.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`💬 Conversa completa! +${score} XP`, 'success');
+            markCompleted(8, 5, score);
+            return;
+        }
+        const c = chat[current];
+        ga.innerHTML = `
+            <div class="chat-container" id="chatBox">
+                <div class="chat-message">
+                    <div class="chat-avatar">🤖</div>
+                    <div class="chat-bubble">${c.npc}</div>
+                </div>
+            </div>
+            <p style="margin:1rem 0;opacity:0.7;text-align:center;">💡 ${c.prompt}</p>
+            <input type="text" class="game-input" id="chatInput" placeholder="Did you...?" autocomplete="off">
+        `;
+        const input = document.getElementById('chatInput');
+        input.focus();
+        input.oninput = () => {
+            const val = input.value.toLowerCase().trim().replace(/[?!.]/g,'');
+            const target = c.expected.toLowerCase();
+            if (val.startsWith(target)) {
+                score += 25; addXP(25); updateCombo(true);
+                playSound('correct');
+                const chatBox = document.getElementById('chatBox');
+                chatBox.innerHTML += `
+                    <div class="chat-message user">
+                        <div class="chat-avatar">🧑</div>
+                        <div class="chat-bubble">${input.value}</div>
+                    </div>
+                `;
+                setTimeout(() => {
+                    chatBox.innerHTML += `
+                        <div class="chat-message">
+                            <div class="chat-avatar">🤖</div>
+                            <div class="chat-bubble">Great question! ✅</div>
+                        </div>
+                    `;
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                    current++;
+                    setTimeout(render, 1500);
+                }, 500);
+                input.disabled = true;
+            }
+        };
+    }
+    render();
+}
+
+// ============ STAGE 9: CAN ============
+
+// Ex 9.1 - Superpoderes
+function ex9_1() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Escolha os superpoderes do herói usando CAN.';
+    const heroes = [
+        { name: 'Super Man', emoji: '🦸', powers: ['fly','lift cars','run fast'] },
+        { name: 'Aqua Man', emoji: '🧜', powers: ['swim','talk to fish','breathe underwater'] },
+        { name: 'Spider Man', emoji: '🕷️', powers: ['climb walls','shoot webs','jump high'] }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= heroes.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🦸 Heróis completos! +${score} XP`, 'success');
+            markCompleted(9, 1, score);
+            return;
+        }
+        const h = heroes[current];
+        const allPowers = ['fly','swim','climb walls','cook','dance','shoot webs','read minds'];
+        const shuffled = [...allPowers].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div class="hero-card">
+                <div class="hero-avatar">${h.emoji}</div>
+                <div class="hero-name">${h.name}</div>
+                <p style="margin-bottom:1rem;">Selecione os poderes dele (${h.powers.length} poderes)</p>
+                <div class="power-list" id="powers"></div>
+                <div id="selected" style="margin-top:1rem;min-height:40px;"></div>
+                <button class="btn btn-success" id="confirmBtn" style="margin-top:1rem;display:none;" onclick="confirmPowers()">Confirmar</button>
+            </div>
+        `;
+        const powers = document.getElementById('powers');
+        const selected = document.getElementById('selected');
+        const chosen = [];
+        shuffled.forEach(p => {
+            const tag = document.createElement('div');
+            tag.className = 'power-tag';
+            tag.style.cursor = 'pointer';
+            tag.style.opacity = '0.6';
+            tag.textContent = p;
+            tag.onclick = () => {
+                if (tag.style.opacity === '1') {
+                    tag.style.opacity = '0.6';
+                    chosen.splice(chosen.indexOf(p), 1);
+                } else {
+                    tag.style.opacity = '1';
+                    chosen.push(p);
+                }
+                document.getElementById('confirmBtn').style.display = chosen.length > 0 ? 'inline-flex' : 'none';
+            };
+            powers.appendChild(tag);
+        });
+        window.confirmPowers = () => {
+            const correct = chosen.length === h.powers.length && chosen.every(p => h.powers.includes(p));
+            if (correct) {
+                score += 30; addXP(30); updateCombo(true);
+                playSound('correct');
+                selected.innerHTML = h.powers.map(p => `<div class="power-tag">I can ${p}!</div>`).join(' ');
+                current++;
+                setTimeout(render, 2000);
+            } else {
+                updateCombo(false); playSound('wrong');
+                showFeedback(`❌ Powers errados! Os poderes de ${h.name} são: ${h.powers.join(', ')}`, 'error');
+                setTimeout(render, 2500);
+            }
+        };
+    }
+    render();
+}
+
+// Ex 9.2 - Corrigir Frases
+function ex9_2() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Remova o "to" após CAN (quando presente).';
+    const errors = [
+        { wrong: 'I can to swim.', correct: 'I can swim.' },
+        { wrong: 'She can to dance.', correct: 'She can dance.' },
+        { wrong: 'He can to drive.', correct: 'He can drive.' },
+        { wrong: 'They can to play.', correct: 'They can play.' },
+        { wrong: 'We can to sing.', correct: 'We can sing.' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= errors.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`✏️ Todas corrigidas! +${score} XP`, 'success');
+            markCompleted(9, 2, score);
+            return;
+        }
+        const e = errors[current];
+        const opts = [e.correct, e.wrong, e.wrong.replace('can','can to to')].sort(() => Math.random()-0.5);
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="padding:1.5rem;">
+                <div style="background:rgba(239,68,68,0.1);border-left:4px solid var(--danger);padding:1rem;border-radius:8px;margin-bottom:1.5rem;font-size:1.25rem;">
+                    "${e.wrong}" ❌
+                </div>
+                <p style="margin-bottom:1rem;">Qual a forma correta?</p>
+                <div class="options-grid">
+                    ${opts.map(o => `<button class="option-btn" data-o="${o}">${o}</button>`).join('')}
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.o === e.correct) {
+                    btn.classList.add('correct');
+                    score += 15; addXP(15); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-o="${e.correct}"]`).classList.add('correct');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 1200);
+            };
+        });
+    }
+    render();
+}
+
+// Ex 9.3 - Desafio das Habilidades
+function ex9_3() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Combine cada pessoa com sua habilidade usando CAN.';
+    const pairs = [
+        { person: '👨‍🍳 Chef', ability: 'cook' },
+        { person: '🏊 Swimmer', ability: 'swim' },
+        { person: '🎤 Singer', ability: 'sing' },
+        { person: '🏃 Runner', ability: 'run fast' }
+    ];
+    let selected = null, matched = 0, score = 0;
+    const ga = document.getElementById('gameArea');
+    ga.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div id="colA"></div>
+            <div id="colB"></div>
+        </div>
+    `;
+    const colA = document.getElementById('colA');
+    const colB = document.getElementById('colB');
+    const shuffledA = [...pairs].sort(() => Math.random()-0.5);
+    const shuffledB = [...pairs].sort(() => Math.random()-0.5);
+    shuffledA.forEach(p => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = p.person;
+        btn.dataset.idx = pairs.indexOf(p);
+        btn.dataset.side = 'a';
+        btn.style.marginBottom = '0.5rem';
+        btn.onclick = () => select(btn);
+        colA.appendChild(btn);
+    });
+    shuffledB.forEach(p => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = `can ${p.ability}`;
+        btn.dataset.idx = pairs.indexOf(p);
+        btn.dataset.side = 'b';
+        btn.style.marginBottom = '0.5rem';
+        btn.onclick = () => select(btn);
+        colB.appendChild(btn);
+    });
+    function select(btn) {
+        if (btn.classList.contains('disabled')) return;
+        if (!selected) {
+            selected = btn;
+            btn.style.outline = '3px solid var(--warning)';
+        } else {
+            if (selected.dataset.side === btn.dataset.side) {
+                selected.style.outline = '';
+                selected = btn;
+                btn.style.outline = '3px solid var(--warning)';
+            } else {
+                if (selected.dataset.idx === btn.dataset.idx) {
+                    selected.classList.add('correct','disabled');
+                    btn.classList.add('correct','disabled');
+                    selected.style.outline = '';
+                    score += 20; addXP(20); updateCombo(true);
+                    matched++;
+                    if (matched === pairs.length) {
+                        setTimeout(() => {
+                            createConfetti(); playSound('win');
+                            showFeedback(`🎉 Todos combinados! +${score} XP`, 'success');
+                            markCompleted(9, 3, score);
+                        }, 500);
+                    }
+                } else {
+                    selected.classList.add('wrong');
+                    btn.classList.add('wrong');
+                    updateCombo(false); playSound('wrong');
+                    const s = selected;
+                    setTimeout(() => {
+                        s.classList.remove('wrong');
+                        btn.classList.remove('wrong');
+                        s.style.outline = '';
+                    }, 800);
+                }
+                selected = null;
+            }
+        }
+    }
+}
+
+// Ex 9.4 - Simulador de Vida
+function ex9_4() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> Escolha o que você PODE ou NÃO PODE fazer.';
+    const scenarios = [
+        { ctx: '🏊 Na piscina', can: 'swim', cant: 'fly' },
+        { ctx: '🚗 Na estrada', can: 'drive', cant: 'swim' },
+        { ctx: '🎤 No karaoke', can: 'sing', cant: 'cook' },
+        { ctx: '🍳 Na cozinha', can: 'cook', cant: 'drive' }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= scenarios.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`🏠 Simulação completa! +${score} XP`, 'success');
+            markCompleted(9, 4, score);
+            return;
+        }
+        const s = scenarios[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:1.5rem;">
+                <div style="font-size:4rem;margin-bottom:1rem;">${s.ctx.split(' ')[0]}</div>
+                <h3 style="margin-bottom:1.5rem;">${s.ctx}</h3>
+                <p style="margin-bottom:1rem;">O que você PODE fazer aqui?</p>
+                <div class="options-grid">
+                    <button class="option-btn" data-o="${s.can}" style="font-size:1.1rem;">I can ${s.can}</button>
+                    <button class="option-btn" data-o="${s.cant}" style="font-size:1.1rem;">I can ${s.cant}</button>
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                if (btn.dataset.o === s.can) {
+                    btn.classList.add('correct');
+                    score += 20; addXP(20); updateCombo(true);
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelector(`[data-o="${s.can}"]`).classList.add('correct');
+                    updateCombo(false); playSound('wrong');
+                }
+                current++;
+                setTimeout(render, 1200);
+            };
+        });
+    }
+    render();
+}
+
+// Ex 9.5 - Verdadeiro ou Falso
+function ex9_5() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>🎯 Objetivo:</strong> A frase está gramaticalmente correta? Verdadeiro ou Falso!';
+    const sentences = [
+        { s: 'I can swim.', v: true },
+        { s: 'She can to dance.', v: false },
+        { s: 'They can play soccer.', v: true },
+        { s: 'He can driving.', v: false },
+        { s: 'We can speak English.', v: true },
+        { s: 'I can to cook.', v: false },
+        { s: 'You can run fast.', v: true }
+    ];
+    let current = 0, score = 0;
+    
+    function render() {
+        if (current >= sentences.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`✅ Quiz completo! +${score} XP`, 'success');
+            markCompleted(9, 5, score);
+            return;
+        }
+        const s = sentences[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+                <h2 style="font-size:1.75rem;margin-bottom:2rem;">"${s.s}"</h2>
+                <div class="options-grid" style="grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;">
+                    <button class="option-btn" onclick="tf95(true)" style="font-size:1.25rem;">✅ Verdadeiro</button>
+                    <button class="option-btn" onclick="tf95(false)" style="font-size:1.25rem;">❌ Falso</button>
+                </div>
+            </div>
+        `;
+        window.tf95 = (answer) => {
+            const btns = document.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.add('disabled'));
+            if (answer === s.v) {
+                event.target.classList.add('correct');
+                score += 15; addXP(15); updateCombo(true);
+            } else {
+                event.target.classList.add('wrong');
+                updateCombo(false); playSound('wrong');
+            }
+            current++;
+            setTimeout(render, 1000);
+        };
+    }
+    render();
+}
+
+// ============ STAGE 10: BOSS BATTLE ============
+
+function ex10_1() {
+    document.getElementById('exerciseInstructions').innerHTML = '<strong>👑 BOSS BATTLE:</strong> Derrote o Grammar Master respondendo perguntas de todos os tópicos!';
+    const questions = [
+        { q: 'Passado de "go"?', opts: ['goes','went','gone','going'], a: 1, topic: 'Simple Past' },
+        { q: 'I ___ happy yesterday.', opts: ['were','was','are','am'], a: 1, topic: 'Was/Were' },
+        { q: 'Negativa de "I worked":', opts: ["I didn't worked","I didn't work","I not worked","I no work"], a: 1, topic: 'Negativa' },
+        { q: 'Qual está correto?', opts: ['I can to swim','I can swim','I can swimming','I can swims'], a: 1, topic: 'Can' },
+        { q: 'Pergunta: "You studied"', opts: ['Did you studied?','Did you study?','You did study?','Study you did?'], a: 1, topic: 'Perguntas' },
+        { q: 'Passado de "eat"?', opts: ['eated','ate','eaten','eating'], a: 1, topic: 'Irregular' },
+        { q: 'They ___ friends.', opts: ['was','were','are','is'], a: 1, topic: 'Was/Were' },
+        { q: 'Regra de "study":', opts: ['+ed','+d','y→ied','y→ed'], a: 2, topic: 'Regular' },
+        { q: 'I ___ my homework.', opts: ['do','did','done','doing'], a: 1, topic: 'Simple Past' },
+        { q: 'Passado de "see"?', opts: ['seed','saw','seen','seeing'], a: 1, topic: 'Irregular' }
+    ];
+    let current = 0, score = 0, bossHP = 100, playerHP = 100;
+    
+    function render() {
+        if (current >= questions.length) {
+            createConfetti(); playSound('win');
+            showFeedback(`👑 Você derrotou o Grammar Master! +${score} XP`, 'success');
+            markCompleted(10, 1, score);
+            return;
+        }
+        const q = questions[current];
+        const ga = document.getElementById('gameArea');
+        ga.innerHTML = `
+            <div class="boss-scene">
+                <div class="boss-name">👹 Grammar Master</div>
+                <div class="boss-sprite">👹</div>
+                <div style="margin:0.5rem 0;">
+                    <div style="display:flex;justify-content:space-between;font-size:0.875rem;"><span>Boss HP</span><span>${bossHP}/100</span></div>
+                    <div class="health-bar"><div class="health-fill" style="width:${bossHP}%;background:linear-gradient(90deg,#ef4444,#f59e0b);"></div></div>
+                </div>
+                <div style="margin:0.5rem 0;">
+                    <div style="display:flex;justify-content:space-between;font-size:0.875rem;"><span>Seu HP</span><span>${playerHP}/100</span></div>
+                    <div class="health-bar"><div class="health-fill" style="width:${playerHP}%;"></div></div>
+                </div>
+                <div style="background:rgba(99,102,241,0.1);padding:0.5rem;border-radius:8px;margin:1rem 0;font-size:0.875rem;">
+                    📚 Tópico: <strong>${q.topic}</strong> | Questão ${current+1}/${questions.length}
+                </div>
+                <h3 style="margin:1rem 0;">${q.q}</h3>
+                <div class="options-grid">
+                    ${q.opts.map((o,i) => `<button class="option-btn" data-i="${i}">${o}</button>`).join('')}
+                </div>
+            </div>
+        `;
+        ga.querySelectorAll('.option-btn').forEach(btn => {
+            btn.onclick = () => {
+                ga.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                const idx = parseInt(btn.dataset.i);
+                if (idx === q.a) {
+                    btn.classList.add('correct');
+                    bossHP -= 10;
+                    score += 25; addXP(25); updateCombo(true);
+                    showFloating('-10 HP Boss', '#ef4444');
+                    playSound('correct');
+                } else {
+                    btn.classList.add('wrong');
+                    ga.querySelectorAll('.option-btn')[q.a].classList.add('correct');
+                    playerHP -= 10;
+                    updateCombo(false); playSound('wrong');
+                    showFloating('-10 HP You', '#ef4444');
+                }
+                current++;
+                if (bossHP <= 0) {
+                    setTimeout(() => {
+                        createConfetti(); playSound('win');
+                        showFeedback(`👑 BOSS DERROTADO! +${score} XP`, 'success');
+                        markCompleted(10, 1, score);
+                    }, 1000);
+                } else if (playerHP <= 0) {
+                    setTimeout(() => showFeedback(`💀 Você foi derrotado! Score: ${score} XP`, 'error'), 1000);
+                } else {
+                    setTimeout(render, 1500);
+                }
+            };
+        });
+    }
+    render();
+}
+
+// ============ INIT ============
+renderStages();
+</script>
+</body>
+</html>
