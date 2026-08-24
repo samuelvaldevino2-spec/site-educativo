@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo da Aula · 21/08/2026 · Noite de Lua Cheia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Shippori+Mincho:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   VARIÁVEIS — NOITE DE LUA CHEIA NO BAMBUZAL
+   ============================================ */
+:root {
+    --night-deep: #071510;
+    --night: #0d2818;
+    --night-mid: #143826;
+    --bamboo-dark: #3d5a2e;
+    --bamboo: #6b8e3d;
+    --bamboo-light: #a8c256;
+    --moon: #f4e9c4;
+    --moon-glow: #fff8dc;
+    --firefly: #fff59d;
+    --mist: rgba(168, 194, 86, 0.08);
+    --paper: rgba(244, 233, 196, 0.95);
+    --paper-dark: rgba(220, 200, 150, 0.9);
+    --ink: #1a2a1f;
+    --ink-light: #3d4f3a;
+    --accent: #c9a84c;
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+    background: var(--night-deep);
+    color: var(--paper);
+    line-height: 1.8;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ============================================
+   FUNDO NOTURNO COM LUA E BAMBUZAL
+   ============================================ */
+.night-sky {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background: 
+        radial-gradient(ellipse at 50% 15%, rgba(244, 233, 196, 0.15) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 100%, rgba(107, 142, 61, 0.2) 0%, transparent 50%),
+        linear-gradient(180deg, #071510 0%, #0d2818 50%, #143826 100%);
+}
+
+/* Estrelas */
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--moon-glow);
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Lua */
+.moon {
+    position: fixed;
+    top: 40px;
+    right: 10%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 35% 35%, #fff8dc, #f4e9c4 50%, #d4c494 100%);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 40px rgba(244, 233, 196, 0.4),
+        0 0 80px rgba(244, 233, 196, 0.3),
+        0 0 120px rgba(244, 233, 196, 0.2),
+        inset -10px -10px 30px rgba(180, 160, 100, 0.3);
+    z-index: -1;
+    animation: moonGlow 6s infinite ease-in-out;
+}
+
+.moon::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 15px;
+    height: 15px;
+    background: rgba(180, 160, 100, 0.3);
+    border-radius: 50%;
+    box-shadow: 
+        30px 10px 0 -3px rgba(180, 160, 100, 0.2),
+        10px 40px 0 -2px rgba(180, 160, 100, 0.25);
+}
+
+@keyframes moonGlow {
+    0%, 100% { box-shadow: 0 0 40px rgba(244, 233, 196, 0.4), 0 0 80px rgba(244, 233, 196, 0.3), 0 0 120px rgba(244, 233, 196, 0.2), inset -10px -10px 30px rgba(180, 160, 100, 0.3); }
+    50% { box-shadow: 0 0 60px rgba(244, 233, 196, 0.5), 0 0 100px rgba(244, 233, 196, 0.4), 0 0 150px rgba(244, 233, 196, 0.3), inset -10px -10px 30px rgba(180, 160, 100, 0.3); }
+}
+
+/* Bambus laterais */
+.bamboo-left, .bamboo-right {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.bamboo-left { left: 0; }
+.bamboo-right { right: 0; }
+
+.bamboo-stalk {
+    position: absolute;
+    width: 8px;
+    background: linear-gradient(90deg, var(--bamboo-dark), var(--bamboo), var(--bamboo-dark));
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+.bamboo-node {
+    position: absolute;
+    width: 12px;
+    height: 3px;
+    background: var(--bamboo-dark);
+    left: -2px;
+    border-radius: 2px;
+}
+
+.bamboo-leaf {
+    position: absolute;
+    width: 30px;
+    height: 8px;
+    background: var(--bamboo);
+    border-radius: 50% 0 50% 0;
+    transform-origin: left center;
+    animation: sway 4s infinite ease-in-out;
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+/* Vaga-lumes */
+.firefly {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: var(--firefly);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--firefly), 0 0 20px var(--firefly);
+    pointer-events: none;
+    z-index: 1;
+    animation: fireflyFloat 15s infinite ease-in-out;
+}
+
+@keyframes fireflyFloat {
+    0%, 100% { transform: translate(0, 0); opacity: 0; }
+    10% { opacity: 1; }
+    25% { transform: translate(100px, -80px); opacity: 0.8; }
+    50% { transform: translate(-50px, -150px); opacity: 1; }
+    75% { transform: translate(80px, -50px); opacity: 0.6; }
+    90% { opacity: 1; }
+}
+
+/* Névoa baixa */
+.mist {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, transparent, rgba(168, 194, 86, 0.1));
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================
+   ESTRUTURA PRINCIPAL
+   ============================================ */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 30px 100px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   CABEÇALHO
+   ============================================ */
+header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.date-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    background: rgba(201, 168, 76, 0.15);
+    border: 1px solid var(--accent);
+    border-radius: 100px;
+    color: var(--moon);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--moon);
+    margin-bottom: 15px;
+    text-shadow: 0 0 30px rgba(244, 233, 196, 0.3);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: var(--bamboo-light);
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.kanji-deco {
+    position: absolute;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 10rem;
+    color: var(--bamboo);
+    opacity: 0.05;
+    pointer-events: none;
+    font-weight: 900;
+}
+
+.kanji-left { top: 0; left: -20px; transform: rotate(-10deg); }
+.kanji-right { bottom: 0; right: -20px; transform: rotate(10deg); }
+
+/* ============================================
+   NAVEGAÇÃO
+   ============================================ */
+.toc {
+    background: rgba(13, 40, 24, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(168, 194, 86, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 50px;
+}
+
+.toc h3 {
+    color: var(--moon);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.toc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px;
+    list-style: none;
+}
+
+.toc-list a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--bamboo-light);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+    border-left: 2px solid transparent;
+}
+
+.toc-list a:hover {
+    background: rgba(168, 194, 86, 0.1);
+    border-left-color: var(--bamboo-light);
+    color: var(--moon);
+    padding-left: 20px;
+}
+
+/* ============================================
+   SEÇÕES (PERGAMINHOS)
+   ============================================ */
+.section {
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 50px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(201, 168, 76, 0.2);
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Textura de papel */
+.section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+.section-number {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--night);
+    color: var(--moon);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 2px solid var(--accent);
+}
+
+h2 {
+    font-family: 'Noto Serif JP', serif;
+    color: var(--ink);
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--bamboo);
+}
+
+h3 {
+    color: var(--bamboo-dark);
+    font-size: 1.15rem;
+    margin: 20px 0 10px;
+    font-weight: 600;
+}
+
+p { margin-bottom: 14px; font-size: 1.02rem; color: var(--ink-light); }
+
+ul, ol { margin-left: 25px; margin-bottom: 16px; }
+li { margin-bottom: 8px; color: var(--ink-light); }
+
+strong { color: var(--ink); font-weight: 600; }
+
+.highlight-box {
+    background: rgba(201, 168, 76, 0.1);
+    border-left: 4px solid var(--accent);
+    padding: 15px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.math {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--bamboo-dark);
+    font-weight: 600;
+    background: rgba(107, 142, 61, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* ============================================
+   FERRAMENTAS INTERATIVAS
+   ============================================ */
+.interactive-tool {
+    background: var(--night);
+    color: var(--paper);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    border: 1px solid rgba(168, 194, 86, 0.3);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3), inset 0 0 30px rgba(168, 194, 86, 0.05);
+}
+
+.tool-title {
+    color: var(--moon);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.tool-title::before {
+    content: '🎋';
+    font-size: 1.3rem;
+}
+
+.tool-canvas {
+    background: rgba(7, 21, 16, 0.6);
+    border: 1px solid rgba(168, 194, 86, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.tool-controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.tool-btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--bamboo-light);
+    color: var(--bamboo-light);
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.tool-btn:hover {
+    background: var(--bamboo);
+    color: var(--night);
+}
+
+.tool-btn.active {
+    background: var(--bamboo-light);
+    color: var(--night);
+    font-weight: 600;
+}
+
+.tool-slider {
+    width: 100%;
+    max-width: 300px;
+    accent-color: var(--bamboo-light);
+}
+
+.tool-display {
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--moon);
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.tool-info {
+    text-align: center;
+    color: var(--bamboo-light);
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* SVG dentro das ferramentas */
+.tool-svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tabela interativa */
+.poly-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background: rgba(7, 21, 16, 0.4);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.poly-table th {
+    background: var(--bamboo-dark);
+    color: var(--moon);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.poly-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(168, 194, 86, 0.15);
+    color: var(--paper);
+}
+
+.poly-table tr:hover td {
+    background: rgba(168, 194, 86, 0.1);
+}
+
+/* ============================================
+   RODAPÉ
+   ============================================ */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--bamboo-light);
+    font-style: italic;
+    opacity: 0.8;
+    border-top: 1px solid rgba(168, 194, 86, 0.2);
+    margin-top: 60px;
+}
+
+footer p { margin-bottom: 10px; }
+
+.seal {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 2px solid var(--accent);
+    color: var(--moon);
+    border-radius: 5px;
+    font-family: 'Noto Serif JP', serif;
+    transform: rotate(-3deg);
+    letter-spacing: 3px;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 768px) {
+    .moon { width: 80px; height: 80px; top: 20px; right: 20px; }
+    .bamboo-left, .bamboo-right { width: 40px; }
+    .container { padding: 40px 15px 60px; }
+    .section { padding: 25px 20px; }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    .kanji-deco { font-size: 6rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- FUNDO NOTURNO -->
+<div class="night-sky"></div>
+<div class="stars" id="stars"></div>
+<div class="moon"></div>
+<div class="bamboo-left" id="bambooLeft"></div>
+<div class="bamboo-right" id="bambooRight"></div>
+<div id="fireflies"></div>
+<div class="mist"></div>
+
+<div class="container">
+
+    <!-- CABEÇALHO -->
+    <header>
+        <span class="kanji-deco kanji-left">月</span>
+        <span class="kanji-deco kanji-right">竹</span>
+        <div class="date-badge">21 · AGOSTO · 2026</div>
+        <h1>Resumo da Aula</h1>
+        <p class="subtitle">Geometria Plana — Uma noite de estudo sob a lua cheia, entre bambuzais silenciosos.</p>
+    </header>
+
+    <!-- SUMÁRIO -->
+    <nav class="toc">
+        <h3>🌙 Caminho da Aula</h3>
+        <ul class="toc-list">
+            <li><a href="#s1">① As três linhas</a></li>
+            <li><a href="#s2">② O nascimento do polígono</a></li>
+            <li><a href="#s3">③ O que é um ângulo</a></li>
+            <li><a href="#s4">④ Quadrado × Retângulo</a></li>
+            <li><a href="#s5">⑤ Nomes dos polígonos</a></li>
+            <li><a href="#s6">⑥ Perímetro — a cerca</a></li>
+            <li><a href="#s7">⑦ Área — o chão</a></li>
+        </ul>
+    </nav>
+
+    <!-- SEÇÃO 1: LINHAS -->
+    <section class="section" id="s1">
+        <div class="section-number">一</div>
+        <h2>As três linhas que você precisa conhecer</h2>
+        <p>Antes de montar qualquer figura, precisamos entender como as linhas se comportam umas com as outras.</p>
+        
+        <ul>
+            <li><strong>Paralelas:</strong> nunca se encontram, por mais que se estiquem. Sempre com a mesma distância entre si. <em>Ex.: trilhos de trem.</em></li>
+            <li><strong>Perpendiculares:</strong> cruzam-se formando um ângulo de 90°. <em>Ex.: a quina de uma folha.</em></li>
+            <li><strong>Concorrentes:</strong> cruzam-se em um único ponto, mas não necessariamente em 90°.</li>
+        </ul>
+        
+        <div class="highlight-box">
+            <strong>Importante:</strong> toda linha perpendicular é concorrente, mas nem toda concorrente é perpendicular.
+        </div>
+
+        <!-- FERRAMENTA: Explorador de Linhas -->
+        <div class="interactive-tool">
+            <div class="tool-title">Explorador de Linhas</div>
+            <p style="color: var(--bamboo-light); font-size: 0.9rem;">Clique nos botões para ver como cada tipo de linha se comporta.</p>
+            <div class="tool-canvas">
+                <svg class="tool-svg" viewBox="0 0 400 200" width="400" height="200" id="linesSvg">
+                    <line id="line1" x1="50" y1="60" x2="350" y2="60" stroke="#a8c256" stroke-width="3"/>
+                    <line id="line2" x1="50" y1="140" x2="350" y2="140" stroke="#f4e9c4" stroke-width="3"/>
+                    <text id="lineLabel" x="200" y="190" text-anchor="middle" fill="#f4e9c4" font-size="14" font-family="Shippori Mincho">Linhas Paralelas</text>
+                </svg>
+            </div>
+            <div class="tool-controls">
+                <button class="tool-btn active" onclick="setLineType('parallel')">Paralelas</button>
+                <button class="tool-btn" onclick="setLineType('perpendicular')">Perpendiculares</button>
+                <button class="tool-btn" onclick="setLineType('concurrent')">Concorrentes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: POLÍGONO -->
+    <section class="section" id="s2">
+        <div class="section-number">二</div>
+        <h2>Como nasce um polígono</h2>
+        <p>Quando você une <strong>três ou mais segmentos de reta</strong> formando uma linha fechada, cria um polígono. Seus elementos:</p>
+        <ul>
+            <li><strong>Lados:</strong> os traços que formam o contorno.</li>
+            <li><strong>Vértices:</strong> os cantos, onde dois lados se encontram.</li>
+            <li><strong>Ângulos internos:</strong> as aberturas entre dois lados dentro da figura.</li>
+        </ul>
+
+        <!-- FERRAMENTA: Construtor de Polígonos -->
+        <div class="interactive-tool">
+            <div class="tool-title">Construtor de Polígonos</div>
+            <p style="color: var(--bamboo-light); font-size: 0.9rem;">Clique no plano para adicionar vértices. Veja nascer lados, vértices e ângulos. Clique em "Fechar" para formar o polígono.</p>
+            <div class="tool-canvas">
+                <svg class="tool-svg" viewBox="0 0 400 280" width="400" height="280" id="polySvg" style="cursor: crosshair;">
+                    <rect width="400" height="280" fill="transparent" onclick="addVertex(event)"/>
+                    <g id="polyGroup"></g>
+                </svg>
+            </div>
+            <div class="tool-controls">
+                <button class="tool-btn" onclick="closePolygon()">Fechar Polígono</button>
+                <button class="tool-btn" onclick="clearPolygon()">Limpar</button>
+            </div>
+            <div class="tool-display" id="polyInfo">Vértices: 0 · Lados: 0</div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: ÂNGULOS -->
+    <section class="section" id="s3">
+        <div class="section-number">三</div>
+        <h2>O que é um ângulo?</h2>
+        <p><strong>Definição:</strong> ângulo é a abertura entre duas semirretas que partem de um mesmo ponto (o vértice).</p>
+        <p><strong>Pense numa tesoura:</strong> a distância entre as lâminas forma o ângulo. Quando a tesoura está fechada, o ângulo é zero. Quando abre, o ângulo cresce.</p>
+        
+        <table class="poly-table">
+            <thead>
+                <tr><th>Tipo</th><th>Medida</th><th>Exemplo prático</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Agudo</strong></td><td>Menor que 90°</td><td>A ponta de um lápis bem afiado</td></tr>
+                <tr><td><strong>Reto</strong></td><td>Exatamente 90°</td><td>O canto de uma folha de papel</td></tr>
+                <tr><td><strong>Obtuso</strong></td><td>Entre 90° e 180°</td><td>Um livro semiaberto</td></tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <strong>Lei imutável:</strong> a soma dos ângulos internos de qualquer triângulo é sempre <strong>180°</strong>. A de qualquer quadrilátero é sempre <strong>360°</strong>. Como a gravidade.
+        </div>
+
+        <!-- FERRAMENTA: Tesoura de Ângulos -->
+        <div class="interactive-tool">
+            <div class="tool-title">A Tesoura dos Ângulos</div>
+            <p style="color: var(--bamboo-light); font-size: 0.9rem;">Arraste o slider para abrir a tesoura e veja o ângulo mudar em tempo real.</p>
+            <div class="tool-canvas">
+                <svg class="tool-svg" viewBox="0 0 300 200" width="300" height="200" id="scissorSvg">
+                    <path id="angleArc" d="" fill="rgba(244, 233, 196, 0.3)" stroke="#f4e9c4" stroke-width="1.5"/>
+                    <line id="scissor1" x1="150" y1="180" x2="150" y2="30" stroke="#a8c256" stroke-width="4" stroke-linecap="round"/>
+                    <line id="scissor2" x1="150" y1="180" x2="150" y2="30" stroke="#f4e9c4" stroke-width="4" stroke-linecap="round" transform="rotate(0 150 180)"/>
+                    <circle cx="150" cy="180" r="6" fill="#c9a84c"/>
+                </svg>
+            </div>
+            <div class="tool-controls">
+                <input type="range" class="tool-slider" id="angleSlider" min="10" max="170" value="45" oninput="updateScissor(this.value)">
+            </div>
+            <div class="tool-display" id="angleDisplay">45° · Ângulo Agudo</div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4: QUADRADO VS RETÂNGULO -->
+    <section class="section" id="s4">
+        <div class="section-number">四</div>
+        <h2>Quadrado e Retângulo: irmãos, mas não gêmeos</h2>
+        <p><strong>Retângulo:</strong> quatro lados, opostos paralelos e iguais. Todos os ângulos retos (90°).</p>
+        <p><strong>Quadrado:</strong> também tem quatro ângulos retos, mas com um adicional — <strong>todos os quatro lados são iguais</strong>.</p>
+        
+        <div class="highlight-box">
+            Todo quadrado é um retângulo, mas nem todo retângulo é um quadrado. É como dizer que todo gato é um felino, mas nem todo felino é um gato.
+        </div>
+
+        <!-- FERRAMENTA: Transformador -->
+        <div class="interactive-tool">
+            <div class="tool-title">Do Retângulo ao Quadrado</div>
+            <p style="color: var(--bamboo-light); font-size: 0.9rem;">Ajuste a base e a altura. Quando se igualam, vira quadrado!</p>
+            <div class="tool-canvas">
+                <svg class="tool-svg" viewBox="0 0 300 220" width="300" height="220" id="shapeSvg">
+                    <rect id="shapeRect" x="50" y="30" width="200" height="100" fill="rgba(168, 194, 86, 0.3)" stroke="#a8c256" stroke-width="3"/>
+                    <text id="shapeLabel" x="150" y="200" text-anchor="middle" fill="#f4e9c4" font-size="14" font-family="Shippori Mincho">Retângulo</text>
+                </svg>
+            </div>
+            <div class="tool-controls">
+                <div style="flex:1; min-width: 200px;">
+                    <label style="color: var(--bamboo-light); font-size: 0.9rem;">Base: <span id="valBase">200</span></label>
+                    <input type="range" class="tool-slider" id="sliderBase" min="50" max="220" value="200" oninput="updateShape()">
+                </div>
+                <div style="flex:1; min-width: 200px;">
+                    <label style="color: var(--bamboo-light); font-size: 0.9rem;">Altura: <span id="valHeight">100</span></label>
+                    <input type="range" class="tool-slider" id="sliderHeight" min="50" max="220" value="100" oninput="updateShape()">
+                </div>
+            </div>
+            <div class="tool-info" id="shapeInfo">Lados diferentes → Retângulo</div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5: NOMES DOS POLÍGONOS -->
+    <section class="section" id="s5">
+        <div class="section-number">五</div>
+        <h2>Os nomes dos polígonos</h2>
+        <p>O nome do polígono muda conforme o número de lados:</p>
+        
+        <table class="poly-table">
+            <thead>
+                <tr><th>Lados</th><th>Nome</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>3</td><td>Triângulo</td></tr>
+                <tr><td>4</td><td>Quadrilátero (retângulo, quadrado, losango, paralelogramo, trapézio)</td></tr>
+                <tr><td>5</td><td>Pentágono</td></tr>
+                <tr><td>6</td><td>Hexágono</td></tr>
+                <tr><td>7</td><td>Heptágono</td></tr>
+                <tr><td>8</td><td>Octógono</td></tr>
+            </tbody>
+        </table>
+
+        <!-- FERRAMENTA: Quiz -->
+        <div class="interactive-tool">
+            <div class="tool-title">Quiz: Qual é o nome?</div>
+            <p style="color: var(--bamboo-light); font-size: 0.9rem;">Teste seu conhecimento sobre os nomes dos polígonos.</p>
+            <div class="tool-canvas" style="flex-direction: column;">
+                <div id="quizQuestion" style="font-size: 1.3rem; color: var(--moon); margin-bottom: 20px;">Carregando...</div>
+                <div id="quizOptions" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;"></div>
+            </div>
+            <div class="tool-controls">
+                <button class="tool-btn" onclick="newQuiz()">Nova Pergunta</button>
+            </div>
+            <div class="tool-display" id="quizScore">Acertos: 0</div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 6: PERÍMETRO -->
+    <section class="section" id="s6">
+        <div class="section-number">六</div>
+        <h2>Perímetro — a medida da cerca</h2>
+        <p>O perímetro é o <strong>comprimento total do contorno</strong> de uma figura. Pense como a quantidade de cerca para rodear um terreno.</p>
+        
+        <ul>
+            <li><strong>Retângulo</strong> (base <span class="math">b</span>, altura <span class="math">h</span>): <span class="math">P = 2(b + h)</span></li>
+            <li><strong>Quadrado</strong> (lado <span class="math">L</span>): <span class="math">P = 4L</span></li>
+            <li><strong>Triângulo</strong> (lados <span class="math">a, b, c</span>): <span class="math">P = a + b + c</span></li>
+        </ul>
+
+        <!-- FERRAMENTA: Calculadora de Perímetro -->
+        <div class="interactive-tool">
+            <div class="tool-title">Cercando o Terreno</div>
+            <p style="color: var(--bamboo-light); font-size: 0.9rem;">Ajuste os lados e veja a cerca (perímetro) sendo calculada em tempo real.</p>
+            <div class="tool-canvas">
+                <svg class="tool-svg" viewBox="0 0 320 220" width="320" height="220" id="perimSvg">
+                    <rect id="perimRect" x="60" y="40" width="200" height="120" fill="rgba(168, 194, 86, 0.2)" stroke="#a8c256" stroke-width="3" stroke-dasharray="8,4"/>
+                    <text id="perimBase" x="160" y="180" text-anchor="middle" fill="#f4e9c4" font-size="13">base = 200</text>
+                    <text id="perimHeight" x="280" y="100" text-anchor="start" fill="#f4e9c4" font-size="13">h = 120</text>
+                </svg>
+            </div>
+            <div class="tool-controls">
+                <div style="flex:1; min-width: 200px;">
+                    <label style="color: var(--bamboo-light); font-size: 0.9rem;">Base: <span id="pValB">200</span></label>
+                    <input type="range" class="tool-slider" id="pSliderB" min="50" max="250" value="200" oninput="updatePerim()">
+                </div>
+                <div style="flex:1; min-width: 200px;">
+                    <label style="color: var(--bamboo-light); font-size: 0.9rem;">Altura: <span id="pValH">120</span></label>
+                    <input type="range" class="tool-slider" id="pSliderH" min="30" max="180" value="120" oninput="updatePerim()">
+                </div>
+            </div>
+            <div class="tool-display" id="perimDisplay">P = 2(200 + 120) = 640</div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 7: ÁREA -->
+    <section class="section" id="s7">
+        <div class="section-number">七</div>
+        <h2>Área — a medida do chão</h2>
+        <p>A área é a <strong>medida da superfície interna</strong> — quantos quadradinhos cabem dentro da figura. Pense como a quantidade de piso para cobrir uma sala.</p>
+        
+        <ul>
+            <li><strong>Retângulo:</strong> <span class="math">A = b × h</span></li>
+            <li><strong>Quadrado:</strong> <span class="math">A = L²</span></li>
+            <li><strong>Paralelogramo:</strong> <span class="math">A = b × h</span> (a altura é perpendicular — não o lado inclinado!)</li>
+            <li><strong>Losango:</strong> <span class="math">A = (D × d) / 2</span></li>
+            <li><strong>Triângulo:</strong> <span class="math">A = (b × h) / 2</span> (metade do retângulo de mesma base e altura)</li>
+        </ul>
+
+        <!-- FERRAMENTA: Malha de Área -->
+        <div class="interactive-tool">
+            <div class="tool-title">Preenchendo o Chão</div>
+            <p style="color: var(--bamboo-light); font-size: 0.9rem;">Ajuste a base e a altura. Veja quantos quadradinhos (unidades de área) cabem dentro.</p>
+            <div class="tool-canvas">
+                <div id="areaGrid" style="display: grid; gap: 2px; background: rgba(168, 194, 86, 0.3); padding: 2px; border-radius: 4px;"></div>
+            </div>
+            <div class="tool-controls">
+                <div style="flex:1; min-width: 200px;">
+                    <label style="color: var(--bamboo-light); font-size: 0.9rem;">Base: <span id="aValB">6</span></label>
+                    <input type="range" class="tool-slider" id="aSliderB" min="2" max="12" value="6" oninput="updateArea()">
+                </div>
+                <div style="flex:1; min-width: 200px;">
+                    <label style="color: var(--bamboo-light); font-size: 0.9rem;">Altura: <span id="aValH">4</span></label>
+                    <input type="range" class="tool-slider" id="aSliderH" min="2" max="10" value="4" oninput="updateArea()">
+                </div>
+            </div>
+            <div class="tool-display" id="areaDisplay">A = 6 × 4 = 24 quadradinhos</div>
+            <div class="tool-info">Cada quadradinho = 1 unidade de área</div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>🌿 Perceba como tudo se encaixa: as linhas formam ângulos, os ângulos definem as formas, as formas ganham nomes, e para cada nome temos um jeito de calcular o perímetro (a cerca) e a área (o chão).</p>
+        <p>Não decore as fórmulas. Entenda a lógica. Com essa base, você nunca mais vai se confundir.</p>
+        <p style="margin-top: 20px; color: var(--moon);">Parabéns pelo esforço, minha aluna. O caminho da geometria é longo, mas você já deu os primeiros e mais importantes passos.</p>
+        <div class="seal">学 · ESTUDADO</div>
+    </footer>
+
+</div>
+
+<script>
+/* ============================================
+   AMBIENTE NOTURNO — ESTRELAS, BAMBU, VAGA-LUMES
+   ============================================ */
+function createStars() {
+    const container = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 60 + '%';
+        star.style.animationDelay = Math.random() * 3 + 's';
+        star.style.width = star.style.height = (Math.random() * 2 + 1) + 'px';
+        container.appendChild(star);
+    }
+}
+
+function createBamboo() {
+    const left = document.getElementById('bambooLeft');
+    const right = document.getElementById('bambooRight');
+    
+    [left, right].forEach((container, idx) => {
+        for (let i = 0; i < 4; i++) {
+            const stalk = document.createElement('div');
+            stalk.className = 'bamboo-stalk';
+            const height = 60 + Math.random() * 40;
+            stalk.style.height = height + '%';
+            stalk.style.left = (i * 20 + Math.random() * 10) + 'px';
+            stalk.style.top = (100 - height) + '%';
+            
+            // Nós do bambu
+            for (let j = 1; j < 6; j++) {
+                const node = document.createElement('div');
+                node.className = 'bamboo-node';
+                node.style.top = (j * 15 + Math.random() * 5) + '%';
+                stalk.appendChild(node);
+            }
+            
+            // Folhas
+            if (Math.random() > 0.3) {
+                const leaf = document.createElement('div');
+                leaf.className = 'bamboo-leaf';
+                leaf.style.top = (10 + Math.random() * 30) + '%';
+                leaf.style.left = idx === 0 ? '10px' : '-25px';
+                leaf.style.animationDelay = Math.random() * 4 + 's';
+                stalk.appendChild(leaf);
+            }
+            
+            container.appendChild(stalk);
+        }
+    });
+}
+
+function createFireflies() {
+    const container = document.getElementById('fireflies');
+    for (let i = 0; i < 12; i++) {
+        const f = document.createElement('div');
+        f.className = 'firefly';
+        f.style.left = Math.random() * 100 + '%';
+        f.style.top = (30 + Math.random() * 60) + '%';
+        f.style.animationDelay = Math.random() * 15 + 's';
+        f.style.animationDuration = (10 + Math.random() * 10) + 's';
+        container.appendChild(f);
+    }
+}
+
+/* ============================================
+   FERRAMENTA 1: EXPLORADOR DE LINHAS
+   ============================================ */
+function setLineType(type) {
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+    const label = document.getElementById('lineLabel');
+    
+    document.querySelectorAll('#s1 .tool-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    if (type === 'parallel') {
+        line1.setAttribute('x1', 50); line1.setAttribute('y1', 60);
+        line1.setAttribute('x2', 350); line1.setAttribute('y2', 60);
+        line2.setAttribute('x1', 50); line2.setAttribute('y1', 140);
+        line2.setAttribute('x2', 350); line2.setAttribute('y2', 140);
+        label.textContent = 'Linhas Paralelas — nunca se encontram';
+    } else if (type === 'perpendicular') {
+        line1.setAttribute('x1', 50); line1.setAttribute('y1', 100);
+        line1.setAttribute('x2', 350); line1.setAttribute('y2', 100);
+        line2.setAttribute('x1', 200); line2.setAttribute('y1', 20);
+        line2.setAttribute('x2', 200); line2.setAttribute('y2', 180);
+        label.textContent = 'Linhas Perpendiculares — formam 90°';
+    } else {
+        line1.setAttribute('x1', 50); line1.setAttribute('y1', 160);
+        line1.setAttribute('x2', 350); line1.setAttribute('y2', 40);
+        line2.setAttribute('x1', 50); line2.setAttribute('y1', 40);
+        line2.setAttribute('x2', 350); line2.setAttribute('y2', 160);
+        label.textContent = 'Linhas Concorrentes — cruzam-se num ponto';
+    }
+}
+
+/* ============================================
+   FERRAMENTA 2: CONSTRUTOR DE POLÍGONOS
+   ============================================ */
+let polyVertices = [];
+let polyClosed = false;
+
+function addVertex(e) {
+    if (polyClosed) return;
+    const svg = document.getElementById('polySvg');
+    const rect = svg.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 400;
+    const y = ((e.clientY - rect.top) / rect.height) * 280;
+    
+    polyVertices.push({x, y});
+    renderPoly();
+}
+
+function renderPoly() {
+    const group = document.getElementById('polyGroup');
+    group.innerHTML = '';
+    
+    // Desenhar linhas entre vértices
+    for (let i = 0; i < polyVertices.length - 1; i++) {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', polyVertices[i].x);
+        line.setAttribute('y1', polyVertices[i].y);
+        line.setAttribute('x2', polyVertices[i+1].x);
+        line.setAttribute('y2', polyVertices[i+1].y);
+        line.setAttribute('stroke', '#a8c256');
+        line.setAttribute('stroke-width', '2');
+        group.appendChild(line);
+    }
+    
+    // Se fechado, linha final
+    if (polyClosed && polyVertices.length > 2) {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', polyVertices[polyVertices.length-1].x);
+        line.setAttribute('y1', polyVertices[polyVertices.length-1].y);
+        line.setAttribute('x2', polyVertices[0].x);
+        line.setAttribute('y2', polyVertices[0].y);
+        line.setAttribute('stroke', '#a8c256');
+        line.setAttribute('stroke-width', '2');
+        group.appendChild(line);
+        
+        // Preencher
+        const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+        poly.setAttribute('points', polyVertices.map(v => `${v.x},${v.y}`).join(' '));
+        poly.setAttribute('fill', 'rgba(168, 194, 86, 0.2)');
+        group.insertBefore(poly, group.firstChild);
+    }
+    
+    // Desenhar vértices
+    polyVertices.forEach((v, i) => {
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', v.x);
+        circle.setAttribute('cy', v.y);
+        circle.setAttribute('r', 6);
+        circle.setAttribute('fill', '#f4e9c4');
+        circle.setAttribute('stroke', '#c9a84c');
+        circle.setAttribute('stroke-width', '2');
+        group.appendChild(circle);
+        
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', v.x + 10);
+        text.setAttribute('y', v.y - 10);
+        text.setAttribute('fill', '#f4e9c4');
+        text.setAttribute('font-size', '12');
+        text.textContent = `V${i+1}`;
+        group.appendChild(text);
+    });
+    
+    const sides = polyClosed ? polyVertices.length : polyVertices.length - 1;
+    document.getElementById('polyInfo').textContent = `Vértices: ${polyVertices.length} · Lados: ${sides}${polyClosed ? ' · POLÍGONO FECHADO ✓' : ''}`;
+}
+
+function closePolygon() {
+    if (polyVertices.length < 3) {
+        alert('Adicione pelo menos 3 vértices!');
+        return;
+    }
+    polyClosed = true;
+    renderPoly();
+}
+
+function clearPolygon() {
+    polyVertices = [];
+    polyClosed = false;
+    document.getElementById('polyGroup').innerHTML = '';
+    document.getElementById('polyInfo').textContent = 'Vértices: 0 · Lados: 0';
+}
+
+/* ============================================
+   FERRAMENTA 3: TESOURA DE ÂNGULOS
+   ============================================ */
+function updateScissor(val) {
+    const angle = parseInt(val);
+    const scissor2 = document.getElementById('scissor2');
+    const arc = document.getElementById('angleArc');
+    const display = document.getElementById('angleDisplay');
+    
+    scissor2.setAttribute('transform', `rotate(-${angle} 150 180)`);
+    
+    // Desenhar arco do ângulo
+    const radius = 40;
+    const cx = 150, cy = 180;
+    const x1 = cx;
+    const y1 = cy - radius;
+    const rad = (angle * Math.PI) / 180;
+    const x2 = cx - radius * Math.sin(rad);
+    const y2 = cy - radius * Math.cos(rad);
+    const largeArc = angle > 180 ? 1 : 0;
+    arc.setAttribute('d', `M ${cx} ${cy} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 0 ${x2} ${y2} Z`);
+    
+    let type = 'Ângulo Agudo';
+    if (angle === 90) type = 'Ângulo Reto';
+    else if (angle > 90) type = 'Ângulo Obtuso';
+    
+    display.textContent = `${angle}° · ${type}`;
+}
+
+/* ============================================
+   FERRAMENTA 4: TRANSFORMADOR RETÂNGULO/QUADRADO
+   ============================================ */
+function updateShape() {
+    const b = parseInt(document.getElementById('sliderBase').value);
+    const h = parseInt(document.getElementById('sliderHeight').value);
+    document.getElementById('valBase').textContent = b;
+    document.getElementById('valHeight').textContent = h;
+    
+    const rect = document.getElementById('shapeRect');
+    const x = 150 - b/2;
+    const y = 110 - h/2;
+    rect.setAttribute('x', x);
+    rect.setAttribute('y', y);
+    rect.setAttribute('width', b);
+    rect.setAttribute('height', h);
+    
+    const label = document.getElementById('shapeLabel');
+    const info = document.getElementById('shapeInfo');
+    
+    if (b === h) {
+        rect.setAttribute('fill', 'rgba(201, 168, 76, 0.4)');
+        rect.setAttribute('stroke', '#c9a84c');
+        label.textContent = '✨ QUADRADO ✨';
+        info.textContent = 'Base = Altura → Quadrado!';
+    } else {
+        rect.setAttribute('fill', 'rgba(168, 194, 86, 0.3)');
+        rect.setAttribute('stroke', '#a8c256');
+        label.textContent = 'Retângulo';
+        info.textContent = `Lados diferentes (${b} ≠ ${h}) → Retângulo`;
+    }
+}
+
+/* ============================================
+   FERRAMENTA 5: QUIZ DE POLÍGONOS
+   ============================================ */
+const polyNames = {
+    3: 'Triângulo',
+    4: 'Quadrilátero',
+    5: 'Pentágono',
+    6: 'Hexágono',
+    7: 'Heptágono',
+    8: 'Octógono'
+};
+let quizScore = 0;
+let currentQuizAnswer = '';
+
+function newQuiz() {
+    const sides = Object.keys(polyNames)[Math.floor(Math.random() * 6)];
+    currentQuizAnswer = polyNames[sides];
+    
+    document.getElementById('quizQuestion').textContent = `Quantos lados tem um ${currentQuizAnswer}?`;
+    
+    // Gerar opções
+    const allNames = Object.values(polyNames);
+    const options = [sides];
+    while (options.length < 4) {
+        const n = parseInt(Object.keys(polyNames)[Math.floor(Math.random() * 6)]);
+        if (!options.includes(n)) options.push(n);
+    }
+    options.sort(() => Math.random() - 0.5);
+    
+    const container = document.getElementById('quizOptions');
+    container.innerHTML = '';
+    options.forEach(n => {
+        const btn = document.createElement('button');
+        btn.className = 'tool-btn';
+        btn.textContent = n + ' lados';
+        btn.onclick = () => checkQuiz(n, btn);
+        container.appendChild(btn);
+    });
+}
+
+function checkQuiz(n, btn) {
+    const correct = polyNames[n] === currentQuizAnswer;
+    if (correct) {
+        btn.style.background = '#6b8e3d';
+        btn.style.color = 'white';
+        quizScore++;
+        document.getElementById('quizScore').textContent = `Acertos: ${quizScore} 🌸`;
+    } else {
+        btn.style.background = 'rgba(201, 112, 112, 0.3)';
+        btn.style.color = '#f4e9c4';
+    }
+    setTimeout(newQuiz, 1200);
+}
+
+/* ============================================
+   FERRAMENTA 6: PERÍMETRO
+   ============================================ */
+function updatePerim() {
+    const b = parseInt(document.getElementById('pSliderB').value);
+    const h = parseInt(document.getElementById('pSliderH').value);
+    document.getElementById('pValB').textContent = b;
+    document.getElementById('pValH').textContent = h;
+    
+    const rect = document.getElementById('perimRect');
+    const x = 160 - b/2;
+    const y = 110 - h/2;
+    rect.setAttribute('x', x);
+    rect.setAttribute('y', y);
+    rect.setAttribute('width', b);
+    rect.setAttribute('height', h);
+    
+    document.getElementById('perimBase').setAttribute('x', 160);
+    document.getElementById('perimBase').setAttribute('y', y + h + 20);
+    document.getElementById('perimBase').textContent = `base = ${b}`;
+    
+    document.getElementById('perimHeight').setAttribute('x', x + b + 10);
+    document.getElementById('perimHeight').setAttribute('y', y + h/2);
+    document.getElementById('perimHeight').textContent = `h = ${h}`;
+    
+    const P = 2 * (b + h);
+    document.getElementById('perimDisplay').textContent = `P = 2(${b} + ${h}) = ${P}`;
+}
+
+/* ============================================
+   FERRAMENTA 7: ÁREA COM MALHA
+   ============================================ */
+function updateArea() {
+    const b = parseInt(document.getElementById('aSliderB').value);
+    const h = parseInt(document.getElementById('aSliderH').value);
+    document.getElementById('aValB').textContent = b;
+    document.getElementById('aValH').textContent = h;
+    
+    const grid = document.getElementById('areaGrid');
+    grid.style.gridTemplateColumns = `repeat(${b}, 1fr)`;
+    grid.innerHTML = '';
+    
+    const cellSize = Math.min(30, 360 / Math.max(b, h));
+    
+    for (let i = 0; i < b * h; i++) {
+        const cell = document.createElement('div');
+        cell.style.width = cellSize + 'px';
+        cell.style.height = cellSize + 'px';
+        cell.style.background = 'rgba(168, 194, 86, 0.5)';
+        cell.style.border = '1px solid rgba(244, 233, 196, 0.3)';
+        cell.style.borderRadius = '2px';
+        cell.style.animation = `fadeIn 0.3s ease forwards ${i * 0.01}s`;
+        cell.style.opacity = '0';
+        grid.appendChild(cell);
+    }
+    
+    const A = b * h;
+    document.getElementById('areaDisplay').textContent = `A = ${b} × ${h} = ${A} quadradinhos`;
+}
+
+// Adicionar animação fadeIn
+const style = document.createElement('style');
+style.textContent = `@keyframes fadeIn { to { opacity: 1; } }`;
+document.head.appendChild(style);
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+/* ============================================
+   INICIALIZAÇÃO
+   ============================================ */
+document.addEventListener('DOMContentLoaded', () => {
+    createStars();
+    createBamboo();
+    createFireflies();
+    updateScissor(45);
+    updateShape();
+    updatePerim();
+    updateArea();
+    newQuiz();
+});
+</script>
+
+</body>
+</html>
