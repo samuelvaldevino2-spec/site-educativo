@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cruzadas · Grimório das Campanhas Sagradas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET E VARIÁVEIS
+============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --abyss: #030614;
+    --deep-blue: #050814;
+    --navy: #0a0e27;
+    --royal-blue: #141b3d;
+    --purple: #1e2a5e;
+    --violet: #2d3a7a;
+    --lilac: #6b3fa0;
+    --magic-blue: #3d5a80;
+    --magic-glow: #5ea8ff;
+    --crystal: #9ec8ff;
+    --silver: #c8d0e0;
+    --silver-bright: #e8ecf5;
+    --border-ornate: rgba(157, 127, 212, 0.6);
+    --success: #2ecc71;
+    --warning: #f1c40f;
+    --danger: #e74c3c;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: 
+        radial-gradient(ellipse at 15% 15%, rgba(107, 63, 160, 0.35) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 85%, rgba(94, 168, 255, 0.25) 0%, transparent 50%),
+        linear-gradient(180deg, var(--abyss) 0%, var(--deep-blue) 40%, var(--navy) 100%);
+    background-attachment: fixed;
+    color: var(--silver);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* ============================================================
+   REGRA GLOBAL DE IMAGENS (NOVO: ADAPTAÇÃO TOTAL)
+============================================================ */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================
+   PARTÍCULAS MÁGICAS
+============================================================ */
+.magic-particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.particle {
+    position: absolute; width: 3px; height: 3px;
+    background: radial-gradient(circle, var(--magic-glow), transparent);
+    border-radius: 50%; box-shadow: 0 0 10px var(--magic-blue);
+    opacity: 0; animation: floatUpMagic linear infinite;
+}
+@keyframes floatUpMagic {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    10% { opacity: 0.8; transform: scale(1); }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-10vh) scale(0.3); opacity: 0; }
+}
+
+.rune-bg {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    opacity: 0.03; font-family: 'Cinzel Decorative', serif;
+    font-size: 15rem; color: var(--lilac);
+    display: flex; align-items: center; justify-content: center;
+    animation: runePulse 10s ease-in-out infinite;
+}
+@keyframes runePulse { 0%, 100% { opacity: 0.02; } 50% { opacity: 0.05; } }
+
+/* ============================================================
+   CONTAINER E CABEÇALHO
+============================================================ */
+.main-container { max-width: 1100px; margin: 0 auto; padding: 20px 20px 60px; position: relative; z-index: 1; }
+
+header {
+    text-align: center; padding: 50px 20px 40px; margin-bottom: 40px;
+    position: relative; border-radius: 20px;
+    border: 1px solid rgba(157, 127, 212, 0.3);
+    box-shadow: 0 20px 60px rgba(5, 8, 20, 0.8), inset 0 0 60px rgba(94, 168, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.title-cross {
+    font-size: 3rem; color: var(--magic-glow); margin-bottom: 10px;
+    text-shadow: 0 0 20px var(--magic-blue), 0 0 40px var(--magic-glow);
+    animation: crossPulse 3s ease-in-out infinite; display: inline-block;
+}
+@keyframes crossPulse {
+    0%, 100% { text-shadow: 0 0 20px var(--magic-blue), 0 0 40px var(--magic-glow); }
+    50% { text-shadow: 0 0 40px var(--magic-blue), 0 0 80px var(--magic-glow); }
+}
+
+h1 {
+    font-family: 'Cinzel Decorative', serif; font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900; background: linear-gradient(135deg, var(--silver-bright), var(--crystal), var(--lilac));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    letter-spacing: 0.3rem; margin-bottom: 10px;
+    filter: drop-shadow(0 0 20px rgba(94, 168, 255, 0.3));
+}
+
+.subtitle {
+    font-family: 'Cinzel', serif; font-size: 1rem; color: var(--lilac);
+    letter-spacing: 0.4rem; text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(107, 63, 160, 0.6);
+}
+
+/* ============================================================
+   BOTÃO DE TRILHA SONORA
+============================================================ */
+.music-toggle {
+    position: fixed; top: 20px; right: 20px; z-index: 200;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, var(--purple), var(--royal-blue));
+    border: 2px solid var(--lilac); border-radius: 25px;
+    color: var(--silver-bright); font-family: 'Cinzel', serif;
+    font-weight: 600; font-size: 0.85rem; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 5px 20px rgba(107, 63, 160, 0.5);
+    transition: all 0.3s ease; backdrop-filter: blur(10px);
+}
+.music-toggle:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(94, 168, 255, 0.6); border-color: var(--magic-glow); }
+.music-toggle.playing {
+    background: linear-gradient(135deg, var(--lilac), var(--magic-blue));
+    border-color: var(--magic-glow);
+    animation: musicPulse 2s ease-in-out infinite;
+}
+@keyframes musicPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(94, 168, 255, 0.6); }
+    50% { box-shadow: 0 0 40px rgba(94, 168, 255, 0.8); }
+}
+.music-toggle .icon { font-size: 1.1rem; }
+.music-toggle.playing .icon { animation: musicSpin 4s linear infinite; }
+@keyframes musicSpin { to { transform: rotate(360deg); } }
+.volume-control { display: flex; align-items: center; gap: 5px; margin-left: 8px; opacity: 0; max-width: 0; overflow: hidden; transition: all 0.4s ease; }
+.music-toggle.playing .volume-control { opacity: 1; max-width: 80px; }
+.volume-slider { width: 60px; height: 3px; -webkit-appearance: none; appearance: none; background: rgba(157, 127, 212, 0.3); border-radius: 2px; outline: none; cursor: pointer; }
+.volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 10px; background: var(--magic-glow); border-radius: 50%; cursor: pointer; }
+
+/* ============================================================
+   MAPA DAS CRUZADAS (HERO)
+============================================================ */
+.hero-map {
+    margin: 0 auto 40px; max-width: 900px; border-radius: 15px; overflow: hidden;
+    border: 2px solid var(--border-ornate);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(157, 127, 212, 0.3);
+    position: relative;
+}
+/* 🖼️ IMAGEM ADAPTÁVEL: Usa contain para mostrar o mapa inteiro sem cortar */
+.hero-map img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    background-color: rgba(10, 14, 39, 0.5);
+}
+.hero-map figcaption {
+    padding: 15px; background: rgba(10, 14, 39, 0.95); color: var(--silver);
+    font-family: 'Cinzel', serif; font-size: 1.1rem; text-align: center;
+    border-top: 2px solid var(--border-ornate); letter-spacing: 0.1rem;
+}
+
+/* ============================================================
+   TABELA DE RESUMO
+============================================================ */
+.table-container { max-width: 1000px; margin: 0 auto 60px; padding: 0 20px; }
+.section-title {
+    font-family: 'Cinzel Decorative', serif; font-size: 2rem; text-align: center;
+    background: linear-gradient(135deg, var(--silver-bright), var(--magic-blue));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 30px; letter-spacing: 0.1rem;
+}
+.medieval-table {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    background: rgba(10, 14, 39, 0.7); border-radius: 15px; overflow: hidden;
+    border: 2px solid var(--border-ornate); box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+}
+.medieval-table th {
+    background: linear-gradient(135deg, var(--purple), var(--royal-blue));
+    color: var(--silver-bright); font-family: 'Cinzel', serif; font-weight: 600;
+    padding: 16px 20px; text-align: left; font-size: 1rem; border-bottom: 3px solid var(--lilac);
+}
+.medieval-table td {
+    padding: 14px 20px; border-bottom: 1px solid rgba(157, 127, 212, 0.2);
+    color: var(--silver); font-size: 1.05rem; line-height: 1.5;
+}
+.medieval-table tr:last-child td { border-bottom: none; }
+.medieval-table tr:hover td { background: rgba(94, 168, 255, 0.1); }
+.medieval-table .date-cell { font-family: 'Cinzel', serif; color: var(--magic-glow); font-weight: 700; white-space: nowrap; }
+.result-success { color: var(--success); font-weight: 600; }
+.result-warning { color: var(--warning); font-weight: 600; }
+.result-danger { color: var(--danger); font-weight: 600; }
+
+/* ============================================================
+   CAMINHO SINUOSO (TRILHA)
+============================================================ */
+.trail-container { position: relative; max-width: 700px; margin: 0 auto 80px; padding: 40px 20px; }
+.trail-svg { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 100%; pointer-events: none; z-index: 0; filter: drop-shadow(0 0 10px var(--magic-blue)); }
+.trail-path { fill: none; stroke: url(#trailGradient); stroke-width: 3; stroke-dasharray: 10 8; animation: pathFlow 20s linear infinite; }
+@keyframes pathFlow { to { stroke-dashoffset: -360; } }
+
+.trail-nodes { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 50px; }
+.trail-node {
+    position: relative; cursor: pointer; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex; flex-direction: column; align-items: center;
+    animation: nodeAppear 0.8s ease backwards;
+}
+.trail-node:nth-child(odd) { transform: translateX(-70px); }
+.trail-node:nth-child(even) { transform: translateX(70px); }
+@keyframes nodeAppear { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; } }
+
+.node-circle {
+    width: 90px; height: 90px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent), linear-gradient(135deg, var(--purple), var(--royal-blue));
+    border: 3px solid var(--lilac); display: flex; align-items: center; justify-content: center;
+    position: relative; box-shadow: 0 0 25px rgba(157, 127, 212, 0.5), inset 0 0 20px rgba(94, 168, 255, 0.2);
+    transition: all 0.4s ease;
+}
+.node-circle::before {
+    content: ''; position: absolute; inset: -8px; border-radius: 50%;
+    border: 2px dashed var(--border-ornate); animation: rotateSlow 25s linear infinite;
+}
+@keyframes rotateSlow { to { transform: rotate(360deg); } }
+
+.node-symbol { font-family: 'Cinzel Decorative', serif; font-size: 1.8rem; font-weight: 700; color: var(--silver-bright); text-shadow: 0 0 10px var(--magic-blue); z-index: 1; }
+.node-label {
+    margin-top: 15px; font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 600;
+    color: var(--silver); text-align: center; max-width: 180px;
+    text-shadow: 0 0 10px rgba(0,0,0,0.9); letter-spacing: 0.05rem; transition: all 0.3s;
+}
+
+.trail-node:hover { transform: translateX(0) scale(1.15) !important; z-index: 10; }
+.trail-node:hover .node-circle {
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent), linear-gradient(135deg, var(--violet), var(--magic-blue));
+    border-color: var(--magic-glow); box-shadow: 0 0 50px var(--magic-blue), 0 0 80px var(--lilac);
+}
+.trail-node:hover .node-symbol { color: white; text-shadow: 0 0 20px white; transform: scale(1.1); }
+.trail-node:hover .node-label { color: var(--magic-glow); text-shadow: 0 0 15px var(--magic-glow); }
+
+/* ============================================================
+   FOTO DE TRANSIÇÃO (JERUSALÉM)
+============================================================ */
+.jerusalem-transition {
+    margin: 80px auto; max-width: 1000px; border-radius: 20px; overflow: hidden;
+    border: 3px solid var(--border-ornate);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(157, 127, 212, 0.4);
+    position: relative;
+}
+/* 🖼️ IMAGEM ADAPTÁVEL: Garante que ruínas verticais apareçam por completo */
+.jerusalem-transition img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    filter: brightness(0.9) contrast(1.1);
+    background-color: rgba(10, 14, 39, 0.5);
+    transition: all 0.6s ease;
+}
+.jerusalem-transition:hover img { filter: brightness(1) contrast(1.15); }
+.jerusalem-transition figcaption {
+    padding: 20px; background: linear-gradient(180deg, rgba(10, 14, 39, 0.8), rgba(10, 14, 39, 0.95));
+    color: var(--silver-bright); font-family: 'Cinzel', serif; font-size: 1.2rem;
+    text-align: center; border-top: 2px solid var(--lilac); letter-spacing: 0.15rem;
+}
+
+/* ============================================================
+   LINHA DO TEMPO
+============================================================ */
+.timeline-section {
+    margin-top: 80px; padding: 60px 20px; position: relative;
+    border-radius: 20px; border: 1px solid rgba(157, 127, 212, 0.2);
+}
+.timeline-title {
+    font-family: 'Cinzel Decorative', serif; font-size: 2.5rem; text-align: center;
+    background: linear-gradient(135deg, var(--silver-bright), var(--magic-blue));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 50px; letter-spacing: 0.2rem;
+}
+.timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 20px 0; }
+.timeline::before {
+    content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px;
+    background: linear-gradient(180deg, var(--lilac), var(--magic-blue), var(--lilac));
+    transform: translateX(-50%); box-shadow: 0 0 15px var(--magic-blue);
+}
+.timeline-item { position: relative; width: 50%; padding: 15px 40px; cursor: pointer; transition: all 0.4s ease; }
+.timeline-item:nth-child(odd) { left: 0; text-align: right; }
+.timeline-item:nth-child(even) { left: 50%; text-align: left; }
+.timeline-dot {
+    position: absolute; top: 20px; width: 18px; height: 18px;
+    background: radial-gradient(circle, var(--magic-glow), var(--lilac));
+    border: 3px solid var(--magic-blue); border-radius: 50%;
+    box-shadow: 0 0 15px var(--magic-blue); transition: all 0.4s ease; z-index: 2;
+}
+.timeline-item:nth-child(odd) .timeline-dot { right: -9px; }
+.timeline-item:nth-child(even) .timeline-dot { left: -9px; }
+.timeline-item:hover .timeline-dot { transform: scale(1.5); box-shadow: 0 0 30px var(--magic-blue); }
+.timeline-date { font-family: 'Cinzel', serif; color: var(--magic-glow); font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; }
+.timeline-event { font-family: 'Cinzel', serif; color: var(--silver-bright); font-size: 1.05rem; font-weight: 600; margin-bottom: 5px; }
+.timeline-brief { color: var(--silver); font-size: 0.95rem; line-height: 1.5; opacity: 0.9; }
+
+.timeline-tooltip {
+    position: fixed; background: rgba(20, 27, 61, 0.98); border: 1px solid var(--lilac);
+    border-radius: 12px; padding: 20px; max-width: 350px;
+    box-shadow: 0 0 50px rgba(157, 127, 212, 0.6); z-index: 50;
+    pointer-events: none; opacity: 0; transform: translateY(10px); transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+.timeline-tooltip.active { opacity: 1; transform: translateY(0); }
+.tooltip-date { font-family: 'Cinzel', serif; color: var(--magic-glow); font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+.tooltip-event { font-family: 'Cinzel', serif; color: var(--silver-bright); font-size: 1rem; font-weight: 600; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border-ornate); }
+.tooltip-desc { color: var(--silver); font-size: 0.95rem; line-height: 1.6; }
+
+/* ============================================================
+   CULTURA POP
+============================================================ */
+.pop-culture-section { margin-top: 80px; padding: 60px 20px; }
+.pop-section-title {
+    font-family: 'Cinzel Decorative', serif; font-size: 2.5rem; text-align: center;
+    background: linear-gradient(135deg, var(--silver-bright), var(--magic-blue));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 10px; letter-spacing: 0.2rem;
+}
+.pop-section-subtitle { text-align: center; font-size: 1.1rem; color: var(--lilac); font-style: italic; margin-bottom: 50px; }
+.pop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+.pop-card {
+    background: rgba(20, 27, 61, 0.9); border: 1px solid var(--border-ornate);
+    border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.4s ease; display: flex; flex-direction: column;
+    height: 100%; /* Permite que o card cresça conforme a imagem */
+}
+.pop-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.6); border-color: var(--magic-glow); }
+.pop-card .media-card { margin: 0; border: none; border-radius: 0; box-shadow: none; }
+/* 🖼️ IMAGEM ADAPTÁVEL: Cards de cultura pop agora respeitam a altura da imagem */
+.pop-card .media-card img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    background-color: rgba(10, 14, 39, 0.5);
+}
+.pop-card-content { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+.pop-card-content h3 { font-family: 'Cinzel', serif; color: var(--silver-bright); font-size: 1.15rem; margin-bottom: 8px; }
+.media-type {
+    display: inline-block; padding: 4px 12px; background: rgba(94, 168, 255, 0.15);
+    border: 1px solid var(--border-ornate); border-radius: 12px;
+    color: var(--magic-glow); font-family: 'Cinzel', serif; font-size: 0.75rem;
+    font-weight: 600; letter-spacing: 0.1rem; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start;
+}
+.pop-card-content p { color: var(--silver); font-size: 0.95rem; line-height: 1.6; flex: 1; }
+
+/* ============================================================
+   REFERÊNCIA E RODAPÉ
+============================================================ */
+.reference-section { margin-top: 80px; padding: 60px 20px; text-align: center; }
+.reference-card {
+    max-width: 700px; margin: 0 auto; background: rgba(20, 27, 61, 0.9);
+    backdrop-filter: blur(15px); border: 2px solid var(--border-ornate);
+    border-radius: 20px; padding: 50px; box-shadow: 0 0 80px rgba(157, 127, 212, 0.3);
+    position: relative;
+}
+.reference-title { font-family: 'Cinzel Decorative', serif; font-size: 1.8rem; color: var(--magic-glow); margin-bottom: 30px; letter-spacing: 0.2rem; }
+
+/* 🖼️ PLACEHOLDER DE LIVRO ADAPTÁVEL: Se você trocar a div por uma tag <img>, ela se ajustará */
+.book-cover-placeholder, .book-cover-placeholder img {
+    width: 180px; 
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+    background: rgba(10, 14, 39, 0.8);
+    border: 2px dashed var(--border-ornate); 
+    border-radius: 10px;
+    margin: 0 auto 30px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    color: var(--lilac); 
+    font-family: 'Cinzel', serif; 
+    font-size: 0.95rem; 
+    letter-spacing: 0.1rem;
+}
+
+.reference-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--silver); line-height: 1.9; font-style: italic; }
+.reference-text strong { color: var(--magic-glow); font-style: normal; font-weight: 600; }
+
+.main-footer {
+    text-align: center; padding: 60px 20px; margin-top: 40px;
+    border-top: 1px solid rgba(157, 127, 212, 0.3);
+    color: var(--silver); font-family: 'Cinzel', serif; letter-spacing: 0.1rem;
+}
+.main-footer p { margin: 8px 0; font-size: 1.05rem; }
+.main-footer p:first-child { font-size: 1.3rem; color: var(--magic-glow); font-weight: 700; }
+
+/* ============================================================
+   MODAL GRIMÓRIO (COMPACTO SEM SCROLL EXTERNO)
+============================================================ */
+.modal-overlay {
+    position: fixed; inset: 0; background: rgba(3, 6, 20, 0.95);
+    backdrop-filter: blur(15px); z-index: 100;
+    display: none; align-items: center; justify-content: center; padding: 15px;
+    opacity: 0; transition: opacity 0.4s ease;
+}
+.modal-overlay.active { display: flex; opacity: 1; }
+
+.grimoire {
+    background: radial-gradient(ellipse at top, rgba(61, 42, 107, 0.95), rgba(20, 27, 61, 0.98));
+    border: 2px solid var(--lilac); border-radius: 20px;
+    width: 100%; max-width: 1000px; height: 92vh;
+    overflow: hidden; position: relative;
+    box-shadow: 0 0 80px rgba(157, 127, 212, 0.6), 0 0 150px rgba(94, 168, 255, 0.3);
+    transform: scale(0.85); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex; flex-direction: column;
+}
+.modal-overlay.active .grimoire { transform: scale(1); }
+
+.grimoire-corner { position: absolute; font-size: 1.8rem; color: var(--lilac); opacity: 0.7; text-shadow: 0 0 15px var(--magic-blue); z-index: 10; pointer-events: none; }
+.grimoire-corner.tl { top: 10px; left: 15px; } .grimoire-corner.tr { top: 10px; right: 15px; }
+.grimoire-corner.bl { bottom: 10px; left: 15px; } .grimoire-corner.br { bottom: 10px; right: 15px; }
+
+.grimoire-header {
+    padding: 25px 40px 15px; border-bottom: 2px solid var(--border-ornate);
+    position: relative; text-align: center; flex-shrink: 0;
+    background: linear-gradient(180deg, rgba(94, 168, 255, 0.1), transparent);
+}
+.grimoire-title {
+    font-family: 'Cinzel Decorative', serif; font-size: 2rem; font-weight: 700;
+    background: linear-gradient(135deg, var(--silver-bright), var(--magic-blue));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    letter-spacing: 0.15rem; margin-bottom: 5px;
+}
+.grimoire-subtitle { font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--lilac); letter-spacing: 0.3rem; text-transform: uppercase; }
+
+.close-btn {
+    position: absolute; top: 15px; right: 20px; width: 35px; height: 35px;
+    background: rgba(107, 63, 160, 0.4); border: 2px solid var(--lilac); border-radius: 50%;
+    color: var(--silver-bright); font-size: 1.2rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s ease; z-index: 20;
+}
+.close-btn:hover { background: var(--violet); transform: rotate(90deg); box-shadow: 0 0 20px var(--lilac); }
+
+.grimoire-body {
+    flex: 1; overflow-y: auto; padding: 20px 35px; position: relative;
+    scrollbar-width: thin; scrollbar-color: var(--lilac) transparent;
+}
+.grimoire-body::-webkit-scrollbar { width: 6px; }
+.grimoire-body::-webkit-scrollbar-thumb { background: var(--lilac); border-radius: 3px; }
+
+.slide { display: none; animation: slideInAAA 0.6s ease; }
+.slide.active { display: block; }
+@keyframes slideInAAA { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+
+.slide-header { text-align: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-ornate); position: relative; }
+.slide-header::after { content: '✦'; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); background: var(--navy); padding: 0 10px; color: var(--lilac); font-size: 1rem; }
+
+.slide-date {
+    font-family: 'Cinzel Decorative', serif; font-size: 2.2rem; font-weight: 900;
+    background: linear-gradient(135deg, var(--magic-glow), var(--lilac));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    letter-spacing: 0.1rem; margin-bottom: 5px;
+}
+.slide-title { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--silver-bright); text-transform: uppercase; letter-spacing: 0.1rem; }
+.slide-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--lilac); font-style: italic; margin-top: 5px; }
+
+/* Info Cards Compactos */
+.info-card {
+    background: rgba(10, 14, 39, 0.6); border: 1px solid var(--border-ornate);
+    border-radius: 12px; padding: 15px; margin: 12px 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4); transition: all 0.3s ease; position: relative;
+}
+.info-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--lilac), var(--magic-glow), var(--lilac));
+}
+.info-card:hover { transform: translateY(-2px); border-color: var(--magic-glow); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.info-card h4 { font-family: 'Cinzel', serif; color: var(--magic-glow); margin-bottom: 10px; font-size: 1.1rem; }
+.info-card ul { list-style: none; padding-left: 0; }
+.info-card li { padding: 4px 0 4px 22px; position: relative; color: var(--silver); font-size: 0.95rem; line-height: 1.4; }
+.info-card li::before { content: '✦'; position: absolute; left: 0; color: var(--lilac); font-size: 0.8rem; }
+.info-card .highlight { color: var(--magic-glow); font-weight: 600; }
+.info-card .date-tag {
+    display: inline-block; padding: 2px 10px; background: rgba(94, 168, 255, 0.15);
+    border: 1px solid var(--border-ornate); border-radius: 4px;
+    color: var(--magic-glow); font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.9rem; margin: 3px 0;
+}
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 12px 0; }
+
+/* 🖼️ IMAGENS DENTRO DO GRIMÓRIO: Adaptáveis e com limite de altura para não estourar o modal */
+.grimoire-body .media-card {
+    margin: 15px 0; position: relative; overflow: hidden;
+    border-radius: 12px; border: 1px solid var(--border-ornate);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.4s ease;
+}
+.grimoire-body .media-card img {
+    width: 100%;
+    height: auto;
+    max-height: 50vh; /* Nunca será maior que metade da tela do modal */
+    object-fit: contain;
+    background-color: rgba(10, 14, 39, 0.5);
+}
+.grimoire-body .media-card:hover img { transform: scale(1.02); }
+.grimoire-body .media-card figcaption {
+    padding: 10px 15px; background: rgba(10, 14, 39, 0.9);
+    color: var(--silver); font-family: 'Cinzel', serif; font-size: 0.85rem;
+    text-align: center; border-top: 1px solid var(--border-ornate); font-style: italic;
+}
+.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 15px 0; }
+
+/* Controles de Slide */
+.slide-controls {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 35px; border-top: 2px solid var(--border-ornate);
+    background: rgba(10, 14, 39, 0.8); backdrop-filter: blur(10px); flex-shrink: 0;
+}
+.nav-btn {
+    padding: 8px 20px; background: linear-gradient(135deg, var(--purple), var(--royal-blue));
+    border: 1px solid var(--lilac); border-radius: 20px; color: var(--silver-bright);
+    font-family: 'Cinzel', serif; font-weight: 600; font-size: 0.9rem; cursor: pointer;
+    transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;
+}
+.nav-btn:hover:not(:disabled) { background: linear-gradient(135deg, var(--violet), var(--magic-blue)); box-shadow: 0 0 20px var(--lilac); transform: translateY(-2px); }
+.nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.slide-indicator { font-family: 'Cinzel', serif; color: var(--lilac); font-size: 1rem; letter-spacing: 0.1rem; padding: 5px 15px; background: rgba(107, 63, 160, 0.2); border-radius: 15px; border: 1px solid var(--border-ornate); }
+
+/* ============================================================
+   RESPONSIVIDADE
+============================================================ */
+@media (max-width: 768px) {
+    .trail-node:nth-child(odd), .trail-node:nth-child(even) { transform: translateX(0); }
+    .node-circle { width: 70px; height: 70px; }
+    .node-symbol { font-size: 1.5rem; }
+    .node-label { font-size: 0.85rem; max-width: 140px; }
+    .grimoire-header, .grimoire-body, .slide-controls { padding-left: 20px; padding-right: 20px; }
+    .grimoire-title { font-size: 1.5rem; }
+    .slide-date { font-size: 1.8rem; }
+    .slide-title { font-size: 1.2rem; }
+    .two-col { grid-template-columns: 1fr; }
+    .timeline::before { left: 20px; }
+    .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 50px; }
+    .timeline-dot { left: 11px !important; right: auto !important; }
+    .pop-grid { grid-template-columns: 1fr; }
+    .music-toggle { top: 10px; right: 10px; padding: 8px 12px; font-size: 0.75rem; }
+    .music-toggle span:not(.icon) { display: none; }
+    .volume-control { display: none; }
+    .table-container { padding: 0 10px; overflow-x: auto; }
+    .medieval-table { min-width: 600px; }
+}
+</style>
+</head>
+<body>
+
+<div class="magic-particles" id="particles"></div>
+<div class="rune-bg">✠ ✠</div>
+
+<audio id="backgroundMusic" loop>
+    <source src="medieval.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicToggle" class="music-toggle" aria-label="Ativar trilha sonora">
+    <span class="icon">🎵</span>
+    <span>Trilha</span>
+    <div class="volume-control">
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50">
+    </div>
+</button>
+
+<div class="main-container">
+
+    <!-- 1. CABEÇALHO -->
+    <header>
+        <div class="title-cross">✠</div>
+        <h1>CRUZADAS</h1>
+        <div class="subtitle">Grimório das Campanhas Sagradas</div>
+    </header>
+
+    <!-- 2. MAPA DAS CRUZADAS -->
+    <figure class="hero-map">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPEIb7Wb5EUVHGbg88xNUDUDX99-JUmMv_eOjfd4Afjnrk5EgEHGwHpbz84uE2vxeSLX5aYNx2KjdByUc7COQFaze4WJlk69BoSsXGlZPvVFP7xUc-cKCqK7Q9XcuiPKCqYXu06gcii2I/s1600/Capturar" alt="Mapa das Cruzadas">
+        <figcaption>Mapa das Cruzadas</figcaption>
+    </figure>
+
+    <!-- 3. TABELA DE RESUMO -->
+    <div class="table-container">
+        <h2 class="section-title">⚔️ AS CRUZADAS EM RESUMO</h2>
+        <table class="medieval-table summary-table">
+            <thead>
+                <tr>
+                    <th>Ano</th>
+                    <th>Cruzada</th>
+                    <th>Objetivo</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="date-cell">1095–1099</td>
+                    <td>1ª Cruzada</td>
+                    <td>Reconquistar Jerusalém</td>
+                    <td class="result-success">Sucesso: conquista de Jerusalém e formação dos Estados Cruzados</td>
+                </tr>
+                <tr>
+                    <td class="date-cell">1147–1149</td>
+                    <td>2ª Cruzada</td>
+                    <td>Responder à tomada do Condado de Edessa</td>
+                    <td class="result-danger">Fracasso: cerco de Damasco fracassa e os cruzados se retiram</td>
+                </tr>
+                <tr>
+                    <td class="date-cell">1187–1192</td>
+                    <td>3ª Cruzada</td>
+                    <td>Retomar Jerusalém após a conquista de Saladino</td>
+                    <td class="result-warning">Sucesso parcial: cidades estratégicas retomadas, mas não Jerusalém</td>
+                </tr>
+                <tr>
+                    <td class="date-cell">1202–1204</td>
+                    <td>4ª Cruzada</td>
+                    <td>Inicialmente, retomar Jerusalém</td>
+                    <td class="result-danger">Desvio: saque de Constantinopla</td>
+                </tr>
+                <tr>
+                    <td class="date-cell">1217–1221</td>
+                    <td>5ª Cruzada</td>
+                    <td>Capturar o Egito como base estratégica</td>
+                    <td class="result-danger">Fracasso</td>
+                </tr>
+                <tr>
+                    <td class="date-cell">1228–1229</td>
+                    <td>6ª Cruzada</td>
+                    <td>Recuperar Jerusalém</td>
+                    <td class="result-warning">Retorno temporário de Jerusalém ao controle cristão por negociação</td>
+                </tr>
+                <tr>
+                    <td class="date-cell">1248–1254</td>
+                    <td>7ª Cruzada</td>
+                    <td>—</td>
+                    <td class="result-danger">Fracasso: Luís IX é derrotado e capturado</td>
+                </tr>
+                <tr>
+                    <td class="date-cell">1270</td>
+                    <td>8ª Cruzada</td>
+                    <td>Última tentativa de cruzada</td>
+                    <td class="result-danger">Fracasso: campanha interrompida pela morte de Luís IX</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 4. CAMINHO SINUOSO (ESTILO DUOLINGO) -->
+    <div class="trail-container">
+        <svg class="trail-svg" id="trailSvg" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="trailGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#6b3fa0"/>
+                    <stop offset="50%" stop-color="#5ea8ff"/>
+                    <stop offset="100%" stop-color="#6b3fa0"/>
+                </linearGradient>
+            </defs>
+            <path class="trail-path" id="trailPath" d="" />
+        </svg>
+        <div class="trail-nodes" id="trailNodes"></div>
+    </div>
+
+    <!-- 5. FOTO DE RUÍNAS DE JERUSALÉM -->
+    <figure class="jerusalem-transition">
+        <img src="https://revistaoeste.com/oestegeral/wp-content/uploads/2026/09/image-16-18.jpg" alt="Ruínas de um bairro cruzado em Jerusalém">
+        <figcaption>Ruínas de um bairro cruzado em Jerusalém</figcaption>
+    </figure>
+
+    <!-- 6. LINHA DO TEMPO -->
+    <section class="timeline-section">
+        <h2 class="timeline-title">⚜ Linha do Tempo ⚜</h2>
+        <div class="timeline" id="timeline"></div>
+    </section>
+
+    <!-- 7. CARDS DA CULTURA POP -->
+    <section class="pop-culture-section">
+        <h2 class="pop-section-title">Legado no Imaginário</h2>
+        <p class="pop-section-subtitle">O legado das Cruzadas perpetuou-se na cultura popular através de obras que romantizaram o cavalheirismo e o heroísmo medieval.</p>
+        <div class="pop-grid" id="popGrid"></div>
+    </section>
+
+    <!-- 8. REFERÊNCIA -->
+    <section class="reference-section">
+        <div class="reference-card">
+            <h3 class="reference-title">Referência Bibliográfica</h3>
+            <div class="book-cover-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWQTjC89LLVWE9J-mjLaENePEmW5KptsEfP9LBTG5rkQ&s=10" alt="Descrição da imagem"></div>
+            <div class="reference-text">
+                <strong>"As Cruzadas: A História Oficial da Guerra pela Terra Santa"</strong><br>
+                de Thomas Asbridge.<br><br>
+                Resumo por Bookey.
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- 9. RODAPÉ -->
+<footer class="main-footer">
+    <p>Samuel Valdevino</p>
+    <p>Apresentação história 22/09/2026</p>
+    <p>Feito com QwenChat (Serviço de IA Alibaba)</p>
+</footer>
+
+<!-- MODAL GRIMÓRIO -->
+<div class="modal-overlay" id="modal">
+    <div class="grimoire">
+        <span class="grimoire-corner tl">❦</span>
+        <span class="grimoire-corner tr">❦</span>
+        <span class="grimoire-corner bl">❦</span>
+        <span class="grimoire-corner br">❦</span>
+        <button class="close-btn" onclick="closeModal()" title="Fechar (ESC)">✕</button>
+        <div class="grimoire-header">
+            <div class="grimoire-title" id="grimoireTitle">Título</div>
+            <div class="grimoire-subtitle" id="grimoireSubtitle">Subtítulo</div>
+        </div>
+        <div class="grimoire-body" id="grimoireBody"></div>
+        <div class="slide-controls">
+            <button class="nav-btn" id="prevBtn" onclick="prevSlide()">◀ Anterior</button>
+            <div class="slide-indicator" id="slideIndicator">1 / 1</div>
+            <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Próximo ▶</button>
+        </div>
+    </div>
+</div>
+
+<!-- TOOLTIP DA LINHA DO TEMPO -->
+<div class="timeline-tooltip" id="timelineTooltip">
+    <div class="tooltip-date" id="tooltipDate"></div>
+    <div class="tooltip-event" id="tooltipEvent"></div>
+    <div class="tooltip-desc" id="tooltipDesc"></div>
+</div>
+
+<script>
+const sections = [
+    {
+        id: 'intro', symbol: 'I', title: 'As Cruzadas', subtitle: 'O Chamado às Armas',
+        slides: [
+            {
+                date: 'SÉCULOS XI–XII', title: 'As Cruzadas', subtitle: 'Expedições pela Terra Santa',
+                content: `
+                    <div class="content-grid">
+                        <div class="info-card"><h4>⚔️ O Que Foram</h4><p>Série de <span class="highlight">expedições militares</span> ocorridas entre os séculos XI e XII, em uma Europa de religiosidade efervescente.</p></div>
+                        <div class="info-card"><h4>🎯 Objetivo Principal</h4><p>A reconquista da <span class="highlight">Terra Santa</span> tornou-se crucial para a Igreja Católica, motivada pelo forte sentimento religioso da época.</p></div>
+                    </div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>⛪ Motivações Religiosas</h4><p>Com a tomada de Jerusalém pelos turcos, motivou-se o uso da <span class="highlight">fé para fins militares</span>, aliado ao crescimento do poder espiritual e temporal do Papa.</p></div>
+                        <div class="info-card"><h4>👑 Motivações Políticas</h4><p>Motivações políticas de nobres e a percepção de um <span class="highlight">inimigo comum</span> levaram a um apelo às armas, visto que o Império Muçulmano expandia-se rapidamente desde o século VII.</p></div>
+                    </div>
+                    <div class="info-card"><h4>📜 A Unificação da Cristandade</h4><p>A Igreja Católica viu nas cruzadas uma forma de <span class="highlight">unificar a cristandade</span> em todo o continente, que estava dividido em conflitos locais.</p></div>
+                `
+            },
+            {
+                date: '1095', title: 'Concílio de Clermont', subtitle: 'O Papa Urbano II convoca a Primeira Cruzada',
+                content: `
+                    <div class="content-grid">
+                        <div class="info-card"><h4>📍 Clermont-Ferrand</h4><p>Em <span class="highlight">1095</span>, o Papa <span class="highlight">Urbano II</span> convocou a Primeira Cruzada durante o Concílio de Clermont, com fervorosa oratória.</p></div>
+                        <div class="info-card"><h4>🙏 O Apelo Papal</h4><p>Urbano II convocou a nobreza e os plebeus a <span class="highlight">pegar a cruz</span> e libertar a Terra Santa do domínio islâmico.</p></div>
+                    </div>
+                    <div class="info-card"><h4>⚡ Timing Perfeito</h4><p>A convocação teve timing perfeito: a Europa estava em momento de <span class="highlight">elevado fervor religioso</span> e aumento da violência cavaleiresca. O Papa conseguiu direcionar essa energia para a união dos cristãos em um objetivo comum.</p></div>
+                    <figure class="media-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp0Szd6JkrerHFsYgfdNs9--cJXTf03trn9IqDmeKws-Z5q4XzjvIU55U&s=10" alt="Papa Urbano II"><figcaption>Papa Urbano II no Concílio de Clermont, 1095</figcaption></figure>
+                `
+            }
+        ]
+    },
+    {
+        id: 'primeira', symbol: 'II', title: 'Primeira Cruzada', subtitle: '1095–1099',
+        slides: [
+            {
+                date: '1096', title: 'A Partida', subtitle: 'Dezenas de milhares marcham ao Oriente',
+                content: `
+                    <div class="content-grid">
+                        <div class="info-card"><h4>⚔️ Liderança</h4><p>A expedição foi liderada por <span class="highlight">Godofredo de Bulhão</span>, um nobre franco-flamengo.</p></div>
+                        <div class="info-card"><h4>🗺️ Rumo ao Oriente</h4><p>Dezenas de milhares de soldados marcharam arduamente pela Europa em direção ao Oriente, tendo <span class="highlight">Constantinopla</span> como ponto de convergência.</p></div>
+                    </div>
+                    <div class="info-card"><h4>️ Uma Aliança Desconfiada</h4><p>O imperador bizantino <span class="highlight">Aleixo I</span> recebeu os cruzados em Constantinopla, no Império Bizantino, mas ainda mantinha desconfiança em relação ao cruzadismo.</p></div>
+                `
+            },
+            {
+                date: '1097–1098', title: 'Batalhas na Ásia Menor', subtitle: 'Niceia · Dorileia · Antioquia',
+                content: `
+                    <div class="info-card"><h4>⚔️ Resistência Muçulmana</h4><p>Ao chegarem à Ásia Menor, os cruzados se depararam com a plena resistência das tropas muçulmanas, enfrentando combates como o <span class="highlight">cerco de Niceia</span> e a <span class="highlight">batalha de Dorileia</span>.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>Captura de Antioquia (1098)</h4><p>O ponto de virada se deu com a captura de <span class="highlight">Antioquia em 1098</span>, apesar de empecilhos como falta de suprimentos e discordância entre fileiras.</p></div>
+                        <div class="info-card"><h4>✨ Eficiência e Intervenção</h4><p>A captura da cidade tornou-se prova da <span class="highlight">eficiência estratégica</span> dos cruzadistas e da alegada intervenção divina.</p></div>
+                    </div>
+                `
+            },
+            {
+                date: '1099', title: 'Conquista de Jerusalém', subtitle: 'Reconquista e massacre',
+                content: `
+                    <div class="info-card"><h4>️ A Conquista</h4><p>A batalha culminou com a reconquista de <span class="highlight">Jerusalém em 1099</span>, com um voraz derramamento de sangue de muçulmanos e judeus que habitavam a cidade.</p></div>
+                    <div class="info-card"><h4>👑 Godofredo de Bulhão</h4><p>Godofredo de Bulhão se recusou a assumir o título de rei do Reino de Jerusalém, alegando que <span class="highlight">somente Jesus merecia esse título</span>. Supostamente disse que se recusava a usar uma coroa de ouro onde Jesus usou uma de espinhos.</p></div>
+                    <figure class="media-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Taking_of_Jerusalem_by_the_Crusaders%2C_15th_July_1099.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original" alt="Conquista de Jerusalém"><figcaption>Conquista de Jerusalém, 1099</figcaption></figure>
+                `
+            },
+            {
+                date: 'APÓS 1099', title: 'Estados Cruzados', subtitle: 'Reino Latino de Jerusalém',
+                content: `
+                    <div class="info-card"><h4>🏰 Os Quatro Estados</h4><p>Para garantir a segurança de seus novos territórios, os cruzados fundaram: <span class="highlight">Reino de Jerusalém</span>, <span class="highlight">Condado de Trípoli</span>, <span class="highlight">Principado de Antioquia</span> e <span class="highlight">Condado de Edessa</span>.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>🏗️ Colonização e Fortificação</h4><p>A presença dos cavaleiros nessas regiões foi marcada tanto pela <span class="highlight">colonização</span> quanto pela <span class="highlight">fortificação</span>, em busca de construir uma sociedade reflexo das raízes europeias.</p></div>
+                        <div class="info-card"><h4>🌍 Consequências para a Europa</h4><p>Levas de peregrinos se dirigiram até Jerusalém, fomentando uma <span class="highlight">revitalização da cristandade europeia</span> com relatos, relíquias e testemunhos, redefinindo a paisagem geopolítica do medievo.</p></div>
+                    </div>
+                    <figure class="media-card"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Map_Crusader_states_1135-pt.svg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original" alt="Mapa dos Estados Cruzados"><figcaption>Mapa dos Estados Cruzados</figcaption></figure>
+                `
+            },
+            {
+                date: 'SÉC. XII', title: 'Resposta Islâmica', subtitle: 'Zengi · Nur ad-Din · Saladino',
+                content: `
+                    <div class="info-card"><h4>⚔️ Líderes que Reagiram</h4><p>A resposta islâmica não foi imediata nem unificada. Posteriormente, líderes como <span class="highlight">Imad ad-Din Zengi</span>, <span class="highlight">Nur ad-Din</span> e o lendário <span class="highlight">Saladino</span> começaram a reagir contra as investidas cruzadas.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>🤝 Além da Violência</h4><p>As interações entre cristãos e muçulmanos estenderam-se ao cenário <span class="highlight">diplomático e cultural</span>, com estabelecimento de rotas de comércio e trocas entre os povos.</p></div>
+                        <div class="info-card"><h4>🏛️ Influências Culturais</h4><p>Cavaleiros francos negociavam com comerciantes muçulmanos, havendo registro de influências na <span class="highlight">arquitetura, ciência e agricultura</span>.</p></div>
+                    </div>
+                `
+            }
+        ]
+    },
+    {
+        id: 'segunda', symbol: 'III', title: 'Segunda Cruzada', subtitle: '1147–1149',
+        slides: [
+            {
+                date: '1147–1149', title: 'Segunda Cruzada', subtitle: 'Convocada após a queda de Edessa',
+                content: `
+                    <div class="info-card"><h4>A Convocação</h4><p>A Segunda Cruzada foi convocada pelo Papa <span class="highlight">Eugênio III</span> como resultado da tomada do Condado de Edessa pelos árabes.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>👑 Lideranças</h4><p>Em <span class="highlight">1147</span>, o Rei <span class="highlight">Luís VII da França</span> e o Imperador <span class="highlight">Conrado III da Alemanha</span> levantaram a cruz e marcharam com seus exércitos para a Terra Santa.</p></div>
+                        <div class="info-card"><h4>💀 Dificuldades da Viagem</h4><p>Com suprimentos inadequados, o exército de Conrado foi <span class="highlight">dizimado ao chegar à Anatólia</span>, onde enfrentou as forças turcas.</p></div>
+                    </div>
+                    <div class="info-card"><h4>O Cerco de Damasco</h4><p>As tropas restantes que alcançaram Jerusalém foram recebidas com forte retaliação taticamente perspicaz. O cerco de <span class="highlight">Damasco</span>, cidade estratégica, terminou em apenas <span class="highlight">4 dias de esforços</span>. Desconfiança e falta de coordenação levaram a uma humilhante retirada em <span class="highlight">1149</span>.</p></div>
+                `
+            }
+        ]
+    },
+    {
+        id: 'terceira', symbol: 'IV', title: 'Terceira Cruzada', subtitle: '1189–1192',
+        slides: [
+            {
+                date: '1187', title: 'A Ascensão de Saladino', subtitle: 'Batalha de Hattin e retomada de Jerusalém',
+                content: `
+                    <div class="info-card"><h4>☪️ Saladino</h4><p><span class="highlight">Salah ad-Din Yusuf Ibn Ayyub, Saladino</span>, surgiu como um líder brilhante e carismático que conseguiu <span class="highlight">unificar os muçulmanos</span> em prol da reconquista de Jerusalém.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>⚔️ Batalha de Hattin (1187)</h4><p>Em <span class="highlight">1187</span>, as tropas de Saladino venceram os cruzados na <span class="highlight">Batalha de Hattin</span>, abrindo caminho para a retomada de Jerusalém.</p></div>
+                        <div class="info-card"><h4>💔 Golpe na Cristandade</h4><p>A retomada de Jerusalém foi um <span class="highlight">golpe avassalador</span> para a cristandade europeia, que considerava a Cidade Santa como coração espiritual.</p></div>
+                    </div>
+                    <figure class="media-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLrmwNl287SJ0xxLqPYq5LB3jebPCzdN_53-2rLZ4vUkzhjRaqWsUCfgWp&s=10" alt="Saladino"><figcaption>Saladino (Salah ad-Din), líder muçulmano</figcaption></figure>
+                `
+            },
+            {
+                date: '1189–1192', title: 'A Guerra dos Três Reis', subtitle: 'Ricardo · Filipe II · Barbarossa',
+                content: `
+                    <div class="info-card"><h4>As Três Coroas</h4><p>A Terceira Cruzada reuniu lideranças como <span class="highlight">Ricardo Coração de Leão da Inglaterra</span>, <span class="highlight">Filipe II da França</span> e <span class="highlight">Frederico Barbarossa</span> do Sacro Império Romano-Germânico.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>Morte de Barbarossa</h4><p>A morte prematura de <span class="highlight">Frederico Barbarossa</span> desmoralizou e reduziu os contingentes das tropas cruzadas.</p></div>
+                        <div class="info-card"><h4>🦁 Ricardo Coração de Leão</h4><p>As tropas passaram ao comando estratégico de <span class="highlight">Ricardo Coração de Leão</span>, que conseguiu retomar cidades estratégicas como <span class="highlight">Acre</span> e alcançou vitórias como em <span class="highlight">Arsuf</span>.</p></div>
+                    </div>
+                    <div class="info-card"><h4>🤝 Tratado de Jafa (1192)</h4><p>Mesmo sem retomar o controle de Jerusalém, Ricardo terminou a campanha com o <span class="highlight">Tratado de Jafa em 1192</span>, que permitiu aos peregrinos cristãos visitar Jerusalém em relativa segurança.</p></div>
+                `
+            }
+        ]
+    },
+    {
+        id: 'quarta', symbol: 'V', title: 'Quarta Cruzada', subtitle: '1202–1204',
+        slides: [
+            {
+                date: '1202–1204', title: 'A Traição', subtitle: 'De Jerusalém a Constantinopla',
+                content: `
+                    <div class="info-card"><h4>🎯 Objetivo Original</h4><p>A Quarta Cruzada foi programada inicialmente para uma tentativa de <span class="highlight">retomada de Jerusalém</span>, com o Egito como objetivo estratégico.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>💰 Motivações Reais</h4><p>Os cruzados foram motivados por <span class="highlight">manipulações políticas</span>, <span class="highlight">pressões financeiras</span> e decisões estratégicas, atraídos por promessas de riquezas e dívidas com comerciantes venezianos.</p></div>
+                        <div class="info-card"><h4>🔥 O Saque de Constantinopla</h4><p>A expedição culminou no <span class="highlight">saque de Constantinopla em 1204</span>. Os cruzados atacaram seus próprios irmãos cristãos no Império Bizantino.</p></div>
+                    </div>
+                    <div class="info-card"><h4>Consequências Religiosas</h4><p>O ataque a Constantinopla fortaleceu ainda mais o <span class="highlight">cisma entre a Igreja do Oriente e a do Ocidente</span>, dividindo profundamente os cristãos.</p></div>
+                `
+            }
+        ]
+    },
+    {
+        id: 'quinta-sexta', symbol: 'VI', title: 'Quinta e Sexta Cruzadas', subtitle: '1217–1229',
+        slides: [
+            {
+                date: '1217–1221', title: 'Quinta Cruzada', subtitle: 'Tentativa de conquistar o Egito',
+                content: `
+                    <div class="info-card"><h4>🎯 Estratégia Egípcia</h4><p>A Quinta Cruzada tinha como objetivo capturar o <span class="highlight">Egito</span> como base estratégica para a reconquista de Jerusalém.</p></div>
+                    <div class="info-card"><h4>💀 O Fracasso</h4><p><span class="highlight">Coordenação insuficiente</span> e <span class="highlight">desafios naturais imprevistos</span> levaram ao fracasso da expedição entre 1217 e 1221.</p></div>
+                `
+            },
+            {
+                date: '1228–1229', title: 'Sexta Cruzada', subtitle: 'A cruzada diplomática de Frederico II',
+                content: `
+                    <div class="info-card"><h4>👑 Imperador Frederico II</h4><p>Liderada pelo Imperador <span class="highlight">Frederico II</span> do Sacro Império, a Sexta Cruzada terminou em um <span class="highlight">tratado diplomático</span>.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>🤝 Conquista por Negociação</h4><p>Frederico conseguiu negociar o <span class="highlight">retorno pacífico de Jerusalém</span> ao controle cristão, sem uma grande campanha militar.</p></div>
+                        <div class="info-card"><h4>⚠️ Conquista Controversa</h4><p>Foi uma conquista de <span class="highlight">curta duração</span> e <span class="highlight">controversa</span> entre os militantes cruzados.</p></div>
+                    </div>
+                `
+            }
+        ]
+    },
+    {
+        id: 'setima-oitava', symbol: 'VII', title: 'Sétima e Oitava Cruzadas', subtitle: '1248–1270',
+        slides: [
+            {
+                date: '1248–1270', title: 'As Campanhas de Luís IX', subtitle: 'O rei santo e suas cruzadas fracassadas',
+                content: `
+                    <div class="info-card"><h4>👑 Luís IX da França</h4><p>O rei francês patrocinou duas cruzadas: a <span class="highlight">Sétima (1248–1254)</span> e a <span class="highlight">Oitava (1270)</span>.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>⚔️ Sétima Cruzada</h4><p>Resultou em <span class="highlight">duas derrotas catastróficas</span> e na <span class="highlight">captura do monarca</span> Luís IX.</p></div>
+                        <div class="info-card"><h4>️ Oitava Cruzada</h4><p>Em <span class="highlight">1270</span>, a Oitava Cruzada foi <span class="highlight">interrompida pela morte de Luís IX em Túnis</span>, resultando em fracasso total.</p></div>
+                    </div>
+                `
+            }
+        ]
+    },
+    {
+        id: 'declinio', symbol: 'VIII', title: 'O Declínio', subtitle: 'O Fim da Era das Cruzadas',
+        slides: [
+            {
+                date: '1291', title: 'Queda de Acre', subtitle: 'Fim dos reinos cruzados latinos',
+                content: `
+                    <div class="info-card"><h4>🏰 A Última Fortaleza</h4><p>A cidade cruzada de <span class="highlight">Acre caiu em 1291</span>, marcando o fim efetivo dos reinos cruzados latinos na região.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>⚔️ Fatores do Declínio</h4><p>A <span class="highlight">evolução da tecnologia militar</span> e a <span class="highlight">complexidade logística</span> desempenharam papel crítico no declínio.</p></div>
+                        <div class="info-card"><h4>💰 Carga Econômica</h4><p>Os nobres lançaram mão do entusiasmo pelas cruzadas em vista de <span class="highlight">conflitos políticos internos</span> e da <span class="highlight">carga econômica</span> necessária para enviar tropas à Terra Santa.</p></div>
+                    </div>
+                    <div class="info-card"><h4>☪️ Consolidação Muçulmana</h4><p>A <span class="highlight">consolidação dos poderes muçulmanos</span> tornou as missões cruzadas cada vez mais fúteis. O apelo religioso já não era suficiente para o Papa conseguir convocar novas cruzadas.</p></div>
+                `
+            }
+        ]
+    },
+    {
+        id: 'influencias', symbol: 'IX', title: 'Influências Posteriores', subtitle: 'O Legado das Cruzadas',
+        slides: [
+            {
+                date: 'LEGADO', title: 'Impactos na Europa', subtitle: 'Igreja, comércio e Estado-nação',
+                content: `
+                    <div class="info-card"><h4>⛪ Fortalecimento da Igreja</h4><p>Um dos impactos mais significativos foi o <span class="highlight">fortalecimento da Igreja Católica</span>, com o aumento dos poderes espirituais e temporais do Papa, que se perpetuou com a supremacia da Igreja na política e na sociedade medieval.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>🧪 Trocas Culturais</h4><p>Os que retornaram trouxeram consigo novos conhecimentos em <span class="highlight">medicina, ciência e filosofia</span> provindos do mundo árabe.</p></div>
+                        <div class="info-card"><h4>🌍 Especiarias e Seda</h4><p>O contato com luxos orientais como <span class="highlight">especiarias e seda</span> desencadeou o interesse por explorações e colonização de territórios, culminando nas grandes navegações a partir do século XV.</p></div>
+                    </div>
+                    <div class="info-card"><h4>️ Colonização da América</h4><p>Nessa perspectiva, a <span class="highlight">colonização da América e do próprio Brasil</span> foi influenciada indiretamente pelas cruzadas.</p></div>
+                    <figure class="media-card"><img src="https://static.todamateria.com.br/upload/ma/pa/mapanavegacoesportuguesas-cke.jpg" alt="Grandes Navegações"><figcaption>Grandes Navegações - influenciadas indiretamente pelas Cruzadas</figcaption></figure>
+                `
+            },
+            {
+                date: 'MUNDO ÁRABE', title: 'Impactos no Oriente', subtitle: 'Unificação e mudanças políticas',
+                content: `
+                    <div class="info-card"><h4>☪️ Unificação Muçulmana</h4><p>No mundo árabe, as cruzadas foram responsáveis pela <span class="highlight">unificação dos povos</span> na luta contra um invasor comum, exemplificando-se pelas vitórias de Saladino ao unir o mundo muçulmano contra os cruzados.</p></div>
+                    <div class="content-grid">
+                        <div class="info-card"><h4>👑 Mudanças Políticas na Europa</h4><p>Com a partida de nobres para o Oriente, os reis da Europa se viram desimpedidos para conquistar regiões semiautônomas, dando início às bases que levariam ao <span class="highlight">Estado-nação moderno</span>.</p></div>
+                        <div class="info-card"><h4>Geopolítica do Oriente</h4><p>No Oriente, as cruzadas contribuíram para o <span class="highlight">surgimento e queda de dinastias</span>, com o vaivém de territórios moldando os contornos geopolíticos da região.</p></div>
+                    </div>
+                `
+            }
+        ]
+    },
+    {
+        id: 'cultura-pop', symbol: 'X', title: 'Cultura Pop', subtitle: 'O Legado no Imaginário',
+        slides: [
+            {
+                date: 'IMAGINÁRIO', title: 'Cavalheirismo e Heroísmo', subtitle: 'Do folclore europeu à cultura contemporânea',
+                content: `
+                    <div class="info-card"><h4>⚔️ O Legado Cultural</h4><p>As cruzadas definiram as noções de <span class="highlight">cavalheirismo e heroísmo</span> romantizados pela literatura e pelo folclore europeu. Até hoje, a presença de cavaleiros se perpetua no imaginário das pessoas.</p></div>
+                    <div class="info-card"><h4>🗡️ Lendas Perpetuadas</h4><p>Lendas como a <span class="highlight">espada Excalibur</span> e o <span class="highlight">Santo Graal</span> perpetuaram-se ao longo dos séculos, levando pessoas até mesmo a acreditarem, ingenuamente, na veracidade dessas histórias.</p></div>
+                    <figure class="media-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0MH4JUf6ho4l9X_lQlluMW6TtrjT5fTHoeoIVu0-D5lx52Tpxy2wnCo50ZRSWLsdAdbB_kHC6Cbu6k-Rl08qXjwwnK_T_7wC8bAKQKlEhmQY9b5uJUvrlUU2gDISD6EbcXSZe-VdojWw/s1600/Hospital+de+Jerusalem.jpg" alt="Ruínas de Jerusalém"><figcaption>Ruínas de um bairro cruzado em Jerusalém</figcaption></figure>
+                `
+            }
+        ]
+    }
+];
+
+const timelineData = [
+    { date: '1095', event: '✝️ Concílio de Clermont', desc: 'O Papa Urbano II convoca a Primeira Cruzada e conclama cristãos a libertar a Terra Santa.' },
+    { date: '1096', event: '⚔️ Partida da Primeira Cruzada', desc: 'Exércitos cruzados partem rumo ao Oriente, tendo Constantinopla como ponto de convergência.' },
+    { date: '1097–1098', event: '🏰 Niceia, Dorileia e Antioquia', desc: 'Os cruzados enfrentam forças muçulmanas na Ásia Menor e conquistam Antioquia em 1098.' },
+    { date: '1099', event: '🏹 Conquista de Jerusalém', desc: 'Os cruzados conquistam Jerusalém, em um episódio marcado por intenso derramamento de sangue.' },
+    { date: 'Após 1099', event: '👑 Formação dos Estados Cruzados', desc: 'Surgem o Reino de Jerusalém, Condado de Trípoli, Principado de Antioquia e Condado de Edessa.' },
+    { date: '1147–1149', event: '️ Segunda Cruzada', desc: 'Luís VII e Conrado III marcham para a Terra Santa; o cerco de Damasco fracassa e a expedição termina em retirada.' },
+    { date: '1187', event: '☪️ Saladino retoma Jerusalém', desc: 'Após a Batalha de Hattin, Saladino derrota os cruzados e recupera Jerusalém.' },
+    { date: '1189–1192', event: '🦁 Terceira Cruzada', desc: 'Ricardo Coração de Leão, Filipe II e Frederico Barbarossa participam da campanha; Ricardo conquista Acre e vence em Arsuf.' },
+    { date: '1192', event: '🤝 Tratado de Jafa', desc: 'Ricardo Coração de Leão e Saladino encerram a campanha; peregrinos cristãos recebem autorização para visitar Jerusalém.' },
+    { date: '1202–1204', event: '🔥 Quarta Cruzada', desc: 'A expedição, originalmente voltada à Terra Santa, desvia-se para Constantinopla, que é saqueada pelos cruzados.' },
+    { date: '1217–1229', event: '⚔️ Quinta e Sexta Cruzadas', desc: 'A Quinta Cruzada fracassa na tentativa de usar o Egito como base estratégica; a Sexta, liderada por Frederico II, recupera Jerusalém por negociação diplomática.' },
+    { date: '1248–1270', event: '👑 Últimas Cruzadas de Luís IX', desc: 'A Sétima Cruzada termina com a captura de Luís IX; em 1270, a Oitava Cruzada é interrompida pela morte do monarca.' }
+];
+
+const popCultureData = [
+    { title: 'O Rei Arthur e os Cavaleiros da Távola Redonda', type: 'Literatura', subtitle: 'Lenda arturiana', desc: 'Fundou o imaginário de cavaleiros, honra e quests sagradas que ecoa até hoje na cultura ocidental.', img: 'https://super.abril.com.br/wp-content/uploads/2018/07/5772eb7b0e216345751b8998king_arthur_and_the_knights_of_the_round_table.jpeg' },
+    { title: 'O Senhor dos Anéis', type: 'Literatura / Cinema', subtitle: 'J.R.R. Tolkien', desc: 'Épico de fantasia medieval que perpetuou a estética de cavaleiros, reinos e batalhas sagradas.', img: 'https://preview.redd.it/elendil-look-so-badass-in-armor-v0-zq792t7n3zyd1.png?auto=webp&s=9a63ac654f8db7001af846d5a7631af0326672e9' },
+    { title: 'Indiana Jones e a Última Cruzada', type: 'Cinema', subtitle: 'Steven Spielberg · 1989', desc: 'A busca pelo Santo Graal une o imaginário das Cruzadas com aventura cinematográfica.', img: 'https://i.ytimg.com/vi/IygzIQm3P_8/maxresdefault.jpg' },
+    { title: 'Excalibur: A Espada do Poder', type: 'Cinema', subtitle: 'John Boorman · 1981', desc: 'Adaptação da lenda arturiana que consolidou a estética medieval fantástica no cinema.', img: 'https://i.ytimg.com/vi/6z2hG_6ojRI/maxresdefault.jpg' },
+    { title: 'Dark Souls', type: 'Jogo de RPG', subtitle: 'FromSoftware', desc: 'Série de jogos que personifica a estética sombria de cavaleiros, reinos em ruínas e heroísmo trágico.', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbVCgG0Y4V8NZEfYh157zM7MO8Iq83xd3EHBKq7-dPQ2KtawQ3bogl7Lk&s=10' },
+    { title: "Assassin's Creed", type: 'Jogo de RPG', subtitle: 'Ubisoft', desc: 'Franquia que explora diretamente o período das Cruzadas, com templários, assassinos e Jerusalém medieval.', img: 'https://preview.redd.it/ca8uu37rr0m61.png?width=1920&format=png&auto=webp&s=8f934c80e41032e70dd849cace030dccb91af160' },
+    { title: 'Barão Owl', type: 'Tokusatsu', subtitle: 'Jiraiya, o Incrível Ninja · 1988', desc: 'Personifica a união do ideal de cavaleiro cruzado com o ninja japonês.', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-3ZOm-1Mz7oeRFG71CV0DpWaLzZgjaZ4fepsHM5kYYb6dJAUfKYEbRKs&s=10' },
+    { title: 'Dustiness Ford Lalatina (Darkness)', type: 'Anime', subtitle: 'KonoSuba, Deus Abençoe este Mundo Maravilhoso · 2016', desc: 'Identificada como "Cavaleiro Cruzada" no anime, satiriza o arquétipo de cavaleiro moderno.', img: 'https://static.wikia.nocookie.net/konosuba/images/f/f3/Darkness_Shows_Up.jpg/revision/latest/scale-to-width-down/1200?cb=20250709154851' },
+    { title: 'Roan', type: 'Anime', subtitle: 'Ragnarok the Animation · 2004', desc: 'Classe: Swordsman → Crusader. Relação indireta/fantástica. Utiliza a classe Crusader em ambientação medieval fantástica. Visual: armadura, espada e escudo. Guerreiro/protetor que busca poder para proteger Yufa.', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH1_vZegaF4lLmdaZCDSoIW7WpF7ty19hqKxFzwI7XHg&s=10' }
+];
+
+let currentSection = null;
+let currentSlide = 0;
+
+function createParticles() {
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 40; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (12 + Math.random() * 18) + 's';
+        p.style.animationDelay = Math.random() * 15 + 's';
+        container.appendChild(p);
+    }
+}
+
+function renderTrail() {
+    const nodesContainer = document.getElementById('trailNodes');
+    nodesContainer.innerHTML = '';
+    sections.forEach((section, idx) => {
+        const node = document.createElement('div');
+        node.className = 'trail-node';
+        node.onclick = () => openSection(idx);
+        node.innerHTML = `<div class="node-circle"><span class="node-symbol">${section.symbol}</span></div><div class="node-label">${section.title}</div>`;
+        nodesContainer.appendChild(node);
+    });
+    setTimeout(drawTrailPath, 150);
+}
+
+function drawTrailPath() {
+    const nodes = document.querySelectorAll('.trail-node');
+    const svg = document.getElementById('trailSvg');
+    const path = document.getElementById('trailPath');
+    const container = document.querySelector('.trail-container');
+    if (nodes.length < 2) return;
+    const containerRect = container.getBoundingClientRect();
+    svg.setAttribute('width', containerRect.width);
+    svg.setAttribute('height', containerRect.height);
+    let d = '';
+    nodes.forEach((node, idx) => {
+        const rect = node.querySelector('.node-circle').getBoundingClientRect();
+        const x = rect.left + rect.width / 2 - containerRect.left;
+        const y = rect.top + rect.height / 2 - containerRect.top;
+        if (idx === 0) { d += `M ${x} ${y}`; }
+        else {
+            const prevRect = nodes[idx - 1].querySelector('.node-circle').getBoundingClientRect();
+            const prevX = prevRect.left + prevRect.width / 2 - containerRect.left;
+            const prevY = prevRect.top + prevRect.height / 2 - containerRect.top;
+            const midY = (prevY + y) / 2;
+            d += ` C ${prevX} ${midY}, ${x} ${midY}, ${x} ${y}`;
+        }
+    });
+    path.setAttribute('d', d);
+}
+
+function openSection(idx) {
+    currentSection = idx;
+    currentSlide = 0;
+    const section = sections[idx];
+    document.getElementById('grimoireTitle').textContent = section.title;
+    document.getElementById('grimoireSubtitle').textContent = section.subtitle;
+    const body = document.getElementById('grimoireBody');
+    body.innerHTML = section.slides.map((slide, i) => `
+        <div class="slide ${i === 0 ? 'active' : ''}" data-slide="${i}">
+            <div class="slide-header">
+                <div class="slide-date">${slide.date}</div>
+                <div class="slide-title">${slide.title}</div>
+                ${slide.subtitle ? `<div class="slide-subtitle">${slide.subtitle}</div>` : ''}
+            </div>
+            ${slide.content}
+        </div>
+    `).join('');
+    updateSlideControls();
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+    document.body.style.overflow = '';
+    currentSection = null;
+}
+
+function updateSlideControls() {
+    if (currentSection === null) return;
+    const section = sections[currentSection];
+    document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+    document.getElementById('slideIndicator').textContent = `${currentSlide + 1} / ${section.slides.length}`;
+    document.getElementById('prevBtn').disabled = currentSlide === 0;
+    document.getElementById('nextBtn').disabled = currentSlide === section.slides.length - 1;
+}
+
+function nextSlide() { if (currentSection !== null && currentSlide < sections[currentSection].slides.length - 1) { currentSlide++; updateSlideControls(); } }
+function prevSlide() { if (currentSection !== null && currentSlide > 0) { currentSlide--; updateSlideControls(); } }
+
+function renderTimeline() {
+    const container = document.getElementById('timeline');
+    container.innerHTML = timelineData.map((item, idx) => `
+        <div class="timeline-item" data-idx="${idx}">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">${item.date}</div>
+            <div class="timeline-event">${item.event}</div>
+            <div class="timeline-brief">${item.desc.length > 80 ? item.desc.substring(0, 80) + '...' : item.desc}</div>
+        </div>
+    `).join('');
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        item.addEventListener('mouseenter', showTooltip);
+        item.addEventListener('mouseleave', hideTooltip);
+        item.addEventListener('mousemove', moveTooltip);
+    });
+}
+
+function showTooltip(e) {
+    const idx = e.currentTarget.dataset.idx;
+    const item = timelineData[idx];
+    document.getElementById('tooltipDate').textContent = item.date;
+    document.getElementById('tooltipEvent').textContent = item.event;
+    document.getElementById('tooltipDesc').textContent = item.desc;
+    document.getElementById('timelineTooltip').classList.add('active');
+    moveTooltip(e);
+}
+function hideTooltip() { document.getElementById('timelineTooltip').classList.remove('active'); }
+function moveTooltip(e) {
+    const tooltip = document.getElementById('timelineTooltip');
+    let x = e.clientX + 15; let y = e.clientY + 15;
+    const rect = tooltip.getBoundingClientRect();
+    if (x + rect.width > window.innerWidth - 10) x = e.clientX - rect.width - 15;
+    if (y + rect.height > window.innerHeight - 10) y = e.clientY - rect.height - 15;
+    tooltip.style.left = x + 'px'; tooltip.style.top = y + 'px';
+}
+
+function renderPopCulture() {
+    const grid = document.getElementById('popGrid');
+    grid.innerHTML = popCultureData.map(item => `
+        <article class="pop-card">
+            <figure class="media-card">
+                <img src="${item.img}" alt="${item.title}">
+                <figcaption>${item.subtitle}</figcaption>
+            </figure>
+            <div class="pop-card-content">
+                <h3>${item.title}</h3>
+                <span class="media-type">${item.type}</span>
+                <p>${item.desc}</p>
+            </div>
+        </article>
+    `).join('');
+}
+
+const musicBtn = document.getElementById('musicToggle');
+const audio = document.getElementById('backgroundMusic');
+const volumeSlider = document.getElementById('volumeSlider');
+audio.volume = 0.5;
+
+musicBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play().then(() => {
+            musicBtn.classList.add('playing');
+            musicBtn.querySelector('.icon').textContent = '🎶';
+        }).catch(err => {
+            console.warn('Áudio bloqueado:', err);
+            alert('Não foi possível reproduzir o áudio. Verifique se o arquivo "medieval.mp3" está na mesma pasta.');
+        });
+    } else {
+        audio.pause();
+        musicBtn.classList.remove('playing');
+        musicBtn.querySelector('.icon').textContent = '🎵';
+    }
+});
+volumeSlider.addEventListener('input', (e) => { audio.volume = e.target.value / 100; });
+
+document.addEventListener('keydown', (e) => {
+    if (currentSection !== null) {
+        if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+        else if (e.key === 'Escape') { closeModal(); }
+    }
+});
+document.getElementById('modal').addEventListener('click', (e) => { if (e.target.id === 'modal') closeModal(); });
+
+document.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+    renderTrail();
+    renderTimeline();
+    renderPopCulture();
+    window.addEventListener('resize', drawTrailPath);
+});
+</script>
+</body>
+</html>
