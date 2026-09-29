@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cristãos, Muçulmanos e os Conflitos Étnico-Religiosos no Medievo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<!--
+========================================
+IMAGENS NECESSÁRIAS (Coloque na mesma pasta do HTML)
+========================================
+capa_medieval.jpg
+jerusalem_medieval.jpg
+mapa_primeira_cruzada.jpg
+cavaleiro_cruzada.jpg
+peregrinos_medievais.jpg
+comercio_mediterraneo.jpg
+constantinopla_medieval.jpg
+peninsula_iberica_medieval.jpg
+toledo_traducoes.jpg
+cotidiano_medieval.jpg
+cristandade_umma.jpg
+visoes_mutuas.jpg
+conclusao_medievo.jpg
+qwen_logo.png
+========================================
+-->
+
+<style>
+/* =========================================================
+   VARIÁVEIS E RESET (Paleta Elegante e Legível)
+   ========================================================= */
+:root {
+    --bg-paper: #F5F2EB;
+    --bg-card: #FFFDF9;
+    --text-primary: #2A2520;
+    --text-secondary: #5C4D3C;
+    --accent-wine: #7A2E2E;
+    --accent-gold: #A68B5B;
+    --accent-blue: #2F4F4F;
+    --border-light: #E2D8C8;
+    --shadow-soft: rgba(42, 37, 32, 0.08);
+}
+
+*, *::before, *::after { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; /* Suporte moderno a viewport dinâmica (mobile/projetor) */
+    overflow: hidden; /* CRÍTICO: Impede qualquer rolagem na apresentação */
+    background-color: var(--bg-paper);
+    color: var(--text-primary);
+    font-family: 'Cormorant Garamond', serif;
+    /* Textura sutil de papel */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" opacity="0.03"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8"/></filter><rect width="200" height="200" filter="url(%23n)"/></svg>');
+}
+
+/* =========================================================
+   CONTAINER DO SLIDE (O MOTOR DA CENTRALIZAÇÃO)
+   ========================================================= */
+.slide-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    inset: 0; /* top:0, right:0, bottom:0, left:0 */
+    width: 100%;
+    height: 100%;
+    
+    /* FÓRMULA MÁGICA DE CENTRALIZAÇÃO ABSOLUTA */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza horizontalmente */
+    
+    /* Área segura para não colar nas bordas do projetor */
+    padding: clamp(24px, 4vh, 48px) clamp(32px, 5vw, 80px);
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(15px);
+    overflow: hidden; /* Garante que nada dentro do slide cause scroll */
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    z-index: 10;
+}
+
+/* =========================================================
+   WRAPPERS DE CONTEÚDO (Garantem que o conteúdo respeite o centro)
+   ========================================================= */
+.content-single,
+.content-grid,
+.cover-content,
+.chapter-slide {
+    width: 100%;
+    max-width: 1100px; /* Limite para telas ultrawide */
+    max-height: 85vh;  /* Limite vertical para não estourar a tela */
+    margin: 0 auto;    /* Fallback de centralização */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* =========================================================
+   TIPOGRAFIA
+   ========================================================= */
+h1, h2, h3, h4 {
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    color: var(--accent-wine);
+    text-align: center; /* Força centralização dos títulos */
+    line-height: 1.15;
+    font-weight: 700;
+    width: 100%;
+}
+
+h1 { font-size: clamp(2rem, 4.5vw, 3.8rem); margin-bottom: clamp(16px, 2.5vh, 32px); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.8rem); margin-bottom: clamp(14px, 2vh, 28px); }
+h3 { font-size: clamp(1.3rem, 2.5vw, 2rem); margin-bottom: clamp(12px, 1.5vh, 20px); color: var(--accent-blue); }
+h4 { font-family: 'Cinzel', serif; font-size: 1.25rem; color: var(--accent-wine); margin-bottom: 10px; }
+
+p, li {
+    font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+    line-height: 1.5;
+    color: var(--text-primary);
+    max-width: 900px;
+}
+
+ul { list-style: none; text-align: left; width: 100%; max-width: 800px; margin: 0 auto; }
+li { margin-bottom: 0.8rem; padding-left: 1.8rem; position: relative; }
+li::before {
+    content: '❧';
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    top: 1px;
+}
+
+/* =========================================================
+   LAYOUTS ESPECÍFICOS
+   ========================================================= */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 4vw, 48px);
+    width: 100%;
+    max-width: 1100px;
+    align-items: center; /* Centraliza verticalmente os itens do grid */
+    justify-items: center; /* Centraliza horizontalmente os itens do grid */
+}
+
+/* Permite que o texto dentro do grid fique alinhado à esquerda para leitura, 
+   mas o bloco inteiro permanece centralizado na tela */
+.content-grid > div {
+    width: 100%;
+    text-align: left;
+}
+.content-grid h3 { text-align: left; }
+
+/* =========================================================
+   IMAGENS (Contidas para não quebrar a centralização)
+   ========================================================= */
+.image-frame {
+    width: 100%;
+    max-height: 60vh; /* CRÍTICO: Impede que imagens altas estourem a tela */
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 10px 30px var(--shadow-soft);
+    background: var(--bg-card);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ou 'contain' se preferir ver a imagem inteira sem cortar */
+    display: block;
+    transition: transform 0.5s ease;
+    filter: sepia(10%) contrast(95%);
+}
+
+.image-frame:hover img { transform: scale(1.02); filter: sepia(0%) contrast(100%); }
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(42, 37, 32, 0.85);
+    color: var(--bg-paper);
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    letter-spacing: 0.05rem;
+}
+
+/* =========================================================
+   ELEMENTOS INTERATIVOS E COMPONENTES
+   ========================================================= */
+.chapter-slide {
+    background: var(--bg-card);
+    border: 1px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: clamp(40px, 6vw, 80px);
+    text-align: center;
+    max-width: 800px;
+    box-shadow: 0 20px 50px var(--shadow-soft);
+    position: relative;
+}
+.chapter-slide::before, .chapter-slide::after {
+    content: '✦';
+    position: absolute;
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+}
+.chapter-slide::before { top: 20px; left: 20px; }
+.chapter-slide::after { bottom: 20px; right: 20px; }
+
+.chapter-number {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    color: var(--accent-gold);
+    letter-spacing: 0.4rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.presenter-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: var(--text-secondary);
+    margin-top: 2.5rem;
+    font-style: italic;
+    border-top: 1px solid var(--border-light);
+    padding-top: 1.5rem;
+    display: inline-block;
+}
+
+.cover-content {
+    width: min(950px, 92vw);
+    max-height: 88vh;
+    margin: auto;
+    text-align: center;
+    border: 1px solid var(--accent-gold);
+    padding: clamp(40px, 6vw, 80px);
+    background: var(--bg-card);
+    border-radius: 8px;
+    box-shadow: 0 20px 60px var(--shadow-soft);
+    position: relative;
+}
+.cover-content::before {
+    content: '✠';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--accent-gold);
+    font-size: 2rem;
+}
+.cover-info {
+    margin-top: 3rem;
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    border-top: 1px solid var(--border-light);
+    padding-top: 2rem;
+    text-align: center;
+}
+.cover-info strong { color: var(--accent-wine); font-weight: 700; }
+
+/* Tabs e Perspectivas */
+.perspective-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.tab-btn {
+    padding: 12px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 5px var(--shadow-soft);
+}
+.tab-btn:hover { border-color: var(--accent-gold); color: var(--accent-wine); transform: translateY(-2px); }
+.tab-btn.active {
+    background: var(--accent-wine);
+    color: var(--bg-paper);
+    border-color: var(--accent-wine);
+    box-shadow: 0 4px 12px rgba(122, 46, 46, 0.3);
+}
+.perspective-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 4px;
+    padding: 40px;
+    min-height: 220px;
+    max-height: 50vh;
+    display: none;
+    animation: fadeIn 0.5s ease;
+    box-shadow: 0 10px 30px var(--shadow-soft);
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.perspective-content.active { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.perspective-content h4 { font-size: 1.6rem; margin-bottom: 15px; }
+.perspective-content p { font-size: 1.3rem; text-align: center; max-width: 800px; margin: 0 auto; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 60px;
+    right: 60px;
+    height: 2px;
+    background: var(--accent-gold);
+}
+.timeline-item {
+    position: relative;
+    text-align: center;
+    width: 20%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.timeline-item:hover { transform: translateY(-5px); }
+.timeline-dot {
+    width: 50px;
+    height: 50px;
+    background: var(--bg-card);
+    border: 2px solid var(--accent-wine);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-wine);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 10px var(--shadow-soft);
+}
+.timeline-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+    color: var(--text-primary);
+    font-weight: 600;
+    background: var(--bg-card);
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-light);
+    line-height: 1.4;
+}
+
+/* Referências */
+.references-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 1100px;
+    text-align: left;
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    margin: 0 auto;
+}
+.references-grid li {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    text-align: left;
+    border-left: 2px solid var(--accent-gold);
+    line-height: 1.5;
+}
+.references-grid li::before { display: none; }
+
+/* Indicador de Página e Marca */
+.page-indicator {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    font-family: 'Cinzel', serif;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    z-index: 100;
+    opacity: 0.6;
+}
+.qwen-brand {
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    opacity: 1;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+.qwen-brand img { height: 60px; width: auto; }
+
+/* =========================================================
+   RESPONSIVIDADE E TELAS MENORES / PROJETORES
+   ========================================================= */
+
+/* Telas com altura limitada (Notebooks, Projetores 4:3) */
+@media (max-height: 800px) {
+    .slide { padding: 20px clamp(28px, 4vw, 60px); }
+    .slide h1 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+    .slide h2 { font-size: clamp(1.45rem, 2.7vw, 2.2rem); }
+    .slide p, .slide li { font-size: clamp(0.95rem, 1.2vw, 1.15rem); line-height: 1.4; }
+    .image-frame { max-height: 50vh; }
+    .image-frame img { max-height: 50vh; }
+    .perspective-content { min-height: 180px; padding: 25px; }
+}
+
+/* Telas muito baixas */
+@media (max-height: 650px) {
+    .slide { padding: 16px 28px; }
+    .slide h1 { font-size: clamp(1.6rem, 3.2vw, 2.5rem); margin-bottom: 12px; }
+    .slide h2 { font-size: clamp(1.35rem, 2.5vw, 2rem); margin-bottom: 10px; }
+    .slide p, .slide li { font-size: 0.95rem; line-height: 1.35; }
+    .image-frame { max-height: 42vh; }
+    .image-frame img { max-height: 42vh; }
+}
+
+/* Telas estreitas (Tablets e Celulares) */
+@media (max-width: 850px) {
+    .content-grid { grid-template-columns: 1fr; gap: 24px; }
+    .content-grid > div { text-align: center; }
+    .content-grid h3 { text-align: center; }
+    .content-grid ul { text-align: left; display: inline-block; }
+    
+    .timeline { flex-direction: column; align-items: flex-start; gap: 24px; padding-left: 30px; }
+    .timeline::before { width: 2px; height: 100%; left: 29px; top: 0; }
+    .timeline-item { width: 100%; text-align: left; padding-left: 50px; }
+    .timeline-dot { position: absolute; left: 0; margin: 0; }
+    
+    .references-grid { grid-template-columns: 1fr; }
+    .perspective-tabs { gap: 8px; }
+    .tab-btn { padding: 10px 16px; font-size: 0.9rem; }
+    .page-indicator { bottom: 20px; right: 20px; font-size: 0.9rem; }
+    .qwen-brand { bottom: 20px; right: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="slide-container">
+
+    <!-- SLIDE 1: CAPA -->
+    <div class="slide active" data-slide="1">
+        <div class="cover-content">
+            <h2>Cristãos, Muçulmanos e os Conflitos Étnico-Religiosos no Medievo</h2>
+            <div class="cover-info">
+                <strong>IFRN</strong> — Instituto Federal de Ciência e Tecnologia do Rio Grande do Norte<br>
+                <strong>Disciplina:</strong> História<br>
+                <strong>Data:</strong> 29/09/2026<br>
+                <strong>Docente:</strong> André Gustavo Barbosa da Paz Mendes<br><br>
+                <strong>Discentes:</strong><br>
+                Benício de Freitas Soares | Emanoel Silva Lopes | João Henrique Umbelino da Silva<br>
+                Jonathan Conceição de Oliveira | Samuel Pedro Valdevino Soares | Suel Richard Silva França
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: CAPÍTULO I -->
+    <div class="slide" data-slide="2">
+        <div class="chapter-slide">
+            <div class="chapter-number">Capítulo I</div>
+            <h2>Introdução</h2>
+            <p style="color: var(--text-secondary); margin-top: 20px; font-size: 1.3rem;">Além de guerras e reis: o cotidiano e o indivíduo no medievo.</p>
+            <div class="presenter-name">Apresentador: Emanoel</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: INTRODUÇÃO -->
+    <div class="slide" data-slide="3">
+        <div class="content-grid">
+            <div class="content-single" style="text-align: left;">
+                <h3>A Religião como Estrutura do Cotidiano</h3>
+                <ul>
+                    <li>Não era uma escolha pessoal, mas a organização total da vida em sociedade.</li>
+                    <li>Ditava costumes, alimentação, casamento, leis e a percepção do mundo (Schmitt, 1988).</li>
+                    <li>A convivência diária gerava uma dinâmica dupla: troca cultural e comércio, mas também estranhamento e tensão (Cardini, 2000).</li>
+                </ul>
+            </div>
+            <div class="image-frame" style="height: 450px;">
+                <img src="cotidiano_medieval.jpg" alt="cotidiano_medieval">
+                <div class="image-caption">Representação do cotidiano e da fé no medievo</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: CAPÍTULO II -->
+    <div class="slide" data-slide="4">
+        <div class="chapter-slide">
+            <div class="chapter-number">Capítulo II</div>
+            <h2>Contexto Histórico</h2>
+            <p style="color: var(--text-secondary); margin-top: 20px; font-size: 1.3rem;">A formação das identidades: Cristandade e Ummah.</p>
+            <div class="presenter-name">Apresentador: Jonathan</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: CONTEXTO -->
+    <div class="slide" data-slide="5">
+        <div class="content-grid">
+            <div class="image-frame" style="height: 500px;">
+                <img src="cristandade_umma.jpg" alt="cristandade_umma">
+                <div class="image-caption">A organização social pela fé</div>
+            </div>
+            <div class="content-single" style="text-align: left;">
+                <h3>Dois Mundos, Uma Estrutura</h3>
+                <ul>
+                    <li><strong>A Cristandade:</strong> O tempo era marcado pelos sinos e pelo calendário litúrgico. A identidade oferecia segurança e sentido de salvação (Le Goff).</li>
+                    <li><strong>A Ummah:</strong> A comunidade global de fiéis islâmica, regulada pela Sharia, com desenvolvimento urbano, científico e comercial.</li>
+                    <li><strong>O "Outro":</strong> Em áreas de fronteira (como Al-Andalus), a visão era moldada pelo comércio e vizinhança. No interior isolado, pelo estranhamento e sermões.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: CAPÍTULO III -->
+    <div class="slide" data-slide="6">
+        <div class="chapter-slide">
+            <div class="chapter-number">Capítulo III</div>
+            <h2>Conflitos e Contatos</h2>
+            <p style="color: var(--text-secondary); margin-top: 20px; font-size: 1.3rem;">A diferença sem o conflito inevitável.</p>
+            <div class="presenter-name">Apresentador: João Henrique</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: CONFLITOS -->
+    <div class="slide" data-slide="7">
+        <div class="content-single">
+            <h3>Fronteiras do "Nós" e do "Eles"</h3>
+            <div class="content-grid" style="margin-top: 40px;">
+                <div class="image-frame" style="height: 350px;">
+                    <img src="visoes_mutuas.jpg" alt="visoes_mutuas">
+                    <div class="image-caption">Representações mútuas entre francos e sarracenos</div>
+                </div>
+                <div style="text-align: left;">
+                    <ul>
+                        <li><strong>Visão Cristã:</strong> Muçulmanos vistos como "sarracenos", "mouros" ou infiéis, seguidores de um falso profeta.</li>
+                        <li><strong>Visão Islâmica:</strong> Latinos chamados de "francos" (<em>ifranj</em>), vistos como guerreiros corajosos, mas rústicos e atrasados (Usama ibn Munqidh).</li>
+                        <li><strong>A Convivência:</strong> Apesar das fronteiras religiosas, a <em>Convivencia</em> (Castro, 1948) mostrou séculos de influência mútua na língua, arquitetura e comércio (Menocal, 2002).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: CAPÍTULO IV -->
+    <div class="slide" data-slide="8">
+        <div class="chapter-slide">
+            <div class="chapter-number">Capítulo IV</div>
+            <h2>As Cruzadas</h2>
+            <p style="color: var(--text-secondary); margin-top: 20px; font-size: 1.3rem;">Causas, acontecimentos e múltiplas perspectivas.</p>
+            <div class="presenter-name">Apresentador: Samuel</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: CRUZADAS - CAUSAS -->
+    <div class="slide" data-slide="9">
+        <div class="content-single">
+            <h3>Por Que Aconteceram?</h3>
+            <p style="margin-bottom: 40px; text-align: center; font-size: 1.3rem;">Não foi apenas "cristãos contra muçulmanos". Um movimento complexo com múltiplas motivações.</p>
+            <div class="content-grid" style="grid-template-columns: repeat(2, 1fr); text-align: left; gap: 40px;">
+                <div class="image-frame" style="height: 280px; grid-column: span 2; margin-bottom: 10px;">
+                    <img src="mapa_primeira_cruzada.jpg" alt="mapa_primeira_cruzada">
+                    <div class="image-caption">Rotas das cruzadas em direção a Jerusalém</div>
+                </div>
+                <div>
+                    <h4>⛪ Religião</h4>
+                    <p style="font-size: 1.1rem;">Jerusalém como centro sagrado. A Cruzada como peregrinação, penitência e guerra santa com indulgências.</p>
+                </div>
+                <div>
+                    <h4>👑 Política</h4>
+                    <p style="font-size: 1.1rem;">Fortalecimento da autoridade papal e oportunidades de nobres conquistarem territórios e poder.</p>
+                </div>
+                <div>
+                    <h4>💰 Economia</h4>
+                    <p style="font-size: 1.1rem;">Expansão das cidades comerciais italianas (Veneza, Gênova) e abertura de novas rotas no Mediterrâneo.</p>
+                </div>
+                <div>
+                    <h4>⚔️ Social</h4>
+                    <p style="font-size: 1.1rem;">Canalização da violência da nobreza guerreira europeia para uma campanha legitimada pela Igreja (Paz de Deus).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: CRUZADAS - TIMELINE -->
+    <div class="slide" data-slide="10">
+        <div class="content-single">
+            <h3>Linha do Tempo das Principais Cruzadas</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">I</div>
+                    <div class="timeline-text">1096–1099<br><small>Conquista de Jerusalém</small></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">II</div>
+                    <div class="timeline-text">1147–1149<br><small>Fracasso em Damasco</small></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">III</div>
+                    <div class="timeline-text">1189–1192<br><small>Ricardo vs. Saladino</small></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">IV</div>
+                    <div class="timeline-text">1202–1204<br><small>Saque de Constantinopla</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: CRUZADAS - PERSPECTIVAS (INTERATIVO) -->
+    <div class="slide" data-slide="11">
+        <div class="content-single">
+            <h3>Um Mesmo Conflito, Múltiplas Experiências</h3>
+            <p style="margin-bottom: 30px; text-align: center; font-size: 1.2rem;">Como diferentes grupos vivenciaram as Cruzadas?</p>
+            
+            <div class="perspective-tabs">
+                <button class="tab-btn active" onclick="showPerspective('guerreiro')">Guerreiro</button>
+                <button class="tab-btn" onclick="showPerspective('peregrino')">Peregrino</button>
+                <button class="tab-btn" onclick="showPerspective('comerciante')">Comerciante</button>
+                <button class="tab-btn" onclick="showPerspective('habitante')">Habitante Local</button>
+                <button class="tab-btn" onclick="showPerspective('judeu')">Comunidade Judaica</button>
+            </div>
+
+            <div id="guerreiro" class="perspective-content active">
+                <h4>️ O Guerreiro Cruzado</h4>
+                <p>Fé, penitência, serviço militar, honra e relações de vassalagem. Enfrentava doenças, fome e combates, mas buscava salvação espiritual e oportunidades políticas.</p>
+            </div>
+            <div id="peregrino" class="perspective-content">
+                <h4>🙏 O Peregrino</h4>
+                <p>Buscava acesso aos lugares sagrados e uma experiência religiosa transformadora. A jornada era perigosa, mas vista como um ato de devoção suprema.</p>
+            </div>
+            <div id="comerciante" class="perspective-content">
+                <h4>💰 O Comerciante</h4>
+                <p>Foco em rotas comerciais, novos mercados e proteção das atividades econômicas. Cidades como Veneza e Gênova lucraram imensamente com a logística e o comércio.</p>
+            </div>
+            <div id="habitante" class="perspective-content">
+                <h4>🏠 O Habitante Local (Muçulmano ou Cristão Oriental)</h4>
+                <p>Segurança, propriedade, família e adaptação ao novo governo. Enfrentava cercos, saques ou, em tempos de trégua, negociava e convivia com os novos governantes latinos.</p>
+            </div>
+            <div id="judeu" class="perspective-content">
+                <h4>✡️ A Comunidade Judaica Europeia</h4>
+                <p>Segurança da comunidade diante da violência. Durante a Primeira Cruzada (1096), grupos de cruzados atacaram comunidades judaicas no Reno, causando mortes e conversões forçadas.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: CAPÍTULO V -->
+    <div class="slide" data-slide="12">
+        <div class="chapter-slide">
+            <div class="chapter-number">Capítulo V</div>
+            <h2>Península Ibérica</h2>
+            <p style="color: var(--text-secondary); margin-top: 20px; font-size: 1.3rem;">Conflito, coexistência e intercâmbio cultural em Al-Andalus.</p>
+            <div class="presenter-name">Apresentador: Benício</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: PENÍNSULA IBÉRICA -->
+    <div class="slide" data-slide="13">
+        <div class="content-grid">
+            <div class="content-single" style="text-align: left;">
+                <h3>Al-Andalus: Entre a Guerra e a Troca</h3>
+                <ul>
+                    <li>A partir de 711, a Península Ibérica foi governada por muçulmanos, criando um espaço de cristãos, muçulmanos e judeus.</li>
+                    <li><strong>Convivência não é igualdade:</strong> Existiam diferenças jurídicas (como o estatuto de <em>dhimmi</em>) e restrições, mas também intenso comércio e circulação de conhecimentos.</li>
+                    <li>A "Reconquista" pelos reinos cristãos do norte foi um processo longo. Populações muçulmanas (mudéjares) e judaicas frequentemente permaneciam nos territórios conquistados.</li>
+                    <li>A situação era dinâmica: períodos de tolerância e cooperação alternavam com perseguições, conversões forçadas e expulsões (especialmente a partir de 1492).</li>
+                </ul>
+            </div>
+            <div class="image-frame" style="height: 500px;">
+                <img src="peninsula_iberica_medieval.jpg" alt="peninsula_iberica_medieval">
+                <div class="image-caption">A complexa tapeçaria cultural da Península Ibérica medieval ano 1000</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 14: CAPÍTULO VI -->
+    <div class="slide" data-slide="14">
+        <div class="chapter-slide">
+            <div class="chapter-number">Capítulo VI</div>
+            <h2>Conclusão</h2>
+            <p style="color: var(--text-secondary); margin-top: 20px; font-size: 1.3rem;">Além de "Cristãos contra Muçulmanos".</p>
+            <div class="presenter-name">Apresentador: Suel</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 15: CONCLUSÃO -->
+    <div class="slide" data-slide="15">
+        <div class="content-single" style="text-align: center;">
+            <div class="image-frame" style="height: 320px; max-width: 900px; margin: 0 auto 40px;">
+                <img src="https://static.historiadomundo.com.br/2026/04/cruzadas.jpg" alt="conclusao_medievo">
+            </div>
+            <h3>A Complexidade do Indivíduo Medieval</h3>
+            <p style="font-size: 1.4rem; font-style: italic; color: var(--accent-wine); margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                "Ser cristão ou muçulmano era viver uma identidade religiosa dentro de uma sociedade que envolvia família, cultura, comunidade, território e política."
+            </p>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Não foram apenas grandes batalhas. Foram séculos de negociações, alianças cruzadas, trocas culturais e tensões vividas por pessoas reais em seu cotidiano. A História nos convida a compreender essa complexidade sem julgá-la com os valores de hoje.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 16: REFERÊNCIAS -->
+    <div class="slide" data-slide="16">
+        <div class="content-single" style="text-align: center;">
+            <h3>Referências Bibliográficas</h3>
+            <ul class="references-grid" style="margin-top: 30px;">
+                <li>CARDINI, Franco. <em>Nós e o Islão: História de um Mal-Entendido</em>. Lisboa: Editorial Estampa, 2000.</li>
+                <li>CASTRO, Américo. <em>España en su historia</em>. Buenos Aires: Editorial Losada, 1948.</li>
+                <li>LE GOFF, Jacques. <em>A Civilização do Ocidente Medieval</em>. Lisboa: Estampa, 1983.</li>
+                <li>MAALOUF, Amin. <em>As Cruzadas Vistas pelos Árabes</em>. São Paulo: Brasiliense, 1988.</li>
+                <li>MENOCAL, María Rosa. <em>O Ornamento do Mundo</em>. Rio de Janeiro: Record, 2004.</li>
+                <li>SCHMITT, Jean-Claude. <em>A Religiosidade Popular na Idade Média</em>. São Paulo: Brasiliense, 1988.</li>
+                <li>BRONSTEIN, Judith. Everyday life in the Frankish East. In: <em>The Cambridge History of the Crusades</em>.</li>
+                <li>THE METROPOLITAN MUSEUM OF ART. <em>France, 1000–1400 A.D.</em> Heilbrunn Timeline of Art History.</li>
+            </ul>
+        </div>
+        
+        <div class="qwen-brand">
+            <span>Made by QwenStudio</span>
+            <img src="qwen_logo.png" alt="qwen_logo">
+        </div>
+    </div>
+
+</div>
+
+<!-- Indicador de página minimalista (sem botões) -->
+<div class="page-indicator" id="pageIndicator">01 / 16</div>
+
+<script>
+let currentSlide = 1;
+const totalSlides = 16;
+
+function updateSlide() {
+    // Update slides visibility
+    document.querySelectorAll('.slide').forEach((slide, index) => {
+        if (index + 1 === currentSlide) {
+            slide.classList.add('active');
+        } else {
+            slide.classList.remove('active');
+        }
+    });
+
+    // Update progress indicator
+    document.getElementById('pageIndicator').textContent = 
+        String(currentSlide).padStart(2, '0') + ' / ' + String(totalSlides).padStart(2, '0');
+}
+
+function changeSlide(direction) {
+    const newSlide = currentSlide + direction;
+    if (newSlide >= 1 && newSlide <= totalSlides) {
+        currentSlide = newSlide;
+        updateSlide();
+    }
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        changeSlide(1);
+    } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        changeSlide(-1);
+    }
+});
+
+// Perspective Tabs Logic
+function showPerspective(id) {
+    // Hide all contents
+    document.querySelectorAll('.perspective-content').forEach(el => {
+        el.classList.remove('active');
+    });
+    // Deactivate all buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Show selected
+    document.getElementById(id).classList.add('active');
+    // Activate button (find by onclick attribute for simplicity)
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => {
+        if (btn.getAttribute('onclick').includes(id)) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+// Initialize
+updateSlide();
+
+// Timeline interaction (simple visual feedback)
+document.querySelectorAll('.timeline-item').forEach(item => {
+    item.addEventListener('click', function() {
+        this.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+            this.style.transform = 'translateY(0)';
+        }, 300);
+    });
+});
+</script>
+
+</body>
+</html>
